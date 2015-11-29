@@ -1,0 +1,198 @@
+2015/11/29 00:25:05----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:25:16----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:26:38----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:27:05----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:27:34----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:27:44----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:27:59----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:29:13----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:29:13----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/29 00:30:27----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:30:27----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/29 00:30:50----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:30:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/29 00:31:20----
+select A.id,A.goods_id,A.thematic_id,A.code,A.add_time,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,C.status from purchase as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id where A.id=30
+
+2015/11/29 00:31:20----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/29 00:48:19----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:48:19----
+select `id` from `purchase` where  `user_id` = '2' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:48:19----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '36' limit 0, 3
+
+2015/11/29 00:48:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:19----
+update `code` set `is_use`=? where  `code` = 'A2JWJYOISXP33Z1'
+
+2015/11/29 00:48:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:19----
+update `code` set `is_use`=? where  `code` = '91SM1QRRLRJKAIE'
+
+2015/11/29 00:48:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:20----
+update `code` set `is_use`=? where  `code` = 'VBJ5PRQFGDF2LWA'
+
+2015/11/29 00:48:22----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:48:22----
+select `id` from `purchase` where  `user_id` = '2' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:48:26----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:48:26----
+select `id` from `purchase` where  `user_id` = '3' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:48:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '36' limit 0, 3
+
+2015/11/29 00:48:26----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:26----
+update `code` set `is_use`=? where  `code` = 'Z4RB57K53CCPKNC'
+
+2015/11/29 00:48:26----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:26----
+update `code` set `is_use`=? where  `code` = 'JMXQT8T5NQ094G0'
+
+2015/11/29 00:48:27----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:27----
+update `code` set `is_use`=? where  `code` = 'ROCHHCY553ULOWM'
+
+2015/11/29 00:48:29----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:48:29----
+select `id` from `purchase` where  `user_id` = '4' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:48:29----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '36' limit 0, 3
+
+2015/11/29 00:48:29----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:29----
+update `code` set `is_use`=? where  `code` = '5WJQP6J70DW700U'
+
+2015/11/29 00:48:29----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:29----
+update `code` set `is_use`=? where  `code` = '6CN5G7EPXNV9EBS'
+
+2015/11/29 00:48:29----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:29----
+update `code` set `is_use`=? where  `code` = '3L5AB7MDN65SL5Y'
+
+2015/11/29 00:48:30----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:48:30----
+select `id` from `purchase` where  `user_id` = '5' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:48:30----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '36' limit 0, 3
+
+2015/11/29 00:48:30----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:31----
+update `code` set `is_use`=? where  `code` = 'YIC75S8P6OAOMMK'
+
+2015/11/29 00:48:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:31----
+update `code` set `is_use`=? where  `code` = '40PMABY4UXV1IUR'
+
+2015/11/29 00:48:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/29 00:48:31----
+update `code` set `is_use`=? where  `code` = 'LWLYPFPWRI9WS4W'
+
+2015/11/29 00:48:54----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:48:54----
+select `id` from `purchase` where  `user_id` = '5' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:49:10----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:49:10----
+select `id` from `purchase` where  `user_id` = '6' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/29 00:49:10----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '36' limit 0, 3
+
+2015/11/29 00:52:45----
+select `limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:52:45----
+select `id` from `code` where  `goods_id` = '36' AND `is_use` = 0 limit 0, 1
+
+2015/11/29 00:52:46----
+select `limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:52:46----
+select `id` from `code` where  `goods_id` = '36' AND `is_use` = 0 limit 0, 1
+
+2015/11/29 00:52:54----
+select `limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:52:54----
+select `id` from `code` where  `goods_id` = '36' AND `is_use` = 0 limit 0, 1
+
+2015/11/29 00:52:59----
+select `limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/29 00:52:59----
+select `id` from `code` where  `goods_id` = '36' AND `is_use` = 0 limit 0, 1
+

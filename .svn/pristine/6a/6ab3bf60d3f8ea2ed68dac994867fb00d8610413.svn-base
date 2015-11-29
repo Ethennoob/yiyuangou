@@ -1,0 +1,56 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class user_base extends BaseTable{
+protected function initTable(){ $this->fields=[
+'id'=> ['type' => 'i', 'value' => null],
+'realname'=> ['type' => 's', 'value' => null],
+'idcard'=> ['type' => 's', 'value' => null],
+'phone'=> ['type' => 's', 'value' => null],
+'is_follow'=> ['type' => 'i', 'value' => null],
+'is_realname_auth'=> ['type' => 'i', 'value' => null],
+'realname_auth_time'=> ['type' => 'i', 'value' => null],
+'is_wechat_auth'=> ['type' => 'i', 'value' => null],
+'wechat_auth_time'=> ['type' => 'i', 'value' => null],
+'is_car_auth'=> ['type' => 'i', 'value' => null],
+'car_auth_time'=> ['type' => 'i', 'value' => null],
+'is_housing_auth'=> ['type' => 'i', 'value' => null],
+'housing_auth_time'=> ['type' => 'i', 'value' => null],
+'bank_no'=> ['type' => 's', 'value' => null],
+'bank_phone'=> ['type' => 's', 'value' => null],
+'sina_bankcard_id'=> ['type' => 's', 'value' => null],
+'is_bank_bind'=> ['type' => 'i', 'value' => null],
+'bank_bind_time'=> ['type' => 'i', 'value' => null],
+'money'=> ['type' => 'd', 'value' => null],
+'is_sina_member'=> ['type' => 'i', 'value' => null],
+'sina_acconut'=> ['type' => 's', 'value' => null],
+'password'=> ['type' => 's', 'value' => null],
+'parent'=> ['type' => 'i', 'value' => null],
+'parent_share_type'=> ['type' => 'i', 'value' => null],
+'activity_id'=> ['type' => 'i', 'value' => null],
+'bonus'=> ['type' => 'd', 'value' => null],
+'frozen'=> ['type' => 'd', 'value' => null],
+'privilege_rate'=> ['type' => 'd', 'value' => null],
+'limit_getcash'=> ['type' => 'i', 'value' => null],
+'current_investment'=> ['type' => 'd', 'value' => null],
+'total_investment'=> ['type' => 'd', 'value' => null],
+'interest_yesterday'=> ['type' => 'd', 'value' => null],
+'total_interest'=> ['type' => 'd', 'value' => null],
+'total_getcash'=> ['type' => 'd', 'value' => null],
+'total_charge'=> ['type' => 'd', 'value' => null],
+'nickname'=> ['type' => 's', 'value' => null],
+'sex'=> ['type' => 'i', 'value' => null],
+'openid'=> ['type' => 's', 'value' => null],
+'photo'=> ['type' => 's', 'value' => null],
+'photo_150'=> ['type' => 's', 'value' => null],
+'province'=> ['type' => 's', 'value' => null],
+'city'=> ['type' => 's', 'value' => null],
+'country'=> ['type' => 's', 'value' => null],
+'add_time'=> ['type' => 'i', 'value' => null],
+'update_time'=> ['type' => 'i', 'value' => null],
+'is_on'=> ['type' => 'i', 'value' => null],
+];
+$this->tableName = 'user_base';
+$this->AIField = 'id';
+}
+}

@@ -1,0 +1,45 @@
+2015/11/24 11:52:56----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id order by A.sort_order asc,A.id asc
+
+2015/11/24 11:52:56----
+select count(1) from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1
+
+2015/11/24 11:52:56----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1 order by A.sort_order asc,A.id asc limit 0, 15
+
+2015/11/24 13:18:09----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id order by A.sort_order asc,A.id asc
+
+2015/11/24 13:18:09----
+select count(1) from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1
+
+2015/11/24 13:18:09----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1 order by A.sort_order asc,A.id asc limit 0, 15
+
+2015/11/24 13:18:22----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id order by A.sort_order asc,A.id asc
+
+2015/11/24 13:18:22----
+select count(1) from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1
+
+2015/11/24 13:18:22----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1 order by A.sort_order asc,A.id asc limit 0, 15
+
+2015/11/24 13:18:28----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id order by A.sort_order asc,A.id asc
+
+2015/11/24 13:18:28----
+select count(1) from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1
+
+2015/11/24 13:18:28----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1 order by A.sort_order asc,A.id asc limit 0, 15
+
+2015/11/24 13:25:46----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id order by A.sort_order asc,A.id asc
+
+2015/11/24 13:25:46----
+select count(1) from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1
+
+2015/11/24 13:25:46----
+select A.id,A.goods_sn,A.goods_name,A.goods_name_style,A.goods_weight,A.goods_cost,A.market_price,A.shop_price,A.goods_number,A.warn_number,A.keyword,A.goods_brief,A.goods_desc,A.goods_sell,A.virtual_number,A.goods_default_thumb,A.goods_default_img,A.goods_thumb,A.goods_img,A.sort_order,A.is_best,A.is_new,A.is_hot,A.give_point,A.is_show,A.add_time,B.cat_name,C.brand_name,D.mobile_phone,E.suppliers_name from goods as A  left join category as B on A.cat_id=B.id left join brand as C on A.brand_id=C.id left join user as D on A.user_id=D.id left join suppliers as E on A.suppliers_id=E.id where goods_name like '%%' and recycle_bin=1 order by A.sort_order asc,A.id asc limit 0, 15
+

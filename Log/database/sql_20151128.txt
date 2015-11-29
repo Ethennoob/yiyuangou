@@ -1,0 +1,2013 @@
+2015/11/28 00:00:14----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:00:14----
+update `goods` set `goods_thumb`=?,`goods_img`=? where  `id` = '6'
+
+2015/11/28 00:01:17----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:01:59----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:02:22----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:03:23----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:05:33----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:06:19----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:09:27----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:10:20----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:12:17----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:12:51----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:13:59----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:17:08----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:18:28----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:18:28----
+update `goods` set `goods_thumb`=?,`goods_img`=? where  `id` = '6'
+
+2015/11/28 00:22:22----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:22:42----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:23:24----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '6' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:25:14----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '5' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:25:14----
+update `goods` set `goods_thumb`=?,`goods_img`=? where  `id` = '5'
+
+2015/11/28 00:25:53----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '5' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:25:53----
+update `goods` set `goods_thumb`=?,`goods_img`=? where  `id` = '5'
+
+2015/11/28 00:26:15----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = '5' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:26:15----
+update `goods` set `goods_thumb`=?,`goods_img`=? where  `id` = '5'
+
+2015/11/28 00:37:35----
+select `id` from `goods` where  `id` = 9 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:38:09----
+select `id` from `goods` where  `id` = 30 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:38:09----
+select `id` from `code` where  `goods_id` = 30 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:38:15----
+select `id` from `goods` where  `id` = 30 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:38:15----
+select `id` from `code` where  `goods_id` = 30 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:38:15----
+update `goods` set `is_on`=? where  `id` = 30 AND `is_on` = 1
+
+2015/11/28 00:38:15----
+update `code` set `is_on`=? where  `goods_id` = 30
+
+2015/11/28 00:54:46----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_default_thumb`,`goods_default_img`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `id` = 30 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 00:54:50----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_default_thumb`,`goods_default_img`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `id` = 29 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 01:04:01----
+select count(*) from `goods` where  `is_on` = 1
+
+2015/11/28 01:04:01----
+select `id`,`goods_sn`,`thematic_id`,`goods_thumb`,`goods_name`,`cost_price`,`price`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:04:01----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:04:58----
+select count(*) from `goods` where  `is_on` = 1
+
+2015/11/28 01:04:58----
+select `id`,`goods_sn`,`thematic_id`,`goods_thumb`,`goods_name`,`cost_price`,`price`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:04:58----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:05:40----
+select count(*) from `goods` where  `is_on` = 1
+
+2015/11/28 01:05:40----
+select `id`,`goods_sn`,`thematic_id`,`goods_thumb`,`goods_name`,`cost_price`,`price`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:05:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:09:11----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_default_thumb`,`goods_default_img`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `id` = 29 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 01:09:47----
+select count(*) from `goods` where  `is_on` = 1
+
+2015/11/28 01:09:47----
+select `id`,`goods_sn`,`thematic_id`,`goods_thumb`,`goods_name`,`cost_price`,`price`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:09:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:09:48----
+select count(*) from `goods` where  `is_on` = 1
+
+2015/11/28 01:09:48----
+select `id`,`goods_sn`,`thematic_id`,`goods_thumb`,`goods_name`,`cost_price`,`price`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 01:09:48----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/11/28 11:33:56----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 11:33:56----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 11:33:56----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1 limit 0, 1
+
+2015/11/28 13:03:09----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:03:09----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:03:09----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:04:59----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:04:59----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:04:59----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:05:20----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:05:20----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:05:20----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:13:54----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:13:54----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:13:54----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:14:29----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:14:29----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:14:29----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:15:15----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:15:15----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:15:15----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:15:25----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:15:25----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:15:25----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:16:29----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:16:29----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:16:29----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:16:48----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:16:48----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:16:48----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:18:42----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:18:42----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:18:42----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:19:41----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:19:41----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:19:41----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:19:57----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:19:57----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:19:57----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:20:06----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:20:06----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:20:06----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:21:43----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:21:43----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:21:43----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:21:50----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:21:50----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:21:50----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:21:52----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:21:52----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:21:52----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:22:17----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:22:17----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:22:17----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:22:33----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:22:33----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:22:33----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:23:20----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:23:20----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:23:20----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:24:30----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:24:30----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:24:30----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:25:35----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:25:35----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:25:35----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:25:52----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:25:52----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:25:52----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:29:26----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:29:26----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:29:26----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:29:35----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:29:35----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:29:35----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:29:56----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:29:56----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:29:56----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:30:11----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:30:11----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:30:11----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:30:26----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:30:26----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:30:26----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:31:30----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:31:30----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:31:30----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:31:35----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:31:35----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:31:35----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:31:59----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:31:59----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:31:59----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:32:21----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:32:21----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:32:21----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:32:49----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:32:49----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:32:49----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:32:58----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:32:58----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:32:58----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:33:11----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:33:11----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:33:11----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:40:30----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:40:30----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:40:30----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:45:36----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:45:36----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:45:36----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:45:50----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:45:50----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:45:50----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:46:32----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:46:32----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:46:32----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:46:47----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:46:47----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:46:47----
+select `goods_name` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:47:55----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:47:55----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:47:55----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:48:54----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:48:54----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:48:54----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:50:12----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:50:12----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:50:12----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:50:22----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:50:22----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:50:22----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:53:16----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:53:16----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:53:16----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:53:22----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:53:22----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:53:22----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:53:22----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 13:53:58----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:53:58----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:53:58----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:53:58----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 13:56:07----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:56:07----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:56:07----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:56:07----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 13:57:10----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:57:10----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:57:10----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:57:10----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 13:57:29----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:57:29----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:57:29----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:57:29----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 13:57:49----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:57:49----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:57:49----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 13:58:29----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 13:58:29----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 13:58:29----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:03:39----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:03:39----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:03:39----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:04:50----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:04:50----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:04:50----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:05:08----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:05:08----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:05:08----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:07:22----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:07:22----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:07:22----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:07:22----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:07:36----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:07:36----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:07:36----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:07:36----
+select `goods_name`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:10:36----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:10:36----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:10:36----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:10:36----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:12:14----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:12:14----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:12:14----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:12:14----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:12:41----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:12:41----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:12:41----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:13:13----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:13:13----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:13:13----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:14:14----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:14:14----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:14:14----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:14:23----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:14:23----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:14:23----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:14:23----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:14:51----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:14:51----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:14:51----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:14:51----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:32:42----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 14:32:42----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 14:32:42----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 14:32:42----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 14:43:48----
+select `id` from `thematic` where  `id` = 1 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:43:48----
+select `id`,`thematic_name`,`nature`,`status`,`poster`,`is_show`,`add_time`,`update_time`,`is_on` from `thematic` where  `id` = 1 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:45:23----
+select `id` from `thematic` where  `id` = 1 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:45:23----
+select `id`,`thematic_name`,`nature`,`status`,`poster`,`is_show`,`add_time`,`update_time`,`is_on` from `thematic` where  `id` = 1 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:50:07----
+select `id` from `thematic` where  `id` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:50:07----
+select `id`,`thematic_name`,`nature`,`status`,`poster`,`is_show`,`add_time`,`update_time`,`is_on` from `thematic` where  `id` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:50:11----
+select `id` from `thematic` where  `id` = 3 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 14:53:21----
+insert into `thematic` (`thematic_name`,`add_time`,`update_time`) values (?,?,?)
+
+2015/11/28 14:53:39----
+insert into `thematic` (`thematic_name`,`add_time`,`update_time`) values (?,?,?)
+
+2015/11/28 14:53:48----
+insert into `thematic` (`thematic_name`,`poster`,`add_time`,`update_time`) values (?,?,?,?)
+
+2015/11/28 14:54:01----
+insert into `thematic` (`thematic_name`,`poster`,`add_time`,`update_time`) values (?,?,?,?)
+
+2015/11/28 14:55:10----
+insert into `thematic` (`thematic_name`,`nature`,`poster`,`add_time`,`update_time`) values (?,?,?,?,?)
+
+2015/11/28 15:04:35----
+select `id` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:04:36----
+select `poster` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:04:36----
+update `thematic` set `thematic_name`=?,`nature`=?,`poster`=? where  `id` = 7
+
+2015/11/28 15:05:03----
+select `id` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:05:03----
+select `poster` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:05:47----
+select `id` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:05:47----
+select `poster` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:05:47----
+update `thematic` set `thematic_name`=?,`nature`=?,`poster`=? where  `id` = 7
+
+2015/11/28 15:06:12----
+select `id` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:06:12----
+select `poster` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:06:13----
+update `thematic` set `thematic_name`=?,`nature`=?,`poster`=? where  `id` = 7
+
+2015/11/28 15:07:26----
+select `id` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:07:26----
+select `poster` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:07:26----
+update `thematic` set `thematic_name`=?,`nature`=?,`poster`=? where  `id` = 7
+
+2015/11/28 15:44:13----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 15:44:13----
+select `id`,`thematic_name`,`nature`,`status`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 15:44:13----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 7
+
+2015/11/28 15:44:13----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 6
+
+2015/11/28 15:44:13----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 15:44:13----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 15:45:05----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 15:45:05----
+select `id`,`thematic_name`,`nature`,`status`,`is_show`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 15:45:05----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 7
+
+2015/11/28 15:45:05----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 6
+
+2015/11/28 15:45:05----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 15:45:05----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 15:51:10----
+select `id` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:51:10----
+select `poster` from `thematic` where  `id` = 7 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 15:51:10----
+delete from `thematic` where  `id` = 7
+
+2015/11/28 16:22:41----
+update `system` set `buy_limit`=?,`update_time`=? where  `id` = 1
+
+2015/11/28 16:31:17----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:31:47----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:32:11----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:32:34----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:32:48----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:34:56----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:34:57----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/11/28 16:34:57----
+select `id` from `goods` where  `goods_sn` = '20151128207171' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:34:57----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:34:57----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:37:36----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/11/28 16:37:36----
+select `id`,`thematic_name`,`nature`,`status`,`is_show`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 16:37:36----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 6
+
+2015/11/28 16:37:36----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 1
+
+2015/11/28 16:37:36----
+select `goods_name`,`price`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/11/28 16:40:26----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 16:40:27----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/11/28 16:40:27----
+select `id` from `goods` where  `goods_sn` = '20151128223898' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:40:27----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:27----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:27----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:40:28----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 16:47:46----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = null AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:48:10----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = 32 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:48:44----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = 32 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:48:44----
+select `id` from `goods` where  `id` = 32 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:48:44----
+select `id` from `code` where  `goods_id` = 32 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 16:48:44----
+delete from `goods` where  `id` = 32 AND `is_on` = 1
+
+2015/11/28 16:48:44----
+delete from `code` where  `goods_id` = 32
+
+2015/11/28 17:31:28----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '31' limit 0, 1
+
+2015/11/28 17:31:43----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 17:31:49----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 17:31:50----
+insert into `goods` (`add_time`) values (?)
+
+2015/11/28 17:31:50----
+select `id` from `goods` where  `goods_sn` = null AND `is_on` = 1 limit 0, 1
+
+2015/11/28 17:32:21----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 17:46:59----
+select `code` from `goods` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 1
+Unknown column 'code' in 'field list'
+2015/11/28 17:47:12----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 1
+
+2015/11/28 17:48:48----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 1
+
+2015/11/28 20:04:46----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 1
+
+2015/11/28 20:05:04----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 3
+
+2015/11/28 20:05:15----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 2
+
+2015/11/28 20:12:52----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 2
+
+2015/11/28 20:24:07----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 2
+
+2015/11/28 20:24:40----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 33 limit 0, 2
+
+2015/11/28 20:41:37----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = null
+
+2015/11/28 20:42:18----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = null
+
+2015/11/28 20:42:38----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:42:38----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:42:38----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:42:38----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:43:27----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:43:27----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:43:27----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:43:27----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:48:08----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:48:08----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:48:23----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:48:23----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:48:35----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:48:35----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:48:35----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:48:35----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:50:37----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:50:37----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:50:37----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:50:37----
+update `code` set `is_use`=? where  `code` = 'OPU0HCQX7OC4FPQ'
+
+2015/11/28 20:50:37----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:50:37----
+update `code` set `is_use`=? where  `code` = 'CH6KH6XQ0PY67RD'
+
+2015/11/28 20:51:39----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:51:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:51:39----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:51:39----
+update `code` set `is_use`=? where  `code` = 'OPU0HCQX7OC4FPQ'
+
+2015/11/28 20:51:39----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:51:39----
+update `code` set `is_use`=? where  `code` = 'CH6KH6XQ0PY67RD'
+
+2015/11/28 20:52:26----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:52:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:52:26----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:52:26----
+update `code` set `is_use`=? where  `code` = 'OPU0HCQX7OC4FPQ'
+
+2015/11/28 20:52:26----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:52:26----
+update `code` set `is_use`=? where  `code` = 'CH6KH6XQ0PY67RD'
+
+2015/11/28 20:52:46----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:52:46----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:52:46----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:52:46----
+update `code` set `is_use`=? where  `code` = 'OPU0HCQX7OC4FPQ'
+
+2015/11/28 20:52:46----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:52:46----
+update `code` set `is_use`=? where  `code` = 'CH6KH6XQ0PY67RD'
+
+2015/11/28 20:53:00----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:53:00----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:53:00----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:53:00----
+update `code` set `is_use`=? where  `code` = 'OYF5OCFS2JZKUB7'
+
+2015/11/28 20:53:00----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:53:00----
+update `code` set `is_use`=? where  `code` = 'KC1E5U1ZOMYV0UX'
+
+2015/11/28 20:57:01----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:57:01----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33' limit 0, 1
+
+2015/11/28 20:57:01----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:57:01----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:57:01----
+update `code` set `is_use`=? where  `code` = 'OPU0HCQX7OC4FPQ'
+
+2015/11/28 20:57:01----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:57:01----
+update `code` set `is_use`=? where  `code` = 'CH6KH6XQ0PY67RD'
+
+2015/11/28 20:57:02----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:57:02----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33' limit 0, 1
+
+2015/11/28 20:57:02----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:57:02----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:57:02----
+update `code` set `is_use`=? where  `code` = 'OYF5OCFS2JZKUB7'
+
+2015/11/28 20:57:02----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:57:02----
+update `code` set `is_use`=? where  `code` = 'KC1E5U1ZOMYV0UX'
+
+2015/11/28 20:57:04----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:57:04----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33' limit 0, 1
+
+2015/11/28 20:57:04----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:57:04----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:57:04----
+update `code` set `is_use`=? where  `code` = 'OZV1BY39XVQUS2I'
+
+2015/11/28 20:57:04----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:57:04----
+update `code` set `is_use`=? where  `code` = '2VWQ923N62GUIVK'
+
+2015/11/28 20:57:52----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:57:52----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33' limit 0, 1
+
+2015/11/28 20:58:16----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:58:16----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33' limit 0, 1
+
+2015/11/28 20:58:16----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 20:58:16----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:58:16----
+update `code` set `is_use`=? where  `code` = 'OPU0HCQX7OC4FPQ'
+
+2015/11/28 20:58:16----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 20:58:16----
+update `code` set `is_use`=? where  `code` = 'CH6KH6XQ0PY67RD'
+
+2015/11/28 20:58:30----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:58:30----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33' limit 0, 1
+
+2015/11/28 20:58:51----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:58:51----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33'
+
+2015/11/28 20:58:52----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 20:58:52----
+select `id` from `purchase` where  `id` = '1' AND `goods_id` = '33'
+
+2015/11/28 21:00:10----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 21:00:10----
+select `id` from `purchase` where  `use_id` = '1' AND `goods_id` = '33' AND `is_on` = 1
+Unknown column 'use_id' in 'where clause'
+2015/11/28 21:00:25----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 21:00:25----
+select `id` from `purchase` where  `user_id` = '1' AND `goods_id` = '33' AND `is_on` = 1
+
+2015/11/28 21:00:32----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 21:00:32----
+select `id` from `purchase` where  `user_id` = '1' AND `goods_id` = '33' AND `is_on` = 1
+
+2015/11/28 21:00:34----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 21:00:34----
+select `id` from `purchase` where  `user_id` = '1' AND `goods_id` = '33' AND `is_on` = 1
+
+2015/11/28 21:00:53----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 21:00:53----
+select `id` from `purchase` where  `user_id` = '2' AND `goods_id` = '33' AND `is_on` = 1
+
+2015/11/28 21:00:53----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '33' limit 0, 2
+
+2015/11/28 21:00:53----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 21:00:53----
+update `code` set `is_use`=? where  `code` = 'OYF5OCFS2JZKUB7'
+
+2015/11/28 21:00:53----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 21:00:53----
+update `code` set `is_use`=? where  `code` = 'KC1E5U1ZOMYV0UX'
+
+2015/11/28 21:00:54----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '33' limit 0, 1
+
+2015/11/28 21:00:54----
+select `id` from `purchase` where  `user_id` = '2' AND `goods_id` = '33' AND `is_on` = 1
+
+2015/11/28 21:38:03----
+select `goods_img`,`goods_thumb` from `goods` where  `id` = 33 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 21:38:03----
+select `id` from `goods` where  `id` = 33 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 21:38:03----
+select `id` from `code` where  `goods_id` = 33 AND `is_on` = 1 limit 0, 1
+
+2015/11/28 21:38:03----
+delete from `goods` where  `id` = 33 AND `is_on` = 1
+
+2015/11/28 21:38:03----
+delete from `code` where  `goods_id` = 33
+
+2015/11/28 22:08:19----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:08:19----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:08:19----
+select `goods_title`,`price`,`goods_tumb` from `goods` where  `is_on` = 1 AND `id` = 33 limit 0, 1
+Unknown column 'goods_tumb' in 'field list'
+2015/11/28 22:09:30----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:09:30----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:09:30----
+select `goods_title`,`price`,`goods_tumb` from `goods` where  `is_on` = 1 AND `id` = 33 limit 0, 1
+Unknown column 'goods_tumb' in 'field list'
+2015/11/28 22:09:58----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:09:58----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:09:58----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 33 limit 0, 1
+
+2015/11/28 22:09:58----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 33 AND `is_use` = 1
+Unknown column 'is_use' in 'where clause'
+2015/11/28 22:11:50----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:11:50----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:11:50----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 33 limit 0, 1
+
+2015/11/28 22:11:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 33
+
+2015/11/28 22:11:50----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 33 limit 0, 1
+
+2015/11/28 22:11:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 33
+
+2015/11/28 22:20:50----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 22:21:26----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 22:21:58----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 22:22:06----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 22:22:06----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/11/28 22:22:06----
+select `id` from `goods` where  `goods_sn` = '20151128755444' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:22:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:24:10----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '35' limit 0, 1
+
+2015/11/28 22:24:10----
+select `id` from `purchase` where  `user_id` = '1' AND `goods_id` = '35' AND `is_on` = 1
+
+2015/11/28 22:24:10----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '35' limit 0, 2
+
+2015/11/28 22:24:10----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:24:10----
+update `code` set `is_use`=? where  `code` = '68X56BNJI1FIQ31'
+
+2015/11/28 22:24:10----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:24:10----
+update `code` set `is_use`=? where  `code` = '2M632AMBDZGGKJS'
+
+2015/11/28 22:26:47----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:26:47----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:26:47----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:26:47----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:26:47----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:26:47----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:46:32----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:46:32----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:46:32----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:46:32----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:46:32----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:46:32----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:46:52----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:46:52----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:46:52----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:46:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:46:52----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:46:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:51:54----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:51:54----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:51:54----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:51:54----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:51:54----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:51:54----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:52:18----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:52:18----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:52:18----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:52:18----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:52:18----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:52:18----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:52:53----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:52:53----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:52:53----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:52:53----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:52:53----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:52:53----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:54:13----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:54:13----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:54:13----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:54:13----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:54:13----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:54:13----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:54:19----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 22:54:19----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 22:54:19----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:54:19----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:54:19----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 22:54:19----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 22:56:56----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/11/28 22:56:56----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/11/28 22:56:56----
+select `id` from `goods` where  `goods_sn` = '20151128894998' AND `is_on` = 1 limit 0, 1
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:56:56----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:57:58----
+select `goods_sn`,`limit_num` from `goods` where  `id` = '36' limit 0, 1
+
+2015/11/28 22:57:58----
+select `id` from `purchase` where  `user_id` = '1' AND `goods_id` = '36' AND `is_on` = 1
+
+2015/11/28 22:57:58----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '36' limit 0, 3
+
+2015/11/28 22:57:58----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:57:58----
+update `code` set `is_use`=? where  `code` = 'GA61SHMD6Y2WA12'
+
+2015/11/28 22:57:58----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:57:58----
+update `code` set `is_use`=? where  `code` = '2OAM79TV3COL18B'
+
+2015/11/28 22:57:58----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/11/28 22:57:58----
+update `code` set `is_use`=? where  `code` = '8WECGOKFYGLYQI0'
+
+2015/11/28 23:00:03----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 23:00:03----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 23:00:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/28 23:00:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/28 23:00:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/28 23:00:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/28 23:00:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/28 23:00:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/28 23:00:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 23:00:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 23:00:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 23:00:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 23:46:35----
+select `thematic_id`,`code` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 23:49:35----
+select `thematic_id`,`code` from `purchase` where  `is_on` = 1 AND `goods_id` = null AND `user_id` = null
+
+2015/11/28 23:50:23----
+select `thematic_id`,`code` from `purchase` where  `is_on` = 1 AND `goods_id` = '35' AND `user_id` = '1'
+
+2015/11/28 23:50:29----
+select `thematic_id`,`code` from `purchase` where  `is_on` = 1 AND `goods_id` = '35' AND `user_id` = '2'
+
+2015/11/28 23:50:52----
+select `thematic_id`,`code` from `purchase` where  `is_on` = 1 AND `goods_id` = '35' AND `user_id` = '2'
+
+2015/11/28 23:51:11----
+select `thematic_id`,`code` from `purchase` where  `is_on` = 1 AND `goods_id` = '36' AND `user_id` = '1'
+
+2015/11/28 23:59:03----
+select count(*) from `purchase` where  `is_on` = 1 AND `user_id` = 1
+
+2015/11/28 23:59:03----
+select `id`,`goods_id`,`add_time` from `purchase` where  `is_on` = 1 AND `user_id` = 1 order by add_time desc limit 0, 15
+
+2015/11/28 23:59:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/28 23:59:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/28 23:59:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/28 23:59:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/28 23:59:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/28 23:59:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 36
+
+2015/11/28 23:59:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 23:59:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+
+2015/11/28 23:59:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/28 23:59:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 35
+

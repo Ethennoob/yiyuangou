@@ -1,0 +1,349 @@
+<?php
+/**
+ * 一元购系统---用户类
+ * @authors 凌翔 (553299576@qq.com)
+ * @date    2015-11-24 14:58:35
+ * @version $Id$
+ */
+
+namespace AppMain\controller\Api;
+use \System\BaseClass;
+
+class UserController extends Baseclass {
+    /**
+     * 授权
+     */
+    public function getOpenID(){
+        if (isset($_GET['wechat_refer'])){  //回跳地址
+            $_SESSION['wechat_refer']=urldecode($_GET['wechat_refer']);
+        }
+
+        $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
+        $this->weObj = $weObj;
+        if (empty($_GET['code']) && empty($_GET['state'])) {
+            $callback = getHostUrl();
+            $reurl = $weObj->getOauthRedirect($callback, "1");
+            redirect($reurl, 0, '正在发送验证中...');
+            exit(); 
+        } elseif (intval($_GET['state']) == 1) {
+                $accessToken = $weObj->getOauthAccessToken();
+                
+                // 是否有用户记录
+                $isUser = $this->table('user')->where(["openid" => $accessToken['openid']])->get(null, true);
+                
+                if (!$isUser) {
+                    $this->R('','2');//跳转至输入电话号码的页面
+                    
+                }else{
+                	$userID=$isUser['id'];
+                }
+                
+                $isUser = $this->table('user')->where(['id'=>$userID])->update(['last_login'=>time(),'last_ip'=>ip2long(getClientIp())]);
+                
+                $_SESSION['openid'] = $isUser['openid'];
+                $_SESSION['userid'] = $isUser['id'];
+                $_SESSION['nickname']=$isUser['nickname'];
+                $_SESSION['user_img']=$isUser['user_img'];
+                
+                //return $user;
+                header("LOCATION:".$_SESSION['wechat_refer']);
+        } else {
+            //用户取消授权
+            $this->R('','90006');
+        }
+    }
+    /**
+     * 新用户从微信注册
+     */
+    public function getNewOpenID(){
+        if (isset($_GET['wechat_refer'])){  //回跳地址
+            $_SESSION['wechat_refer']=urldecode($_GET['wechat_refer']);
+        }
+
+        $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
+        $this->weObj = $weObj;
+        if (empty($_GET['code']) && empty($_GET['state'])) {
+            $callback = getHostUrl();
+            $reurl = $weObj->getOauthRedirect($callback, "1");
+            redirect($reurl, 0, '正在发送验证中...');
+            exit(); 
+        } elseif (intval($_GET['state']) == 1) {
+                $accessToken = $weObj->getOauthAccessToken();
+                
+                $rule = [
+                'phone'   =>['mobile'],
+                ];
+                $this->V($rule);
+                foreach ($rule as $k=>$v){
+                    $mobile[$k] = $_POST[$k];
+                }
+                $isUserId = $this->table('user')->where(["phone" => $mobile['phone']])->get(['id'], true);
+                if (!$isUserId) {
+                    //用户信息
+                    $userInfo=$this->getUserInfo($accessToken);
+                    $saveUser=$this->saveUser($userInfo);//插入新会员数据
+                    if (!$saveUser) {
+                            $this->R('','40001');
+                    }
+                }else{
+                    foreach ($isUserId as $k=> $id) {
+                        $saveUser=$this->saveUserById($userInfo,$id);//通过已注册手机号插入新会员数据
+                        if (!$saveUser) {
+                            $this->R('','40001');
+                        }
+                    }
+                }
+                //return $user;
+                header("LOCATION:".$_SESSION['wechat_refer']);
+        } else {
+            //用户取消授权
+            $this->R('','90006');
+        }
+    }
+    
+    /**
+     * 获取用户信息
+     */
+    private function getUserInfo($user){
+        $user_info = $this->weObj->getOauthUserinfo($user['access_token'], $user['openid']);
+
+        if (!$user_info){
+            die("系统错误，请稍后再试！");
+        }
+
+        //是否关注
+        $isFollow=$this->weObj->getUserInfo($user['openid']);
+        if ($isFollow['subscribe']==1){
+        	$user_info['is_follow']=1;
+        }
+        else{
+        	$user_info['is_follow']=0;
+        }
+
+        return $user_info;
+    }
+    /**
+     * 保存用户
+     */
+    private function saveUser($user_info){
+
+        $data = array(
+            'openid' => $user_info['openid'],
+            'phone' =>$mobile['phone'],
+            'user_img' => $user_info['headimgurl'],
+            'nickname' => $user_info['nickname'],
+            'is_follow'=>$user_info['is_follow'],
+            'add_time' => time()
+        );
+        $result=$this->table('user')->save($data);
+        if (!$result){
+            die("系统错误，请稍后再试！");
+        }
+
+        return $data;
+    }
+    /**
+    *添加会员个人信息
+     */
+    public function userInfoAdd(){
+        //-----------字段验证-----------
+        $rule = [
+            'id'              =>['egNum'],//已有会员id
+            'rev_name'        =>[],
+            'rev_phone'       =>['mobile'],
+            'address'         =>[],
+            'zip_code'        =>['num'],
+        ];
+        $this->V($rule);
+        
+        foreach ($rule as $k=>$v){
+            $data[$k] = $_POST[$k];
+        }
+        $data['add_time']     = time();
+        $data['update_time']     = time();
+    
+        $user = $this->table('user')->where(['id'=>$data['id']])->update($data);
+        if(!$user){
+            $this->R('',40001);
+        }
+    
+        $this->R();
+    }
+    /**
+    *查看个人信息__一条数据
+     */
+    public function userOneAllDetail(){
+    
+        $this->V(['id'=>['egNum',null,true]]);
+
+        $id = intval($_POST['id']);
+
+            $user = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(['nickname','phone','user_img',
+                'rev_name','rev_phone','address','zip_code','last_login','add_time'],true);
+            if(!$user){
+                $this->R('',70009);
+            }
+            $user['last_login'] = date('Y-m-d H:i:s',$user['last_login']);
+            $user['add_time'] = date('Y-m-d H:i:s',$user['add_time']);
+
+            $this->R(['user'=>$user]);
+    }
+    /**
+     * 修改个人信息
+     */
+    public function userOneEdit(){
+       $rule = [
+            'id'              =>['egNum'],
+            'rev_name'        =>[],
+            'rev_phone'       =>['mobile'],
+            'address'         =>[],
+            'zip_code'        =>['num'],
+        ];
+        $this->V($rule);
+        $id = intval($rule['id']);
+
+        $user = $this->table('user')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+        if(!$user){
+            $this->R('',70009);
+        }
+
+        unset($rule['id']);
+        foreach ($rule as $k=>$v){
+            if(isset($_POST[$k])){
+                $data[$k] = $_POST[$k];
+            }
+        }
+
+        $user['update_time'] = time();
+
+        $user = $this->table('user')->where(['id'=>$id])->update($data);
+        if(!$user){
+            $this->R('',40001);
+        }
+        $this->R();
+    }
+    /**
+     * 购买商品(微信支付)
+     */
+    public function purchase(){
+        $rule = [
+                    'thematic_id' =>['egNum'],
+                    'goods_id'    =>['egNum'],
+                    'user_id'     =>['egNum'],
+                    'num'         =>['egNum'],
+                ];
+                $this->V($rule); 
+
+            $thematic_id = $_POST['thematic_id'];
+            $goods_id    = $_POST['goods_id'];
+            $user_id     = $_POST['user_id'];
+            $num         = $_POST['num'];
+
+            $good = $this->table('goods')->where(['id'=>$goods_id])->get(['limit_num'],true);
+            if(!$good){
+                $this->R('',70009);
+            }
+            //判断是否超过限购数
+            if ($num>$good['limit_num']) {
+                $this->R('',90001);
+            }
+            //判断是否卖完了
+            $code = $this->table('code')->where(['goods_id'=>$goods_id,'is_use'=>0])->get(['id'],true);
+            if(!$code){
+                $this->R('',90001);
+            }
+            //判断是否已经买过并且超过限购数量
+            $limit = $this->table('purchase')->where(['user_id'=>$user_id,'goods_id'=>$goods_id,'is_on'=>1])->get(['id'],false);
+            $count = count($limit);
+            if ($count>=$good['limit_num']) {
+                $this->R('',90001);
+            }
+            //分配认购码给用户,生成购物流水单
+            $roll = $this->generateCodeToUser($user_id,$goods_id,$thematic_id,$num);
+
+            $this->R(); 
+    }   
+    /**
+     * 分配认购码给用户
+     * $user_id,$goods_id,$thematic_id,$num
+     */
+    private function generateCodeToUser($user_id,$goods_id,$thematic_id,$num){
+        $code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->limit($num)->get(['code'],false);
+        $count = count($code);
+            for ($i=0; $i < $count; $i++) { 
+                $data['code'] = $code[$i]['code'];
+                $data['user_id'] = $user_id;
+                $data['goods_id'] = $goods_id;
+                $data['thematic_id'] = $thematic_id;
+                $data['add_time'] = time();
+                $purchase = $this->table('purchase')->save($data);
+                if(!$purchase){
+                    $this->R('',40001);
+                }
+                $codeupdate = $this->table('code')->where(['code'=>$data['code']])->update(['is_use'=>1]);
+                if(!$codeupdate){
+                    $this->R('',40001);
+                }
+            }
+    }
+    /**
+     * 用户的购买记录(分页)     
+     * user_id
+     * 缩略图，商品标题，价格(总须人次)，已购买人次
+     */
+    public function purchaseList(){
+        $this->V(['user_id'=>['egNum',null,true]]);
+        $id = intval($_POST['user_id']);
+        $pageInfo = $this->P();
+        $file = ['id','goods_id','add_time'];
+
+        $class = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$id])->order('add_time desc');
+
+        //查询并分页
+        $detailpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($detailpage ){
+            foreach ($detailpage  as $k=>$v){
+                $detailpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_title','price','goods_thumb'],true);
+                $detailpage [$k]['goods_title'] = $status['goods_title'];
+                $detailpage [$k]['total_num'] = $status['price'];
+                $detailpage [$k]['goods_thumb'] = $status['goods_thumb'];
+                $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['goods_id']])->get(['id'],false);
+                $count = count($status);
+                $detailpage [$k]['purchase_num'] = $count;
+                $detailpage [$k]['last_num'] =$detailpage [$k]['total_num']-$count; 
+            }
+        }else{
+            $detailpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['购买记录'=>$detailpage,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     * 购买记录中的商品详情
+     * goods_id
+     */
+    public function purchaseOneDetail(){
+        $this->V(['id'=>['egNum']]);
+        $id = intval($_POST['id']);
+
+        //查询一条数据
+            $dataClass = $this->H('PurchaseDetail');
+            $where='A.id='.$id;
+            $detail = $dataClass->getPurchaseDetail($where);
+            //var_dump($detail);
+            //exit();
+            foreach ($detail as $k => $v) {
+            }
+            $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['goods_id']])->get(['id'],false);
+            $count = count($status);
+            $detail[$k]['total_num'] = $v['price'];
+            $detail[$k]['purchase_num'] = $count;
+            $detail [$k]['last_num'] =$detail[$k]['total_num']-$count; 
+            $detail [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+            if(!$detail){
+                $this->R('',70009);
+            }
+            $this->R(['购买记录商品明细'=>$detail]);
+    }
+}

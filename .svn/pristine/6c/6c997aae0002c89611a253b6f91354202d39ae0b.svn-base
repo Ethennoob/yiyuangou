@@ -1,0 +1,5 @@
+2015/10/08 14:15:57----
+select `id`,`realname`,`idcard`,`phone`,`is_realname_auth`,`is_wechat_auth`,`is_car_auth`,`is_housing_auth`,`is_bank_bind`,`is_share_bonus`,`is_sina_member`,`nickname`,`sex`,`openid`,`photo`,`money`,`bonus`,`frozen`,`total_investment`,`total_interest`,`total_getcash`,`total_investment`,`current_investment`,`total_charge`,`interest_yesterday`,`sina_acconut`,`password`,`privilege_rate`,`limit_getcash`,`parent`,`parent_share_type` from `user_base` where  id = 68023 limit 0, 1
+
+2015/10/08 14:16:00----
+select `id`,`sn`,`cash`,`limit_max_cash`,`max_cash_count`,`fine_rate`,`max_fine_rate`,`fine_days`,`start_time`,`end_time`,`is_show`,`update_time`,`is_on`,`add_time` from `activity_share_1` where  is_show = 1 AND is_on = 1 limit 0, 1

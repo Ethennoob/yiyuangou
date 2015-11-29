@@ -1,0 +1,130 @@
+<?php
+/**
+ * 一元购系统---用户管理类
+ * @authors 凌翔 (553299576@qq.com)
+ * @date    2015-11-25 19:49:04
+ * @version $Id$
+ */
+
+namespace AppMain\controller\Admin;
+use \System\BaseClass;
+
+class UserController extends Baseclass {
+	/**
+	 * 后台用户列表(分页)
+	 * id，昵称，电话，微信头像，最后一次登录时间，添加时间
+	 */
+	public function userList(){
+        $where=['is_on'=>1];
+        //$this->queryFilter，拼接查询字段
+        $whereFilter=$this->queryFilter($where,['is_show']);
+
+        $pageInfo = $this->P();
+        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+
+        $class = $this->table('user')->where($whereFilter)->order('add_time desc');
+
+        //查询并分页
+        $userpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($userpage ){
+            foreach ($userpage  as $k=>$v){
+                $userpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $userpage [$k]['last_login'] = date('Y-m-d H:i:s',$v['last_login']);
+            }
+        }else{
+            $userpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['userpage '=>$userpage,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     * 后台收货地址信息
+     * 收货人，收货手机，收货地址，邮编
+     */
+    public function addressOneDetail(){
+    	$this->V(['id'=>['egNum',null,true]]);
+
+        $id = intval($_POST['id']);
+        
+        $info = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(['rev_name','rev_phone','address','zip_code'],true);
+
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['info'=>$info]);
+    }
+    /**
+     * 修改一条用户信息
+     * 电话,收货人，收货手机，收货地址，邮编
+     */
+    public function userOneEdit(){
+    	$rule = [
+    	    'id'              =>['egNum'],
+            'phone'           =>['mobile'],
+            'rev_name'        =>[],
+            'rev_phone'       =>['mobile'],
+            'address'         =>[],
+            'zip_code'        =>['num'],
+        ];
+        $this->V($rule);
+        $id = intval($_POST['id']);
+
+        $user = $this->table('user')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+        if(!$user){
+            $this->R('',70009);
+        }
+        unset($rule['id']);
+        foreach ($rule as $k=>$v){
+            if(isset($_POST[$k])){
+                $data[$k] = $_POST[$k];
+            }
+        }
+       $data['update_time']     = time();
+        $user = $this->table('user')->where(['id'=>$id])->update($data);
+        if(!$user){
+            $this->R('',40001);
+        }
+
+        $this->R();
+    }
+    /*
+    删除一条会员信息数据（设置数据库字段为0，相当于回收站）
+     */
+    public function userOneDelete(){
+    
+        $this->V(['id'=>['egNum',null,true]]);
+        $id = intval($_POST['id']);
+         
+        $user = $this->table('user')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+    
+        if(!$user){
+            $this->R('',70009);
+        }
+    
+        $user = $this->table('user')->where(['id'=>$id])->update(['is_on'=>0]);
+        if(!$user){
+            $this->R('',40001);
+        }
+
+        $this->R();
+    }
+    /**
+     *删除一条用户信息（清除数据）
+     */
+    public function userOneDeleteconfirm(){
+    
+        $this->V(['id'=>['egNum',null,true]]);
+        $id = intval($_POST['id']);
+         
+        $user = $this->table('user')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+    
+        if(!$user){
+            $this->R('',70009);
+        }
+
+        $user = $this->table('user')->where(['id'=>$id])->delete();
+        if(!$user){
+            $this->R('',40001);
+        }
+
+        $this->R();
+    }
+}

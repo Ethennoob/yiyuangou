@@ -1,0 +1,47 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class goods extends BaseTable{
+protected function initTable(){ $this->fields=[
+'id'=> ['type' => 'i', 'value' => null],
+'cat_id'=> ['type' => 'i', 'value' => null],
+'brand_id'=> ['type' => 'i', 'value' => null],
+'goods_sn'=> ['type' => 's', 'value' => null],
+'goods_name'=> ['type' => 's', 'value' => null],
+'goods_name_style'=> ['type' => 's', 'value' => null],
+'suppliers_id'=> ['type' => 'i', 'value' => null],
+'rec_id'=> ['type' => 'i', 'value' => null],
+'goods_weight'=> ['type' => 'd', 'value' => null],
+'goods_cost'=> ['type' => 'd', 'value' => null],
+'market_price'=> ['type' => 'd', 'value' => null],
+'shop_price'=> ['type' => 'd', 'value' => null],
+'promote_price'=> ['type' => 'd', 'value' => null],
+'is_promote'=> ['type' => 'i', 'value' => null],
+'promote_start_date'=> ['type' => 'i', 'value' => null],
+'promote_end_date'=> ['type' => 'i', 'value' => null],
+'goods_sell'=> ['type' => 'i', 'value' => null],
+'virtual_number'=> ['type' => 'i', 'value' => null],
+'goods_number'=> ['type' => 'i', 'value' => null],
+'warn_number'=> ['type' => 'i', 'value' => null],
+'keyword'=> ['type' => 's', 'value' => null],
+'goods_brief'=> ['type' => 's', 'value' => null],
+'goods_desc'=> ['type' => 's', 'value' => null],
+'goods_default_thumb'=> ['type' => 's', 'value' => null],
+'goods_default_img'=> ['type' => 's', 'value' => null],
+'goods_thumb'=> ['type' => 's', 'value' => null],
+'goods_img'=> ['type' => 's', 'value' => null],
+'sort_order'=> ['type' => 'i', 'value' => null],
+'is_best'=> ['type' => 'i', 'value' => null],
+'is_new'=> ['type' => 'i', 'value' => null],
+'is_hot'=> ['type' => 'i', 'value' => null],
+'give_point'=> ['type' => 'i', 'value' => null],
+'is_show'=> ['type' => 'i', 'value' => null],
+'add_time'=> ['type' => 'i', 'value' => null],
+'update_time'=> ['type' => 'i', 'value' => null],
+'is_on'=> ['type' => 'i', 'value' => null],
+'sku_id'=> ['type' => 'i', 'value' => null],
+];
+$this->tableName = 'goods';
+$this->AIField = 'id';
+}
+}

@@ -1,0 +1,36 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class bill_base extends BaseTable{
+protected function initTable(){ $this->fields=[
+'id'=> ['type' => 'i', 'value' => null],
+'bill_num'=> ['type' => 's', 'value' => null],
+'user_id'=> ['type' => 'i', 'value' => null],
+'time'=> ['type' => 'i', 'value' => null],
+'status'=> ['type' => 'i', 'value' => null],
+'goods_cost'=> ['type' => 'd', 'value' => null],
+'goods_money'=> ['type' => 'd', 'value' => null],
+'dispatch_fee'=> ['type' => 'd', 'value' => null],
+'consu_point'=> ['type' => 'i', 'value' => null],
+'shop_earn'=> ['type' => 'd', 'value' => null],
+'distributor_id'=> ['type' => 'i', 'value' => null],
+'distributor_pro'=> ['type' => 's', 'value' => null],
+'distributor_pro_money'=> ['type' => 'd', 'value' => null],
+'parentid'=> ['type' => 'i', 'value' => null],
+'parent_pro'=> ['type' => 's', 'value' => null],
+'parent_pro_money'=> ['type' => 'd', 'value' => null],
+'pay_mode'=> ['type' => 'i', 'value' => null],
+'pay_time'=> ['type' => 'i', 'value' => null],
+'balance_pay'=> ['type' => 'd', 'value' => null],
+'point_pay'=> ['type' => 'd', 'value' => null],
+'coupon_pay'=> ['type' => 'd', 'value' => null],
+'coupons'=> ['type' => 's', 'value' => null],
+'needpay'=> ['type' => 'd', 'value' => null],
+'user_address_id'=> ['type' => 'i', 'value' => null],
+'descript'=> ['type' => 's', 'value' => null],
+'logistics_type'=> ['type' => 'i', 'value' => null],
+];
+$this->tableName = 'bill_base';
+$this->AIField = 'id';
+}
+}

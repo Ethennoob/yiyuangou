@@ -1,0 +1,398 @@
+
+            ╭───────────────────────╮
+    ────┤            盛世分销系统             ├────
+            ╰───────────────────────╯
+
+         开发语言：PHP
+         说    明：所负责模块的详细文档
+　       制 作 者：凌翔
+         联系方式：13640888629
+
+    ──────────────────────────────────────────────
+
+─────────────────────
+ 所负责代码文件结构
+─────────────────────
+
+fenxiao
+  │
+  ├AppMain┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈应用主体
+  │  │
+  │  ├controller ┈┈┈┈┈┈┈┈┈┈控制器
+  │  │   │
+  │  │   ├Admin ┈┈┈┈┈┈后台
+  │  │   │   │
+  │  │   │   ├ArticleController.class.php┈┈┈┈┈文章管理类
+  │  │   │   │
+  │  │   │   ├ArticleCatController.class.php┈┈┈┈文章管理分类
+  │  │   │   │
+  │  │   │   ├PaymentMethodController.class.php┈┈┈┈支付方式管理类
+  │  │   │
+  │  │   ├Api ┈┈┈┈┈┈┈接口
+  │  │       │
+  │  │       ├AlipayController.class.php┈┈┈┈┈支付宝提现类
+  │  │       │
+  │  │       ├DistributorApplyController.class.php┈┈┈┈分销商申请管理类
+  │  │       │
+  │  │       ├DistributorController.class.php┈┈┈┈分销商管理类
+  │  │       │
+  │  │       ├LoginController.class.php┈┈┈┈┈登录类
+  │  │       │
+  │  │       ├UserController.class.php┈┈┈┈用户管理类
+  │  │       │
+  │  │       ├VerifyController.class.php┈┈┈┈微信端注册/登录类
+  │  │
+  │  ├helper┈┈┈┈┈┈┈┈┈┈┈帮助类
+  │      │
+  │      ├DistributorHelper.class.php ┈┈┈┈┈┈分销商联表查询帮助类
+  │      │
+  │      ├UserHelper.class.php ┈┈┈┈┈┈用户信息联表查询帮助类
+  │      │
+  │      ├UserRelationHelper.class.php ┈┈┈┈┈┈用户关系联表查询帮助类
+  │
+  ├System┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈框架系统文件
+  │  │
+  │  ├vendor ┈┈┈┈┈┈┈┈┈┈┈扩展
+  │      │
+  │      ├Alipay ┈┈┈┈┈┈支付宝批量转账接口(支付宝提供)
+  │          │
+  │          ├Corefunction.php┈┈┈┈┈支付宝接口公用函数
+  │          │
+  │          ├Md5function.php┈┈┈┈MD5加密签名
+  │          │
+  │          ├notify.php┈┈┈┈支付宝通知处理类
+  │          │
+  │          ├submit.php┈┈┈┈支付宝各接口请求提交类
+  │
+  ├config.php┈┈┈┈┈┈┈┈┈┈┈┈┈┈框架基础配置
+  │
+  ├errorCode.php ┈┈┈┈┈┈┈┈┈┈┈┈┈错误码
+
+
+※注意※
+
+────────────────────
+ 所有类文件函数结构
+────────────────────
+
+ArticleController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function articleAdd()
+功能：文章添加活动
+输入：cat_id,title,content,pic
+
+function articleOneList()
+功能：文章内容列表___查询列表
+输出：分页排列后的JSON格式数据
+
+function articleOneDetail()
+功能：文章内容查询___一条数据
+输入：id
+输出：排列后的JSON格式数据
+
+function articleOneEdit()
+功能：修改一条文章数据
+输入：id,cat_id,title,content,pic
+
+function articleOneDelete()
+功能：删除一条文章数据（设置数据库字段is_on为0，相当于回收站）
+输入：id
+
+function articleOneDeleteconfirm()
+功能：删除一条文章数据（清除数据）
+输入：id
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+AticleCatController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function articleCatAdd()
+功能：文章添加活动
+输入：cat_name,cat_type,cat_desc
+
+function articleCatOneList()
+功能：文章分类内容列表___查询列表
+输出：分页排列后的JSON格式数据
+
+function articleCatOneDetail()
+功能：文章分类内容查询___一条数据
+输入：id
+输出：排列后的JSON格式数据
+
+function articleCatOneEdit()
+功能：修改一条文章分类数据
+输入：id,cat_name,cat_type,cat_desc,sort_order
+
+function articleCatOneDelete()
+功能：删除一条文章分类数据（设置数据库字段is_on为0，相当于回收站）
+输入：id
+
+function articleCatOneDeleteconfirm()
+功能：删除一条文章分类数据（清除数据）
+输入：id
+
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+PaymentMethodController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function paymentMethodAdd()
+功能：支付方式添加活动
+输入：pay_name,pay_desc,pay_mode,pay_icon
+
+function paymentMethodOneList()
+功能：支付方式列表___查询列表
+输出：分页排列后的JSON格式数据
+
+function paymentMethodOneDetail()
+功能：支付方式查询___一条数据
+输入：id
+输出：排列后的JSON格式数据
+
+function paymentMethodOneEdit()
+功能：修改一条支付方式
+输入：id,pay_name,pay_desc,pay_mode,pay_icon
+
+function paymentMethodOneDelete()
+功能：删除一条支付方式（设置数据库字段is_on为0，相当于回收站）
+输入：id
+
+function paymentMethodOneDeleteconfirm()
+功能：删除一条支付方式（清除数据）
+输入：id
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+AlipayController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+alipay_notify.class.php
+
+function doalipay()
+功能：向支付宝发送付款请求
+输入：total_money,batch_no,atch_num,detail_data,confirm_time
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+DistributorApplyController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function primaryApply()
+功能：申请一级分销商
+输入：必须(phone,money,city,name)可能(referrer,area,remark)
+
+function secApply()
+功能：申请二级分销商
+      推荐人是一级分销商，则二级分销商自动变为其下级
+      推荐人是二级分销商，则为推荐
+输入：必须(phone,money,shop_name,name)可能(referrer,area,remark)
+
+function applyPass()
+功能：通过申请
+输入：id
+
+function addDistributor()
+功能：后台手动添加一级分销商/直接成为一级分销商,无审核
+      此方法为凭空添加一级分销商(会员表,分销商申请表表中无此信息)
+      referrer自动成为推荐人
+输入：必须(mobile_phone,city,name)可能(referrer,area,remark)
+
+function addSecDistributor()
+功能：后台手动添加二级分销商/直接成为一级分销商,无审核
+      此方法为凭空添加二级分销商(会员表,分销商申请表表中无此信息)
+      referrer推荐人是一级分销商，则二级分销商自动变为其下级
+      referrer推荐人是二级分销商，则为推荐
+输入：必须(mobile_phone,shop_name,name)可能(referrer,area,remark)
+
+function distributorOneList()
+功能:分销商申请列表___查询列表(一二级分销商分开显示/由前台传apply_level的值来区分)
+     is_pass=0:未通过的分销商、is_pass=1:分销商
+     查询结果:编号，会员名称，手机号码，级别，加入时间
+输入：apply_level,is_pass
+输出: 分页排列后的JSON格式数据
+
+function searchDistributor()
+功能：搜索分销商
+      通过不通过都搜索出来
+      搜索条件：(手机号码，姓名，商店名称)
+输入：search
+输出: 分页排列后的JSON格式数据
+
+-----一级分销商省市区三级联动设置------
+function city()
+功能：获取省份查询相应城市
+输入：province
+输出: 城市排列后的JSON格式数据
+
+function area()
+功能：获取一线北上广深查询相应区县
+输入：city
+输出: 区县排列后的JSON格式数据
+----------------------------------------
+function distributorOneDelete()()
+功能：删除一条分销商（设置数据库字段is_on为0，相当于回收站）
+输入：id
+
+function distributorOneDeleteconfirm()
+功能：删除一条分销商（清除数据）
+输入：id
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+DistributorController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function distributorOneDetail()
+功能：查看分销商信息
+      (通过的分销商)
+      头像，真实姓名，可用余额，可用积分，手机号码，openid
+输入：id
+输出：排列后的JSON格式数据
+
+function distributorOneEdit()
+功能：分销商信息修改
+输入：id,name,phone
+输出：排列后的JSON格式数据
+
+function withdrawApply()
+功能：提现申请
+输入：user_id,alipay,getcash_password,withdrawals_name,money
+
+function searchWithdraw()
+功能：搜索提现表
+      通过不通过都搜索出来
+      搜索条件：(支付宝账号，姓名，金额)
+输入：search
+输出：分类排列后的JSON格式数据
+
+function distributorFroze()
+功能：分销商冻结
+      user表中is_froze = 1 即冻结
+输入：id
+
+function commissionDetail()
+功能：佣金明细
+      变动金额，变动原因，变动时间，订单id
+      uid,1=获得佣金,2=提现
+      可能以后会佣金直接消费，待开发
+输入：id
+输出：分页排列后的JSON格式数据
+
+function alipayWithdraw()
+功能：确认提现
+      生成confirm_time///并无支付宝提现正真功能，只是在数据库生成confirm_time
+输入：id
+
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+LoginController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function login()
+功能：登陆操作
+输入：mobile_phone,password
+
+function autoLogin()
+功能：自动登陆
+输入：$_SESSION['userid'],$_COOKIE['HANZI-AUTOLOGIN']
+
+private function loginAction($user,$loginStatus,$isAutoLogin)
+功能：登录动作
+输入：用户信息，登录状态，是否自动登录
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+UserController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function register()
+功能：会员PC注册方法
+输入：mobile_phone,password
+
+function userInfoAdd()
+功能：添加会员个人信息
+输入：id,user_name,email,sex,birthday,nickname,qq,office_phone,user_img
+
+function userAllList()
+功能：会员列表___查询全数据列表(MD5密码也查出来)
+输出：分页排列后的JSON格式数据
+
+function adminUserList()
+功能：后台会员列表信息(返回pdf中明确要求的数据)
+输出：排列后的JSON格式数据
+
+function adminUserOneDetail()
+功能：后台查询单条会员信息(返回pdf中明确要求的数据)
+输入：id
+输出：排列后的JSON格式数据
+
+function userRelationList()
+功能：后台显示会员关系分页列表
+输出：分页排列后的JSON格式数据
+
+function userOneAllDetail()
+功能：查看个人信息__一条全数据(包括MD5密码)
+输入：id
+输出：排列后的JSON格式数据
+
+function userFroze()
+功能：冻结此账户
+输入：id
+
+function userOneEdit()
+功能：会员修改个人信息
+输出：id,user_name,email,sex,birthday,nickname,qq,office_phone,user_img
+
+function resetPassword()
+功能：修改密码
+输入：oldPassword,newPassword
+
+function userSearch()
+功能：搜索会员--查询条件(名称，商城，微店，注册时间，手机号，区域)
+输入：search
+输出：分页排列后的JSON格式数据
+
+function adminUserOneDetail()
+功能：后台查询单条会员信息(返回pdf中明确要求的数据)
+输入：id
+输出：排列后的JSON格式数据
+
+function userOneDelete()()
+功能：删除一条会员（设置数据库字段is_on为0，相当于回收站）
+输入：id
+
+function userOneDeleteconfirm()
+功能：删除一条会员（清除数据）
+输入：id
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+VerifyController.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function getOpenID
+功能：授权
+输入：wechat_refer,code,state,openid
+
+function getNewOpenID()
+功能：第一次进入的默认微信注册
+输入：wechat_refer,code,state,openid,mobile_phone
+
+private function getUserInfo($user)
+功能：获取用户信息
+输入：access_token,openid
+
+private function saveUser($user_info)
+功能：保存用户
+输入：openid,sex,mobile_phone,headimgurl,nickname,is_follow
+
+private function saveUserById($user_info,$id)
+功能：保存已有用户的微信信息
+输入：openid,sex,headimgurl,nickname,is_follow
+
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+DistributorHelper.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function  getDistributorL()
+功能：获取分销商列表信息
+      distributor_apply表与user表联表查询
+
+function  getDistributor()
+功能：获取一条分销商信息
+      distributor_apply表与user表联表查询
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+UserHelper.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function  getUser()
+功能：获取用户信息
+      user_address表,user表,withdrawals_apply联表查询
+
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+UserRelationHelper.class.php┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+
+function  getUserRelation()
+功能：获取用户关系信息
+      user表,distributor_apply联表查询
+────────────────────
+ 出现问题，求助联系
+────────────────────
+
+QQ/Wechat:553299576   mobile:13640888629

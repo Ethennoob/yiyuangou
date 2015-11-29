@@ -1,0 +1,39 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class user extends BaseTable{
+protected function initTable(){ $this->fields=[
+'id'=> ['type' => 'i', 'value' => null],
+'user_name'=> ['type' => 's', 'value' => null],
+'mobile_phone'=> ['type' => 'i', 'value' => null],
+'email'=> ['type' => 's', 'value' => null],
+'openid_line'=> ['type' => 's', 'value' => null],
+'password'=> ['type' => 's', 'value' => null],
+'sex'=> ['type' => 'i', 'value' => null],
+'birthday'=> ['type' => 's', 'value' => null],
+'user_money'=> ['type' => 'd', 'value' => null],
+'frozen_money'=> ['type' => 'd', 'value' => null],
+'pay_points'=> ['type' => 'i', 'value' => null],
+'rank_level'=> ['type' => 'i', 'value' => null],
+'user_address_id'=> ['type' => 'i', 'value' => null],
+'last_login'=> ['type' => 'i', 'value' => null],
+'last_ip'=> ['type' => 's', 'value' => null],
+'nickname'=> ['type' => 's', 'value' => null],
+'qq'=> ['type' => 's', 'value' => null],
+'office_phone'=> ['type' => 's', 'value' => null],
+'status'=> ['type' => 'i', 'value' => null],
+'user_refere'=> ['type' => 'i', 'value' => null],
+'mall_own_private'=> ['type' => 'i', 'value' => null],
+'getcash_password'=> ['type' => 's', 'value' => null],
+'city'=> ['type' => 's', 'value' => null],
+'user_img'=> ['type' => 's', 'value' => null],
+'order_money'=> ['type' => 'd', 'value' => null],
+'is_froze'=> ['type' => 'i', 'value' => null],
+'add_time'=> ['type' => 'i', 'value' => null],
+'update_time'=> ['type' => 'i', 'value' => null],
+'is_on'=> ['type' => 'i', 'value' => null],
+];
+$this->tableName = 'user';
+$this->AIField = 'id';
+}
+}

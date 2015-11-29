@@ -1,0 +1,25 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class comment extends BaseTable{
+protected function initTable(){ $this->fields=[
+'id'=> ['type' => 'i', 'value' => null],
+'goods_id'=> ['type' => 'i', 'value' => null],
+'user_id'=> ['type' => 'i', 'value' => null],
+'user_name'=> ['type' => 's', 'value' => null],
+'sku_id'=> ['type' => 'i', 'value' => null],
+'content'=> ['type' => 's', 'value' => null],
+'logistics_level'=> ['type' => 'i', 'value' => null],
+'service_level'=> ['type' => 'i', 'value' => null],
+'comment_level'=> ['type' => 'i', 'value' => null],
+'comment_img'=> ['type' => 's', 'value' => null],
+'comment_url'=> ['type' => 's', 'value' => null],
+'ip_address'=> ['type' => 's', 'value' => null],
+'add_time'=> ['type' => 'i', 'value' => null],
+'update_time'=> ['type' => 'i', 'value' => null],
+'is_on'=> ['type' => 'i', 'value' => null],
+];
+$this->tableName = 'comment';
+$this->AIField = 'id';
+}
+}

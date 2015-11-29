@@ -1,0 +1,23 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class distributor_apply extends BaseTable{
+protected function initTable(){ $this->fields=[
+'id'=> ['type' => 'i', 'value' => null],
+'phone'=> ['type' => 'i', 'value' => null],
+'shop_name'=> ['type' => 's', 'value' => null],
+'apply_level'=> ['type' => 'i', 'value' => null],
+'apply_money'=> ['type' => 'i', 'value' => null],
+'is_pass'=> ['type' => 'i', 'value' => null],
+'parent_id'=> ['type' => 'i', 'value' => null],
+'user_id'=> ['type' => 'i', 'value' => null],
+'type'=> ['type' => 'i', 'value' => null],
+'remark'=> ['type' => 's', 'value' => null],
+'add_time'=> ['type' => 'i', 'value' => null],
+'update_time'=> ['type' => 'i', 'value' => null],
+'is_on'=> ['type' => 'i', 'value' => null],
+];
+$this->tableName = 'distributor_apply';
+$this->AIField = 'id';
+}
+}

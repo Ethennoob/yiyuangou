@@ -1,0 +1,10 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class dstribution _cission extends BaseTable{
+protected function initTable(){ $this->fields=[
+];
+$this->tableName = 'dstribution _cission';
+$this->AIField = '';
+}
+}

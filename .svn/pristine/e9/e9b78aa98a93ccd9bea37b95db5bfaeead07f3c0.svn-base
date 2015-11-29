@@ -1,0 +1,10 @@
+<?php
+ namespace AppMain\data\DB_MASTER;
+use System\database\BaseTable;
+ class shopping _cart extends BaseTable{
+protected function initTable(){ $this->fields=[
+];
+$this->tableName = 'shopping _cart';
+$this->AIField = '';
+}
+}
