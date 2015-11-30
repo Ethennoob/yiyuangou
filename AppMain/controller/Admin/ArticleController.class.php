@@ -1,0 +1,176 @@
+<?php
+    namespace AppMain\controller\Admin;
+    use \System\BaseClass;
+    /**
+     * 文章class
+     */
+    class ArticleController extends BaseClass {
+        /**
+         * 添加文章
+         */
+        public function articleAdd(){
+            $rule = [
+                'title'         =>[],
+                'content'       =>[],
+            ];
+            $this->V($rule);
+
+            foreach ($rule as $k=>$v){
+                $data[$k] = $_POST[$k];
+            }
+            //图片上传
+            if (isset($_FILES['pic'])) {
+                $pictureName = $_FILES['pic'];
+                $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'article',false);
+                $data['pic'] = $imgarray['img'];
+            }
+            $data['add_time']     = time();
+            $article = $this->table('article')->save($data);
+            if(!$article){
+                $this->R('',40001);
+            }
+            $this->R();
+        }
+
+        /**
+         * 查询文章列表
+         */
+        public function articleList(){
+            $this->V(['is_show'=>['in',[0,1],false]]);
+            $where=['is_on'=>1];
+            //$this->queryFilter，拼接查询字段
+            $whereFilter=$this->queryFilter($where,['is_show']);
+
+            $pageInfo = $this->P();
+
+            $class = $this->table('article')->where($whereFilter)->order('add_time desc');
+            //查询并分页
+            $articlelist = $this->getOnePageData($pageInfo,$class,'get','getListLength',null,false);
+            if($articlelist){
+                foreach ($articlelist as $k=>$v){
+                    $articlelist[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                    $articlelist[$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
+                }
+            }else{
+                $articlelist = null;
+            }
+            //返回数据，参见System/BaseClass.class.php方法
+            $this->R(['articlelist'=>$articlelist,'pageInfo'=>$pageInfo]);
+        }
+
+        /**
+         * 查询一条文章信息
+         */
+        public function articleOneList(){
+            $this->V(['id'=>['egNum',null,true]]);
+            $id = intval($_POST['id']);
+            if (!$articleDetail){
+                //查询一条数据
+                $article = $this->table('article')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+                if(!$article){
+                    $this->R('',70009);
+                }
+                $article['update_time'] = date('Y-m-d H:i:s',$article['update_time']);
+                $article['add_time'] = date('Y-m-d H:i:s',$article['add_time']);
+            }    
+            $this->R(['article'=>$article]);
+        }
+
+        /**
+         * 修改文章信息
+         */
+        public function articleEdit(){
+            $rule = [
+                'id'            =>['egNum',null,true],
+                'title'         =>[null,null,true],
+                'content'       =>[null,null,true],
+            ];
+            $this->V($rule);
+            $id = intval($_POST['id']);
+            $article = $this->table('article')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+            if(!$article){
+                $this->R('',70009);
+            }
+
+            unset($rule['id']);
+            foreach ($rule as $k=>$v){
+                if(isset($_POST[$k])){
+                    $data[$k] = $_POST[$k];
+                }
+            }
+            
+            //图片上传
+            if (isset($_FILES['pic'])) {
+            $pictureName = $_FILES['pic'];
+            $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'article',false);
+            //删除图片文件
+            $pic_url = $this->table('article')->where(['id'=>$id,'is_on'=>1])->get(['pic'],true);
+            foreach ($pic_url as $key => $v) {
+                 $delete = unlink($v);
+             }
+            if (!$delete) {
+                $this->R('',40020);
+            }
+            $data['pic'] = $imgarray['img'];
+            }
+            $data['update_time']  = time();
+        
+            $article = $this->table('article')->where(['id'=>$id])->update($data);
+            if(!$article){
+                $this->R('',40001);
+            }
+            $this->R();
+        }
+
+        /**
+         *删除一条或者文章数据（设置数据库字段为0，相当于回收站）
+         */
+        public function articleDelete(){
+        
+            $this->V(['id'=>['egNum',null,true]]);
+            $id = intval($_POST['id']);
+             
+            $article = $this->table('article')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+        
+            if(!$article){
+                $this->R('',70009);
+            }
+        
+            $article = $this->table('article')->where(['id'=>$id])->update(['is_on'=>0]);
+            if(!$article){
+                $this->R('',40001);
+            }
+            $this->R();
+        }
+
+        /**
+         *删除一条或者多条文章数据（清除数据）
+         */
+        public function articleDeleteconfirm(){
+        
+            $this->V(['id'=>['egNum',null,true]]);
+            $id = intval($_POST['id']);
+             
+            $article = $this->table('article')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
+        
+            if(!$article){
+                $this->R('',70009);
+            }
+            //删除图片文件
+            $pic_url = $this->table('article')->where(['id'=>$id,'is_on'=>1])->get(['pic'],true);
+            if ($pic_url) {
+                foreach ($pic_url as $key => $v) {
+                 $delete = unlink($v);
+             }
+            if (!$delete) {
+                $this->R('',40020);
+                }
+            }
+            $article = $this->table('article')->where(['id'=>$id])->delete();
+            if(!$article){
+                $this->R('',40001);
+            }
+            $this->R();
+        }
+        
+    }
