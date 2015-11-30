@@ -255,7 +255,7 @@ class UserController extends Baseclass {
             //判断是否已经买过并且超过限购数量
             $limit = $this->table('purchase')->where(['user_id'=>$user_id,'goods_id'=>$goods_id,'is_on'=>1])->get(['id'],false);
             $count = count($limit);
-            if ($count+$num>$good['limit_num']) {
+            if ($count>=$good['limit_num']) {
                 $this->R('',90001);
             }
             //分配认购码给用户,生成购物流水单

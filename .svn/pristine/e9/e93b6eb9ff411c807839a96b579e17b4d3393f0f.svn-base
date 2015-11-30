@@ -45,7 +45,7 @@ class RollController extends BaseClass {
             'add_time' => time()
         );
         //生成订单
-        $order = $this->table('bill')->save($data);
+        $order = $this->table('order')->save($data);
         if (!$order) {
             $this->R('',40001);
         }

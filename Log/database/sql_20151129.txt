@@ -196,3 +196,135 @@ select `limit_num` from `goods` where  `id` = '36' limit 0, 1
 2015/11/29 00:52:59----
 select `id` from `code` where  `goods_id` = '36' AND `is_use` = 0 limit 0, 1
 
+2015/11/29 11:01:22----
+select `id` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:01:22----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:01:28----
+select `id` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/29 11:01:28----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 35
+
+2015/11/29 11:02:32----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 34 limit 0, 1
+
+2015/11/29 11:02:35----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/29 11:02:35----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 35
+
+2015/11/29 11:03:34----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/11/29 11:03:34----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 35
+
+2015/11/29 11:03:36----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:36----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:39----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:39----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:40----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:40----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:41----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:41----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:41----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:41----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:42----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:42----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:42----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:42----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:43----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:43----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:43----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:43----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:44----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:44----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 11:03:45----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 11:03:45----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 12:26:46----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 12:26:46----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 12:26:46----
+update `code` set `is_lucky`=? where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36 AND `key` = 11
+
+2015/11/29 12:29:39----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 12:29:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 12:29:39----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36 AND `key` = 1
+
+2015/11/29 12:30:20----
+select `id`,`price` from `goods` where  `is_on` = 1 AND `id` = 36 limit 0, 1
+
+2015/11/29 12:30:20----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 36
+
+2015/11/29 12:30:20----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 36 AND `key` = 8
+

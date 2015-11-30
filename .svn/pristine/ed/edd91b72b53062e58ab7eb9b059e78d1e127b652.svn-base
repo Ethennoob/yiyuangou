@@ -24,40 +24,36 @@ class GoodsController extends BaseClass {
                     'cost_price'     =>['money'],
                     'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
-                    //'goods_album'  => [],
                 ];
                 $this->V($rule); 
 
                 foreach ($rule as $k => $v) {
                         $data[$k] = $_POST[$k];
                 }
-
             $data['goods_sn']=date("Ymd").rand(100000,999999);
-            $rate = $this->table('system')->where(['id'=>1])->get(['buy_limit'],true);
-            $data['limit_num'] = $data['price']*$rate['buy_limit']*0.01;
+            $data['limit_num'] = $data['price'];
             $data['add_time'] = time();
             $data['upload_date'] = time();//上架时间
-
-
-
             //图片上传
             $pictureName = $_FILES['goods_img'];
             $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'goods',true);
             $data['goods_img'] = $imgarray['img'];
             $data['goods_thumb'] = $imgarray['thumb'];
+            //相册
+            $pictureAlbum = $_FILES['goods_album'];
+            $imgarray = $this->H('PictureUpload')->pictureUploadMore($pictureName,'goodsAlbum',false);
+            $data['goods_album'] = $imgarray['img'];
 
                 $goods = $this->table('goods')->save($data);
                 if(!$goods){
                     $this->R('',40001);
                 }
-
             $goods_id = $this->table('goods')->where(['goods_sn'=>$data['goods_sn'],'is_on'=>1])->get(['id'],true);
             foreach ($goods_id as $k => $v) {           
             }
             $thematic_id=$data['thematic_id'];
-            $number=$data['price'];
+            $number=$data['limit_num'];
             $createCode=$this->createCode($v,$thematic_id,$number);
-
                       
 
             $this->R(); 
@@ -236,10 +232,6 @@ class GoodsController extends BaseClass {
         }
 
         $code = $this->table('goods')->where(['id'=>$id,'is_on'=>1])->delete();
-        if(!$code){
-            $this->R('',40001);
-        }
-        $code = $this->table('purchase')->where(['goods_id'=>$id,'is_on'=>1])->delete();
         if(!$code){
             $this->R('',40001);
         }
