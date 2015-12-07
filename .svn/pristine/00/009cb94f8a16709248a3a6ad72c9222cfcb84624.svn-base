@@ -1,7 +1,7 @@
 <?php
 
 /*
- *  全局网站配置文件
+ * 	全局网站配置文件
  */
 
 
@@ -11,32 +11,32 @@ return [
     // 数据库(主库)(必须存在，请勿删除)
      "DB_MASTER" => array(
       "host" => "203.195.151.134",
-      'user' => 'oneBuy',
+      'user' => 'onebuy',
       "password" => "hanzikeji_oneBuy1124",
-      "dbName" => "oneBuy"
+      "dbName" => "onebuy"
       ),
 
     //测试
     "DB_MASTER" => array(
-     "host" => "203.195.151.134",
-      'user' => 'oneBuy',
+      "host" => "203.195.151.134",
+      'user' => 'onebuy',
       "password" => "hanzikeji_oneBuy1124",
-      "dbName" => "oneBuy"
-    ),
+      "dbName" => "onebuy"
+      ),
     // 只读数据库
     "DB_READ" => array(
       "host" => "203.195.151.134",
-      'user' => 'oneBuy',
+      'user' => 'onebuy',
       "password" => "hanzikeji_oneBuy1124",
-      "dbName" => "oneBuy"
-    ),
-  // 旧数据库
-  "DB_OLD" => array(
-      "host" => "",
-      'user' => '',
-      "password" => "",
-      "dbName" => "",
-  ),
+      "dbName" => "onebuy"
+      ),
+	// 旧数据库
+	"DB_OLD" => array(
+			"host" => "",
+			'user' => '',
+			"password" => "",
+			"dbName" => "",
+	),
 
     // memcached配置
     /* 'MEMCACHE_CONFIG' => array(
@@ -74,10 +74,10 @@ return [
 
     // 测试
     'WEIXIN_CONFIG' => array(
-        'token' => 'yuanxiang', // 填写你设定的key
+        'token' => '', // 填写你设定的key
         'encodingaeskey' => '', // 填写加密用的EncodingAESKey
-        'appid' => 'wxa8c2ab673611fdae', // 填写高级调用功能的app id
-        'appsecret' => 'd4624c36b6795d1d99dcf0547af5443d'
+        'appid' => '', // 填写高级调用功能的app id
+        'appsecret' => ''
     ), // 填写高级调用功能的密钥
     //微信支付配置
     'WEIXIN_PAY_CONFIG' => array(
@@ -117,8 +117,4 @@ return [
       //支付失败跳转到的页面，我这里跳转到项目的User控制器，myorder方法，并传参unpay（未支付列表）
       'errorpage'=>'User/myorder?ordtype=unpay',
       ),
-    'MSM_URL' => 'http://211.147.239.62:9050/cgi-bin/sendsms?',
-    'MSM_ACCOUNT' => 'AA@GZAA',
-    'MSM_PWD' => 'Tea9936@',
-
 ];

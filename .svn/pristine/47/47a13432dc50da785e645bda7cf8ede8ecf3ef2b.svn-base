@@ -42,6 +42,7 @@ class RollController extends BaseClass {
             'thematic_id' =>$good['thematic_id'],
             'user_id' => $luckyCode['user_id'],
             'code' => $luckyCode['code'],
+            'bill_sn'=date("Ymd").rand(100000,999999),
             'add_time' => time(),
         );
         //生成订单

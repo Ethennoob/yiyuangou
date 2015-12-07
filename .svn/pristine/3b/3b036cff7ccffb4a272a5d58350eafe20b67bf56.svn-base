@@ -25,31 +25,7 @@
 	        }
 	        $this->R(['billlist'=>$billlist,'pageInfo'=>$pageInfo]);
 		}
-
-		/**
-         * 查询中奖订单明细
-         */
-		public function billOneList(){
-			$where=['is_on'=>1];
-	        $pageInfo = $this->P();
-	        //调用Helper类
-	        $dataClass = $this->H('BillDetail');
-	        $order = "A.id asc";
-	        //$field = ['id','bill_sn','code','goods_sn','goods_title','price','thematic_name','nickname','phone','add_time'];
-	        $billList=$dataClass->getbill($where,null,null,false,$order);
-            $bill=$this->getOnePageData($pageInfo, $dataClass, 'getbill','getbillListLength',[$where,null,null,false,$order],true);
-            if($bill){
-                foreach ($bill as $k=>$v){
-                    $bill[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-                }
-            }else{
-                $bill = null;
-            } 
-            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
-		}
-		/**
-         * 查询一条订单记录
-         */
+		//查询一条订单记录
 		public function billOneDetail(){
 			$this->V(['id'=>['egNum',null,true]]);
             $id = intval($_POST['id']);
@@ -148,25 +124,6 @@
 	            $this->R('',40001);
 	        }
 	        $this->R();
-	    }
-	    public function outputExcel(){
-	    	$data = array(
-	    		'title' =>"一元购中奖订单明细",
-	    		'sn'    =>"订单编号",
-	    		'object_name' =>"商品名",
-	    		'code'  =>"中奖认购码",
-	    		'time'  =>"时间",
-	    		);
-	    	$list = array( 0 =>array(
-	    		'sn'    =>"20151201882281",
-	    		'object_name' =>"锤子手机",
-	    		'code'  =>"HE09VIFUH86RF3W",
-	    		'time'  =>"2015.12.01",)
-	    		);
-	    	$outputExcel = $this->H('Excel')->PHPExcel($list,$data);
-	    	if (!$outputExcel) {
-	    		$this->R('',40001);
-	    	}
 	    }
 
 	}

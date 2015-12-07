@@ -46,7 +46,7 @@ class UserController extends Baseclass {
 
         $id = intval($_POST['id']);
         
-        $info = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+        $info = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(['rev_name','rev_phone','address','zip_code'],true);
 
         //返回数据，参见System/BaseClass.class.php方法
         $this->R(['info'=>$info]);

@@ -9,7 +9,6 @@
 	     * 添加用户收货地址
 	     */
 		public function addressAdd(){
-
 	        $this->V(['id'=>['egNum',null,true]]);
 	        //获取用户id
 	        $userId = intval($_POST['id']);
@@ -17,6 +16,7 @@
                     'province' =>[],
                     'city'     =>[],
                     'area'     =>[],
+                    'street'   =>[],
                     'mobile'   =>['mobile'],
                     'name'     =>[],
                 ];
@@ -29,6 +29,7 @@
         		'province'  =>$data['province'],
                 'city'      =>$data['city'],
                 'area'      =>$data['area'],
+                'street'    =>$data['street'],
                 'mobile'    =>$data['mobile'],
                 'name'      =>$data['name'],
                 'postcode'  =>isset($_POST['postcode']) ? $_POST['postcode'] : '',
@@ -53,7 +54,6 @@
 	     * 修改用户收货地址
 	     */
 		public function addressEdit(){
-
             $this->V(['user_id'=>['egNum',null,true]]);
             //获取用户id
             $userId = intval($_POST['user_id']);
@@ -104,7 +104,6 @@
          * 用户收货地址列表
          */
         public function addressList(){
-
             $this->V(['id'=>['egNum',null,true]]);
             //获取用户id
             $userId = intval($_POST['id']);
@@ -127,8 +126,7 @@
         /**
          * 查询一条用户收货地址信息
          */
-        public function addressOneList(){
-
+        public function addressOneDetail(){
             $this->V(['id'=>['egNum',null,true]]);
 	        $addressId = intval($_POST['id']);
             $address = $this->table('user_address')->where(['is_on'=>1,'id'=>$addressId])->get(null,true);
@@ -144,7 +142,6 @@
          *删除一条用户收货地址数据（设置数据库字段为0，相当于回收站）
          */
         public function addressDelete(){
-
         
             $this->V(['id'=>['egNum',null,true]]);
             $id = intval($_POST['id']);
@@ -166,7 +163,6 @@
          *删除一条用户收货地址数据（清除数据）
          */
         public function addressDeleteconfirm(){
-
             $this->V(['id'=>['egNum',null,true]]);
             $id = intval($_POST['id']);
              

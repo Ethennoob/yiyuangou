@@ -15,7 +15,6 @@ class RecordController extends BaseClass {
 	 * goods_id
 	 * */
     public function buyGoodsRecordList(){
-
     $this->V(['goods_id'=>['egNum',null,true]]);
     $id = intval($_POST['goods_id']);
     $pageInfo = $this->P();
@@ -41,7 +40,7 @@ class RecordController extends BaseClass {
         $recordpage  = null;
     }
     //返回数据，参见System/BaseClass.class.php方法
-    $this->R(['recordpage'=>$recordpage,'pageInfo'=>$pageInfo]);
+    $this->R(['商品参与记录'=>$recordpage,'pageInfo'=>$pageInfo]);
     }
     /**
      *往期获奖商品情况
@@ -73,14 +72,13 @@ class RecordController extends BaseClass {
         $before  = null;
     }
     //返回数据，参见System/BaseClass.class.php方法
-    $this->R(['before'=>$before,'pageInfo'=>$pageInfo]);
+    $this->R(['往期获奖商品情况'=>$before,'pageInfo'=>$pageInfo]);
     }
     /**
      * 获得商品的商品详情
      * goods_id
      */
     public function luckyOneDetail(){
-
         $rule = [
                     'goods_id'   =>['egNum'],
                 ];
@@ -104,6 +102,6 @@ class RecordController extends BaseClass {
             $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);
                 $detail [$k]['logistics_number'] = $status['logistics_number'];
             }
-            $this->R(['detail'=>$detail]);
+            $this->R(['获得商品明细'=>$detail]);
     }
 }

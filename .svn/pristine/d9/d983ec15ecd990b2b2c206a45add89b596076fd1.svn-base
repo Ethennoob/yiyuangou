@@ -14,7 +14,6 @@ class UserController extends Baseclass {
      * 授权
      */
     public function getOpenID(){
-
         if (isset($_GET['wechat_refer'])){  //回跳地址
             $_SESSION['wechat_refer']=urldecode($_GET['wechat_refer']);
         }
@@ -57,7 +56,6 @@ class UserController extends Baseclass {
      * 新用户从微信注册
      */
     public function getNewOpenID(){
-
         if (isset($_GET['wechat_refer'])){  //回跳地址
             $_SESSION['wechat_refer']=urldecode($_GET['wechat_refer']);
         }
@@ -107,7 +105,6 @@ class UserController extends Baseclass {
      * 获取用户信息
      */
     private function getUserInfo($user){
-
         $user_info = $this->weObj->getOauthUserinfo($user['access_token'], $user['openid']);
 
         if (!$user_info){
@@ -169,7 +166,6 @@ class UserController extends Baseclass {
      * 修改个人信息
      */
     public function userOneEdit(){
-
        $rule = [
             'id'              =>['egNum'],
             'rev_name'        =>[],
@@ -204,7 +200,6 @@ class UserController extends Baseclass {
      * 购买商品(微信支付)
      */
     public function purchase(){
-
         $rule = [
                     'thematic_id' =>['egNum'],
                     'goods_id'    =>['egNum'],
@@ -258,7 +253,6 @@ class UserController extends Baseclass {
      * $user_id,$goods_id,$thematic_id,$num
      */
     private function generateCodeToUser($user_id,$goods_id,$thematic_id,$num){
-
         $code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->limit($num)->get(['code'],false);
         $count = count($code);
             for ($i=0; $i < $count; $i++) { 
@@ -283,7 +277,6 @@ class UserController extends Baseclass {
      * 缩略图，商品标题，价格(总须人次)，已购买人次
      */
     public function purchaseList(){
-
         $this->V(['user_id'=>['egNum',null,true]]);
         $id = intval($_POST['user_id']);
         $pageInfo = $this->P();
@@ -317,14 +310,13 @@ class UserController extends Baseclass {
             $detailpage  = null;
         }
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['detailpage'=>$detailpage,'pageInfo'=>$pageInfo]);
+        $this->R(['购买记录'=>$detailpage,'pageInfo'=>$pageInfo]);
     }
     /**
      * 购买记录中的商品详情
      * goods_id
      */
     public function purchaseOneDetail(){
-
         $rule = [
                     'goods_id'    =>['egNum'],
                     'user_id'     =>['egNum'],
@@ -357,13 +349,12 @@ class UserController extends Baseclass {
             $detailpage  = null;
         }
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['detailpage'=>$detailpage,'pageInfo'=>$pageInfo]);
+        $this->R(['单个商品购买记录'=>$detailpage,'pageInfo'=>$pageInfo]);
     }
     /**
      * 获得商品记录列表(分页)
      */
     public function luckyList(){
-
         $this->V(['user_id'=>['egNum',null,true]]);
         $id = intval($_POST['user_id']);
         $pageInfo = $this->P();
