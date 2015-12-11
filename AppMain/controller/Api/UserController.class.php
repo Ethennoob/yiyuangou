@@ -11,14 +11,19 @@ use \System\BaseClass;
 
 class UserController extends Baseclass {
     /**
+     * checklogin
+     */
+    public function checklogin(){
+            if (empty($_SESSION['userInfo']['openid'])) {
+                $this->R('','90005');//跳//getOpenID
+            }else{
+                $this->R(['user_id'=>$_SESSION['userInfo']['userid']]);//进网站,返回user_id
+            }
+    }
+    /**
      * 授权
      */
     public function getOpenID(){
-
-        if (isset($_GET['wechat_refer'])){  //回跳地址
-            $_SESSION['wechat_refer']=urldecode($_GET['wechat_refer']);
-        }
-
         $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
         $this->weObj = $weObj;
         if (empty($_GET['code']) && empty($_GET['state'])) {
@@ -28,40 +33,38 @@ class UserController extends Baseclass {
             exit(); 
         } elseif (intval($_GET['state']) == 1) {
                 $accessToken = $weObj->getOauthAccessToken();
-                
+                 
                 // 是否有用户记录
-                $isUser = $this->table('user')->where(["openid" => $accessToken['openid']])->get(null, true);
+                $isUser = $this->table('user')->where(["openid" => $accessToken['openid'],'is_on'=>1])->get(null, true);
+                /*var_dump($isUser);exit();*/
                 
-                if (!$isUser) {
-                    $this->R('',1);//跳转至输入电话号码的页面
-                    
+                if ($isUser==null) {
+                    //没有此用户跳转至输入注册的页面
+                    header("LOCATION:".getHost()."/register.html");
                 }else{
-                	$userID=$isUser['id'];
-                }
+                $userID=$isUser['id'];
                 
-                $isUser = $this->table('user')->where(['id'=>$userID])->update(['last_login'=>time(),'last_ip'=>ip2long(getClientIp())]);
-                
-                $_SESSION['openid'] = $isUser['openid'];
-                $_SESSION['userid'] = $isUser['id'];
-                $_SESSION['nickname']=$isUser['nickname'];
-                $_SESSION['user_img']=$isUser['user_img'];
-                
-                //return $user;
-                header("LOCATION:".$_SESSION['wechat_refer']);
-        } else {
+                $updateUser = $this->table('user')->where(['id'=>$userID])->update(['last_login'=>time(),'last_ip'=>ip2long(getClientIp())]);
+                $_SESSION['userInfo']=[
+                    'openid'=>$isUser['openid'],
+                    'userid'=>$isUser['id'],
+                    'nickname'=>$isUser['nickname'],
+                    'user_img'=>$isUser['user_img'],
+                ];
+
+                //var_dump($_SESSION['userInfo']['openid']);exit();
+                header("LOCATION:http://onebuy.ping-qu.com");//进入网站成功
             //用户取消授权
-            $this->R('','90006');
+            //
+            //$this->R('','90006');
         }
+       
     }
+}
     /**
      * 新用户从微信注册
      */
     public function getNewOpenID(){
-
-        if (isset($_GET['wechat_refer'])){  //回跳地址
-            $_SESSION['wechat_refer']=urldecode($_GET['wechat_refer']);
-        }
-
         $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
         $this->weObj = $weObj;
         if (empty($_GET['code']) && empty($_GET['state'])) {
@@ -72,31 +75,16 @@ class UserController extends Baseclass {
         } elseif (intval($_GET['state']) == 1) {
                 $accessToken = $weObj->getOauthAccessToken();
                 
-                $rule = [
-                'phone'   =>['mobile'],
-                ];
-                $this->V($rule);
-                foreach ($rule as $k=>$v){
-                    $mobile[$k] = $_POST[$k];
-                }
-                $isUserId = $this->table('user')->where(["phone" => $mobile['phone']])->get(['id'], true);
-                if (!$isUserId) {
+                $mobile = $_GET['phone'];
+                
                     //用户信息
                     $userInfo=$this->getUserInfo($accessToken);
-                    $saveUser=$this->saveUser($userInfo);//插入新会员数据
+                    $saveUser=$this->saveUser($userInfo,$mobile);//插入新会员数据
                     if (!$saveUser) {
                             $this->R('','40001');
                     }
-                }else{
-                    foreach ($isUserId as $k=> $id) {
-                        $saveUser=$this->saveUserById($userInfo,$id);//通过已注册手机号插入新会员数据
-                        if (!$saveUser) {
-                            $this->R('','40001');
-                        }
-                    }
-                }
-                //return $user;
-                header("LOCATION:".$_SESSION['wechat_refer']);
+                
+                header("LOCATION:http://onebuy.ping-qu.com");
         } else {
             //用户取消授权
             $this->R('','90006');
@@ -128,11 +116,11 @@ class UserController extends Baseclass {
     /**
      * 保存用户
      */
-    private function saveUser($user_info){
+    private function saveUser($user_info,$mobile){
 
         $data = array(
             'openid' => $user_info['openid'],
-            'phone' =>$mobile['phone'],
+            'phone' =>$mobile,
             'user_img' => $user_info['headimgurl'],
             'nickname' => $user_info['nickname'],
             'is_follow'=>$user_info['is_follow'],
@@ -151,17 +139,14 @@ class UserController extends Baseclass {
      */
     public function userOneAllDetail(){
     
-        $this->V(['id'=>['egNum',null,true]]);
+        $this->V(['user_id'=>['egNum',null,true]]);
 
-        $id = intval($_POST['id']);
+        $id = intval($_POST['user_id']);
 
-            $user = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(['nickname','phone','user_img',
-                'rev_name','rev_phone','address','zip_code','last_login','add_time'],true);
+            $user = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(['id','user_img','phone'],true);
             if(!$user){
                 $this->R('',70009);
             }
-            $user['last_login'] = date('Y-m-d H:i:s',$user['last_login']);
-            $user['add_time'] = date('Y-m-d H:i:s',$user['add_time']);
 
             $this->R(['user'=>$user]);
     }
@@ -171,11 +156,8 @@ class UserController extends Baseclass {
     public function userOneEdit(){
 
        $rule = [
-            'id'              =>['egNum'],
-            'rev_name'        =>[],
-            'rev_phone'       =>['mobile'],
-            'address'         =>[],
-            'zip_code'        =>['num'],
+            'id'          =>['egNum'],
+            'phone'       =>['mobile'],
         ];
         $this->V($rule);
         $id = intval($rule['id']);
@@ -287,7 +269,7 @@ class UserController extends Baseclass {
         $this->V(['user_id'=>['egNum',null,true]]);
         $id = intval($_POST['user_id']);
         $pageInfo = $this->P();
-        $file = ['id','goods_id','num','add_time'];
+        $file = ['id','goods_id','num'];
 
         $class = $this->table('record')->where(['is_on'=>1,'user_id'=>$id])->order('add_time desc');
 
@@ -295,7 +277,6 @@ class UserController extends Baseclass {
         $detailpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($detailpage ){
             foreach ($detailpage  as $k=>$v){
-                $detailpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
                 $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_title','price','goods_thumb'],true);
                 $detailpage [$k]['goods_title'] = $status['goods_title'];
                 $detailpage [$k]['total_num'] = $status['price'];
@@ -306,7 +287,7 @@ class UserController extends Baseclass {
                 $detailpage [$k]['last_num'] =$detailpage [$k]['total_num']-$count;
                 if ($detailpage [$k]['last_num']<1) {
                      $status = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$v['goods_id']])->get(['user_id','code','add_time'],true);
-                     $detailpage[$k]['add_time'] = date('Y-m-d H:i:s',$status['add_time']);
+                     $detailpage[$k]['lucky_time'] = $status['add_time'];
                      $detailpage[$k]['code'] = $status['code'];
                      $status = $this->table('user')->where(['is_on'=>1,'id'=>$status['user_id']])->get(['nickname','user_img'],true);
                      $detailpage[$k]['nickname'] = $status['nickname'];
@@ -336,7 +317,7 @@ class UserController extends Baseclass {
                 }
 
         $pageInfo = $this->P();
-        $file = ['id','user_id','num','add_time'];
+        $file = ['id','num','add_time'];
 
         $class = $this->table('record')->where(['is_on'=>1,'goods_id'=>$data['goods_id'],'user_id'=>
             $data['user_id']])->order('add_time desc');
@@ -345,13 +326,23 @@ class UserController extends Baseclass {
         $detailpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($detailpage ){
             foreach ($detailpage  as $k=>$v){
-                $detailpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $detailpage [$k]['add_time'] = $v['add_time'];
                 $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$data['goods_id'],'user_id'=>
                     $data['user_id']])->get(['code'],false);
                 $count = count($status);
-                for ($i=0; $i < $count; $i++) { 
-                    $detailpage [$k]['code'.$i] = $status[$i]['code'];
-                }
+                 for ($i=0; $i < $count; $i++) { 
+                $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }
+                $detailpage[$k]['code']=$temp;
+                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$data['goods_id']])->get(['goods_title','goods_thumb'],true);
+                $detailpage [$k]['goods_title'] = $status['goods_title'];
+                $detailpage [$k]['goods_thumb'] = $status['goods_thumb'];
+                $status = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$data['goods_id']])->get(['code','add_time'],true);
+                $detailpage [$k]['lucky_code'] = $status['code'];
+                $detailpage [$k]['lucky_time'] = $status['add_time'];
+                $status = $this->table('user')->where(['is_on'=>1,'id'=>$data['user_id']])->get(['nickname'],true);
+                $detailpage [$k]['nickname'] = $status['nickname'];
             }
         }else{
             $detailpage  = null;
@@ -367,7 +358,7 @@ class UserController extends Baseclass {
         $this->V(['user_id'=>['egNum',null,true]]);
         $id = intval($_POST['user_id']);
         $pageInfo = $this->P();
-        $file = ['id','goods_id','add_time'];
+        $file = ['id','goods_id','code','add_time'];
 
         $class = $this->table('bill')->where(['is_on'=>1,'user_id'=>$id,'is_confirm'=>1])->order('add_time desc');
 
@@ -375,20 +366,23 @@ class UserController extends Baseclass {
         $luckypage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($luckypage ){
             foreach ($luckypage  as $k=>$v){
-                $luckypage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $luckypage [$k]['lucky_time'] = $v['add_time'];
                 $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_title','price','goods_thumb'],true);
                 $luckypage [$k]['goods_title'] = $status['goods_title'];
                 $luckypage [$k]['total_num'] = $status['price'];
                 $luckypage [$k]['goods_thumb'] = $status['goods_thumb'];
                 $status = $this->table('record')->where(['is_on'=>1,'goods_id'=>$v['goods_id'],'user_id'=>$id])->get(['num'],true);
                 $luckypage [$k]['num'] = $status['num'];
+                $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);
+                $luckypage [$k]['logistics_number'] = $status['logistics_number'];
+                unset($luckypage[$k]['add_time']);
 
             }
         }else{
             $luckypage  = null;
         }
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['获得商品'=>$luckypage,'pageInfo'=>$pageInfo]);
+        $this->R(['obtained_goods'=>$luckypage,'pageInfo'=>$pageInfo]);
     }
 
     public function getExpress(){
@@ -398,4 +392,5 @@ class UserController extends Baseclass {
         $expressdetail = $express->getorder($id);
         $this->R(['expressdetail'=>$expressdetail]);
     }
+    
 }

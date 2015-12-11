@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="obtainedGoodsApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>已获得的商品
+    </div>
+
+    <!--商品列表-->
+    <ul class="obtained-goods-list f15">
+        <li v-for="item in obtainedGoods" class="row">
+            <a href="logistics-record.html?logistics_number={{item.logistics_number}}&goods_id={{item.goods_id}}">
+                <div class="col-xs-3">
+                    <div class="product-small-img" v-bind:style="{'background-image': 'url('+item.goods_thumb+')'}"></div>
+                </div>
+
+                <div class="col-xs-9">
+                    <span>{{item.goods_title}}</span>
+                <span class="block mt5">本期购入{{item.num}}人次
+                </span>
+                <span class="block mt5">中奖码
+                    <span class="font-red">{{item.code}}</span>
+                </span>
+                    <span class="block font-grey mt5">揭晓时间：{{item.lucky_time | date}}</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var obtainedGoodsApp = new Vue({
+            el: '#obtainedGoodsApp',
+            data: {
+                obtainedGoods: {}
+            }
+        });
+
+        $.post('http://onebuy.ping-qu.com/Api/User/luckyList', {user_id: getParam('user_id')}).done(function (data) {
+            obtainedGoodsApp.obtainedGoods = data.data.obtained_goods;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="addressManageApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">收货地址管理
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--新增、删除地址按钮-->
+    <ul class="address-manage-btn font-white text-center lh42">
+        <li class="add-address bg-red fl">
+            <a href="add-address.html" class="block">
+                <i class="i-addAddress"></i>
+                <span>新增地址</span>
+            </a>
+        </li>
+        <li class="delete-address bg-black">
+            <a v-on:click="deletSelect" href="javascript:;" class="block">
+                <i class="i-deleteAddress"></i>
+                <span>删除地址</span>
+            </a>
+        </li>
+    </ul>
+
+    <!--地址列表-->
+    <ul class="address-list bg-white fl width-full bd-bottom bd-grey">
+        <li v-for="item in address" class="position-rl padding-vertical-10 fl width-full">
+            <div v-if="deletCheckBox" class="col-xs-2 position-st">
+                <span class="round-checkBox" v-on:click="select()" v-bind:style="{'background-position': checkBoxBg}"></span>
+            </div>
+            <ul v-bind:class="{'pl10': !deletCheckBox, 'col-xs-9': !deletCheckBox, 'col-xs-7': deletCheckBox}">
+                <li class="margin-vertical-5">
+                    <span>{{item.name}}</span>
+                    <span>{{item.mobile}}</span>
+                </li>
+                <li class="margin-vertical-5">
+                    <span>{{item.province}}</span>
+                    <span>{{item.city}}</span>
+                    <span>{{item.area}}</span>
+                </li>
+                <li class="margin-vertical-5">{{item.street}}</li>
+            </ul>
+            <div class="col-xs-3 position-st">
+                <a href="#" class="edit-btn">
+                    <i class="i-editAddress"></i>编辑
+                </a>
+            </div>
+        </li>
+    </ul>
+
+    <!--删除地址按钮-->
+    <div v-if="deletCheckBox" class="row bg-white lh42 mt20 position-rl bd-top bd-bottom bd-grey">
+        <div class="col-xs-2 position-st">
+            <span class="round-checkBox" style="background-image: url('assets/i/address-manage-icon.png')">
+            </span>
+        </div>
+        <div class="col-xs-6">全选</div>
+        <div class="col-xs-4 bg-red text-center font-white">
+            <a href="#" class="block">删除</a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var addressManageApp = new Vue({
+            el: '#addressManageApp',
+            data: {
+                address: {},
+                deletCheckBox: false,
+                checkBoxBg: '0 -43px'
+            },
+            methods: {
+                deletSelect: function () {
+                    if(!this.deletCheckBox){
+                        this.deletCheckBox = true;
+                    } else {
+                        this.deletCheckBox = false;
+                    }
+                },
+                select: function () {
+                    if(this.checkBoxBg == '0 -43px'){
+                        this.checkBoxBg = '0 -72px'
+                    } else {
+                        this.checkBoxBg = '0 -43px'
+                    }
+                }
+            }
+        });
+        $.post('http://onebuy.ping-qu.com/Api/Address/addressList', {user_id: getParam('user_id')}).done(function (data) {
+            addressManageApp.address = data.data.addresslist;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

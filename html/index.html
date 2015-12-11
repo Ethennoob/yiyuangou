@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="index-app">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">一元购
+        <a href="personal.html">
+            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        </a>
+    </div>
+
+    <!--主背景图-->
+    <a href="" class="block index-bg position-rl">
+        <img v-bind:src="bgSrc" width="100%">
+        <div class="periods">
+            <img src="assets/img/index-decoration1.png">
+            <span class="inline-block padding-horizontal-5">{{thematicName}}</span>
+            <img src="assets/img/index-decoration2.png">
+        </div>
+    </a>
+
+    <!--商品列表-->
+    <ul class="index-goods-list f15">
+        <li v-for="item in goods">
+            <a href="goods-detail.html?goods_id={{item.id}}">
+                <div class="index-goods-img bd-right bd-grey">
+                    <img v-bind:src="item.goods_thumb" width="100%">
+                    <div v-if="item.lucky_time && !item.nickname" class="index-product-state product-state-ing">
+                        正在揭晓
+                    </div>
+                    <div v-if="item.nickname" class="index-product-state">已揭晓</div>
+                </div>
+
+                <div class="index-goods-info">
+                    <span>{{item.goods_name}}</span>
+                    <span class="block mt5 font-red f22">价值：￥{{item.price}}元</span>
+
+                    <!--未开奖商品才显示-->
+                    <div v-if="item.last_num > 0">
+                    <span class="block mt5">
+                        <span class="bd-right bd-grey pr10">剩余：{{item.last_num}}</span>
+                        <span class="pl10">限购：{{item.total_num}}人次</span>
+                    </span>
+                        <!--进度条-->
+                        <div class="progress cf margin-vertical-10">
+                            <div class="progress-bar" v-bind:style="{width: progressWidth($index)}"></div>
+                        </div>
+                        <div>
+                            <a href="goods-detail.html?id={{item.id}}" class="btn index-grey-btn">立即一元购</a>
+                        </div>
+                    </div>
+
+                    <!--正在揭晓商品-->
+                    <div v-if="item.lucky_time && !item.nickname">
+                        <button class="btn index-grey-btn">
+                            <img src="assets/i/clock.png" height="18px" class="mr5 vertical-top">揭晓倒计时
+                            <span class="font-red">{{countDown($index)}}</span>
+                        </button>
+                    </div>
+
+                    <!--已揭晓商品-->
+                    <div v-if="item.nickname">
+                    <span class="block mt5 bd-top bd-grey pt10">
+                        <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
+                        <span class="font-red">{{item.nickname}}</span>
+                    </span>
+                        <span class="block font-grey mt5 f14">揭晓时间：{{item.lucky_time | date}}</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <!--注册弹窗-->
+    <div class="popup register-popup" role="alert">
+        <div class="popup-container">
+            手机号码：<input type="text">
+            <button class="btn width-full register-sub">注册</button>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-2.0.3.min.js"></script>
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        window.location='http://onebuy.ping-qu.com/Api/User/getOpenID';
+        var indexApp = new Vue({
+            el: '#index-app',
+            data: {
+                goods: {},
+                thematicName: '',
+                bgSrc: ''
+            },
+            methods: {
+//                goodsEnd: function(index) {//判断商品是否抽奖
+//                    var mydate = new Date();
+//
+//                    var nowTime = Date.UTC(mydate.getFullYear(), mydate.getMonth() - 1, mydate.getDate(),
+//                            mydate.getHours(), mydate.getMinutes(),　mydate.getSeconds());
+//                    var luckyTime = this.goods[index].lucky_time;
+//
+//                    if(luckyTime  && !this.goods[index].nickname){//正在揭晓（未到开奖时间，但已卖完）
+//                        return 'ending';
+//                    } else if (this.goods[index].nickname) {//已揭晓（当前时间大于lucky_ime）
+//                        return 'end';
+//                    }
+//                },
+                progressWidth: function(index) {
+                    var buyProgress = Math.floor((this.goods[index].purchase_num / this.goods[index].total_num) * 100);
+                    return buyProgress.toString() + '%';
+                },
+                countDown: function(index) {//正在揭晓商品倒计时
+                    var myDate = new Date();
+                    var millisecond = this.goods[index].lucky_time * 1000 - myDate.getTime();
+                    return Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
+                }
+            }
+        });
+//        $.post('http://onebuy.ping-qu.com/Api/Goods/index').done(function (data) {
+//            indexApp.goods = data.data.index;
+//            indexApp.thematicName = data.data.thematic.thematic_name;
+//            indexApp.bgSrc = data.data.thematic.poster;
+//        });
+        $.post('http://onebuy.ping-qu.com/Api/User/checklogin').done(function (data) {
+            if(data.errcode == '90005'){
+                window.location = 'http://onebuy.ping-qu.com/Api/User/getOpenID';
+            } else if (data.errcode == '40004') {
+                alert("哈哈哈");
+//                $.post('http://onebuy.ping-qu.com/Api/Goods/index').done(function (data) {
+//                    indexApp.goods = data.data.index;
+//                    indexApp.thematicName = data.data.thematic.thematic_name;
+//                    indexApp.bgSrc = data.data.thematic.poster;
+//                });
+            }
+        });
+//        $.post('/Api/User/getOpenID').done(function (data) {
+//            console.log(data);
+////            if(data.errcode == 1){
+////                $('.register-popup').addClass('is-visible');
+////            }else{
+////                $.post('http://onebuy.ping-qu.com/Api/Goods/index').done(function (data) {
+////                    indexApp.goods = data.data.index;
+////                    indexApp.thematicName = data.data.thematic.thematic_name;
+////                    indexApp.bgSrc = data.data.thematic.poster;
+////                });
+////            }
+//        }).fail(function () {
+//            alert("请求失败");
+//        });
+
+
+    </script>
+</body>
+</html>

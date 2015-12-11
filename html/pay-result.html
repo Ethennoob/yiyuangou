@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">支付结果
+        <a href="#">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+        <a href="#">
+            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        </a>
+    </div>
+
+    <div class="bg-white padding-vertical-20">
+        <!--支付结果信息-->
+        <div class="text-center pay-result-info bg-white">
+            <img class="mb10" src="assets/i/pay-success.png" width="38" height="38" />
+            <span class="block mb10">支付成功，请耐心等待揭晓结果！</span>
+            <span class="block mb10 f14 font-grey">成功支付1个商品</span>
+            <div>
+                <a href="#" class="btn bg-white buy-record-btn">查看购买记录</a>
+                <a href="#" class="btn bg-red continue-buy-btn font-white">继续购物</a>
+            </div>
+        </div>
+
+        <!--支付商品信息-->
+        <div class="panel pay-product-info mt20">
+            <div class="panel-head">以下1件商品支付成功</div>
+            <div class="panel-body">
+                <div class="fl mr16 product-small-img" style="background-image: url('assets/img/iphone.jpg')"></div>
+                <div class="pay-product-intro">
+                    <span>[第190期] Apple Watch 智能手表(38毫米银色铝金属表壳搭配白色运动型表壳搭配白色运动</span>
+                    <span class="block font-grey mt16">1人次 支付成功</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--分享按钮-->
+    <div class="padding-horizontal-10">
+        <button class="btn bg-white share-btn">
+            <span class="mr5">
+                <img src="assets/i/share.png" height="16" />
+            </span>
+            我要炫耀一下
+        </button>
+    </div>
+</body>
+</html>

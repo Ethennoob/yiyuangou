@@ -17,11 +17,15 @@ class GoodsController extends BaseClass {
      */
     public function purchaseOneDetail(){
     //查询正在进行的专题
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['goods_id'=>['egNum',null,true]]);
+        $id = intval($_POST['goods_id']);
 
         //查询一条数据
         $goodinfo = $this->table('goods')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+        $albumList = explode(";",$goodinfo['goods_album'] );
+        $goodinfo['img'] = $albumList;
+        $count=count($albumList);
+        unset($goodinfo['img'][$count-1]);
         $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$id])->get(['id'],false);
         $count = count($status);
         $goodinfo['total_num'] = $goodinfo['price'];
@@ -29,6 +33,7 @@ class GoodsController extends BaseClass {
         $goodinfo['last_num'] =$goodinfo['total_num']-$count; 
         $goodinfo['add_time'] = date('Y-m-d H:i:s',$goodinfo['add_time']);
         $goodinfo['upload_date'] = date('Y-m-d H:i:s',$goodinfo['upload_date']);
+        unset($goodinfo['goods_album']);
         $this->R(['goodinfo'=>$goodinfo]);
     }
     /**
@@ -65,7 +70,7 @@ class GoodsController extends BaseClass {
                }else{
                 $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['id']])->order('add_time desc')->limit(0,1)->get(['add_time'],true);
                 if ($status!=null) {
-                    $index[$k]['lucky_time'] =$status['add_time'];
+                    $index[$k]['lucky_time'] =$status['add_time']+180;//+3分钟;
                 }
                }
             }

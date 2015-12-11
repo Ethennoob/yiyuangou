@@ -1,0 +1,580 @@
+/* ==========================================================================
+  公用组件
+    ============================================================================ */
+/* 顶栏
+ ============================================================================ */
+.top-bar{
+    height: 36px;
+    line-height: 36px;
+    position: relative;
+    border-bottom: 1px solid #dcdcdc;
+}
+.top-bar .back{
+    height: 18px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -9px;
+}
+
+.top-bar .personal-top-link{
+    height: 24px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -12px;
+}
+/* 导航列表
+ ============================================================================ */
+.link-list li{
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #dcdcdc;
+    position: relative;
+}
+.link-list li:after{
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    right: 10px;
+    background-image: url("../i/arrow-right.png");
+    background-size: 100% 100%;
+}
+.link-list li i{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+}
+/* 面板
+ ============================================================================ */
+.panel{
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    margin: 0 10px;
+}
+.panel > .panel-head{
+    padding: 0 16px;
+    line-height: 2.2;
+    border-bottom: 1px solid #dcdcdc;
+}
+.panel > .panel-body{
+    padding: 16px;
+}
+/* 商品缩略图
+ ============================================================================ */
+.product-small-img{
+    width: 68px;
+    height: 96px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+    border: 1px solid #dcdcdc;
+}
+/* 商品缩略图下的状态条
+ ============================================================================ */
+.product-state{
+    width: 68px;
+    height: 22px;
+    background-color: #666666;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    line-height: 22px;
+}
+.product-state-ing{
+    background-color: #ea3a3c !important;
+}
+/* 获奖码
+ ============================================================================ */
+.win-code span{
+    display: inline-block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    margin-right: 16px;
+}
+/* 轮播
+ ============================================================================ */
+.swiper-container {
+    width: 100%;
+    height: 320px;
+}
+.swiper-slide {
+    background: #fff;
+    line-height: 320px;
+    text-align: center;
+}
+/* 进度条
+ ============================================================================ */
+.progress{
+    height: 10px;
+    border-radius: 10px;
+    background-color: #dadada;
+}
+.progress-bar{
+    height: 10px;
+    border-radius: 10px;
+    background-color: #ea3a3c;
+}
+/* 分享按钮
+ ============================================================================ */
+.share-btn{
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+}
+/*分享提示
+ ============================================================================ */
+.share-tip{
+    max-width: 100%;
+}
+
+
+/* ==========================================================================
+  个人中心-personal.html
+    ============================================================================ */
+/* 头像显示区
+ ============================================================================ */
+.personal-headImg{
+    background-image: url("../img/personal-bg.jpg");
+    background-size: cover;
+}
+.personal-headImg img{
+    width: 64px;
+    height: 64px;
+}
+/* 导航列表icon
+ ============================================================================ */
+.i-buy{
+    width: 21px;
+    height: 20px;
+    margin-top: -12px;
+    background: url("../i/personal-icon.png") no-repeat;
+    background-size: 20px auto;
+}
+.i-obtainedGoods{
+    width: 20px;
+    height: 20px;
+    margin-top: -12px;
+    background: url("../i/personal-icon.png") no-repeat;
+    background-size: 20px auto;
+    background-position: 0 -20px;
+}
+.i-addressManage{
+    width: 20px;
+    height: 23px;
+    margin-top: -12px;
+    background: url("../i/personal-icon.png") no-repeat;
+    background-size: 20px auto;
+    background-position: 0 -41px;
+}
+.i-helpCenter{
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background: url("../i/personal-icon.png") no-repeat;
+    background-size: 20px auto;
+    background-position: 0 -65px;
+}
+/* 底部客服热线
+ ============================================================================ */
+.service-phone{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+}
+.i-service{
+    display: inline-block;
+    width: 13px;
+    height: 15px;
+    margin-top: 1px;
+    background: url("../i/personal-icon.png") no-repeat;
+    background-size: 20px auto;
+    background-position: 0 -85px;
+}
+
+/* ==========================================================================
+  支付结果-pay-result.html
+    ============================================================================ */
+/* 支付结果信息
+ ============================================================================ */
+.pay-result-info{
+    max-width: 418px;
+    margin: 0 auto;
+}
+/* 按钮
+ ============================================================================ */
+.pay-result-info .buy-record-btn,
+.pay-result-info .continue-buy-btn{
+    width: 40%;
+    border-radius: 4px;
+    margin: 0 1%;
+}
+.pay-result-info .buy-record-btn{
+    border: 1px solid #dcdcdc;
+}
+
+/* 支付商品信息
+ ============================================================================ */
+.pay-product-info .pay-product-intro{
+    min-height: 96px;
+    padding-left: 82px;
+}
+
+/* ==========================================================================
+  收货地址管理-address-manage.html
+    ============================================================================ */
+/* 增加删除地址按钮
+ ============================================================================ */
+.add-address,.delete-address{
+    display: inline-block;
+    width: 50%;
+}
+/* icon
+ ============================================================================ */
+.i-addAddress{
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 18px;
+    margin-top: -1px;
+    background: url("../i/address-manage-icon.png") no-repeat;
+    background-size: 24px auto;
+    background-position: 0 0;
+}
+
+.i-deleteAddress{
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 20px;
+    margin-top: -1px;
+    background: url("../i/address-manage-icon.png") no-repeat;
+    background-size: 24px auto;
+    background-position: 0 -17px;
+}
+.i-editAddress{
+    display: inline-block;
+    vertical-align: middle;
+    width: 14px;
+    height: 16px;
+    margin-top: -1px;
+    background: url("../i/address-manage-icon.png") no-repeat;
+    background-size: 24px auto;
+    background-position: 0 -86px;
+}
+/* 地址列表
+ ============================================================================ */
+.address-list > li + li{
+    border-top: 1px solid #dcdcdc;
+}
+.round-checkBox{
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -14px;
+    background-image: url("../i/address-manage-icon.png");
+    background-size: 28px auto;
+    background-position: 0 -72px;
+}
+
+.checked{
+    background-position: 0 -43px !important;
+}
+
+.edit-btn{
+    width: 58px;
+    height: 30px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    margin-left: 10px;
+}
+
+/* ==========================================================================
+  已获得的商品-obtained-goods.html
+    ============================================================================ */
+/* 商品列表
+ ============================================================================ */
+.obtained-goods-list li{
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+  记录详情-record-detail.html
+    ============================================================================ */
+/* 记录列表
+ ============================================================================ */
+.record-list li{
+    padding: 10px 0;
+}
+.record-list li + li{
+    border-top: 1px solid #dcdcdc;
+}
+
+/* ==========================================================================
+  购买记录-join-record.html
+    ============================================================================ */
+/* 记录列表
+ ============================================================================ */
+.join-record-list li{
+    border-bottom: 1px solid #dcdcdc;
+    padding: 10px;
+    position: relative;
+}
+.join-record-list li:after{
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    right: 10px;
+    background-image: url("../i/arrow-right.png");
+    background-size: 100% 100%;
+}
+
+/* ==========================================================================
+  商品详情页-goods-detail.html
+    ============================================================================ */
+/*商品计数器
+ ============================================================================ */
+.goods-counter{
+    line-height: 30px;
+}
+.goods-counter > .subtract,.goods-counter > .add{
+    display: inline-block;
+    width: 30px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #dcdcdc;
+}
+.goods-counter > .count-box{
+    display: inline-block;
+    width: 50px;
+    font-size: 18px;
+    text-align: center;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+/* ==========================================================================
+  购买记录-buy-record.html
+    ============================================================================ */
+/*购买记录列表
+ ============================================================================ */
+.buy-record-list > li{
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+  物流记录-logistics-record.html
+    ============================================================================ */
+/*物流记录列表
+ ============================================================================ */
+.logistics-list > li{
+    border-left: 3px solid #bfbfbf;
+    padding-left: 10px;
+    position: relative;
+}
+.logistics-list > li > .logistics-content{
+    padding: 10px 0;
+    border-top: 1px solid #dcdcdc;
+}
+.logistics-list li:nth-child(1) > .logistics-content{
+    border-top: none;
+}
+.logistics-list > li > .logistics-list-dot{
+    width: 13px;
+    height: 13px;
+    background-color: #bfbfbf;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    left: -8px;
+}
+.logistics-list > .logistics-end{
+    border-color: #ea3a3c !important;
+}
+.logistics-list > .logistics-end > .logistics-list-dot{
+    background-color: #ea3a3c !important;
+}
+
+/* ==========================================================================
+  个人详情-personal-detail.html
+    ============================================================================ */
+/*tab
+ ============================================================================ */
+.pd-tabnav-active{
+    border-bottom: 2px solid #ea3a3c;
+    color: #ea3a3c;
+}
+
+/* ==========================================================================
+  首页-index.html
+    ============================================================================ */
+/*主背景图
+ ============================================================================ */
+.periods{
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    bottom: 14px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 26px;
+}
+.periods img{
+    width: 32%;
+    vertical-align: middle;
+}
+/*商品列表
+ ============================================================================ */
+.index-goods-list .index-goods-img{
+    display: inline-block;
+    width: 35%;
+    height: 100%;
+    position: relative;
+}
+.index-goods-list .index-goods-info{
+    display: inline-block;
+    width: 63%;
+    padding: 10px;
+    vertical-align: top;
+}
+.index-goods-list > li{
+    display: table;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdcdc;
+    border-top: 1px solid #dcdcdc;
+    margin-bottom: 20px;
+}
+
+.index-grey-btn{
+    display: block;
+    width: 100%;
+    background-color: #fafafa;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+.index-product-state{
+    width: 100%;
+    height: 28px;
+    background-color: #666666;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    line-height: 28px;
+    position: absolute;
+    bottom: 0;
+}
+
+/* --------------------------------
+模态框
+-------------------------------- */
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(94, 110, 141, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    transition: opacity 0.3s 0s, visibility 0s 0.3s;
+}
+.popup.is-visible {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+.popup-container {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: 4em auto;
+    background: #FFF;
+    border-radius: .25em .25em .4em .4em;
+    /*text-align: center;*/
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: translateY(-40px);
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -o-transform: translateY(-40px);
+    transform: translateY(-40px);
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.popup-container .popup-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+}
+.popup-container .popup-close::before, .popup-container .popup-close::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    width: 14px;
+    height: 3px;
+    background-color: #8f9cb5;
+}
+.popup-container .popup-close::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 8px;
+}
+.popup-container .popup-close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 8px;
+}
+.is-visible .popup-container {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+@media only screen and (min-width: 1170px) {
+    .popup-container {
+        margin: 8em auto;
+    }
+}

@@ -38,18 +38,33 @@ class UserController extends Baseclass {
         $this->R(['userpage '=>$userpage,'pageInfo'=>$pageInfo]);
     }
     /**
-     * 后台收货地址信息
+     * 用户个人信息,收货信息
      * 收货人，收货手机，收货地址，邮编
      */
-    public function addressOneDetail(){
+    public function userOneDetail(){
     	$this->V(['id'=>['egNum',null,true]]);
 
         $id = intval($_POST['id']);
-        
-        $info = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+        $address = $this->table('user_address')->where(['is_on'=>1,'user_id'=>$id,'is_default'=>1])->get(['id'],true);
+        if(!$address){
+            $userinfo = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+            $userinfo ['add_time'] = date('Y-m-d H:i:s',$userinfo['add_time']);
+            $userinfo ['update_time'] = date('Y-m-d H:i:s',$userinfo['update_time']);
+            $this->R(['userinfo'=>$userinfo]);
+        }
+        $where = 'A.id='.$id.' and A.is_on = 1 and B.is_default = 1 and B.is_on = 1';
+        $dataClass = $this->H('UserInfo');
+        $userinfo = $dataClass->getUserInfo($where);
+        if(!$userinfo){
+            $this->R('',70009);
+        }
+        foreach ($userinfo as $k => $v) {
+        $userinfo [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+        $userinfo [$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
+        }
 
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['info'=>$info]);
+        $this->R(['userinfo'=>$userinfo]);
     }
     /**
      * 修改一条用户信息

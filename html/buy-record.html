@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="buyRecordApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">购买记录
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--购买记录列表-->
+    <ul class="buy-record-list f15">
+        <li v-for="item in goods" class="row">
+            <a href="{{goodsHref($index)}}">
+                <div class="col-xs-3">
+                    <div class="product-small-img" v-bind:style="{'background-image': 'url(' + item.goods_thumb +')'}"></div>
+                    <div v-if="item.nickname" class="product-state">已揭晓</div>
+                    <div v-if="item.last_num > 0" class="product-state product-state-ing">进行中</div>
+                    <div v-if="item.lucky_time && !item.nickname" class="product-state product-state-ing">正在揭晓</div>
+
+                </div>
+
+                <div class="col-xs-9">
+                    <span>{{item.goods_title}}</span>
+
+                    <!--已揭晓-->
+                    <div v-if="item.nickname">
+                    <span class="block mt10">
+                        <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
+                        <span class="font-red">{{item.nickname}}</span>
+                    </span>
+                        <span class="block font-grey mt5">揭晓时间：{{item.lucky_time | date}}</span>
+                    </div>
+
+                    <!--正在进行-->
+                    <div v-if="item.last_num > 0" class="mt10 bg-white f15 grid-container">
+                        <div class="progress cf">
+                            <div class="progress-bar" v-bind:style="{width: progressWidth($index)}"></div>
+                        </div>
+                        <div class="row mt10">
+                            <div class="col-xs-4">
+                                <span class="block">{{item.purchase_num}}</span>
+                                <span class="f14 font-grey">已参与</span>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <span class="block">{{item.total_num}}</span>
+                                <span class="f14 font-grey">总需人次</span>
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <span class="block">{{item.last_num}}</span>
+                                <span class="f14 font-grey">剩余</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--正在揭晓-->
+                    <div v-if="item.lucky_time && !item.nickname">
+                        <button class="btn index-grey-btn">
+                            <img src="assets/i/clock.png" height="18px" class="mr5 vertical-top">揭晓倒计时
+                            <span class="font-red">{{countDown($index)}}</span>
+                        </button>
+                    </div>
+
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var buyRecordApp = new Vue({
+            el: '#buyRecordApp',
+            data: {
+                goods: {},
+                userId: ''
+            },
+            methods: {
+                progressWidth: function(index) {
+                    var buyProgress = Math.floor((this.goods[index].purchase_num / this.goods[index].total_num) * 100);
+                    return buyProgress.toString() + '%';
+                },
+                countDown: function(index) {//正在揭晓商品倒计时
+                    var myDate = new Date();
+                    var millisecond = this.goods[index].lucky_time * 1000 - myDate.getTime();
+                    return Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
+                },
+                goodsHref: function (index) {
+                    if(this.goods[index].nickname){
+                        //已揭晓商品链接到record-detail.html
+                        return 'record-detail.html?user_id=' + this.userId + '&goods_id=' +　
+                                this.goods[index].goods_id;
+                    } else {
+                        //正在揭晓、正在进行商品链接到goods-detail.html
+                        return 'goods-detail.html?user_id=' + this.userId + '&goods_id=' +
+                                this.goods[index].goods_id;
+                    }
+                }
+            }
+        });
+        $.post('http://onebuy.ping-qu.com/Api/User/purchaseList', {user_id: getParam('user_id')}).done(function (data) {
+            buyRecordApp.goods = data.data.detailpage;
+            buyRecordApp.userId = getParam('user_id');
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

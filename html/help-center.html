@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="helpCenterApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">帮助中心
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--问题列表-->
+    <ul class="link-list bg-white">
+        <li v-for="item in articles">
+            <a href="article.html?article_id={{item.id}}" class="block">
+                <span class="ml16">{{$index + 1}}、{{item.title}}</span>
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var helpCenterApp = new Vue({
+            el: '#helpCenterApp',
+            data: {
+                articles: []
+            }
+        });
+
+        $.post('http://onebuy.ping-qu.com/Admin/Article/articleList').done(function (data) {
+            helpCenterApp.articles = data.data.articlelist;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

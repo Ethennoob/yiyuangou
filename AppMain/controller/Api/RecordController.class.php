@@ -27,15 +27,19 @@ class RecordController extends BaseClass {
     $recordpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
     if($recordpage ){
         foreach ($recordpage  as $k=>$v){
-            $recordpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+            $recordpage [$k]['add_time'] =  $v['add_time'];
             $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','user_img'],true);
             $recordpage [$k]['nickname'] = $status['nickname'];
             $recordpage [$k]['user_img'] = $status['user_img'];
             $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id])->get(['code'],false);
+            //拼接认购码
             $count = count($status);
             for ($i=0; $i < $count; $i++) { 
-            	$recordpage [$k]['code'.$i] = $status[$i]['code'];
+                $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
             }
+            $recordpage[$k]['code']=$temp;
+            unset($temp);
         }
     }else{
         $recordpage  = null;
@@ -66,7 +70,7 @@ class RecordController extends BaseClass {
             $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','user_img'],true);
             $before[$k]['nickname'] = $status['nickname'];
             $before[$k]['user_img'] = $status['user_img'];
-            $before[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+            $before[$k]['add_time'] = $v['add_time'];
            
         }
     }else{
@@ -93,17 +97,19 @@ class RecordController extends BaseClass {
             $dataClass = $this->H('BillDetail');
             $where='A.is_on=1 and A.is_confirm=1 and A.goods_id='.$data['goods_id'];
             $detail = $dataClass->getBillDetail($where);
-
             if(!$detail){
                 $this->R('',70009);
             }
             foreach ($detail as $k => $v) {
             
            
-            $detail [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+            $detail [$k]['lucky_time'] = $v['add_time'];
             $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);
                 $detail [$k]['logistics_number'] = $status['logistics_number'];
+            $status = $this->table('record')->where(['is_on'=>1,'id'=>$v['record_id']])->get(['num'],true);
+                $detail [$k]['num'] = $status['num'];
             }
+            unset($detail [$k]['add_time']);
             $this->R(['detail'=>$detail]);
     }
 }

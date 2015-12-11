@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="recordDetailApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">第191期记录
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--商品信息-->
+    <div class="row padding-horizontal-10 padding-vertical-10 bg-white f15 bd-grey bd-bottom">
+        <div class="col-xs-3">
+            <div class="product-small-img" v-bind:style="{'background-image': 'url(' + recordInfo.goods_thumb + ')'}"></div>
+            <div class="product-state">已揭晓</div>
+        </div>
+
+        <div class="col-xs-9">
+            <span>{{recordInfo.goods_title}}</span>
+            <span class="block mt5">
+                <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
+                <span class="font-red">{{recordInfo.nickname}}</span>
+            </span>
+            <span class="block mt5">中奖码
+                <span class="font-red">{{recordInfo.lucky_code}}</span>
+            </span>
+            <span class="block font-grey mt5">揭晓时间：{{recordInfo.lucky_time | date}}</span>
+        </div>
+    </div>
+    
+    <!--记录列表-->
+    <ul class="bg-white padding-horizontal-10 cf record-list">
+        <li>您总共参与{{totalNum}}人次
+        </li>
+        <li v-for="item in record">
+            <div class="font-grey mb10">
+                <span class="mr16">{{item.add_time | date}}</span>
+                <span>{{item.num}}人次</span>
+            </div>
+            <div class="win-code">
+                <span v-for="code in item.code" v-bind:class="{'font-red': code == recordInfo.lucky_code}">{{code}}</span>
+            </div>
+        </li>
+    </ul>
+
+    <!--其他人参与记录入口-->
+    <ul class="link-list bg-white margin-vertical-36">
+        <li>
+            <a href="join-record.html?user_id={{userId}}&goods_id={{goodsId}}" class="block">
+                <span class="ml10">参与记录</span>
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var recordDetailApp = new Vue({
+            el: '#recordDetailApp',
+            data: {
+                recordInfo: {},
+                record: [],
+                userId: '',
+                goodsId: ''
+            },
+            computed: {
+              totalNum: function () {
+                  var sum = 0;
+                  for(var i = 0; i < this.record.length; i++){
+                      sum += this.record[i].num;
+                  }
+                  return sum;
+              }
+            },
+            methods: {
+
+            }
+        });
+        $.post('http://onebuy.ping-qu.com/Api/User/purchaseOneDetail', {user_id: getParam('user_id'), goods_id: getParam('goods_id')}).done(function (data) {
+            recordDetailApp.recordInfo = data.data.detailpage[0];
+            recordDetailApp.record = data.data.detailpage;
+            recordDetailApp.userId = getParam('user_id');
+            recordDetailApp.goodsId = getParam('goods_id');
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

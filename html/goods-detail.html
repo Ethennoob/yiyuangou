@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+</head>
+<body class="bg-grey" id="goodsDetailApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">商品详情页
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+        <a href="javascript: location.href = 'personal.html?user_id=' + getParam('user_id');">
+            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        </a>
+    </div>
+
+    <!--商品轮播图-->
+    <div class="swiper-container bd-bottom bd-grey">
+        <div class="swiper-wrapper">
+            <div v-for="item in goods.img" class="swiper-slide">
+                <img v-bind:src="initialSwiper($index)" width="100%">
+            </div>
+        </div>
+        <!-- 进度条 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!--商品名称&简介-->
+    <div class="padding-horizontal-10 padding-vertical-14 bd-bottom bd-grey bg-white">
+        <span class="f15 block">{{goods.goods_name}}</span>
+        <!--<span class="f14 font-grey mt5 block">{{goods.goods_title}}</span>-->
+    </div>
+
+    <!--参与人数进度条-->
+    <div class="padding-horizontal-10 padding-vertical-14 bd-bottom bd-grey bg-white f15 grid-container">
+
+        <div class="row mb10">
+            <div class="col-xs-9">价值：￥{{goods.price}}
+            </div>
+            <div class="col-xs-3 text-right">限购{{goods.limit_num}}人次
+            </div>
+        </div>
+
+        <div class="progress cf">
+            <div class="progress-bar" v-bind:style="{width: progressWidth}"></div>
+        </div>
+
+        <div class="row mt10">
+            <div class="col-xs-4">
+                <span class="block">{{goods.purchase_num}}</span>已参与
+            </div>
+            <div class="col-xs-4 text-center">
+                <span class="block">{{goods.total_num}}</span>总需人次
+            </div>
+            <div class="col-xs-4 text-right">
+                <span class="block">{{goods.last_num}}</span>剩余
+            </div>
+        </div>
+
+    </div>
+
+    <!--参与记录、图文详情入口-->
+    <ul class="link-list bg-white f15 margin-vertical-20">
+        <li>
+            <a href="javascript: location.href='join-record.html?goods_id=' + getParam('goods_id');" class="block">
+                <span class="ml10">参与记录</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript: location.href='goods-img-detail.html?goods_id=' + getParam('goods_id');" class="block">
+                <span class="ml10">图文详情（建议在WI-FI下使用）</span>
+            </a>
+        </li>
+    </ul>
+
+    <!--立即一元购按钮-->
+    <div class="padding-horizontal-10 padding-vertical-10 bg-white bd-top bd-grey margin-vertical-20">
+        <button class="btn bg-red width-full font-white br4 buy-btn goods-popup-trigger">立即一元购</button>
+    </div>
+
+
+    <div class="popup goods-popup" role="alert">
+        <div class="popup-container padding-vertical-10 bg-grey">
+            <a href="javascript:;" class="popup-close goods-popup-close"></a>
+            <div class="padding-horizontal-20 bd-bottom bd-grey mb10">
+                <div class="f15 font-grey">剩余{{goods.last_num}}人次</div>
+                <div class="margin-vertical-10 f15">{{goods.goods_title}}</div>
+            </div>
+            <div class="goods-counter text-left padding-horizontal-20">
+                <span class="subtract" v-on:click="numCut">-</span><span class="count-box">{{num}}</span><span class="add" v-on:click="numAdd">+</span>
+                <span class="ml10">限购{{goods.limit_num}}人次</span>
+            </div>
+            <div class="text-left padding-vertical-10 padding-horizontal-20">
+                合计：<span class="font-red f20">{{parseInt(goods.cost_price) * parseInt(num)}}</span>
+                <span class="font-red f18">元</span>
+            </div>
+            <div class="padding-horizontal-20">
+                <button class="btn br4 width-full bg-red font-white">去结算</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript" src="assets/js/swiper.min.js"></script>
+    <script type="text/javascript">
+        //结算弹框
+        $('.goods-popup-trigger').on('click', function(event){
+            event.preventDefault();
+            $('.goods-popup').addClass('is-visible');
+        });
+        //关闭结算弹框
+        $('.goods-popup').on('click', function(event){
+            if( $(event.target).is('.goods-popup-close') || $(event.target).is('.goods-popup') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible');
+            }
+        });
+
+        var goodsDetailApp = new Vue({
+            el: '#goodsDetailApp',
+            data: {
+                goods: {},
+                num: 1
+            },
+            computed: {
+                progressWidth: function() {
+                    var buyProgress = Math.floor((this.goods.purchase_num / this.goods.total_num) * 100);
+                    return buyProgress.toString() + '%';
+                }
+            },
+            methods:{
+                numAdd: function() {
+                    if(this.num < this.goods.limit_num){
+                        this.num ++;
+                    }
+                },
+                numCut: function() {
+                    if(this.num > 1){
+                        this.num --;
+                    }
+                },
+                initialSwiper: function(index){
+                    if(index + 1 == this.goods.img.length){
+                        //初始化轮播组件
+                        var swiper = new Swiper('.swiper-container', {
+                            pagination: '.swiper-pagination',
+                            paginationClickable: true
+                        });
+                    }
+                    return this.goods.img[index];
+                }
+            }
+        });
+
+        $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail', {goods_id: getParam('goods_id')}).done(function (data) {
+            goodsDetailApp.goods = data.data.goodinfo;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

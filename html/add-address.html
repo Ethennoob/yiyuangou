@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="addAddressApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>新增地址
+    </div>
+
+    <!--表单-->
+    <div class="padding-horizontal-10 bg-white row">
+        <label class="up-label">收货人姓名</label>
+        <input class="block-input">
+        <label class="up-label">手机号码</label>
+        <input class="block-input">
+        <label class="up-label">收货地址</label>
+        <div class="row margin-vertical-10">
+            <div class="col-xs-3 lh35 font-grey">省份</div>
+            <div class="col-xs-9">
+                <select v-model="province" class="block-input">
+                    <option v-for="provinceItem in cityData" v-bind:value="provinceItem.name">
+                        {{provinceItem.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row margin-vertical-10">
+            <div class="col-xs-3 lh35 font-grey">城市</div>
+            <select v-model="city" class="block-input">
+                <option v-for="cityItem in selectData" v-bind:value="cityItem.name">
+                    {{province.name}}
+                </option>
+            </select>
+        </div>
+        <div class="row margin-vertical-10">
+            <div class="col-xs-3 lh35 font-grey">县区</div>
+            <div class="col-xs-9">
+                <input class="block-input">
+            </div>
+        </div>
+        <div class="row margin-vertical-10">
+            <div class="col-xs-3 lh35 font-grey">详细地址</div>
+            <div class="col-xs-9">
+                <textarea rows="5" class="block-input"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!--按钮-->
+    <div class="padding-horizontal-10 padding-vertical-20 cf">
+        <button class="btn bg-red font-white width-full br4">保存地址</button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var addAddressApp = new Vue({
+            el: '#addAddressApp',
+            data: {
+                province: '',
+                city: '',
+                cityData: []
+            },
+            computed: {
+                selectData: function () {
+                    var that = this;
+                    var aa = this.cityData.filter(function(item) {
+                        return item.name == that.province;
+                    }).sub;
+                    console.log(aa);
+                    return this.cityData.filter(function(item) {
+                        return item.name == that.province;
+                    })[0].sub;
+//                    console.log(filterBy(this.cityData, this.province, 'name'));
+////                    return filterBy(this.cityData, this.province, 'name').sub;
+                }
+            }
+        });
+        $.getJSON('assets/json/city.json').done(function (data) {
+            addAddressApp.cityData = data;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+
+</body>
+</html>

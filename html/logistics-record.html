@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="logisticsApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">物流记录
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--无记录时显示的信息-->
+    <div v-if="!logistics" class="text-center mt20 font-bold">暂无物流记录</div>
+
+    <!--物流状态列表-->
+    <ul class="logistics-list pl16 pr10 padding-vertical-20 bd-bottom bd-grey bg-white">
+        <li v-for="item in logistics" v-bind:class="{'logistics-end': isEnd($index)}"><!-- logistics-end在已签收时才添加 logistics-end-->
+            <div class="logistics-list-dot"></div>
+            <div class="logistics-content">
+                <span class="block">{{item.context}}</span>
+                <div class="f14 font-grey mt5">{{item.time}}</div>
+            </div>
+        </li>
+    </ul>
+
+    <!--所获商品信息-->
+    <div class="bg-white bd-top bd-bottom bd-grey grid-container margin-vertical-20">
+        <div class="bd-bottom bd-grey padding-horizontal-10 padding-vertical-10">
+            获得的商品
+        </div>
+        <a href="goods-detail.html?goods_id={{goodsId}}&user_id={{userId}}" class="block row padding-horizontal-10 padding-vertical-10">
+
+            <div class="col-xs-3">
+                <div class="product-small-img" v-bind:style="{'background-image': 'url(' + goods.goods_thumb + ')'}"></div>
+            </div>
+
+            <div class="col-xs-9">
+                <span>{{goods.goods_title}}</span>
+                <span class="block mt5">本期购入{{goods.num}}人次
+                </span>
+                <span class="block mt5">中奖码
+                    <span class="font-red">{{goods.code}}</span>
+                </span>
+                <span class="block font-grey mt5 f14">揭晓时间：{{goods.lucky_time | date}}</span>
+            </div>
+        </a>
+    </div>
+
+    <!--分享按钮-->
+    <div class="padding-horizontal-10 mb20">
+        <button class="btn bg-white share-btn" v-on:click="sharePopup">
+            <span class="mr5">
+                <img src="assets/i/share.png" height="16" />
+            </span>
+            分享求祝福
+        </button>
+    </div>
+
+    <!--分享指引弹窗-->
+    <div v-bind:class="{'is-visible': sharePopupVisible}" v-on:click="sharePopupClose" class="popup" role="alert">
+        <div v-on:click.stop>
+            <img src="assets/img/share-tip.png" class="share-tip">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var logisticsApp = new Vue({
+            el: '#logisticsApp',
+            data: {
+                logistics: {},
+                logisticsState: '',
+                goods: {},
+                sharePopupVisible: false,
+                userId: '',
+                goodsId: ''
+            },
+            methods: {
+                isEnd: function (index) {
+                    return index == 0 && this.logisticsState == 3;
+                },
+                sharePopup: function () {
+                    this.sharePopupVisible = true;
+                },
+                sharePopupClose: function () {
+                    this.sharePopupVisible = false;
+                }
+
+            }
+        });
+        if(getParam('logistics_number') !== null){
+            $.post('http://onebuy.ping-qu.com/Api/User/getExpress', {logistics_number: getParam('logistics_number')}).done(function (data) {
+                logisticsApp.logistics = data.data.expressdetail.data;
+                logisticsApp.logisticsState = data.data.expressdetail.state;
+            }).fail(function () {
+                alert("请求失败");
+            });
+        }
+        $.post('http://onebuy.ping-qu.com/Api/Record/luckyOneDetail', {goods_id: getParam('goods_id')}).done(function (data) {
+            logisticsApp.goods = data.data.detail[0];
+            logisticsApp.userId = data.data.detail[0].user_id;
+            logisticsApp.goodsId = data.data.detail[0].goods_id;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="personalApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">个人中心
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--头像显示区-->
+    <a href="personal-detail.html?user_id={{userId}}" class="personal-headImg block text-center padding-vertical-20">
+        <img class="round" v-bind:src="userImg">
+        <span class="block font-white f14 mt5">{{userPhone}}</span>
+    </a>
+
+    <!--导航列表-->
+    <ul class="link-list bg-white">
+        <li>
+            <a href="buy-record.html?user_id={{userId}}" class="block">
+                <i class="i-buy"></i>
+                <span class="ml40">购买记录</span>
+            </a>
+        </li>
+        <li>
+            <a href="obtained-goods.html?user_id={{userId}}" class="block">
+                <i class="i-obtainedGoods"></i>
+                <span class="ml40">已获得的商品</span>
+            </a>
+        </li>
+        <li>
+            <a href="address-manage.html?user_id={{userId}}" class="block">
+                <i class="i-addressManage"></i>
+                <span class="ml40">收货地址管理</span>
+            </a>
+        </li>
+        <li>
+            <a href="help-center.html" class="block">
+                <i class="i-helpCenter"></i>
+                <span class="ml40">帮助中心</span>
+            </a>
+        </li>
+    </ul>
+
+    <!--客服热线-->
+    <div class="text-center f12 service-phone">
+        <i class="i-service"></i>
+        <span class="inline-block vertical-top">客服热线：400-400-4000 (工作时间9:00-21:00)</span>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var personalApp = new Vue({
+            el: '#personalApp',
+            data: {
+                userImg: '',
+                userPhone: '',
+                userId: ''
+            }
+        });
+
+        $.post('http://onebuy.ping-qu.com/Api/User/userOneAllDetail', {user_id: getParam('user_id')}).done(function (data) {
+            personalApp.userImg = data.data.user.user_img;
+            personalApp.userPhone = data.data.user.phone;
+            personalApp.userId = getParam('user_id');
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

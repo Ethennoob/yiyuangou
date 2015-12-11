@@ -155,7 +155,7 @@ class Common_util_pub
         //初始化curl        
        	$ch = curl_init();
 		//设置超时
-		curl_setopt($ch, CURLOP_TIMEOUT, $second);
+		curl_setopt($ch, CURLOPT_TIMEOUT, $second);
         //这里设置代理，如果有的话
         //curl_setopt($ch,CURLOPT_PROXY, '8.8.8.8');
         //curl_setopt($ch,CURLOPT_PROXYPORT, 8080);
@@ -171,7 +171,7 @@ class Common_util_pub
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
 		//运行curl
         $data = curl_exec($ch);
-		curl_close($ch);
+		//curl_close($ch);
 		//返回结果
 		if($data)
 		{

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/layer.css" />
+</head>
+<body id="joinRecordApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">参与记录
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+        <a href="javascript: location.href = 'personal.html?user_id=' + getParam('user_id');">
+            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        </a>
+    </div>
+
+    <!--无记录时显示的信息-->
+    <div v-if="!recordList" class="text-center mt20 font-bold">暂无购买记录</div>
+
+    <!--记录列表-->
+    <ul class="bg-white join-record-list">
+        <li v-for="item in recordList" v-on:click="buyCodePopup($index)">
+            <span class="inline-block">
+                <img class="round" src="assets/img/headImg.png" width="40">
+            </span>
+            <span class="ml10 inline-block vertical-top">
+                <span class="font-red">{{item.nickname}}</span>购买了{{item.num}}人次
+                <span class="block f14 font-grey mt5">{{item.add_time | date}}</span>
+            </span>
+        </li>
+    </ul>
+
+    <!--认购码弹窗-->
+    <div v-bind:class="{'is-visible': CodePopupVisible}" v-on:click="buyCodePopupClose" class="popup buy-code-popup f15" role="alert">
+        <div v-on:click.stop class="popup-container bg-grey">
+            <a v-on:click="buyCodePopupClose" href="javascript:;" class="popup-close buy-code-popup-close"></a>
+            <div class="default-font padding-horizontal-10 padding-vertical-10 bd-bottom bd-grey">
+                <span class="font-red">{{buyCodeData.nickname}}</span>购买了{{buyCodeData.code.length}}人次
+            </div>
+            <div class="text-left default-font padding-horizontal-10 padding-vertical-20">认购码：
+                <div>
+                    <span v-for="item in buyCodeData.code" class="inline-block mr16 padding-vertical-10">{{item}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var joinRecordApp = new Vue({
+            el: '#joinRecordApp',
+            data: {
+                recordList: {},
+                CodePopupVisible: false,
+                buyCodeData: {}
+            },
+            methods: {
+                buyCodePopup: function (index) {
+                    event.preventDefault();
+                    this.buyCodeData = this.recordList[index];
+                    this.CodePopupVisible = true;
+                },
+                buyCodePopupClose: function () {
+                    event.preventDefault();
+                    this.CodePopupVisible = false;
+                }
+            }
+        });
+
+        $.post('http://onebuy.ping-qu.com/Api/Record/buyGoodsRecordList', {goods_id: getParam('goods_id')}).done(function (data) {
+            joinRecordApp.recordList = data.data.recordpage;
+        }).fail(function () {
+            alert("请求失败");
+        });
+    </script>
+</body>
+</html>

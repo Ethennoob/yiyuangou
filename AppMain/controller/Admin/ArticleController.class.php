@@ -32,22 +32,15 @@
          * 查询文章列表
          */
         public function articleList(){
-            $this->V(['is_show'=>['in',[0,1],false]]);
             $where=['is_on'=>1];
             //$this->queryFilter，拼接查询字段
-            $whereFilter=$this->queryFilter($where,['is_show']);
-
+            $whereFilter=$this->queryFilter($where,['is_show'=>1]);
+            $field=['id','title'];
             $pageInfo = $this->P();
-
             $class = $this->table('article')->where($whereFilter)->order('add_time desc');
             //查询并分页
-            $articlelist = $this->getOnePageData($pageInfo,$class,'get','getListLength',null,false);
-            if($articlelist){
-                foreach ($articlelist as $k=>$v){
-                    $articlelist[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-                    $articlelist[$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
-                }
-            }else{
+            $articlelist = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
+            if(!$articlelist){
                 $articlelist = null;
             }
             //返回数据，参见System/BaseClass.class.php方法
@@ -57,18 +50,16 @@
         /**
          * 查询一条文章信息
          */
-        public function articleOneList(){
-            $this->V(['id'=>['egNum',null,true]]);
-            $id = intval($_POST['id']);
-            if (!$articleDetail){
+        public function articleOneDetail(){
+            $this->V(['article_id'=>['egNum',null,true]]);
+            $id = intval($_POST['article_id']);
                 //查询一条数据
                 $article = $this->table('article')->where(['is_on'=>1,'id'=>$id])->get(null,true);
                 if(!$article){
                     $this->R('',70009);
                 }
-                $article['update_time'] = date('Y-m-d H:i:s',$article['update_time']);
-                $article['add_time'] = date('Y-m-d H:i:s',$article['add_time']);
-            }    
+                $article['update_time'] = $article['update_time'];
+                $article['add_time'] = $article['add_time'];   
             $this->R(['article'=>$article]);
         }
 

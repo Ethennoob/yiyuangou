@@ -147,6 +147,13 @@ class GoodsController extends BaseClass {
         if(!$goods){
             $this->R('',70009);
         }
+        $albumList = explode(";",$goods['goods_album'] );
+        /*$count=count($albumList);
+        for ($i=0; $i < $count-1; $i++) { 
+            $goods['img']=$albumList[$i];
+        }*/
+        $goods['img'] = $albumList;
+        unset($goods['goods_album']);
         $goods['add_time'] = date('Y-m-d H:i:s',$goods['add_time']);
         $goods['update_time'] = date('Y-m-d H:i:s',$goods['update_time']);
         $goods['upload_date'] = date('Y-m-d H:i:s',$goods['upload_date']);
@@ -286,6 +293,11 @@ class GoodsController extends BaseClass {
             $this->R('',70009);
         }
         $albumList = explode(";",$album['goods_album'] );
-        $this->R(['albumList'=>$albumList]);
+        $count=count($albumList);
+        for ($i=0; $i < $count-1; $i++) { 
+            $slideList['img'.$i]=$albumList[$i];
+        }
+        
+        $this->R(['albumList'=>$slideList]);
     }
 }

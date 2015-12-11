@@ -6,6 +6,7 @@ protected function initTable(){ $this->fields=[
 'id'=> ['type' => 'i', 'value' => null],
 'user_id'=> ['type' => 'i', 'value' => null],
 'thematic_id'=> ['type' => 'i', 'value' => null],
+'record_id'=> ['type' => 'i', 'value' => null],
 'goods_id'=> ['type' => 'i', 'value' => null],
 'bill_sn'=> ['type' => 's', 'value' => null],
 'code'=> ['type' => 's', 'value' => null],
