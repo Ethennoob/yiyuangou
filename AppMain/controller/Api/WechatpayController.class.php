@@ -15,25 +15,29 @@
                 $this->V($rule);
                 foreach ($rule as $k => $v) {
                 $data[$k] = $_POST[$k];
-                }
+            }
             // 'attach' => json_encode(array('orderSn' => $isOrder['order_sn'])),
                 //$openid = "o3SK1wKbW5HtmVMit2Ma__vX5bvQ";
+                $openid = $_SESSION['userInfo']['openid'];
+                //echo $openid;
                 $data = array(
-                     'orderSn' => $data['goods_sn'],
-                    //'orderSn' => 'FDADFDF',
+                     'orderSn' => $data['goods_sn'].rand(1,9999),
+                   // 'orderSn' => 'FDADFDF'.rand(1,99999999),
                      'price'   => $data['price'],
                    // 'price'   => 3,
                     'body' => '一元购支付',
                     'detail' => '一元购支付服务',
-                    //'notifyUrl'=>gethost().'/Api/Wechatpay/notifyUrl',
-                    'notifyUrl'=>gethost().'/pay/notify.php',
+                    'notifyUrl'=>gethost().'/Api/Wechatpay/notifyUrl',
+                    //'notifyUrl'=>gethost().'/jsapi/notify.php',
                     );
-                $wechatPay = $this->H('Wechat')->wechatPay($data,$_SESSION['userInfo']['openid']);
+                $wechatPay = $this->H('Wechat')->wechatPay($data,$openid);
+              //  var_dump($wechatPay);
+               // exit();
                 if (!$wechatPay) {
-                	$this->R('',90007);
+                	$this->R('',40001);
                 }
                 //print_r($wechatPay);
-                 $this->R(array('wechatPay' => $_SESSION['userInfo']['openid']));
+                 $this->R(array('wechatPay' => $wechatPay));
 
                  }
     	}
@@ -61,12 +65,12 @@
                     $isUser=$this->getUserInfo($accessToken);
                    $_SESSION['userInfo']=[
                     'openid'=>$isUser['openid'],
-                    'userid'=>$isUser['id'],
+                   // 'userid'=>$isUser['id'],
                     'nickname'=>$isUser['nickname'],
-                    'user_img'=>$isUser['user_img'],
+                   // 'user_img'=>$isUser['user_img'],
                 ];
 
-                    header("LOCATION:".$_SESSION['wechat_refer']);
+                   // header("LOCATION:".$_SESSION['wechat_refer']);
             } else {
                 //用户取消授权
                 $this->R('','90006');

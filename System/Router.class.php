@@ -1,19 +1,17 @@
 <?php
 namespace System;
 class Router{
+    static $isView=false;
+    static $isViewMuti=false;
     
-    public static function router(){
+	public static function router(){
         //载入配置
-        //require_once  __ROOT__.'/router.php';
         self::defaultConf();
+    }
 
-        
-   }
-    
-   public static function test(){
-   		echo 'vfdfdgdf';
-   }
-    
+    /**
+     * 默认配置
+     */
     public static function defaultConf(){
         //美化url
         $module = Entrance::$module;
@@ -21,17 +19,32 @@ class Router{
         $function = Entrance::$function;
         
         if (strlen($module) > 0 && strlen($class) > 0 && strlen($function) > 0) {
-            self::Controller("\\AppMain\\controller\\" . $module . "\\" . $class)->$function();
+            self::Controller($module . '.' . $class)->$function();
         } else {
             echo '非法访问';
             exit();
         }
     }
-    
-    public static function Controller($class) {
-        return self::getClass($class . "Controller");
+
+    /**
+     * 加载控制器
+     */
+    public static function Controller($class,$isView=false,$isMuti=false,$functionName=null) {
+    	$class = str_replace(array('.', '#'), array('\\', '.'), $class);
+    	
+    	if ($isView){
+    		self::$isView=true;
+    		self::$isViewMuti=$isMuti;
+    	}
+    	
+    	BaseClass::$functionName=$functionName;
+    	
+        return self::getClass("\\AppMain\\controller\\" .$class . "Controller");
     }
-    
+
+    /**
+     * 加载类
+     */
     public static function getClass($class, $db = "") {
         if ($db != "") {
             $class = '\\AppMain\\data\\' . $db . '\\' . $class;

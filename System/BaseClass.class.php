@@ -5,7 +5,8 @@ abstract class BaseClass {
 	private $cache=null;   //缓存实例
 	
     private $pageInfo;
-    private $tableMap = array();
+    //private $tableMap = array();  //表名路由
+    static $BD=null;
     
     public $mapTable=[];
     
@@ -14,31 +15,36 @@ abstract class BaseClass {
     static $errMap = [];
     protected $error;
 
-    public function table($class=null, $db = "DB_MASTER") {
-    	if (!array_key_exists($class.'-'.$db, $this->tableMap)) {
-    		if ($class!==null){
-    			$this->tableMap[$class.'-'.$db] = \System\Router::getClass($class, $db);
-    		}
-    		else{
-    			$this->tableMap[$class.'-'.$db] = new \System\database\InitTable($db);
-    		}
-    	}	
-    	return $this->tableMap[$class.'-'.$db];
- 	}
+    static $functionName=null;
+    static $viewDataTemp=null;
+    public $viewData=null;
+    
+    public function table($tableName=null, $db = "DB_MASTER") {
+       	if (self::$BD === null){
+    		self::$BD=new \System\database\BaseTable($db);
+    	}
+    	
+    	if ($tableName !== null){
+    		self::$BD->setTable($tableName);
+    	}
+    	
+    	return self::$BD;
+    }
 
     /**
      * 实例化help层
-     * @param str $class
+     * @param string $class
      * @return 
      */
     public function H($class) {
+    	$class = str_replace(array('.', '#'), array('\\', '.'), $class);
     	$class='\\AppMain\\helper\\'.$class. 'Helper';
         return \System\Router::getClass($class);
     }
     
     /**
      * 使用缓存
-     * @param str $type  缓存类型
+     * @param string $type  缓存类型
      */
     public function S($type='memcached'){
         switch ($type){
@@ -52,6 +58,16 @@ abstract class BaseClass {
                     return $this->cache['memcachedCache'];
                 }
                 break;
+            case 'redis' :   //memcache
+                if (empty($this->cache['redis'])){
+                	$mem=new MyRedis();
+                	$this->cache['redis']=$mem;
+                	return $mem;
+                }
+                else{
+                	return $this->cache['redis'];
+                }
+                	break;
             case 'local' :   //本地文件缓存
                 if (empty($this->cache['local'])){
                     $mem=new MyLocalCache();
@@ -101,7 +117,7 @@ abstract class BaseClass {
     
     /**
      * 实例化分页类
-     * @param str $type  缓存类型
+     * @param string $type  缓存类型
      */
     public function P(){
     	return new PageInfo();
@@ -129,7 +145,7 @@ abstract class BaseClass {
     
     /**
      * 读取\修改配置文件
-     * @param str $name  缓存名称
+     * @param string $name  缓存名称
      * @param mixed $value 修改数据
      */
     public function config($name,$value=null){
@@ -138,7 +154,7 @@ abstract class BaseClass {
     
     /**
      * 转换参数意义
-     * @param str $name  配置名称
+     * @param string $name  配置名称
      * @param mixed $value id
      */
     public function convertId($name,$id=null){
@@ -148,11 +164,11 @@ abstract class BaseClass {
     
     /**
      * 查询筛选
-     * @param array 原条件数组
+     * @param array $filter 原条件数组
      * @param array $mappingTable  对应表
      * @param array $data 数据
-     * @param boo; $isMatch 是否需要对应
-     * @return unknown
+     * @param bool $isMatch 是否需要对应
+     * @return array
      */
     public function queryFilter($filter,$mappingTable=null,$data=null,$isMatch=false){
     	$data===null?$data=$_POST:$data;
@@ -206,8 +222,8 @@ abstract class BaseClass {
 
     /**
      * 错误日志
-     * @param unknown $errFileName
-     * @param unknown $msg
+     * @param string $errFileName
+     * @param string $msg
      */
     public function logErr($errFileName, $msg) {
         file_put_contents(__ROOT__ . "/Cache/" . $errFileName, date("H/m/d H:i:s", time()) . '----' . $msg .PHP_EOL, FILE_APPEND);
@@ -220,51 +236,116 @@ abstract class BaseClass {
      * @param string $errcode
      * @param bool $helper   是否helper调用，如果true,则不返回json
      */
-    protected function R($data = "", $errcode = '',$helper=false) {
-        
-        
-        if (!empty($errcode))
+    protected function R($data = "", $errcode = '',$helper=false,$jumpUrl='') {
+        if (!empty($errcode)){
             $this->errcode = $errcode;
-        
+        }
+
         if ($this->errcode==0){
             $errmsg='请求成功！';
             $isImportant=0;
         }
         else{
             if (empty(self::$errMap)){
-                $errMap=require '../errorCode.php';
+                $errMap=require __ROOT__.'/errorCode.php';
                 self::$errMap=$errMap;
             }
             
             if (is_array(self::$errMap[$this->errcode])) {
                 $errmsg = self::$errMap[$this->errcode][0];
                 $isImportant = self::$errMap[$this->errcode][1];
+                $defaultUrl=empty(self::$errMap[$this->errcode][2])?0:self::$errMap[$this->errcode][2];
+                $jumpUrl=empty($jumpUrl)?$defaultUrl:$jumpUrl;
             } else {
                 $errmsg = self::$errMap[$this->errcode];
                 $isImportant = 0;
+                $jumpUrl='';
             }
-        }
+		}
         
-        if (!$helper){
-        	ajaxReturn(array("errcode" => $this->errcode, "errmsg" => $errmsg, 'data' => $data, 'isImportant' => $isImportant), "JSON", JSON_UNESCAPED_UNICODE);
+        $returnData=[
+        		"errcode" => $this->errcode, 
+        		"errmsg" => $errmsg, 
+        		'data' => $data, 
+        		'isImportant' => $isImportant ,
+        		'jumpUrl'=>$jumpUrl
+        ];
+        
+        $isView=Router::$isView;
+        $isViewMuti=Router::$isViewMuti;
+        
+        if (!$helper &&  $isView === false ){
+        	ajaxReturn($returnData, "JSON", JSON_UNESCAPED_UNICODE);
         }
-        else{
-        	return array("errcode" => $this->errcode, "errmsg" => $errmsg);
+        elseif (!$helper && $isView === true ){
+        	//错误跳转
+        	if ($returnData['errcode'] !=0 && $returnData['isImportant']==1){
+        		redirect(getHost().$jumpUrl);
+        	}
+        	
+        	if ($isViewMuti){
+        		self::$viewDataTemp[self::$functionName]=$returnData;
+        	}
+        	else{
+        		self::$viewDataTemp=$returnData;
+        	}
+        	return;
         }
-    
+
+        return $returnData;
     }
     
     /**
+     * 调用Api的Controller生成view
+     * @param string|array $class Controller位置
+     * @param string|array $function
+     * @param array 参数 
+     * @example $this->ApiView('Api.Test','test123',['234234','23434']);
+     * @example $this->ApiView(['Api.Test','Api.Test'],['test123','test1234'],[['234234','23434'],['ffff']]);
+     */
+    protected function ApiView($class,$function,$params=[]){
+    	if (is_string($class)){
+    		$dataClass=Router::Controller($class,true);
+    		call_user_func_array([$dataClass, $function], (array) $params);
+    	}
+    	else{
+    		foreach ($class as $key=>$v){
+    			$dataClass=Router::Controller($v,true,true,$function[$key]);
+    			$mutiParams=empty($params)?[]:$params[$key];
+    			call_user_func_array([$dataClass, $function[$key]], (array) $mutiParams);
+    		}
+    	}
+    	
+    	$this->View();
+    }
+
+    /**
+     * 加载模板
+     * @param string|array $data
+     */
+    protected function View($data=null) {
+    	if ($data !== null){
+    		self::$viewDataTemp = $data;
+    	}
+    	
+    	$this->viewData=json_encode(self::$viewDataTemp);
+    	$requestPath=__ROOT__.'/AppMain/view/'.Entrance::$module.'/'.Entrance::$class.'/'.Entrance::$function.'.php';
+        define('STATIC_PATH',$this->config('STATIC_PATH'));
+        require $requestPath;
+        exit;
+    }
+
+    /**
      * 用于获取单页列表数据
      * @param pageInfo $pageInfo 页面类，控制页面输出
-     * @param instance $dataClass 获取数据的Data类
+     * @param object $dataClass 获取数据的Data类
      * @param string $listFunc 用于获取列表的Data类的函数名称
      * @param string $lengFunc 用于获取总行数的Data类的函数名称
      * @param array $params 函数参数数组（$conn除外且默认为第一个参数），默认为空
-     * @param array $isMulti 判断$dataClass是否Helper类
+     * @param array $isHelper 判断$dataClass是否Helper类
      * @return false|array 返回数据列表，失败返回false
      */
-    protected function getOnePageData(&$pageInfo, &$dataClass, $listFunc, $lengFunc = null, array $params = null, $isMulti = false) {
+    protected function getOnePageData(&$pageInfo, &$dataClass, $listFunc, $lengFunc = null, array $params = null, $isHelper = false) {
     	$pageInfo->psize = isset($_REQUEST["psize"]) ? $_REQUEST["psize"] : 15;
     	$rt = false;
     	if (null == $lengFunc)
@@ -274,11 +355,11 @@ abstract class BaseClass {
     		$pn = "1";
     
     	$pageInfo->num = intval($pn);
-    
+
     	$pageInfo->dataSize = call_user_func_array([$dataClass, $lengFunc], (array) $params);
     	if ($pageInfo->dataSize > 0) {
     		$begin = ($pageInfo->num - 1) * $pageInfo->psize; //从第N笔开始检索
-    		if ($isMulti) {
+    		if ($isHelper) {
     			\System\database\MultiBaseTable::setMultiSqlStmt(["begin" => $begin, "size" => $pageInfo->psize]);
     		} else {
     			$dataClass->setSqlStmt(["begin" => $begin, "size" => $pageInfo->psize]);

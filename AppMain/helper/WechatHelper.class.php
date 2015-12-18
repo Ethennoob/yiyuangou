@@ -49,13 +49,13 @@ class WechatHelper extends BaseHelper {
 		//spbill_create_ip已填,商户无需重复填写
 		//sign已填,商户无需重复填写
 		$unifiedOrder->setParameter("openid","$openid");//商品描述
-		$unifiedOrder->setParameter("body","一元购支付");//商品描述
-		$unifiedOrder->setParameter("detail","一元购支付");//商品描述
+		$unifiedOrder->setParameter("body",$data['body']);//商品描述
+		$unifiedOrder->setParameter("detail",$data['detail']);//商品描述
 		//自定义订单号，此处仅作举例
 		$timeStamp = time();
 		$out_trade_no = \System\lib\WxPay\WxPayConf_pub::APPID()."$timeStamp";
 		$unifiedOrder->setParameter("out_trade_no",$data['orderSn']);//商户订单号
-		$unifiedOrder->setParameter("total_fee",$data['money']);//总金额
+		$unifiedOrder->setParameter("total_fee",$data['price']);//总金额
 		$unifiedOrder->setParameter("notify_url", $data['notifyUrl']);//通知地址
 		//$unifiedOrder->setParameter("notify_url", $data['notifyUrl']);//通知地址
 		$unifiedOrder->setParameter("trade_type","JSAPI");//交易类型
@@ -80,7 +80,7 @@ class WechatHelper extends BaseHelper {
 		$jsApi->setPrepayId($prepay_id);
 	
 		$jsApiParameters = $jsApi->getParameters();
-		dump($jsApiParameters);
+		//dump($jsApiParameters);
 		
 		return $jsApiParameters;
 	}

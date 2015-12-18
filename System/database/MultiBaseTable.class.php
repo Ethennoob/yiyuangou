@@ -9,7 +9,7 @@ class MultiBaseTable {
         "bindParams" => null, //语句中要绑定的参数。
         "orderBy" => null, //排序字段
         "isDesc" => null, //判断是否降序
-        "begin" => null, //查询的开始行号
+        "begin" => 0, //查询的开始行号
         "size" => null, //查询行数
         "groupBy" => null, //组合字段
         "havingStmt" => null, //筛选条件。支持需要绑定参数的字符串，如id=? and name=?，绑定的参数由$bindParams指定。
@@ -57,7 +57,7 @@ class MultiBaseTable {
             "bindParams" => null, //语句中要绑定的参数。
             "orderBy" => null, //排序字段
             "isDesc" => null, //判断是否降序
-            "begin" => null, //查询的开始行号
+            "begin" => 0, //查询的开始行号
             "size" => null, //查询行数
             "groupBy" => null, //组合字段
             "havingStmt" => null, //筛选条件。支持需要绑定参数的字符串，如id=? and name=?，绑定的参数由$bindParams指定。

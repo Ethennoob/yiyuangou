@@ -1,0 +1,876 @@
+2015/12/07 21:46:45----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:46:45----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:47:28----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:47:28----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:47:32----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:47:32----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:51:05----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:51:05----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:52:32----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:52:32----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:56:22----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:56:22----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:57:20----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2015/12/07 21:57:20----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/07 21:57:20----
+select `id`,`goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/07 21:57:20----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 44
+
+2015/12/07 21:57:20----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 44 limit 0, 1
+
+2015/12/07 21:57:20----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 44 order by add_time desc limit 0, 1
+
+2015/12/07 21:57:20----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 21:57:20----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 43 limit 0, 1
+
+2015/12/07 21:57:20----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 21:57:20----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/07 21:57:28----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2015/12/07 21:57:28----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/07 21:57:28----
+select `id`,`goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/07 21:57:28----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 44
+
+2015/12/07 21:57:28----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 44 limit 0, 1
+
+2015/12/07 21:57:28----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 44 order by add_time desc limit 0, 1
+
+2015/12/07 21:57:28----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 21:57:28----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 43 limit 0, 1
+
+2015/12/07 21:57:28----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 21:57:28----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/07 21:57:37----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:57:37----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:57:39----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:57:39----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:57:40----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:57:40----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:10----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:10----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:12----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:12----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:12----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:12----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:12----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:12----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:12----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:12----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:13----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:13----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:43----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:43----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:54----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:54----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:55----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:55----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:56----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:56----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 21:58:57----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 21:58:57----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 22:01:22----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:01:22----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 22:02:06----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:02:06----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 22:02:51----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:02:51----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 22:03:38----
+select A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:03:38----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = null limit 0, 1
+
+2015/12/07 22:04:27----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:04:27----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:04:58----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:04:58----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:05:56----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:05:56----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:07:09----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:07:09----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:07:37----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:07:37----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:07:41----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:07:41----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:07:54----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:07:54----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:08:08----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:08:08----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:16:12----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:16:12----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:16:13----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:16:13----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:16:13----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:16:13----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:17:05----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:17:05----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:17:05----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:22:38----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:22:38----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:22:38----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:22:47----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:22:47----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:22:47----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:26:40----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:26:40----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:26:40----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:26:46----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:26:46----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:26:46----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:26:47----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:26:47----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:26:47----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:27:33----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:27:33----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:27:33----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:28:21----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:28:21----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:28:21----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:28:26----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:28:26----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:28:26----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:29:48----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:29:48----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:29:48----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:33:47----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:33:47----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:33:47----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:35:09----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 22:36:18----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:36:18----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:36:18----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:36:20----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:36:20----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 22:36:38----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:36:38----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 22:36:41----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:36:41----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:36:41----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:36:42----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:36:42----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 22:36:49----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:36:49----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:36:49----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:38:22----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`) values (?,?,?,?,?,?)
+
+2015/12/07 22:38:22----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 22:38:22----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 22:38:30----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 22:38:30----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 22:38:30----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `type` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/12/07 22:38:33----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:38:33----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 22:38:34----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:38:34----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:38:34----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:38:47----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 22:38:54----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 22:39:01----
+select count(*) from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1
+
+2015/12/07 22:39:01----
+select `id`,`goods_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1 order by add_time desc limit 0, 15
+
+2015/12/07 22:39:01----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:39:01----
+select `num` from `record` where  `is_on` = 1 AND `goods_id` = 43 AND `user_id` = 28 limit 0, 1
+
+2015/12/07 22:39:01----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:39:03----
+select count(*) from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1
+
+2015/12/07 22:39:03----
+select `id`,`goods_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1 order by add_time desc limit 0, 15
+
+2015/12/07 22:39:03----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:39:03----
+select `num` from `record` where  `is_on` = 1 AND `goods_id` = 43 AND `user_id` = 28 limit 0, 1
+
+2015/12/07 22:39:03----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:39:04----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:39:04----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:39:04----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:39:06----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:39:06----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 22:39:12----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:39:12----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:39:12----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:39:14----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:39:15----
+select count(*) from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1
+
+2015/12/07 22:39:15----
+select `id`,`goods_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1 order by add_time desc limit 0, 15
+
+2015/12/07 22:39:15----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:39:15----
+select `num` from `record` where  `is_on` = 1 AND `goods_id` = 43 AND `user_id` = 28 limit 0, 1
+
+2015/12/07 22:39:15----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:39:49----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 22:40:12----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:40:16----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 22:41:10----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:41:16----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 22:41:39----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:41:42----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:41:45----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`) values (?,?,?,?,?,?)
+
+2015/12/07 22:41:45----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 22:41:45----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 22:41:45----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:41:48----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:41:49----
+select count(*) from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1
+
+2015/12/07 22:41:49----
+select `id`,`goods_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `user_id` = 28 AND `is_confirm` = 1 order by add_time desc limit 0, 15
+
+2015/12/07 22:41:49----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:41:49----
+select `num` from `record` where  `is_on` = 1 AND `goods_id` = 43 AND `user_id` = 28 limit 0, 1
+
+2015/12/07 22:41:49----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:41:50----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.record_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=43
+
+2015/12/07 22:41:50----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 4 limit 0, 1
+
+2015/12/07 22:41:50----
+select `num` from `record` where  `is_on` = 1 AND `id` = 20 limit 0, 1
+
+2015/12/07 22:41:52----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 43 limit 0, 1
+
+2015/12/07 22:41:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 22:41:53----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 22:41:57----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 22:41:57----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 22:41:57----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `type` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/12/07 23:13:45----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 23:27:50----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:35:12----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 23:35:25----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:39:44----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:39:44----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:40:32----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2015/12/07 23:40:32----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/07 23:40:32----
+select `id`,`goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/07 23:40:32----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 44
+
+2015/12/07 23:40:32----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 44 limit 0, 1
+
+2015/12/07 23:40:32----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 44 order by add_time desc limit 0, 1
+
+2015/12/07 23:40:32----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 23:40:32----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 43 limit 0, 1
+
+2015/12/07 23:40:32----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 23:40:32----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/07 23:40:34----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2015/12/07 23:40:34----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/07 23:40:34----
+select `id`,`goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/07 23:40:34----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 44
+
+2015/12/07 23:40:34----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 44 limit 0, 1
+
+2015/12/07 23:40:34----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 44 order by add_time desc limit 0, 1
+
+2015/12/07 23:40:34----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 23:40:34----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 43 limit 0, 1
+
+2015/12/07 23:40:34----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 23:40:34----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/07 23:41:43----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2015/12/07 23:41:43----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/07 23:41:43----
+select `id`,`goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/07 23:41:43----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 44
+
+2015/12/07 23:41:43----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 44 limit 0, 1
+
+2015/12/07 23:41:43----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 44 order by add_time desc limit 0, 1
+
+2015/12/07 23:41:43----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 23:41:43----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 43 limit 0, 1
+
+2015/12/07 23:41:43----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 23:41:43----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/07 23:43:07----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2015/12/07 23:43:07----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/07 23:43:07----
+select `id`,`goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/07 23:43:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 44
+
+2015/12/07 23:43:07----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 44 limit 0, 1
+
+2015/12/07 23:43:07----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 44 order by add_time desc limit 0, 1
+
+2015/12/07 23:43:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 43
+
+2015/12/07 23:43:07----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 43 limit 0, 1
+
+2015/12/07 23:43:07----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/07 23:43:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/07 23:43:31----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:43:31----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:47:36----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/07 23:48:44----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/07 23:48:53----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:48:53----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:48:58----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:48:58----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:49:16----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:49:16----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:50:55----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:50:55----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:51:20----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/07 23:51:29----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`) values (?,?,?,?,?,?)
+
+2015/12/07 23:51:29----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 23:51:29----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 23:51:37----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 23:51:47----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 23:51:47----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 23:51:47----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `type` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/12/07 23:51:50----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/07 23:52:27----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:52:27----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:53:01----
+select `id`,`url`,`keyword`,`title`,`pid`,`sort`,`add_time`,`update_time`,`is_on` from `wechat_menu` where  `is_on` = 1 order by pid asc, sort asc
+
+2015/12/07 23:53:09----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/07 23:53:15----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`) values (?,?,?,?,?,?)
+
+2015/12/07 23:53:15----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 23:53:15----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 23:53:26----
+select `id` from `user` where  `openid` = 'o0YrTwNBQEXAGHEudnc3Tzkf5amA' limit 0, 1
+
+2015/12/07 23:53:26----
+update `user` set `is_follow`=?,`update_time`=? where  `id` = 33
+
+2015/12/07 23:53:26----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `type` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/12/07 23:53:28----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:53:28----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:53:28----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/07 23:53:33----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:53:33----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:57:13----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:57:13----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:57:15----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:57:15----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:57:53----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:57:53----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/07 23:58:08----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/07 23:58:08----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+

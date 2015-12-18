@@ -379,11 +379,84 @@ function createID() {
 /*
  * 生成订单号
  */
-function getOrderNumber(){
-    $guid= md5(time()+uniqid());
-    $uniqid=uniqid($guid,false);   
-    mt_srand((double) microtime() * 1000000);
-    return date('ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT).substr($uniqid, 39, 9).mt_rand(50001,90001);
+function getOrderNumber() {
+    /* $guid= md5(time()+uniqid());
+      $uniqid=uniqid($guid,false);
+      mt_srand((double) microtime() * 1000000);
+      return date('ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT).substr($uniqid, 39, 9).mt_rand(50001,90001); */
+    $mtime = microtime() * 1000000;
+    $time = time();
+    $no1 = md5($mtime . $time);
+    $no2 = substr($no1, 0, 4);
+    $no3 = substr(md5(uniqid(mt_rand(), true)), 0, 12);
+    return date('ymd') . $no2 . $no3;
+}
+
+/*
+ * 获取下个月的当天时间，如果没有当天则返回下个月最后一天的时间格式
+ * $date：传入时间戳
+ * @return :字符串格式 ‘2015-12-25’或者时间戳
+ */
+function getNextMonthDay($timestamp, $isReturnUXTime = false) {
+    $strDate = null;
+    //$timestamp = strtotime($date);
+    $arr = getdate($timestamp);
+    $theDay = $arr['mday'];
+    if ($arr['mon'] == 12) {
+        $year = $arr['year'] + 1;
+        $month = $arr['mon'] - 11;
+        $firstday = $year . '-0' . $month . '-01';
+        $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
+    } else {
+        $firstday = date('Y-m-01', strtotime(date('Y', $timestamp) . '-' . (date('m', $timestamp) + 1) . '-01'));
+        $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
+    }
+    $nextMonArr = getdate(strtotime($lastday));
+    $nextMonLastDay = $nextMonArr['mday'];
+    $theYear = $nextMonArr['year'];
+    $theMonth = $nextMonArr['mon'];
+    if ($nextMonLastDay < $theDay) {
+        $strDate = $lastday;
+    } else {
+        $strDate = $theYear . '-' . $theMonth . '-' . $theDay;
+    }
+    $returnTime = $isReturnUXTime ? strtotime($strDate) : $strDate;
+    return $returnTime;
+}
+/*
+ * N个月之后的当天时间
+ * $timestamp 传入时间戳
+ * $addMonth 月的个数
+ * $isReturnUXTime 是否转换成时间戳返回，默认否
+ * @return 返回N个月时候的当天时间
+ */
+function getMonthDay($timestamp, $addMonth,$isReturnUXTime = false) {
+    $strDate = null;
+    //$timestamp = strtotime($date);
+    $arr = getdate($timestamp);
+    $theDay = $arr['mday'];
+    $sumMonth = $arr['mon'] + $addMonth; //累加的月份
+    if ($sumMonth > 12) {
+        $year = $arr['year'] + intval($sumMonth / 12);
+        $month = $sumMonth % 12;
+        //$paddZero = $month < 10 ? '-0' : '-';
+        $firstday = $year . '-' . $month . '-01'; //echo $firstday.'---'.$month;exit;
+        $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
+    } else {
+        $firstday = date('Y-m-01', strtotime(date('Y', $timestamp) . '-' . (date('m', $timestamp) + 1) . '-01'));
+        $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
+    }
+    $targetMonArr = getdate(strtotime($lastday));
+    $targetMonLastDay = $targetMonArr['mday'];
+    $theYear = $targetMonArr['year'];
+    $theMonth = $targetMonArr['mon'];
+    if ($targetMonLastDay < $theDay) {
+        $strDate = $lastday;
+    } else {
+        $strDate = $theYear . '-' . $theMonth . '-' . $theDay;
+    }
+    $returnTime = $isReturnUXTime ? strtotime($strDate) : $strDate;
+    return $returnTime;
 }
 
 /**

@@ -9,7 +9,7 @@ namespace System\database;
 
 class Database {
 
-    static private $conn;
+    static public $conn;
 
     static public function openConnection($db = "DB_MASTER") {
         if (empty(self::$conn[$db])) {

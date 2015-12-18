@@ -43,7 +43,7 @@ class MyVerify {
     				$rt=self::isMobile($value);
     				break;
     			case 'num' :   //大于等于0的整数
-    				$rt=self::islanguage($value,'alb');
+    				$rt=(is_numeric($value)&&$value >=0)?true:false;
     				break;
     			case 'egNum' : 	//大于0的整数数字
     			    if (isset($a[1])&&$a[1]!==null){
@@ -177,7 +177,7 @@ class MyVerify {
      * @param string $match
      * @return boolean
      */
-    public static function isMobile($value, $match = '/^(0)?1([3|4|5|8])+([0-9]){9,10}$/') {
+    public static function isMobile($value, $match = '/^(0)?1([3|4|5|7|8])+([0-9]){9,10}$/') {
     	// 支持国际版：([0-9]{1,5}|0)?1([3|4|5|8])+([0-9]){9,10}
     	if (!$value)
     		return false;

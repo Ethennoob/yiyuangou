@@ -33,7 +33,7 @@ class CreateDBController extends BaseClass {
 		    //$className = convertTableToClass($table);
 		    $className = $table;
 		    //$string = "<?php class $className extends BaseTable{" . PHP_EOL . "protected function initTable(){ \$this->fields=[" . PHP_EOL;
-		    $string = "protected function initTable(){ \$this->fields=[" . PHP_EOL;
+		    $string = "static public function initTable(){ ".PHP_EOL."		return [" . PHP_EOL;
 		    $ai = null;
 		
 		    if ($result) {
@@ -48,30 +48,30 @@ class CreateDBController extends BaseClass {
 		            else if (strpos($row[1], "decimal") !== false || strpos($row[1], "float") !== false || strpos($row[1], "double") !== false)
 		                $type = "d";
 		
-		            $string .= "'$row[0]'=> ['type' => '$type', 'value' => null]," . PHP_EOL;
+		            $string .= "			'$row[0]'=> ['type' => '$type', 'value' => null]," . PHP_EOL;
 		        }
 		        mysqli_free_result($result);
 		    }else {
 		        echo $table;
 		    }
 		    
-		    $string .= "];" . PHP_EOL . "\$this->tableName = '$table';" . PHP_EOL . "\$this->AIField = '$ai';" . PHP_EOL . "}";
+		    $string .= "		];" . PHP_EOL . "	}";//"\$this->tableName = '$table';" . PHP_EOL . "\$this->AIField = '$ai';" . PHP_EOL . "}";
+		    $string2="static public function AIField(){ ".PHP_EOL."		return '$ai';" . PHP_EOL.'	}';
+		    
 		    $filename = "../AppMain/data/$DB/$className.class.php";
 		    if (file_exists($filename)) {
-		        $create = false;
-		        $source = file_get_contents($filename);
-		        //preg_match("/protected\s+function\s+initTable\s*\(\s*\)\s*\{(.*?\s)*?\}/", $source, $matches);
-		        //print_r($matches);
-		        $source = preg_replace("/protected\s+function\s+initTable\s*\(\s*\)\s*\{(.*?\s)*?\}/", $string, $source);
-		    } else {
-		        $create = true;
-		        $source = "<?php" . PHP_EOL .
-		                ' namespace AppMain\data\\'.$DB.';' . PHP_EOL .
-		                'use System\database\BaseTable;' . PHP_EOL .
-		                " class $className extends BaseTable{" . PHP_EOL .
-		                $string . PHP_EOL .
-		                "}" . PHP_EOL;
-		    }
+		        unlink($filename);
+		    } 
+		    
+		    
+		    $create = true;
+		    $source = "<?php" . PHP_EOL .
+		    'namespace AppMain\data\\'.$DB.';' . PHP_EOL .
+		    "class $className {" . PHP_EOL .
+		    '	'.$string . PHP_EOL .
+		    '	'.$string2 . PHP_EOL .
+		    "}" . PHP_EOL;
+		    
 		    
 		    if (!dirExists(dirname($filename))){
 		    	die('创建目录失败！');

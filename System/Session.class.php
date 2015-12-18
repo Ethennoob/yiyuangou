@@ -4,7 +4,7 @@ class Session{
 	static $mem;
 	static $maxtime;
 
-	function __construct($mem){
+	public function __construct($mem){
 		self::$mem = $mem;
 		self::$maxtime = ini_get('session.gc_maxlifetime');
 		session_module_name('user');//session文件保存方式，这个是必须的！除非在Php.ini文件中设置了
@@ -20,26 +20,28 @@ class Session{
 		session_start();//这也是必须的，打开session，必须在session_set_save_handler后面执行
 	}
 
-	static function open($sid){
+	public static function open($sid){
 		return true;
 	}
-	static function close(){
+	
+	public static function close(){
 		return true;
 	}
 
-	static function read($sid){
+	public static function read($sid){
 		return self::$mem->get($sid);
 	}
 
-	static function write($sid,$data){
+
+	public static function write($sid,$data){
 		return self::$mem->set($sid,$data,self::$maxtime);
 	}
 
-	static function destroy($sid){
+	public static function destroy($sid){
 		return self::$mem->delete($sid);
 	}
 
-	static function gc($maxtime){
+	public static function gc($maxtime){
 		return true;
 	}
 }

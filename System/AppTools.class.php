@@ -4,7 +4,7 @@ class AppTools {
     /**
      *  全站发送短信
      */
-    static function sendSms($phone,$content){
+    public static function sendSms($phone,$content){
         $result=self::xuanWuMsm($phone,$content);
         
         return $result;
@@ -13,19 +13,18 @@ class AppTools {
     /**
      *  玄武科技短信接口
      */
-    static function xuanWuMsm($phone,$content){
+    public static function xuanWuMsm($phone,$content){
         $url=\System\Entrance::config('MSM_URL')."username=".\System\Entrance::config('MSM_ACCOUNT')."&password=";
         $url.=\System\Entrance::config('MSM_PWD')."&to=".$phone."&text=".urlencode(iconv('utf-8', 'gb2312', $content))."&subid=&msgtype=1";
-        $result=httpGet($url);
-    
-        if ($result===false){
+        $send=httpGet($url);
+        if ($send===false){
             $retrun=array("result"=>false,"info"=>"接口请求失败！");
             return $retrun;
         }
     
         $result=false;
         $info="";
-        switch ($result){
+        switch ($send){
             case "0" :
                 $result=true;
                 $info="发送成功！";
@@ -62,7 +61,7 @@ class AppTools {
 
     
     
-    private function generateMsgAuthCode() {
+    public static function generateMsgAuthCode() {
         $rand_array = range(0, 9);
         shuffle($rand_array); //调用现成的数组随机排列函数
         return implode('', array_slice($rand_array, 0, 6)); //截取前$limit个
@@ -74,7 +73,7 @@ class AppTools {
      * @param str $path 目录
      * @return bool
      */
-    static function getWechatMedia($mediaID,$savePath=null){
+    public static function getWechatMedia($mediaID,$savePath=null){
     	if (empty($savePath)){
     		$savePath='order/'.time().'_'.rand(1000,9999).".jpg";
     	}
@@ -135,7 +134,7 @@ class AppTools {
         return $return;
     }
     
-    static function sendEmail($to,$subjet,$content){
+    public static function sendEmail($to,$subjet,$content){
         ini_set("magic_quotes_runtime",0);
     
         try {

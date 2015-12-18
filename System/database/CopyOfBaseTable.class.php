@@ -17,8 +17,6 @@ class BaseTable {
     private $AIField; //整数类型的自动增加的字段名称
     private $sqlStmt;
     private $lastSql;
-    private $alias=[]; //表别名对应
-    
     public $tableMap=[];
     
     public $conn;
@@ -30,7 +28,7 @@ class BaseTable {
 
     private $isDebug=false;
     
-    public function __construct($db='DB_MASTER',$debug=false) {
+    public function __construct($db,$debug=false) {
         $this->conn = Database::openConnection($db);
         //$this->initClassfromTable();
         $this->isDebug=\System\Entrance::config('IS_DB_DEBUG');
@@ -85,20 +83,9 @@ class BaseTable {
         return $this->error;
     }
     
-    public function setTable($tableName,$isJoinTable=false){
-    	//如果不是连表操作
-    	if (!$isJoinTable){
-    		$this->initSqlStmt();
-    		$this->tableName=$tableName;
-    	}
-
-    	//建立表别名关联
-    	$p = explode(" as ", $tableName);
-    	if (count($p) > 1) {
-    		$tableName=trim($p[0]);
-    		$alias=trim($p[1]);    		
-    		$this->alias[$alias]=$tableName;
-    	} 
+    public function setTable($tableName){
+    	$this->initSqlStmt();
+    	$this->tableName=$tableName;
     	
     	if (!array_key_exists($this->db.'-'.$tableName,$this->tableMap)){
     		$class='\\AppMain\\data\\'.$this->db.'\\'.$tableName;
@@ -112,15 +99,10 @@ class BaseTable {
     		];
     	}
     	
-    	if (!$isJoinTable){
-    		$this->fields=$this->tableMap[$this->db.'-'.$tableName]['fields'];
-    		$this->AIField=$this->tableMap[$this->db.'-'.$tableName]['AIField'];
-    	}
-    	
-    	
+    	$this->fields=$this->tableMap[$this->db.'-'.$tableName]['fields'];
+    	$this->AIField=$this->tableMap[$this->db.'-'.$tableName]['AIField'];
     	//dump($this->tableMap);
     	//exit('sdfsdf');
-    	//dump($this->alias);
     	return true;
     }
 
@@ -144,7 +126,7 @@ class BaseTable {
     
     /**
      * 设置where条件
-     * @param array $where
+     * @param type $where
      */
     public function where($where) {
         $this->sqlStmt['whereStmt'] = $this->parseWhere($where);
@@ -279,14 +261,7 @@ class BaseTable {
 //                 $val  =  '%'.$val.'%';
 //                 $whereStr .= $key.' LIKE '.$this->parseValue($val);
 //             }else { */
-			$p=explode('.',$key);
-			if (count($p) > 1 ){
-				$whereStr .= $p[0].'.`'.$p[1].'` = ' . $this->parseValue($val);
-			}
-			else{
-				$whereStr .= '`'.$key.'` = ' . $this->parseValue($val);
-			}
-            
+            $whereStr .= '`'.$key.'` = ' . $this->parseValue($val);
             //}
         }
         return $whereStr;
@@ -335,7 +310,7 @@ class BaseTable {
 
     /**
      * 设置插入/更新数据
-     * @param array $data
+     * @param type $data
      */
     public function save($data) {
         $this->filterAndSetFields($data);
@@ -378,7 +353,7 @@ class BaseTable {
     public function join($tableName,$joinOn,$joinType='LEFT JOIN') {
     	$this->sqlStmt['joinOn'][]=$joinOn;
     	$this->sqlStmt['joinType'][]=$joinType;
-    	$this->setTable($tableName,true);
+    	
 
     	return $this;
     }
@@ -564,6 +539,17 @@ class BaseTable {
     }
 
     /**
+     * 通过ID更新一条数据
+     * @param array $updateFields 待更新的所有字段，为NULL时则表示更新所有字段为当前对象的值（自增字段除外）。
+     * @return int 数据库语句执行失败为0，成功更新为1，语句执行成功但没有更新为2
+     */
+    public function setOneById(array $updateFields = null, array $exclude = null) {
+        $pk = $this->AIField;
+        $this->setSqlStmt(["whereStmt" => $pk . "=" . $this->$pk]);
+        return $this->set($updateFields, $exclude);
+    }
+
+    /**
      * 按条件修改某个字段的数值，支持加减乘除四种运行。各参数数组顺序要对应
      * @param array $fieldName 需要修改数值的字段名数组。
      * @param array $calcType 运算符数组，字符型，+，-，*，/ 四个中的任一个。
@@ -656,14 +642,37 @@ class BaseTable {
     }
 
     /**
+     * 通过ID删除一行数据
+     * @return int 数据库语句执行失败为0，成功删除为1，语句执行成功但没有删除为2
+     */
+    public function deleteOneById() {
+        $pk = $this->AIField;
+        $this->setSqlStmt(["whereStmt" => "$pk = " . $this->$pk]);
+        return $this->delete();
+    }
+
+    /**
+     * 通过某一字段为条件删除一行数据
+     * @return int 数据库语句执行失败为0，成功删除为1，语句执行成功但没有删除为2
+     */
+    public function deleteOneByField() {
+        if ($this->exists_field($this->indexField)) {
+            $this->setSqlStmt(["whereStmt" => $this->indexField . "=" . $this->indexFieldValue]);
+            return $this->delete();
+        } else {
+            $this->logError("没有这个字段");
+            return false;
+        }
+    }
+
+    /**
      * 
       按条件查询数据，对应SELECT。
      * @param array $fieldsName 需要查询的所有字段，为NULL时则表示查询所有字段。
      * @return array|this 此方法返回查询结果数组。如果结果只有一行，且不指定查询哪些字段，则将结果赋值给当前对象。
      */
     public function get($fieldsName = null, $getOne = false) {
-    	//dump($this->tableMap);
-    	//dump($this->sqlStmt);//exit;
+    	dump($this->sqlStmt);exit;
         if ($getOne) {
             $this->setSqlStmt(array('begin' => 0, 'size' => 1));
         }
@@ -678,29 +687,15 @@ class BaseTable {
         }
         elseif ($fieldsName && count($fieldsName) > 0) {
             foreach ($fieldsName as $fieldname) {
-            	
-            	$pz = stripos($fieldname, ".");
-				$p = stripos($fieldname, " as ");
-				
-				
-                if ($p > 0 && $pz >0) {
-                	$fieldsZ= substr($fieldname, 0, $pz) . ".`" . substr($fieldname, $pz+1,$p-$pz-1) . "`". substr($fieldname, $p).",";
-				} 
-				elseif ( $p > 0 ) {
-					$fieldsZ= "`" . substr($fieldname, 0, $p) . "`" . substr($fieldname, $p) . ",";
-				}
-				elseif ( $pz >0){
-					$fieldsZ= substr($fieldname, 0, $pz) . ".`" . substr($fieldname, $pz+1) . "`,";
-				}
-				else {
-                	$fieldsZ= "`$fieldname`,";
- 				}
- 				
-				$fields .=$fieldsZ;
- 			}
+                $p = stripos($fieldname, " as ");
+                if ($p > 0) {
+                    $fields .= "`" . substr($fieldname, 0, $p) . "`" . substr($fieldname, $p) . ",";
+                } else {
+                    $fields .= "`$fieldname`,";
+                }
+            }
             $ln = count($fieldsName);
-        } 
-        else {
+        } else {
             $fieldsName = array_keys($this->fields);
             foreach ($fieldsName as $fieldname)
                 $fields .= "`$fieldname`,";
@@ -719,34 +714,8 @@ class BaseTable {
         for ($i = 0; $i < $ln; $i++) {
             $results[] = 0;
         }
-        
-        if ($this->sqlStmt['joinType'] === null ){
-        	$table="`$this->tableName`";
-        }
-        else{
-        	foreach ($this->alias as $key => $v){
-        		$tableArr[]= $v.' as '.$key;
-			}
-			
-			$tableArrCount=count($tableArr);
-			$i=0;
-			foreach ($tableArr as $key => $v){
-				if (($tableArrCount-1) == $key ){
-					break;
-				}
-				
-				if ($i==0){
-					$table=$v . ' ' .$this->sqlStmt['joinType'][$key] . ' ' . $tableArr[$key+1] . ' on ' .$this->sqlStmt['joinOn'][$key];
-				}
-				else{
-					$table.= ' '.$this->sqlStmt['joinType'][$key]. ' ' . $tableArr[$key+1] . ' on ' .$this->sqlStmt['joinOn'][$key];
-				}
-				$i++;
-			}
-		}
-        
-        $sql = "select $fields from $table";
-        //dump($sql);//exit;
+
+        $sql = "select $fields from `$this->tableName`";
 
         if ($this->sqlStmt["whereStmt"])
             $sql .= " where " . $this->sqlStmt["whereStmt"]; //查询条件
@@ -786,11 +755,6 @@ class BaseTable {
                         } else {
                             $row_key = substr($row_key, 4);
                         }
-                        
-                        $row_key2=explode(".",$row_key);
-                        if (count($row_key2)>1){
-                        	$row_key = $row_key2[1];
-                        }
                         $row[$row_key] = $bdRs[$i];
                     }
 
@@ -821,14 +785,9 @@ class BaseTable {
         return $rt;
     }
     
-    /**
-     * sql查询
-     * @param string $sql
-     * @return multitype:unknown 
-     */
     public function query($sql){
     	$result=mysqli_query($this->conn,$sql);
-    	$array=null;
+    	
     	if ($result) {
     		while (true) {
     			$row = mysqli_fetch_assoc($result);
@@ -849,42 +808,56 @@ class BaseTable {
     }
 
     /**
+     * 通过ID获取一行数据
+     * @param array $fieldsName 需要查询的所有字段，为NULL时则表示查询所有字段。
+     * @return array|null 成功则返回一维数组，失败则为NULL
+     */
+    public function getOneById(array $fieldsName = null) {
+        if ($this->exists_field($this->AIField)) {
+            $pk = $this->AIField;
+            $this->setSqlStmt(["whereStmt" => $pk . "=" . $this->$pk]);
+            $rt = $this->get($fieldsName);
+            if ($rt) {
+                return $rt[0];
+            } else {
+                return $rt;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 通过某一字段条件获取一行数据
+     * @desc 通过对 public $indexField;public $indexFieldValue;赋值
+     * @return type
+     */
+    public function getOneByField() {
+        if ($this->exists_field($this->indexField)) {
+            $this->setSqlStmt(["whereStmt" => $this->indexField . "='" . mysqli_real_escape_string($this->conn, $this->indexFieldValue) . "'"]);
+            $rt = $this->get();
+            if (count($rt) > 0) {
+                return $rt[0];
+            } else {
+                return $rt;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * 查询符合条件的记录数
      * @return integer 返回记录数
      */
     public function getListLength() {
         $rt = 0;
 
-        if ($this->sqlStmt['joinType'] === null ){
-        	$table="`$this->tableName`";
-        }
-        else{
-        	foreach ($this->alias as $key => $v){
-        		$tableArr[]= $v.' as '.$key;
-        	}
-        		
-        	$tableArrCount=count($tableArr);
-        	$i=0;
-        	foreach ($tableArr as $key => $v){
-        		if (($tableArrCount-1) == $key ){
-        			break;
-        		}
-        
-        		if ($i==0){
-        			$table=$v . ' ' .$this->sqlStmt['joinType'][$key] . ' ' . $tableArr[$key+1] . ' on ' .$this->sqlStmt['joinOn'][$key];
-        		}
-        		else{
-        			$table.= ' '.$this->sqlStmt['joinType'][$key]. ' ' . $tableArr[$key+1] . ' on ' .$this->sqlStmt['joinOn'][$key];
-        		}
-        		$i++;
-        	}
-        }
-        //dump($table);exit;
         if ($this->sqlStmt["groupBy"] !== null) {
-            $sql = "select count(DISTINCT(".$this->sqlStmt["groupBy"].")) from $table";
+            $sql = "select count(DISTINCT(".$this->sqlStmt["groupBy"].")) from `$this->tableName`";
         }
         else{
-            $sql = "select count(*) from $table";
+            $sql = "select count(*) from `$this->tableName`";
         }
         
         if ($this->sqlStmt["whereStmt"])

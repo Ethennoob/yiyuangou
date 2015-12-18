@@ -38,26 +38,29 @@ class MyMemCached {
             if ($class=='Memcached' && $this->isCompression==false){
             	self::$memObj->setOption($class::OPT_COMPRESSION, false);  //关闭压缩
             }
-            
-            
-            /* if (self::$memObj->addServer($memConfig['host'], $memConfig['port'])) {
-                
-            	
-                
-                return true;
-            } else {
-                unset(self::$memObj);
-                return false;
-            } */
+        }
+        else{
+            return self::$memObj;
         }
     }
 
+    /**
+     * 获取一个缓存
+     * @param string $key
+     */
     public function get($key) {
         if (isset(self::$memObj)) {
             return self::$memObj->get($key);
         }
     }
 
+    /**
+     * 新增一个缓存
+     * @param string $key
+     * @param mixed $value
+     * @param int $expiration
+     * @return boolean|mixed
+     */
     public function set($key, $value, $expiration = 0) {
         if (isset(self::$memObj)) {
         	if (self::$type=='Memcached'){
@@ -81,24 +84,41 @@ class MyMemCached {
         return false;
     }
 
+    /**
+     * 删除缓存
+     * @param string $key
+     */
     public function delete($key) {
         if (isset(self::$memObj)) {
             self::$memObj->delete($key);
         }
     }
 
+    /**
+     * 获取多个缓存
+     * @param string $keys
+     * @param mixed $value
+     */
     public function getMulti($keys, &$value) {
         if (isset(self::$memObj)) {
             $value = self::$memObj->getMulti($keys);
         }
     }
 
+    /**
+     * 增加多个缓存
+     * @param unknown $k2vs
+     */
     public function setMulti($k2vs) {
         if (isset(self::$memObj)) {
             self::$memObj->setMulti($k2vs);
         }
     }
 
+    /**
+     * 删除多个缓存
+     * @param unknown $keys
+     */
     public function deleteMulti($keys) {
         if (isset(self::$memObj)) {
             self::$memObj->deleteMulti($keys);

@@ -145,6 +145,10 @@ class ThematicController extends BaseClass {
         if(!$thematic){
             $this->R('',40001);
         }
+        $goods = $this->table('goods')->where(['thematic_id'=>$id])->update(['is_on'=>0]);
+        if(!$thematic){
+            $this->R('',40001);
+        }
 
         $this->R();
     }
@@ -174,6 +178,24 @@ class ThematicController extends BaseClass {
         if(!$thematic){
             $this->R('',40001);
         }
+
+        $goods = $this->table('goods')->where(['thematic_id'=>$id,'is_on'=>1])->get(['id'],true);
+        if ($goods) {
+        $code = $this->table('goods')->where(['id'=>$id,'is_on'=>1])->delete();
+        if(!$code){
+            $this->R('',70009);
+        }
+        $code = $this->table('purchase')->where(['thematic_id'=>$id,'is_on'=>1])->delete();
+        if(!$code){
+            $this->R('',70009);
+        }
+        $code = $this->table('code')->where(['thematic_id'=>$id])->delete();
+        if(!$code){
+            $this->R('',70009);
+        }
+        }
+         
+        
 
         $this->R();
     }

@@ -20,7 +20,7 @@ class Upload {
         'exts'          =>  array(), //允许上传的文件后缀
         'autoSub'       =>  true, //自动子目录保存文件
         'subName'       =>  array('date', 'Y-m-d'), //子目录创建方式，[0]-函数名，[1]-参数，多个参数使用数组
-        'rootPath'      =>  '../html/', //保存根路径
+        'rootPath'      =>  './Uploads/', //保存根路径
         'savePath'      =>  '', //保存路径
         'saveName'      =>  array('uniqid', ''), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
         'saveExt'       =>  '', //文件保存后缀，空则使用原后缀
@@ -294,7 +294,7 @@ class Upload {
         }
 
         /* 检查文件Mime类型 */
-        //:FLASH上传的文件获取到的mime类型都为application/octet-stream
+        //TODO:FLASH上传的文件获取到的mime类型都为application/octet-stream
         if (!$this->checkMime($file['type'])) {
             $this->error = '上传文件MIME类型不允许！';
             return false;

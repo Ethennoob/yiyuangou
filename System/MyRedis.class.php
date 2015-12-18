@@ -137,9 +137,18 @@ class MyRedis {
      * @param bool $left 是否从左边开始出数据 
      */  
     public function pop($key , $left = true) {  
-        $val = $left ? self::$reObj->lPop($key) : self::$reObj->rPop($key);  
+    	$val = $left ? self::$reObj->lPop($key) : self::$reObj->rPop($key);  
         return json_decode($val);  
     }  
+    
+    /**
+     * 数据出队列（监听）
+     * @param string $key KEY名称
+     * @param int $timeout 超时
+     */
+    public function blPop($key,$timeout=0){
+    	return self::$reObj->blPop($key,$timeout);
+    }
       
     /** 
      * 数据自增 
