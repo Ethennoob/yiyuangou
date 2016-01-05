@@ -6,20 +6,31 @@
      */
     class LoginController extends BaseClass{
         /**
+         * 登checkAdminLogin
+         */
+        public function checkAdminLogin(){
+            if(empty($_SESSION['adminInfo']['manager_id'])){
+                
+                    $this->R('',70002);//没登录，跳转到login登录
+                
+            }      
+        }
+        /**
          * 登录操作
          */
         public function login(){
             if(isset($_SESSION['manager_id'])&&$_SESSION['manager_id']>0){
-                $this->R('',80000);
+                $this->R('',80000);//你已经登陆了
             }                
             $post=[
                 'manager_name'=>$_POST['manager_name'],
-                'manager_password'=>$_POST['manager_password'],
+                'manager_pwd'=>$_POST['manager_pwd'],
+                
             ];
-            $this->V(['manager_name'=>[],'manager_password'=>[]],$post);
-            $manager = $this->table('manager')->where(['manager_name'=>$post['manager_name'],'manager_password'=>md5($post['manager_password'])])->get(null,true);
+            $this->V(['manager_name'=>[],'manager_pwd'=>[]],$post);
+            $manager = $this->table('manager')->where(['manager_name'=>$post['manager_name'],'manager_pwd'=>md5($post['manager_pwd'])])->get(null,true);
             if(!$manager){
-                $this->R('',70000);
+                $this->R('',70001);
             }
             if (isset($_POST['is_remember'])&&$_POST['is_remember']==1){
                 $isRemember=1;
@@ -36,13 +47,13 @@
          */
         public function autoLogin(){
             if (isset($_SESSION['manager_id'])&&$_SESSION['manager_id'] > 0){
-                    $this->R('','80000');
+                    $this->R('','80000');//你已经登陆了
             }
-            if (empty($_COOKIE['OneTrade-AUTOLOGIN'])){
+            if (empty($_COOKIE['OneBuy-AUTOLOGIN'])){
                     $this->R('','70004');
             }
-            $token=$_COOKIE['OneTrade-AUTOLOGIN'];
-            setcookie('OneTrade-AUTOLOGIN','1',time()-3600,'/');  //删除cookie
+            $token=$_COOKIE['OneBuy-AUTOLOGIN'];
+            setcookie('OneBuy-AUTOLOGIN','1',time()-3600,'/');  //删除cookie
             //查找token
             $isToken=$this->S()->get($token);
             if (!$isToken){
@@ -67,23 +78,23 @@
          * 登录动作
          */
         private function loginAction($manager,$loginStatus,$isAutoLogin){
-            $_SESSION['manager_id'] = $manager['id'];
-            $_SESSION['manager_name']=$manager['manager_name'];
+            $_SESSION['adminInfo']['manager_id'] = $manager['id'];
+            /*$_SESSION['adminInfo']['manager_name']=$manager['manager_name'];
             $_SESSION['role_base_id']=$manager['role_base_id'];
-            $_SESSION['autoLogin']=$loginStatus;
-
+            $_SESSION['adminInfo']['autoLogin']=$loginStatus;
+*/
             if ($isAutoLogin==1){
                     $expire=60 * 60 * 24 * 7;
                     $timeout = time() + $expire;
                     $token=md5(uniqid(rand(), TRUE));
 
-                    $autoLogin=[
+                   /* $autoLogin=[
                                     'manager_id'=> $manager['manager_id'],
-                                    'identifier' => $manager['identifier'],
+                                    //'identifier' => $manager['identifier'],
                                     'timeout' => $timeout
-                    ];
+                    ];*/
                     //$this->S()->set($token,$autoLogin,60*60*24*7);
-                    setcookie('OneTrade-AUTOLOGIN', $token,$timeout,'/');
+                    setcookie('OneBuy-AUTOLOGIN', $token,$timeout,'/');
             }
 
             //更新用户信息
@@ -93,6 +104,14 @@
             ];
             $this->table('manager')->where(['id'=>$manager['id']])->update($data);
             $this->R();
+        }
+        /**
+         * 注销
+         */
+        public function logout(){
+            session_destroy();
+            header("LOCATION:".getHost()."/admin/login.html");//跳转到login登录
+            
         }
     }
 ?>    

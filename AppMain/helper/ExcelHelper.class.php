@@ -57,7 +57,7 @@ class ExcelHelper extends BaseHelper {
 		->setCellValue('A1', $data['title'])
 		->setCellValue('A2', $data['thematic_name'])
 		->setCellValue('B2', $data['bill_sn'])
-		->setCellValue('C2', $data['goods_title'])
+		->setCellValue('C2', $data['goods_name'])
 		->setCellValue('D2', $data['goods_sn'])
 		->setCellValue('E2', $data['code'])
 		->setCellValue('F2', $data['price'])
@@ -70,7 +70,7 @@ class ExcelHelper extends BaseHelper {
 			$objPHPExcel->getActiveSheet(0)->setCellValueExplicit('A' . ($i + 3), $list[$i]['thematic_name'],\PHPExcel_Cell_DataType::TYPE_STRING);
 			
 			$objPHPExcel->getActiveSheet(0)->setCellValue('B' . ($i + 3), $list[$i]['bill_sn']);
-			$objPHPExcel->getActiveSheet(0)->setCellValue('C' . ($i + 3), $list[$i]['goods_title']);
+			$objPHPExcel->getActiveSheet(0)->setCellValue('C' . ($i + 3), $list[$i]['goods_name']);
 			$objPHPExcel->getActiveSheet(0)->setCellValue('D' . ($i + 3), $list[$i]['goods_sn']);
 			$objPHPExcel->getActiveSheet(0)->setCellValue('E' . ($i + 3), $list[$i]['code']);
 			$objPHPExcel->getActiveSheet(0)->setCellValue('F' . ($i + 3), $list[$i]['price']);

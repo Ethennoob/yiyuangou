@@ -49,7 +49,9 @@ class ThematicController extends BaseClass {
        $rule = [
             'id'              =>['egNum'],//已有会员id
             'thematic_name'   =>[],
+           'status'           =>['in',[0,2]],
             'nature'          =>['in',[0,1]],
+           'is_show'          =>['in',[0,1]],
             //'poster'          =>[],
         ];
         $this->V($rule);
@@ -67,6 +69,7 @@ class ThematicController extends BaseClass {
             }
         }
         //图片上传
+        if(isset($_FILES['poster'])){
         $pictureName = $_FILES['poster'];
         $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'poster',false);
         //删除图片文件
@@ -76,6 +79,8 @@ class ThematicController extends BaseClass {
          }
        
         $data['poster'] = $imgarray['img'];
+            
+        }
 
         $thematic = $this->table('thematic')->where(['id'=>$id])->update($data);
         if(!$thematic){
@@ -98,11 +103,21 @@ class ThematicController extends BaseClass {
         if($thematicpage ){
             foreach ($thematicpage  as $k=>$v){
                 $thematicpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-                $goodsarr = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->get(['goods_name','price','limit_num'],false);
-                $count = count($goodsarr);
+                /*$goodsarr = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->get(['goods_name','price','limit_num'],false);*/
+                $file = ['id','goods_name','price','limit_num','add_time'];
+                $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->order('add_time desc');
+                //查询并分页
+                $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+                if(!$goodspage){
+                    $goodspage=null;
+                }
+                /*$count = count($goodsarr);
                     for ($i=0; $i < $count; $i++) { 
-                        $thematicpage [$k]['goods_'.$i] = implode(";", $goodsarr[$i]);
-                    }
+                $v = implode(",",$goodsarr[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }*/
+            $thematicpage[$k]['goods']=$goodspage;
+            unset($goodspage);
             }
         }else{
             $thematicpage  = null;
@@ -112,11 +127,26 @@ class ThematicController extends BaseClass {
         
     }
     /**
+     * 查出所有专题名(status=0)
+     */
+    public function thematicSelect(){
+       
+        $thematicSelect = $this->table('thematic')->where(['is_on'=>1])->order('add_time desc')->get(['id','thematic_name'],false);
+        
+        if(!$thematicSelect){
+            $thematicSelect  = null;
+        }
+       
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['thematicSelect'=>$thematicSelect]);
+        
+    }
+    /**
      * 查询一条专题信息
      */
     public function thematicOneDetail(){
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['thematic_id'=>['egNum',null,true]]);
+        $id = intval($_POST['thematic_id']);
         $thematic = $this->table('thematic')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
         if(!$thematic){
             $this->R('',70009);
@@ -132,8 +162,8 @@ class ThematicController extends BaseClass {
      */
     public function thematicOneDelete(){
     
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['thematic_id'=>['egNum',null,true]]);
+        $id = intval($_POST['thematic_id']);
          
         $thematic = $this->table('thematic')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
     
@@ -145,10 +175,25 @@ class ThematicController extends BaseClass {
         if(!$thematic){
             $this->R('',40001);
         }
-        $goods = $this->table('goods')->where(['thematic_id'=>$id])->update(['is_on'=>0]);
-        if(!$thematic){
-            $this->R('',40001);
+        
+        $goods = $this->table('goods')->where(['thematic_id'=>$id,'is_on'=>1])->get(['id'],true);
+        if ($goods) {
+        $code = $this->table('goods')->where(['id'=>$id,'is_on'=>1])->update(['is_on'=>0]);
+        if(!$code){
+            $this->R('',70009);
         }
+        $code = $this->table('purchase')->where(['thematic_id'=>$id,'is_on'=>1])->update(['is_on'=>0]);
+        if(!$code){
+            $this->R('',70009);
+        }
+        $code = $this->table('code')->where(['thematic_id'=>$id])->update(['is_on'=>0]);
+        if(!$code){
+            $this->R('',70009);
+        }
+        }
+        
+        
+        
 
         $this->R();
     }
@@ -157,8 +202,8 @@ class ThematicController extends BaseClass {
      */
     public function thematicOneDeleteconfirm(){
     
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['thematic_id'=>['egNum',null,true]]);
+        $id = intval($_POST['thematic_id']);
          
         $thematic = $this->table('thematic')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
     

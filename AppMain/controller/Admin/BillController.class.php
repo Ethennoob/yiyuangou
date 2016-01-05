@@ -5,61 +5,60 @@
      * 订单class
      */
 	class BillController extends BaseClass {
-		/**
-         * 订单列表
-         */
-		public function billList(){
-	        $where=['is_on'=>1];
-	        $pageInfo = $this->P();
-	        $field = ['id','user_id','thematic_id','goods_id','code','status','is_confirm','is_post','is_cancel','add_time','update_time'];
-	        $class = $this->table('bill')->where($where)->order('add_time desc');
-	        //查询并分页
-	        $billlist = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
-	        if($billlist){
-	            foreach ($billlist as $k=>$v){
-	                $billlist[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-	                $billlist[$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
-	            }
-	        }else{
-	            $billlist = null;
-	        }
-	        $this->R(['billlist'=>$billlist,'pageInfo'=>$pageInfo]);
-		}
 
 		/**
-         * 查询中奖订单明细
+         * 中奖订单列表
          */
-		public function billOneList(){
-			$where=['is_on'=>1];
-	        $pageInfo = $this->P();
-	        //调用Helper类
-	        $dataClass = $this->H('BillDetail');
-	        $order = "A.id asc";
-	        //$field = ['id','bill_sn','code','goods_sn','goods_title','price','thematic_name','nickname','phone','add_time'];
-	        $billList=$dataClass->getbill($where,null,null,false,$order);
-            $bill=$this->getOnePageData($pageInfo, $dataClass, 'getbill','getbillListLength',[$where,null,null,false,$order],true);
-            if($bill){
-                foreach ($bill as $k=>$v){
-                    $bill[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-                }
-            }else{
-                $bill = null;
-            } 
-            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
-		}
+		public function billList(){
+			$pageInfo = $this->P();
+	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
+	        $class = $this->table('bill')->where(['is_on'=>1])->order('add_time desc');
+
+	        //查询并分页
+	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
+	        if($bill ){
+	            foreach ($bill  as $k=>$v){
+	                $bill [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','price'],true);
+	                $bill [$k]['goods_name'] = $status['goods_name'];
+	                $bill [$k]['price'] = $status['price'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
+	                $bill [$k]['thematic_name'] = $status['thematic_name'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','phone','user_img'],true);
+	                $bill [$k]['nickname'] = $status['nickname'];
+	            }
+	        }else{
+	            $bill  = null;
+	        }
+	            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
+			}
 		/**
          * 查询一条订单记录
          */
 		public function billOneDetail(){
-			$this->V(['id'=>['egNum',null,true]]);
-            $id = intval($_POST['id']);
+			$this->V(['bill_id'=>['egNum',null,true]]);
+            $id = intval($_POST['bill_id']);
             //查询一条数据
             $bill = $this->table('bill')->where(['is_on'=>1,'id'=>$id])->get(null,true);
             if(!$bill){
                 $this->R('',70009);
             }
-            $bill['update_time'] = date('Y-m-d H:i:s',$bill['update_time']);
-            $bill['add_time'] = date('Y-m-d H:i:s',$bill['add_time']);
+             
+	                $bill['add_time'] = date('Y-m-d H:i:s',$bill['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$bill['goods_id']])->get(['goods_title','goods_thumb','cost_price','price','goods_sn'],true);
+	                $bill['goods_title'] = $status['goods_title'];
+	                $bill['goods_thumb'] = $status['goods_thumb'];
+	                $bill['price'] = $status['price'];
+	                $bill['cost_price'] = $status['cost_price'];
+	                $bill['goods_sn'] = $status['goods_sn'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$bill['thematic_id']])->get(['thematic_name','nature'],true);
+	                $bill['thematic_name'] = $status['thematic_name'];
+	                $bill['nature'] = $status['nature'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$bill['user_id']])->get(['nickname','phone','user_img'],true);
+	                $bill['nickname'] = $status['nickname'];
+	                $bill['phone'] = $status['phone'];
+                    $bill['user_img'] = $status['user_img'];
+	            
             $this->R(['bill'=>$bill]);
 		}
 
@@ -68,8 +67,8 @@
 	     */
 	    public function billDelete(){
 	    
-	        $this->V(['id'=>['egNum',null,true]]);
-	        $id = intval($_POST['id']);
+	        $this->V(['bill_id'=>['egNum',null,true]]);
+	        $id = intval($_POST['bill_id']);
 	         
 	        $bill = $this->table('bill')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
 	    
@@ -89,8 +88,8 @@
 	     */
 	    public function billDeleteConfirm(){
 	    
-	        $this->V(['id'=>['egNum',null,true]]);
-	        $id = intval($_POST['id']);
+	        $this->V(['bill_id'=>['egNum',null,true]]);
+	        $id = intval($_POST['bill_id']);
 	         
 	        $bill = $this->table('bill')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
 	    
@@ -109,8 +108,8 @@
          */
 	    public function billConfirm(){
 	    
-	        $this->V(['id'=>['egNum',null,true]]);
-	        $id = intval($_POST['id']);
+	        $this->V(['bill_id'=>['egNum',null,true]]);
+	        $id = intval($_POST['bill_id']);
 	         
 	        $bill = $this->table('bill')->where(['id'=>$id,'is_on'=>1,'is_confirm'=>0])->get(['id'],true);
 	    
@@ -118,15 +117,51 @@
 	            $this->R('',70009);
 	        }
 	    
-	        $bill = $this->table('bill')->where(['id'=>$id])->update(['is_confirm'=>1]);
+	        $bill = $this->table('bill')->where(['id'=>$id])->update(['is_confirm'=>1,'is_cancel'=>0,'status'=>1]);
 	        if(!$bill){
 	            $this->R('',40001);
 	        }
-	        $bill = $this->table('bill')->where(['id'=>$id])->get(['id,user_id'],true);
+	        //发送消息通知用户
+	        $bills = $this->table('bill')->where(['id'=>$id])->get(['user_id','goods_id','thematic_id'],true);
+	        if(!$bills){
+	            $this->R('',40001);
+	        }
+	        $user = $this->table('user')->where(['id'=>$bills['user_id']])->get(['openid','phone'],true);
+	        $openid = $user['openid'];
+	        $phone = $user['phone'];
+	        $goods = $this->table('goods')->where(['id'=>$bills['goods_id']])->get(['goods_name'],true);
+	        $goods_name = $goods['goods_name'];
+	        $thematic = $this->table('thematic')->where(['id'=>$bills['thematic_id']])->get(['thematic_name'],true);
+	        $thematic_name = $thematic['thematic_name'];
+	        $content = "尊敬的一团云购用户，恭喜您抽中了".$thematic_name."商品".$goods_name."，请及时查看并完善您的收货地址信息，方便我们为您送货。谢谢配合。";
+	        //微信公众号提醒
+	        $weObj = new \System\lib\Wechat\Template($this->config("WEIXIN_CONFIG"));
+			$weObj->setTemplate($openid,$content);
+			//手机短信提醒
+			$sendMessage = new \System\AppTools();
+			$sendMessage= $sendMessage->sendSms($phone,$content);
+	        $this->R();
+	    }
+	    /**
+         * 发货
+         */
+	    public function billPost(){
+	    
+	        $this->V(['bill_id'=>['egNum',null,true]]);
+	        $id = intval($_POST['bill_id']);
+	         
+	        $bill = $this->table('bill')->where(['id'=>$id,'is_on'=>1,'is_post'=>0])->get(['id'],true);
+	    
+	        if(!$bill){
+	            $this->R('',70009);
+	        }
+	    
+	        $bill = $this->table('bill')->where(['id'=>$id])->update(['is_post'=>1,'status'=>2]);
 	        if(!$bill){
 	            $this->R('',40001);
 	        }
-	        $this->R(['bill'=>$bill]);
+	        
+	        $this->R();
 	    }
 
 	    /**
@@ -134,8 +169,8 @@
          */
 	    public function billCancel(){
 	    
-	        $this->V(['id'=>['egNum',null,true]]);
-	        $id = intval($_POST['id']);
+	        $this->V(['bill_id'=>['egNum',null,true]]);
+	        $id = intval($_POST['bill_id']);
 	         
 	        $bill = $this->table('bill')->where(['id'=>$id,'is_on'=>1,'is_cancel'=>0])->get(['id'],true);
 	    
@@ -143,7 +178,7 @@
 	            $this->R('',70009);
 	        }
 	    
-	        $bill = $this->table('bill')->where(['id'=>$id])->update(['is_cancel'=>1]);
+	        $bill = $this->table('bill')->where(['id'=>$id])->update(['is_cancel'=>1,'is_confirm'=>0,'status'=>0]);
 	        if(!$bill){
 	            $this->R('',40001);
 	        }
@@ -152,19 +187,49 @@
 	    public function outputExcel(){
 	    	$data = array(
 	    		'title' =>"一元购中奖订单明细",
-	    		'sn'    =>"订单编号",
-	    		'object_name' =>"商品名",
+	    		'thematic_name' => "专题名称",
+	    		'bill_sn'    =>"订单编号",
+	    		'goods_name'  =>"商品名",
+	    		'goods_sn'  =>"商品编号",
 	    		'code'  =>"中奖认购码",
-	    		'time'  =>"时间",
+	    		'price' =>"商品价格",
+	    		'nickname' =>"获奖用户昵称",
+	    		'phone'   =>"联系电话",
+	    		'add_time'  =>"时间",
 	    		);
-	    	$list = array( 0 =>array(
-	    		'sn'    =>"20151201882281",
-	    		'object_name' =>"锤子手机",
-	    		'code'  =>"HE09VIFUH86RF3W",
-	    		'time'  =>"2015.12.01",)
-	    		);
-	    	$outputExcel = $this->H('Excel')->PHPExcel($list,$data);
+
+	    	$bills = $this->table('bill')->where(['is_on'=>1,'is_confirm'=>1])->order('add_time asc')->get(null,false);
+	    	if($bills){
+
+	    		for ($i=0; $i <count($bills); $i++) { 
+	    			$bills[$i]['add_time'] = date('Y-m-d H:i:s',$bills[$i]['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$bills[$i]['goods_id']])->get(['goods_name','price','goods_sn'],true);
+	                $bills[$i]['goods_name'] = $status['goods_name'];
+	                $bills[$i]['price'] = $status['price'];
+	                $bills[$i]['goods_sn'] = $status['goods_sn'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$bills[$i]['thematic_id']])->get(['thematic_name'],true);
+	                $bills[$i]['thematic_name'] = $status['thematic_name'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$bills[$i]['user_id']])->get(['nickname','phone'],true);
+	                $bills[$i]['nickname'] = $status['nickname'];
+	                $bills[$i]['phone'] = $status['phone'];
+	    		}
+	        }else{
+	            $bills  = null;
+	        }
+	    	$outputExcel = $this->H('Excel')->PHPExcel($bills,$data);
 	    	if (!$outputExcel) {
+	    		$this->R('',40001);
+	    	}
+	    }
+	    public function phone(){
+	    	$code = rand(100000,999999);
+	    	$_SESSION['code'] =$code;
+	    	$content = "您好！一元购注册的验证码为".$_SESSION['code'];
+	    	$sendMessage = new \System\AppTools();
+	    	$code= $sendMessage->generateMsgAuthCode();
+	    	dump($code);exit;
+	    	$sendMessage= $sendMessage->sendSms(15521155161,$content);
+	    	if (!$sendMessage) {
 	    		$this->R('',40001);
 	    	}
 	    }

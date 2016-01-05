@@ -21,6 +21,8 @@ class BaseTable {
     
     public $tableMap=[];
     
+    private $updateAffectedNum=0;
+    
     public $conn;
     public $indexField;  //通过某一字段查询字段名
     public $indexFieldValue; //通过某一字段查询字段值
@@ -31,12 +33,9 @@ class BaseTable {
     private $isDebug=false;
     
     public function __construct($db='DB_MASTER',$debug=false) {
+        $this->db=$db;
         $this->conn = Database::openConnection($db);
-        //$this->initClassfromTable();
         $this->isDebug=\System\Entrance::config('IS_DB_DEBUG');
-        //$this->initTable();
-        //$this->initSqlStmt();
-    
     }
 
     public function __deconstruct() {
@@ -86,6 +85,7 @@ class BaseTable {
     }
     
     public function setTable($tableName,$isJoinTable=false){
+        dump($this->db);
     	//如果不是连表操作
     	if (!$isJoinTable){
     		$this->initSqlStmt();
@@ -342,6 +342,11 @@ class BaseTable {
         return $this->add();
     }
 
+    /**
+     * 更新
+     * @param array $data
+     * @return number
+     */
     public function update($data) {
         $fields = $this->filterAndSetFields($data);
         return $this->set($fields);
@@ -544,7 +549,9 @@ class BaseTable {
             call_user_func_array([$stmt, "bind_param"], $ps);
 
             if (mysqli_stmt_execute($stmt)) {
-                if (mysqli_stmt_affected_rows($stmt) > 0)
+            	$affectedRows=mysqli_stmt_affected_rows($stmt);
+            	$this->updateAffectedNum=$affectedRows;
+                if ($affectedRows > 0)
                     $rt = 1;
                 else
                     $rt = 2;
@@ -671,13 +678,14 @@ class BaseTable {
 
         $fields = "";
         $ln = count($this->fields);
-		
+
         if ($fieldsName===false){
         	$fields='';
         	$ln=0;
         }
         elseif ($fieldsName && count($fieldsName) > 0) {
-            foreach ($fieldsName as $fieldname) {
+        	$fieldsZ='';
+            foreach ($fieldsName as $key=> $fieldname) {
             	
             	$pz = stripos($fieldname, ".");
 				$p = stripos($fieldname, " as ");
@@ -685,25 +693,43 @@ class BaseTable {
 				
                 if ($p > 0 && $pz >0) {
                 	$fieldsZ= substr($fieldname, 0, $pz) . ".`" . substr($fieldname, $pz+1,$p-$pz-1) . "`". substr($fieldname, $p).",";
-				} 
+					$newFieldName[]=$fieldname;
+                } 
 				elseif ( $p > 0 ) {
 					$fieldsZ= "`" . substr($fieldname, 0, $p) . "`" . substr($fieldname, $p) . ",";
+					$newFieldName[]=$fieldname;
 				}
 				elseif ( $pz >0){
-					$fieldsZ= substr($fieldname, 0, $pz) . ".`" . substr($fieldname, $pz+1) . "`,";
+					$fieldsY=substr($fieldname, $pz+1);
+					if ($fieldsY === '*'){
+						$fieldsNames = array_keys($this->fields);
+						foreach ($fieldsNames as $v){
+							$fieldsZ .= substr($fieldname, 0, $pz) . ".`$v`,";
+							$newFieldName[]=$v;
+						}
+						
+					}
+					else{
+						$fieldsZ= substr($fieldname, 0, $pz) . ".`" . $fieldsY . "`,";
+						$newFieldName[]=$fieldname;
+					}
+					
 				}
 				else {
                 	$fieldsZ= "`$fieldname`,";
+                	$newFieldName[]=$fieldname;
  				}
  				
 				$fields .=$fieldsZ;
  			}
-            $ln = count($fieldsName);
+ 			$fieldsName=$newFieldName;
+            $ln = count(explode(',', trim($fields,',')));
         } 
         else {
             $fieldsName = array_keys($this->fields);
-            foreach ($fieldsName as $fieldname)
-                $fields .= "`$fieldname`,";
+            foreach ($fieldsName as $fieldname){
+            	$fields .= "`$fieldname`,";
+            }
         }
         
         if (!empty($this->sqlStmt["sqlFunction"])){
@@ -713,7 +739,7 @@ class BaseTable {
         		$ln++;
         	}
         }
-        
+
         $fields = trim($fields, ",");
         $results = [];
         for ($i = 0; $i < $ln; $i++) {
@@ -955,7 +981,7 @@ class BaseTable {
     public function rollback() {
         $this->conn->rollback();
         $this->conn->autocommit(true);
-        $this->lastSql='roolback';
+        $this->lastSql='rollback';
         $this->degbugLog();
     }
 
@@ -996,6 +1022,18 @@ class BaseTable {
         return $sql;
     }
     
+    /**
+     * 获取更新数量
+     * @return int
+     */
+    public function getUpdateNum(){
+    	return $this->updateAffectedNum;
+    }
+    
+    /**
+     * debug日志
+     * @throws \Exception
+     */
     private function degbugLog(){
     	if ($this->isDebug){
     	    sqlDebugLog($this->lastSql,$this->error);   

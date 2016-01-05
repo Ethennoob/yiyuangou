@@ -35,21 +35,23 @@ class UserController extends Baseclass {
             $userpage  = null;
         }
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['userpage '=>$userpage,'pageInfo'=>$pageInfo]);
+        $this->R(['userpage'=>$userpage,'pageInfo'=>$pageInfo]);
     }
     /**
      * 用户个人信息,收货信息
      * 收货人，收货手机，收货地址，邮编
      */
     public function userOneDetail(){
-    	$this->V(['id'=>['egNum',null,true]]);
+    	$this->V(['user_id'=>['egNum',null,true]]);
 
-        $id = intval($_POST['id']);
+        $id = intval($_POST['user_id']);
         $address = $this->table('user_address')->where(['is_on'=>1,'user_id'=>$id,'is_default'=>1])->get(['id'],true);
         if(!$address){
             $userinfo = $this->table('user')->where(['is_on'=>1,'id'=>$id])->get(null,true);
             $userinfo ['add_time'] = date('Y-m-d H:i:s',$userinfo['add_time']);
             $userinfo ['update_time'] = date('Y-m-d H:i:s',$userinfo['update_time']);
+            $userinfo ['last_ip'] = long2ip($userinfo['last_ip']);
+            $userinfo ['last_login'] = date('Y-m-d H:i:s',$userinfo['last_login']);
             $this->R(['userinfo'=>$userinfo]);
         }
         $where = 'A.id='.$id.' and A.is_on = 1 and B.is_default = 1 and B.is_on = 1';
@@ -58,11 +60,11 @@ class UserController extends Baseclass {
         if(!$userinfo){
             $this->R('',70009);
         }
-        foreach ($userinfo as $k => $v) {
-        $userinfo [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-        $userinfo [$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
-        }
 
+        $userinfo ['last_ip'] = long2ip($userinfo['last_ip']);
+        $userinfo ['last_login'] = date('Y-m-d H:i:s',$userinfo['last_login']);
+        $userinfo ['add_time'] = date('Y-m-d H:i:s',$userinfo['add_time']);
+        $userinfo ['update_time'] = date('Y-m-d H:i:s',$userinfo['update_time']);
         //返回数据，参见System/BaseClass.class.php方法
         $this->R(['userinfo'=>$userinfo]);
     }
@@ -101,8 +103,8 @@ class UserController extends Baseclass {
      */
     public function userOneDelete(){
     
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['user_id'=>['egNum',null,true]]);
+        $id = intval($_POST['user_id']);
          
         $user = $this->table('user')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
     
@@ -122,8 +124,8 @@ class UserController extends Baseclass {
      */
     public function userOneDeleteconfirm(){
     
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['user_id'=>['egNum',null,true]]);
+        $id = intval($_POST['user_id']);
          
         $user = $this->table('user')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
     

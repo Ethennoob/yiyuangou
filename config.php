@@ -75,20 +75,20 @@ return [
     // 测试
     'WEIXIN_CONFIG' => array(
         'token' => 'OneTrade', // 填写你设定的key
-        'encodingaeskey' => 'Pf9NScKaiTMiQkyfUv9GS0TP8Mo5Adb49evr5wGFssa', // 填写加密用的EncodingAESKey
-        'appid' => 'wx500d53069de27d71', // 填写高级调用功能的app id
-        'appsecret' => '03aa662e61dd43ecb190ab853e581edc'
+        'encodingaeskey' => 'UbobcIF5nFgcqwXAFoytFa6EufA5kyB0vFzIPDThHR4', // 填写加密用的EncodingAESKey
+        'appid' => 'wxe50a5528b729b1aa', // 填写高级调用功能的app id
+        'appsecret' => '5db67c37c90211bf57d07af54455a02a',
     ), // 填写高级调用功能的密钥
     //微信支付配置
     'WEIXIN_PAY_CONFIG' => array(
-        'appid' => 'wx500d53069de27d71',
-        'mchid' => '1282518701', //商户号
+        'appid' => 'wxe50a5528b729b1aa',
+        'mchid' => '1299677801', //商户号
         'key' => 'SKINTALKyangmaimai20151212linlin', //key
         //证书路径,注意应该填写绝对路径
-         //'SSLCERT_PATH' => '/disk2/ftp/buy/www/cert/apiclient_cert.pem',
-         //'SSLKEY_PATH' => '/disk2/ftp/buy/www/cert/apiclient_key.pem',
+         'SSLCERT_PATH' => '/disk2/ftp/buy/www/cert/apiclient_cert.pem',
+         'SSLKEY_PATH' => '/disk2/ftp/buy/www/cert/apiclient_key.pem',
         //异步通知url，商户根据实际开发过程设定
-        'NOTIFY_URL' => gethost() . '/pay/notify.php',
+        'NOTIFY_URL' => gethost() . '/Api/Callback/order',
         //curl超时设置
         'CURL_TIMEOUT' => 30,
     ),

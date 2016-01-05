@@ -92,12 +92,13 @@ class GoodsController extends BaseClass {
 	public function goodsOneEdit()
         {  
             $rule = [
-                    'id'             =>['egNum'],
-                    'goods_name'   =>[],
+                    'goods_id'       =>['egNum'],
+                    'thematic_id'    =>['egNum'],
+                    'goods_name'     =>[],
                     'goods_title'    =>[],
                     'goods_desc'     =>[],
                     'cost_price'     =>['money'],
-                    'price'          =>['money'],
+                    //'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
                 ];
                 $this->V($rule); 
@@ -105,33 +106,25 @@ class GoodsController extends BaseClass {
                 foreach ($rule as $k => $v) {
                         $data[$k] = $_POST[$k];
                 }
-            $data['limit_num'] = $data['price'];
+            //$data['limit_num'] = $data['price'];
             $data['update_time'] = time();
             //删除图片文件
-            $goodsImg = $this->table('goods')->where(['id'=>$data['id'],'is_on'=>1])->get(['goods_img','goods_thumb'],true);
+            if(isset($_FILES['goods_img'])){
+            $goodsImg = $this->table('goods')->where(['id'=>$data['goods_id'],'is_on'=>1])->get(['goods_img','goods_thumb'],true);
             //分割图片url，匹配图片名是否相同，同则不删除，不同则删除
-            $goodsImgName= explode("/",$goodsImg['goods_img']);
-
-            if($goodsImgName['4']!=$_FILES['goods_img']['name']){
+            
                 @unlink("../html".$goodsImg['goods_img']);
                 @unlink("../html".$goodsImg['goods_thumb']);
                 $pictureName=$_FILES['goods_img'];
                 $imgarray=$this->H('PictureUpload')->pictureUpload($pictureName,'goods',true);
                 $data['goods_img']=$imgarray['img'];
                 $data['goods_thumb']=$imgarray['thumb'];
-            }else{
-                $imgarray['img']=$goodsImg['goods_img'];
-                $imgarray['thumb']=$goodsImg['goods_thumb'];
-                $data['goods_img']=$imgarray['img'];
-                $data['goods_thumb']=$imgarray['thumb'];
+         
             }
             
-            //相册修改待定
-            /*$pictureAlbum = $_FILES['goods_album'];
-            $imgarray = $this->H('PictureUpload')->pictureUploadMore($pictureName,'goodsAlbum',false);
-            $data['goods_album'] = $imgarray['img'];*/
+         
 
-                $goods = $this->table('goods')->where(['id'=>$data['id']])->update($data);
+                $goods = $this->table('goods')->where(['id'=>$data['goods_id']])->update($data);
                 if(!$goods){
                     $this->R('',40001);
                 }
@@ -141,8 +134,8 @@ class GoodsController extends BaseClass {
      * 查询一条商品全数据
      */
     public function goodsOneDetail(){
-    	$this->V(['id'=>['egNum']]);
-        $id = intval($_POST['id']);
+    	$this->V(['goods_id'=>['egNum']]);
+        $id = intval($_POST['goods_id']);
         $goods = $this->table('goods')->where(['id'=>$id,'is_on'=>1])->get(null,true);
         if(!$goods){
             $this->R('',70009);
@@ -164,18 +157,20 @@ class GoodsController extends BaseClass {
      * 查询一条商品列表(分页)
      */
     public function goodsList(){
+        $this->V(['thematic_id'=>['egNum']]);
+        $id = intval($_POST['thematic_id']);
         $pageInfo = $this->P();
-        $file = ['id','goods_sn','thematic_id','goods_thumb','goods_name','cost_price','price','goods_ablum','free_post','is_show','limit_num','add_time'];
+        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
 
-        $class = $this->table('goods')->where(['is_on'=>1])->order('add_time desc');
+        $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id])->order('add_time desc');
 
         //查询并分页
         $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($goodspage ){
             foreach ($goodspage  as $k=>$v){
                 $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
-                $goodspage [$k]['thematic'] = $status['thematic_name'];
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$id])->get(['thematic_name'],true);
+                $goodspage [$k]['thematic_name'] = $status['thematic_name'];
                 unset($goodspage [$k]['thematic_id']);
             }
         }else{
@@ -191,8 +186,8 @@ class GoodsController extends BaseClass {
      */
     public function goodsOneDelete(){
     
-        $this->V(['id'=>['egNum']]);
-        $id = intval($_POST['id']);
+        $this->V(['goods_id'=>['egNum']]);
+        $id = intval($_POST['goods_id']);
         $goods = $this->table('goods')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
     
         if(!$goods){
@@ -213,6 +208,10 @@ class GoodsController extends BaseClass {
         if(!$code){
             $this->R('',40001);
         }
+        $code = $this->table('purchase')->where(['goods_id'=>$id,'is_on'=>1])->update(['is_on'=>0]);
+        if(!$code){
+            $this->R('',70009);
+        }
 
         $this->R();
     }
@@ -222,8 +221,8 @@ class GoodsController extends BaseClass {
      */
     public function goodsOneDeleteConfirm(){
     
-       $this->V(['id'=>['egNum']]);
-        $id = intval($_POST['id']);
+       $this->V(['goods_id'=>['egNum']]);
+        $id = intval($_POST['goods_id']);
         //删除图片文件
         $goodsImg = $this->table('goods')->where(['id'=>$id,'is_on'=>1])->get(['goods_img','goods_thumb'],true);
         //分割图片url，匹配图片名是否相同，同则不删除，不同则删除
@@ -260,7 +259,7 @@ class GoodsController extends BaseClass {
     }
     //增加相册图片
     public function albumAdd(){
-        $goodsId = intval($_POST['id']);
+        $goodsId = intval($_POST['goods_id']);
         $pictureAlbum = $_FILES;
         $imgarray = $this->H('PictureUpload')->pictureUploadMore($pictureAlbum,'goodsAlbum',false);
         $data['goods_album'] = $imgarray['img'];
@@ -272,7 +271,7 @@ class GoodsController extends BaseClass {
     }
     //删除相册的图片
     public function albumDel(){
-        $goodsId = intval($_POST['id']);
+        $goodsId = intval($_POST['goods_id']);
         $album = $this->table('goods')->where(['id'=>$goodsId])->get(['goods_album'],true);
         if ($album) {
             $goodsUrlArray = explode(";",$album['goods_album'] );
@@ -287,17 +286,15 @@ class GoodsController extends BaseClass {
         }
     //相册图片列表
     public function albumList(){
-        $goodsId = intval($_POST['id']);
+        $goodsId = intval($_POST['goods_id']);
         $album = $this->table('goods')->where(['id'=>$goodsId])->get(['goods_album'],true);
-        if (!$album) {
-            $this->R('',70009);
-        }
+        if ($album['goods_album']=="") {
+            $albumList = null;
+        }else{
         $albumList = explode(";",$album['goods_album'] );
-        $count=count($albumList);
-        for ($i=0; $i < $count-1; $i++) { 
-            $slideList['img'.$i]=$albumList[$i];
+        unset($albumList[6]);
         }
         
-        $this->R(['albumList'=>$slideList]);
+        $this->R(['albumList'=>$albumList]);
     }
 }

@@ -18,7 +18,7 @@ class RollController extends BaseClass {
     	$this->V(['goods_id'=>['egNum']]);
         $goods_id = intval($_POST['goods_id']);
         //查询商品是否删除
-        $good = $this->table('goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id','price','thematic_id'],true);
+        $good = $this->table('goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id','price','thematic_id','goods_sn'],true);
         if (!$good) {
         	$this->R('',70009);
         }
@@ -37,17 +37,18 @@ class RollController extends BaseClass {
         if (!$luckyCode) {
         	$this->R('',70009);
         }
-        $add_time = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$goods_id,'code'=>$luckyCode['code'])->get(['add_time'],true);
+        $add_time = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$goods_id,'code'=>$luckyCode['code']])->get(['add_time'],true);
         if (!$add_time) {
             $this->R('',70009);
         }
-        $record_id = $this->table('record')->where(['is_on'=>1,'goods_id'=>$goods_id,'add_time'=>$add_time['add_time'])->get(['id'],true);
+        $record_id = $this->table('record')->where(['is_on'=>1,'goods_id'=>$goods_id,'add_time'=>$add_time['add_time']])->get(['id'],true);
         if (!$record_id) {
             $this->R('',70009);
         }
         $data = array(
             'goods_id' => $goods_id,
             'thematic_id' =>$good['thematic_id'],
+            'bill_sn' =>$good['goods_sn'],
             'user_id' => $luckyCode['user_id'],
             'record_id' => $record_id['id'],
             'code' => $luckyCode['code'],

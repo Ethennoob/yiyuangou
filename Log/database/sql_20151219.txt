@@ -1,0 +1,126 @@
+2015/12/19 00:51:29----
+select `goods_album` from `goods` where  `id` = 0 limit 0, 1
+
+2015/12/19 00:51:29----
+select `goods_album` from `goods` where  `id` = 0 limit 0, 1
+
+2015/12/19 00:52:50----
+select count(*) from `thematic` where  `is_on` = 1
+
+2015/12/19 00:52:50----
+select `id`,`thematic_name`,`nature`,`status`,`is_show`,`add_time` from `thematic` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/12/19 00:52:50----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 14
+
+2015/12/19 00:52:50----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2015/12/19 00:52:50----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/19 00:52:50----
+select `id`,`goods_name`,`price`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/19 01:23:42----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1
+
+2015/12/19 11:19:29----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/19 16:04:17----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1
+
+2015/12/19 16:04:17----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/19 16:04:17----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`cost_price`,`price`,`free_post`,`is_show`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/19 16:04:17----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 9 limit 0, 1
+
+2015/12/19 16:04:17----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 9 limit 0, 1
+
+2015/12/19 16:04:19----
+select count(*) from `logistics` where  `is_on` = 1
+
+2015/12/19 16:04:19----
+select `id`,`logistics_number`,`logistics_name`,`logistics_status`,`bill_id`,`user_address_id`,`add_time`,`update_time`,`is_on` from `logistics` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/12/19 16:04:45----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/19 16:04:46----
+select count(*) from `manager`
+
+2015/12/19 16:04:46----
+select `id`,`manager_name`,`manager_email`,`manager_phone`,`manager_level`,`manager_endlogin`,`add_time` from `manager` order by id desc limit 0, 15
+
+2015/12/19 16:04:47----
+select count(*) from `bill` where  `is_on` = 1
+
+2015/12/19 16:04:47----
+select `id`,`goods_id`,`user_id`,`thematic_id`,`is_confirm`,`status`,`bill_sn`,`add_time` from `bill` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2015/12/19 16:04:47----
+select `goods_name`,`price` from `goods` where  `is_on` = 1 AND `id` = 54 limit 0, 1
+
+2015/12/19 16:04:47----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 9 limit 0, 1
+
+2015/12/19 16:04:47----
+select `nickname`,`phone`,`user_img` from `user` where  `is_on` = 1 AND `id` = 76 limit 0, 1
+
+2015/12/19 16:04:47----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1
+
+2015/12/19 16:04:47----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 9
+
+2015/12/19 16:04:47----
+select `id`,`goods_name`,`price`,`goods_thumb`,`add_time` from `goods` where  `is_on` = 1 AND `thematic_id` = 9 order by add_time desc limit 0, 15
+
+2015/12/19 16:04:47----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 55
+
+2015/12/19 16:04:47----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 54
+
+2015/12/19 17:30:03----
+select `id`,`manager_name`,`manager_email`,`manager_phone`,`manager_level`,`manager_endlogin`,`add_time`,`last_ip`,`update_time` from `manager` where  `id` = 0 limit 0, 1
+
+2015/12/19 19:02:32----
+select `id` from `user` where  `openid` = 'o0YrTwOQMjNA1O5BBmBp4t1Fglc4' limit 0, 1
+
+2015/12/19 19:02:32----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `type` = 2 AND `is_on` = 1 limit 0, 1
+
+2015/12/19 19:02:46----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:04----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:20----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:26----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:29----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:38----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:43----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:46----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2015/12/19 20:51:49----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+

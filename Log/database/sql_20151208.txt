@@ -9427,3 +9427,204 @@ select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`
 2015/12/08 21:02:59----
 update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
 
+2015/12/08 21:04:22----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:04:22----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:04:32----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:04:32----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:07:18----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:07:18----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:09:47----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:09:47----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:10:12----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:12----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:10:24----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwBvLbjK_8U_-iCd-8IW0TiQ' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:24----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 35
+
+2015/12/08 21:10:27----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:27----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:10:31----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwBvLbjK_8U_-iCd-8IW0TiQ' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:31----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 35
+
+2015/12/08 21:10:37----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwBvLbjK_8U_-iCd-8IW0TiQ' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:37----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 35
+
+2015/12/08 21:10:40----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:40----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:10:43----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:10:43----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 21:15:58----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o0YrTwMQc4-8Kv-JP3_mrzFZdBsI' AND `is_on` = 1 limit 0, 1
+
+2015/12/08 21:15:58----
+update `user` set `last_login`=?,`last_ip`=? where  `id` = 33
+
+2015/12/08 22:48:58----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 28 limit 0, 1
+
+2015/12/08 22:49:02----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 22:49:02----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 22:49:06----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 22:49:06----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:01:47----
+select `id` from `user_address` where  `user_id` = 28 AND `is_on` = 1 limit 0, 1
+
+2015/12/08 23:01:47----
+insert into `user_address` (`user_id`,`province`,`city`,`area`,`street`,`mobile`,`name`,`add_time`) values (?,?,?,?,?,?,?,?)
+
+2015/12/08 23:01:58----
+select `id` from `user_address` where  `user_id` = 28 AND `is_on` = 1 limit 0, 1
+
+2015/12/08 23:01:58----
+insert into `user_address` (`user_id`,`province`,`city`,`area`,`street`,`mobile`,`name`,`add_time`) values (?,?,?,?,?,?,?,?)
+
+2015/12/08 23:02:10----
+select `id` from `user_address` where  `user_id` = 28 AND `is_on` = 1 limit 0, 1
+
+2015/12/08 23:02:10----
+insert into `user_address` (`user_id`,`province`,`city`,`area`,`street`,`mobile`,`name`,`add_time`) values (?,?,?,?,?,?,?,?)
+
+2015/12/08 23:02:26----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 23:02:26----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:08:28----
+select `id` from `user_address` where  `user_id` = 28 AND `is_on` = 1 limit 0, 1
+
+2015/12/08 23:08:28----
+insert into `user_address` (`user_id`,`province`,`city`,`area`,`street`,`mobile`,`name`,`add_time`) values (?,?,?,?,?,?,?,?)
+
+2015/12/08 23:09:28----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 23:09:28----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:22:02----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 23:22:02----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:30:32----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 23:30:32----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:32:36----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 0 limit 0, 1
+
+2015/12/08 23:32:53----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 0 limit 0, 1
+
+2015/12/08 23:33:19----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 23:33:19----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:34:53----
+select count(*) from `user_address` where  `is_on` = 1 AND `user_id` = 28
+
+2015/12/08 23:34:53----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `user_id` = 28 order by add_time desc limit 0, 15
+
+2015/12/08 23:35:06----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 0 limit 0, 1
+
+2015/12/08 23:36:35----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:36:50----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:41:43----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:41:45----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:42:42----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:43:25----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:43:29----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:44:46----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:45:37----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:46:35----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:46:36----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:46:37----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:48:21----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:58:02----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+
+2015/12/08 23:59:52----
+select `id`,`user_id`,`province`,`city`,`area`,`street`,`postcode`,`is_default`,`mobile`,`name`,`add_time`,`update_time`,`is_on` from `user_address` where  `is_on` = 1 AND `id` = 12 limit 0, 1
+

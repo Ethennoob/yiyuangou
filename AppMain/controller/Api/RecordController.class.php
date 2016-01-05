@@ -31,7 +31,7 @@ class RecordController extends BaseClass {
             $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','user_img'],true);
             $recordpage [$k]['nickname'] = $status['nickname'];
             $recordpage [$k]['user_img'] = $status['user_img'];
-            $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id])->get(['code'],false);
+            $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id,'record_id'=>$v['id']])->get(['code'],false);
             //拼接认购码
             $count = count($status);
             for ($i=0; $i < $count; $i++) { 
@@ -78,6 +78,30 @@ class RecordController extends BaseClass {
     }
     //返回数据，参见System/BaseClass.class.php方法
     $this->R(['before'=>$before,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     *往期获奖商品情况
+     *传入专题id
+     */
+    public function luckyGoodsRecord(){
+
+    $this->V(['goods_id'=>['egNum',null,true]]);
+    $id = intval($_POST['goods_id']);
+
+    $record = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$id])->get(['id','goods_id','user_id','code','add_time'],true);
+    $record['add_time'] = $record['add_time'];
+    $user_id = $record['user_id'];
+    $status = $this->table('goods')->where(['is_on'=>1,'id'=>$id])->get(['goods_name','price'],true);
+    $record['goods_name'] = $status['goods_name'];
+    $record['price'] = $status['price'];
+    $status = $this->table('user')->where(['is_on'=>1,'id'=>$user_id])->get(['nickname','user_img'],true);
+    $record['nickname'] = $status['nickname'];
+    $record['user_img'] = $status['user_img'];
+
+           
+  
+    //返回数据，参见System/BaseClass.class.php方法
+    $this->R(['before'=>$record,'pageInfo'=>$pageInfo]);
     }
     /**
      * 获得商品的商品详情

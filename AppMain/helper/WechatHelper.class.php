@@ -6,7 +6,6 @@ class WechatHelper extends BaseHelper {
     public function setCode() {
         
     }
-
 /**
 	 *  支付逻辑
 	 *  $data array 传入数据   array("orderSn"=>"","money"=>"","attach"=>"")
@@ -62,7 +61,7 @@ class WechatHelper extends BaseHelper {
 		//非必填参数，商户可根据实际情况选填
 		//$unifiedOrder->setParameter("sub_mch_id","XXXX");//子商户号
 		//$unifiedOrder->setParameter("device_info","XXXX");//设备号
-		//$unifiedOrder->setParameter("attach",$data['attach']);//附加数据
+		$unifiedOrder->setParameter("attach",$data['attach']);//附加数据
 		//$unifiedOrder->setParameter("time_start","XXXX");//交易起始时间
 		//$unifiedOrder->setParameter("time_expire","XXXX");//交易结束时间
 		//$unifiedOrder->setParameter("goods_tag",$data['goods_tag']);//商品标记
@@ -84,5 +83,6 @@ class WechatHelper extends BaseHelper {
 		
 		return $jsApiParameters;
 	}
+	
 
 }

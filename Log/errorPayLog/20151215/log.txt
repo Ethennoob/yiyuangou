@@ -1,0 +1,295 @@
+2015-12-15 16:16:18-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"kf8fzj69f4dl85r8j0guamuijv678mch","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811463","result_code":"SUCCESS","return_code":"SUCCESS","sign":"16F09C3054B558D01D15700BCEC236C2","time_end":"20151215161652","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099397430"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:16:28-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"kf8fzj69f4dl85r8j0guamuijv678mch","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811463","result_code":"SUCCESS","return_code":"SUCCESS","sign":"16F09C3054B558D01D15700BCEC236C2","time_end":"20151215161652","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099397430"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:16:45-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"kf8fzj69f4dl85r8j0guamuijv678mch","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811463","result_code":"SUCCESS","return_code":"SUCCESS","sign":"16F09C3054B558D01D15700BCEC236C2","time_end":"20151215161652","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099397430"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:17:17-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"kf8fzj69f4dl85r8j0guamuijv678mch","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811463","result_code":"SUCCESS","return_code":"SUCCESS","sign":"16F09C3054B558D01D15700BCEC236C2","time_end":"20151215161652","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099397430"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:20:39-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4iuduipj7d2hvhgqv7spg5tbg3k10zkg","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818508","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3635111D418A4ACA1643971DA8EA903C","time_end":"20151215162114","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099476644"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:20:54-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4iuduipj7d2hvhgqv7spg5tbg3k10zkg","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818508","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3635111D418A4ACA1643971DA8EA903C","time_end":"20151215162114","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099476644"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:21:11-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4iuduipj7d2hvhgqv7spg5tbg3k10zkg","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818508","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3635111D418A4ACA1643971DA8EA903C","time_end":"20151215162114","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099476644"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:52:37-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ulja7lo94xkojghr20yyrc477z7zdbp6","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815522","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2990168DD7F66D423D6958C96C611018","time_end":"20151215165257","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100064810"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:52:53-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ulja7lo94xkojghr20yyrc477z7zdbp6","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815522","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2990168DD7F66D423D6958C96C611018","time_end":"20151215165257","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100064810"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:53:25-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ulja7lo94xkojghr20yyrc477z7zdbp6","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815522","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2990168DD7F66D423D6958C96C611018","time_end":"20151215165257","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100064810"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 16:56:28-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ulja7lo94xkojghr20yyrc477z7zdbp6","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815522","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2990168DD7F66D423D6958C96C611018","time_end":"20151215165257","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100064810"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:06:37-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"5wu9g7xcixselww90emd594yrft3mcmi","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815740","result_code":"SUCCESS","return_code":"SUCCESS","sign":"6950F0C167B9ADDEACCC98BDFED0F3C5","time_end":"20151215170703","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100336913"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:06:56-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"5wu9g7xcixselww90emd594yrft3mcmi","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815740","result_code":"SUCCESS","return_code":"SUCCESS","sign":"6950F0C167B9ADDEACCC98BDFED0F3C5","time_end":"20151215170703","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100336913"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:07:29-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"5wu9g7xcixselww90emd594yrft3mcmi","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815740","result_code":"SUCCESS","return_code":"SUCCESS","sign":"6950F0C167B9ADDEACCC98BDFED0F3C5","time_end":"20151215170703","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100336913"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:10:31-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"5wu9g7xcixselww90emd594yrft3mcmi","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815740","result_code":"SUCCESS","return_code":"SUCCESS","sign":"6950F0C167B9ADDEACCC98BDFED0F3C5","time_end":"20151215170703","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100336913"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:11:00-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"it68bz0bn7dmyr3b0zoh5fy2g6vhxxw5","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811888","result_code":"SUCCESS","return_code":"SUCCESS","sign":"231BA26E0D52CAF1F7FB672A33C0289C","time_end":"20151215171126","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100444245"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:11:18-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"it68bz0bn7dmyr3b0zoh5fy2g6vhxxw5","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811888","result_code":"SUCCESS","return_code":"SUCCESS","sign":"231BA26E0D52CAF1F7FB672A33C0289C","time_end":"20151215171126","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100444245"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:11:50-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"it68bz0bn7dmyr3b0zoh5fy2g6vhxxw5","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811888","result_code":"SUCCESS","return_code":"SUCCESS","sign":"231BA26E0D52CAF1F7FB672A33C0289C","time_end":"20151215171126","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100444245"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:14:52-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"it68bz0bn7dmyr3b0zoh5fy2g6vhxxw5","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811888","result_code":"SUCCESS","return_code":"SUCCESS","sign":"231BA26E0D52CAF1F7FB672A33C0289C","time_end":"20151215171126","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100444245"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:22:25-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"s5rc20y7ktxzd3vg1a18ntsd4ec5h4hf","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035817208","result_code":"SUCCESS","return_code":"SUCCESS","sign":"4B802D91A507886E0EE8D7F594ACD959","time_end":"20151215161847","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099416959"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:24:13-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ojfb5fvc99nqulwmar7utzmuuw57i4d2","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815273","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2319652DF2F0128168CCD08CF8E1E7BF","time_end":"20151215165039","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100011127"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:24:51-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4iuduipj7d2hvhgqv7spg5tbg3k10zkg","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818508","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3635111D418A4ACA1643971DA8EA903C","time_end":"20151215162114","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099476644"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:26:00-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"qeg5k1heim4szz1f2cy9k2c6wocp1qla","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035812639","result_code":"SUCCESS","return_code":"SUCCESS","sign":"AF9B27CB88D46541A23E85A9AE92D038","time_end":"20151215162229","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099494655"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:26:30-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ulja7lo94xkojghr20yyrc477z7zdbp6","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815522","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2990168DD7F66D423D6958C96C611018","time_end":"20151215165257","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100064810"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:27:38-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ljvegjvg27t5vsi15fesimnvhws5969r","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035812766","result_code":"SUCCESS","return_code":"SUCCESS","sign":"69EAA1EB3B6DAEE750399955B9819F81","time_end":"20151215155403","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099007815"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:28:17-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ijotf715xw8pme703qkxffyj6ng8gobf","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035816060","result_code":"SUCCESS","return_code":"SUCCESS","sign":"0B6389564CF7B8FD3ACB3BD887BD59C6","time_end":"20151215152441","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152098513467"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:29:19-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"hqgz9a6cbszsgi5by17xfqmrfnqoy2ul","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815556","result_code":"SUCCESS","return_code":"SUCCESS","sign":"A3717115E17D553C92DD3D51F204E8B5","time_end":"20151215162543","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099548844"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:30:59-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"i1cy97qh7kwi3nx4tdabjv6jwgcwqexd","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035817587","result_code":"SUCCESS","return_code":"SUCCESS","sign":"9668DD5D8662B009BF2E9843C9D2ACE7","time_end":"20151215155721","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099060816"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:34:43-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"180rfrhik6h4m44ccrde1oaky2k8i2xn","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"2015120670358177","result_code":"SUCCESS","return_code":"SUCCESS","sign":"704DF286B5FF0848695182670B864D58","time_end":"20151215163110","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099646291"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:35:09-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"tzx62bmpauk6spgrx53m1v39wqcpxvui","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035813965","result_code":"SUCCESS","return_code":"SUCCESS","sign":"FB789531E77E2D338A737680A32169CC","time_end":"20151215160128","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099115987"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:36:10-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"8of30xwydcsspt5q7d0dzibx0isb1bk7","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035812045","result_code":"SUCCESS","return_code":"SUCCESS","sign":"8901CBB15BC4984795B69C612319E342","time_end":"20151215163210","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099663682"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:36:50-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"xn7f0wa9m29ych1xp8zzfydlypc259gl","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035817262","result_code":"SUCCESS","return_code":"SUCCESS","sign":"9BB921C2A1FBBD6790F82F6D4D96C121","time_end":"20151215163314","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099695041"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:38:34-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"24iuml8dar9glk2zwexjg2luwjyo4m8k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035813765","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3EC7809EEDDD65070DC006405A80D5A8","time_end":"20151215153500","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152098691838"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:39:14-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"0twg31s4j3uiuooikdoji4wrzxmodzgn","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"20151206703581581","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7CEE4CA9F694486BA79688932F52238B","time_end":"20151215160540","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099201264"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:39:22-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"csn93fo2nuuz2x3jnpuj278b5fn3norc","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035816640","result_code":"SUCCESS","return_code":"SUCCESS","sign":"F359BF443B5B744324BB579735887C9A","time_end":"20151215153546","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152098710614"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:39:34-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"csvbi5r28yl2vokooyo9d4ww094w2pt5","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035814677","result_code":"SUCCESS","return_code":"SUCCESS","sign":"AD641F1732AC3B7546529A5CF1EEE4A2","time_end":"20151215163602","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099729936"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:40:33-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"3hrcgjn2iqjo3n5sdha8mm89v9vvb0g9","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815633","result_code":"SUCCESS","return_code":"SUCCESS","sign":"C5027A6737E2D84756D7909F2279CDAE","time_end":"20151215163659","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099747146"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:40:33-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"5wu9g7xcixselww90emd594yrft3mcmi","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815740","result_code":"SUCCESS","return_code":"SUCCESS","sign":"6950F0C167B9ADDEACCC98BDFED0F3C5","time_end":"20151215170703","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100336913"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:41:36-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"2e232h7r50hognevosbdsbd4n7vlnmt1","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"20151206703581393","result_code":"SUCCESS","return_code":"SUCCESS","sign":"A00B2A424065C613A10510BBAFEF52D7","time_end":"20151215163803","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099766145"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:42:50-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4hkacctauf9nxvxgq5ikl3o97wtkv6ov","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818823","result_code":"SUCCESS","return_code":"SUCCESS","sign":"CC45CA165418841639C0AC56617F2AD5","time_end":"20151215163913","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099775841"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:44:03-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"g4bk1696apx74ie5w60h3shmi3lubmcf","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035819702","result_code":"SUCCESS","return_code":"SUCCESS","sign":"EFB13E28FA2C0E9637E39E05EF182428","time_end":"20151215161029","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099281096"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:44:53-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"it68bz0bn7dmyr3b0zoh5fy2g6vhxxw5","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811888","result_code":"SUCCESS","return_code":"SUCCESS","sign":"231BA26E0D52CAF1F7FB672A33C0289C","time_end":"20151215171126","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100444245"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:50:27-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"kf8fzj69f4dl85r8j0guamuijv678mch","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035811463","result_code":"SUCCESS","return_code":"SUCCESS","sign":"16F09C3054B558D01D15700BCEC236C2","time_end":"20151215161652","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099397430"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:52:29-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"s5rc20y7ktxzd3vg1a18ntsd4ec5h4hf","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035817208","result_code":"SUCCESS","return_code":"SUCCESS","sign":"4B802D91A507886E0EE8D7F594ACD959","time_end":"20151215161847","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099416959"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:54:14-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ojfb5fvc99nqulwmar7utzmuuw57i4d2","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815273","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2319652DF2F0128168CCD08CF8E1E7BF","time_end":"20151215165039","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100011127"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:54:53-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4iuduipj7d2hvhgqv7spg5tbg3k10zkg","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818508","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3635111D418A4ACA1643971DA8EA903C","time_end":"20151215162114","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099476644"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:56:01-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"qeg5k1heim4szz1f2cy9k2c6wocp1qla","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035812639","result_code":"SUCCESS","return_code":"SUCCESS","sign":"AF9B27CB88D46541A23E85A9AE92D038","time_end":"20151215162229","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099494655"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:56:33-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ulja7lo94xkojghr20yyrc477z7zdbp6","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815522","result_code":"SUCCESS","return_code":"SUCCESS","sign":"2990168DD7F66D423D6958C96C611018","time_end":"20151215165257","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152100064810"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:57:41-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"ljvegjvg27t5vsi15fesimnvhws5969r","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035812766","result_code":"SUCCESS","return_code":"SUCCESS","sign":"69EAA1EB3B6DAEE750399955B9819F81","time_end":"20151215155403","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099007815"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 17:59:22-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"hqgz9a6cbszsgi5by17xfqmrfnqoy2ul","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815556","result_code":"SUCCESS","return_code":"SUCCESS","sign":"A3717115E17D553C92DD3D51F204E8B5","time_end":"20151215162543","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099548844"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 19:22:32-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"s5rc20y7ktxzd3vg1a18ntsd4ec5h4hf","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035817208","result_code":"SUCCESS","return_code":"SUCCESS","sign":"4B802D91A507886E0EE8D7F594ACD959","time_end":"20151215161847","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099416959"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 19:24:58-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"4iuduipj7d2hvhgqv7spg5tbg3k10zkg","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035818508","result_code":"SUCCESS","return_code":"SUCCESS","sign":"3635111D418A4ACA1643971DA8EA903C","time_end":"20151215162114","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152099476644"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 19:46:02-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"pgyxo4gj5qmf5silystghh0f0bf21t4k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035812915","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7DA3B7B6F5CFAC002F16143F74255587","time_end":"20151215194626","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152104058627"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 19:46:20-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"pgyxo4gj5qmf5silystghh0f0bf21t4k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035812915","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7DA3B7B6F5CFAC002F16143F74255587","time_end":"20151215194626","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152104058627"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 19:46:51-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"pgyxo4gj5qmf5silystghh0f0bf21t4k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035812915","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7DA3B7B6F5CFAC002F16143F74255587","time_end":"20151215194626","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152104058627"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 19:49:52-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"pgyxo4gj5qmf5silystghh0f0bf21t4k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035812915","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7DA3B7B6F5CFAC002F16143F74255587","time_end":"20151215194626","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152104058627"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 20:19:55-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"pgyxo4gj5qmf5silystghh0f0bf21t4k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035812915","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7DA3B7B6F5CFAC002F16143F74255587","time_end":"20151215194626","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152104058627"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 20:46:29-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"2pelgqk8dp0vf5mvincghnirf6p00lvm","openid":"o0YrTwNBQEXAGHEudnc3Tzkf5amA","out_trade_no":"201512067035815487","result_code":"SUCCESS","return_code":"SUCCESS","sign":"DD2997AEE84F966C026F828764609FA9","time_end":"20151215174249","total_fee":"1","trade_type":"JSAPI","transaction_id":"1007930607201512152101151957"}
+-----------
+结果：重复流水号！
+------------------ 
+2015-12-15 20:50:12-----------
+{"appid":"wx500d53069de27d71","attach":"{\"goods_sn\":\"20151206703581\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1282518701","nonce_str":"pgyxo4gj5qmf5silystghh0f0bf21t4k","openid":"o0YrTwMQc4-8Kv-JP3_mrzFZdBsI","out_trade_no":"201512067035812915","result_code":"SUCCESS","return_code":"SUCCESS","sign":"7DA3B7B6F5CFAC002F16143F74255587","time_end":"20151215194626","total_fee":"1","trade_type":"JSAPI","transaction_id":"1004980607201512152104058627"}
+-----------
+结果：重复流水号！
+------------------ 

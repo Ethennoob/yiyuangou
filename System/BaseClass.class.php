@@ -19,16 +19,22 @@ abstract class BaseClass {
     static $viewDataTemp=null;
     public $viewData=null;
     
+    /**
+     * 选择表
+     * @param string $tableName
+     * @param string $db
+     * @return \System\database\BaseTable
+     */
     public function table($tableName=null, $db = "DB_MASTER") {
-       	if (self::$BD === null){
-    		self::$BD=new \System\database\BaseTable($db);
+       	if (!isset(self::$BD[$db]) || self::$BD[$db] === null){
+    		self::$BD[$db]=new \System\database\BaseTable($db);
     	}
     	
     	if ($tableName !== null){
-    		self::$BD->setTable($tableName);
+    		self::$BD[$db]->setTable($tableName);
     	}
     	
-    	return self::$BD;
+    	return self::$BD[$db];
     }
 
     /**
@@ -272,7 +278,7 @@ abstract class BaseClass {
         ];
         
         $isView=Router::$isView;
-        $isViewMuti=Router::$isViewMuti;
+        //$isViewMuti=Router::$isViewMuti;
         
         if (!$helper &&  $isView === false ){
         	ajaxReturn($returnData, "JSON", JSON_UNESCAPED_UNICODE);
@@ -282,13 +288,13 @@ abstract class BaseClass {
         	if ($returnData['errcode'] !=0 && $returnData['isImportant']==1){
         		redirect(getHost().$jumpUrl);
         	}
+
+        	self::$viewDataTemp[self::$functionName]=$returnData;
+
+        	if($returnData['errcode'] !=0){
+        		$this->viewError($returnData);
+        	}
         	
-        	if ($isViewMuti){
-        		self::$viewDataTemp[self::$functionName]=$returnData;
-        	}
-        	else{
-        		self::$viewDataTemp=$returnData;
-        	}
         	return;
         }
 
@@ -299,24 +305,38 @@ abstract class BaseClass {
      * 调用Api的Controller生成view
      * @param string|array $class Controller位置
      * @param string|array $function
-     * @param array 参数 
+     * @param array $params 参数
+     * @param array $extraData 额外参数 
      * @example $this->ApiView('Api.Test','test123',['234234','23434']);
      * @example $this->ApiView(['Api.Test','Api.Test'],['test123','test1234'],[['234234','23434'],['ffff']]);
      */
-    protected function ApiView($class,$function,$params=[]){
+    protected function ApiView($class,$function,$params=[],$extraData=[]){
     	if (is_string($class)){
-    		$dataClass=Router::Controller($class,true);
+    		$dataClass=Router::Controller($class,true,$function);
     		call_user_func_array([$dataClass, $function], (array) $params);
     	}
     	else{
     		foreach ($class as $key=>$v){
-    			$dataClass=Router::Controller($v,true,true,$function[$key]);
+    			$dataClass=Router::Controller($v,true,$function[$key]);
     			$mutiParams=empty($params)?[]:$params[$key];
     			call_user_func_array([$dataClass, $function[$key]], (array) $mutiParams);
     		}
     	}
     	
+    	if ($extraData){
+    		self::$viewDataTemp['extra']=$this->viewExtraData($extraData);
+    	}
+    	
     	$this->View();
+    }
+    
+    /**
+     * 组装apiView数据
+     * @param unknown $data
+     * @return Ambigous <void, multitype:multitype:string array  number Ambigous <string, string> Ambigous <string, number> Ambigous <string, multitype:, unknown> >
+     */
+    protected function viewExtraData($data){
+    	return $this->R($data,0,true);
     }
 
     /**
@@ -327,14 +347,30 @@ abstract class BaseClass {
     	if ($data !== null){
     		self::$viewDataTemp = $data;
     	}
-    	
-    	$this->viewData=json_encode(self::$viewDataTemp);
+
     	$requestPath=__ROOT__.'/AppMain/view/'.Entrance::$module.'/'.Entrance::$class.'/'.Entrance::$function.'.php';
-        define('STATIC_PATH',$this->config('STATIC_PATH'));
+		$this->viewData=json_encode(self::$viewDataTemp);
+    	define('STATIC_PATH',$this->config('STATIC_PATH'));
         require $requestPath;
         exit;
     }
-
+    
+    protected function viewError($data){
+    	$errorUrl=getHost().'/Home/Tips/error';
+    	$query=[
+    		'errorInfo' => 	json_encode($data),
+    		'fromUrl' => getHostUrl()
+    	];
+    	
+    	/* if (!empty($_SERVER['HTTP_REFERER'])){
+    		$query['preUrl']=urlencode($_SERVER['HTTP_REFERER']);
+    	} */
+    	
+    	$jumpUrl=getHost().'/Home/Tips/error?'.http_build_query($query);
+    	redirect($jumpUrl);
+    	exit;
+    }
+    
     /**
      * 用于获取单页列表数据
      * @param pageInfo $pageInfo 页面类，控制页面输出

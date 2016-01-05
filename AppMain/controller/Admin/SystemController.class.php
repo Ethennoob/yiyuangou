@@ -33,4 +33,15 @@ class SystemController extends BaseClass {
                 }
             $this->R(); 
         }
+    /**
+     *查询设置认购上限(百分数)
+     */
+    public function buyLimitDetail(){
+        $buy_limit = $this->table('system')->where(['id'=>1])->get(['buy_limit'],true);
+        if(!$buy_limit){
+            $this->R('',70009);
+        }
+     $this->R(['buy_limit'=>$buy_limit]);
+
+    }
 }

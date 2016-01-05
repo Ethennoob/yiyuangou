@@ -40,7 +40,7 @@
                     if ($data ['Event'] == "subscribe") { // 关注事件
 
                         //添加粉丝操作
-                        $this->_addFans();
+                        //$this->_addFans();
 
                         //关注回复
                         $this->_getFollowReply();

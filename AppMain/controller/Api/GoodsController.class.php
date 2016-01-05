@@ -47,7 +47,7 @@ class GoodsController extends BaseClass {
     }
 
     $pageInfo = $this->P();
-    $file = ['id','goods_name','price','goods_thumb'];
+    $file = ['id','goods_name','price','goods_thumb','limit_num'];
 
     $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$thematic['id']])->order('add_time desc');
 
@@ -62,17 +62,20 @@ class GoodsController extends BaseClass {
             $index[$k]['purchase_num'] = $count;
             $index[$k]['last_num'] =$index[$k]['total_num']-$count;
             if ($index[$k]['last_num']==0) {
+                $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['id']])->order('add_time desc')->limit(0,1)->get(['add_time'],true);
+                if ($status!=null) {
+                    $index[$k]['lucky_time'] =$status['add_time']+240;//+4分钟;
+                }
                $status = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$v['id']])->get(['user_id','add_time'],true);
                if ($status) {
-                   $index [$k]['lucky_time'] = $status['add_time'];
                    $status = $this->table('user')->where(['is_on'=>1,'id'=>$status['user_id']])->get(['nickname'],true);
                    $index [$k]['nickname'] =$status['nickname'];
-               }else{
+               }/*else{
                 $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['id']])->order('add_time desc')->limit(0,1)->get(['add_time'],true);
                 if ($status!=null) {
                     $index[$k]['lucky_time'] =$status['add_time']+180;//+3分钟;
-                }
-               }
+                }*/
+               //}
             }
         }
         $thematic['thematic_name'] = $thematic['thematic_name'];

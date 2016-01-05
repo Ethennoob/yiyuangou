@@ -7,6 +7,7 @@ class purchase {
 			'user_id'=> ['type' => 'i', 'value' => null],
 			'goods_id'=> ['type' => 'i', 'value' => null],
 			'thematic_id'=> ['type' => 'i', 'value' => null],
+			'record_id'=> ['type' => 'i', 'value' => null],
 			'code'=> ['type' => 's', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],
 			'update_time'=> ['type' => 'i', 'value' => null],

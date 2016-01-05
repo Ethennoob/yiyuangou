@@ -15,8 +15,8 @@ class SaleController extends BaseClass {
      * 商品id
      */
     public function oneGoodSaleList(){
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['goods_id'=>['egNum',null,true]]);
+        $id = intval($_POST['goods_id']);
         $pageInfo = $this->P();
         $file = ['id','user_id','num','add_time'];
 
@@ -31,25 +31,29 @@ class SaleController extends BaseClass {
                 $detailpage[$k]['nickname'] = $status['nickname'];
                 $detailpage[$k]['user_img'] = $status['user_img'];
                 $detailpage[$k]['phone'] = $status['phone'];
-                $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$id,'user_id'=>$v['user_id']])->get(['code'],false);
-                $count = count($status);
-                for ($i=0; $i < $count; $i++) { 
-                	$detailpage [$k]['code'.$i] = $status[$i]['code'];
-                }
+               $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id,'record_id'=>$v['id']])->get(['code'],false);
+            //拼接认购码
+            $count = count($status);
+            for ($i=0; $i < $count; $i++) { 
+                $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }
+            $detailpage[$k]['code']=$temp;
+            unset($temp);
             }
         }else{
             $detailpage  = null;
         }
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['单个商品购买记录'=>$detailpage,'pageInfo'=>$pageInfo]);
+        $this->R(['onegoodspage'=>$detailpage,'pageInfo'=>$pageInfo]);
     }
     /**
      * 商品销售情况(分页)
      * 专题id
      */
     public function goodsSaleRecordList(){
-        $this->V(['id'=>['egNum',null,true]]);
-        $id = intval($_POST['id']);
+        $this->V(['thematic_id'=>['egNum',null,true]]);
+        $id = intval($_POST['thematic_id']);
         $pageInfo = $this->P();
         $file = ['id','goods_name','price','goods_thumb','add_time'];
 
@@ -70,7 +74,7 @@ class SaleController extends BaseClass {
             $detailpage  = null;
         }
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['商品销售情况'=>$detailpage,'pageInfo'=>$pageInfo]);
+        $this->R(['goodspage'=>$detailpage,'pageInfo'=>$pageInfo]);
     }
     /**
      * 中奖情况(分页)
@@ -78,8 +82,8 @@ class SaleController extends BaseClass {
      */
     public function beforeRecordList(){
 
-    $this->V(['id'=>['egNum',null,true]]);
-    $id = intval($_POST['id']);
+    $this->V(['thematic_id'=>['egNum',null,true]]);
+    $id = intval($_POST['thematic_id']);
     $pageInfo = $this->P();
     $file = ['id','goods_id','user_id','code','add_time'];
 
@@ -92,7 +96,7 @@ class SaleController extends BaseClass {
             $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','price','goods_thumb'],true);
             $before[$k]['goods_name'] = $status['goods_name'];
             $before[$k]['price'] = $status['price'];
-            $before[$k]['price'] = $status['goods_thumb'];
+            $before[$k]['goods_thumb'] = $status['goods_thumb'];
             $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','user_img','phone'],true);
             $before[$k]['nickname'] = $status['nickname'];
             $before[$k]['user_img'] = $status['user_img'];
@@ -102,7 +106,7 @@ class SaleController extends BaseClass {
         $before  = null;
     }
     //返回数据，参见System/BaseClass.class.php方法
-    $this->R(['往期获奖商品情况'=>$before,'pageInfo'=>$pageInfo]);
+    $this->R(['luckypage'=>$before,'pageInfo'=>$pageInfo]);
     }
     
 }
