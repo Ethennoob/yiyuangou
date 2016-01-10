@@ -1,10 +1,5 @@
 <?php
-/**
- * 一元购系统---用户管理类
- * @authors 凌翔 (553299576@qq.com)
- * @date    2015-11-25 19:49:04
- * @version $Id$
- */
+
 
 namespace AppMain\controller\Admin;
 use \System\BaseClass;
@@ -68,6 +63,103 @@ class UserController extends Baseclass {
         //返回数据，参见System/BaseClass.class.php方法
         $this->R(['userinfo'=>$userinfo]);
     }
+    /**
+     * 通过手机号查询用户信息
+     */
+    public function userOnePhone(){
+        $this->V(['mobile'=>[]]);
+        $phone = intval($_POST['mobile']);
+        $pageInfo = $this->P();
+        $where = 'is_on = 1 and phone like "%'.$phone.'%"';
+        
+        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $class = $this->table('user')->where($where)->order('add_time desc');
+        //查询并分页
+        $userpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($userpage ){
+            foreach ($userpage  as $k=>$v){
+                $userpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $userpage [$k]['last_login'] = date('Y-m-d H:i:s',$v['last_login']);
+            }
+        }else{
+            $userpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['userpage'=>$userpage,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     * 查询列表（用户是否关注）
+     */
+    public function userListNickname(){
+        $this->V(['nickname'=>[]]);
+        $nickname = $_POST['nickname'];
+        $pageInfo = $this->P();
+        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $where = 'is_on = 1 and nickname like "%'.$nickname.'%"';
+        $class = $this->table('user')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $userpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($userpage ){
+            foreach ($userpage  as $k=>$v){
+                $userpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $userpage [$k]['last_login'] = date('Y-m-d H:i:s',$v['last_login']);
+            }
+        }else{
+            $userpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['userpage'=>$userpage,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     * 查询列表（用户是否关注）
+     */
+    public function userListFollow(){
+        $this->V(['is_follow'=>['num',null,true]]);
+        $is_follow = intval($_POST['is_follow']);
+        $pageInfo = $this->P();
+        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+
+        $class = $this->table('user')->where(['is_on'=>1,'is_follow'=>$is_follow])->order('add_time desc');
+
+        //查询并分页
+        $userpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($userpage ){
+            foreach ($userpage  as $k=>$v){
+                $userpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $userpage [$k]['last_login'] = date('Y-m-d H:i:s',$v['last_login']);
+            }
+        }else{
+            $userpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['userpage'=>$userpage,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     * 查询列表（用户是否冻结）
+     */
+    public function userListFroze(){
+        $this->V(['is_froze'=>['num',null,true]]);
+        $is_froze = intval($_POST['is_froze']);
+        $pageInfo = $this->P();
+        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+
+        $class = $this->table('user')->where(['is_on'=>1,'is_froze'=>$is_froze])->order('add_time desc');
+
+        //查询并分页
+        $userpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($userpage ){
+            foreach ($userpage  as $k=>$v){
+                $userpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $userpage [$k]['last_login'] = date('Y-m-d H:i:s',$v['last_login']);
+            }
+        }else{
+            $userpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['userpage'=>$userpage,'pageInfo'=>$pageInfo]);
+    }
+
     /**
      * 修改一条用户信息
      * 电话,收货人，收货手机，收货地址，邮编

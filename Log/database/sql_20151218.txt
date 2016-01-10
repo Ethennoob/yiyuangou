@@ -928,15 +928,3 @@ select count(*) from `logistics` where  `is_on` = 1
 2015/12/18 16:49:12----
 select `id`,`logistics_number`,`logistics_name`,`logistics_status`,`bill_id`,`user_address_id`,`add_time`,`update_time`,`is_on` from `logistics` where  `is_on` = 1 order by add_time desc limit 0, 15
 
-2015/12/18 22:36:54----
-select count(*) from `manager`
-
-2015/12/18 22:36:54----
-select `id`,`manager_name`,`manager_email`,`manager_phone`,`manager_level`,`manager_endlogin`,`add_time` from `manager` order by id desc limit 0, 15
-
-2015/12/18 22:37:00----
-select count(*) from `manager`
-
-2015/12/18 22:37:00----
-select `id`,`manager_name`,`manager_email`,`manager_phone`,`manager_level`,`manager_endlogin`,`add_time` from `manager` order by id desc limit 0, 15
-

@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
 </head>
-<body>
-sdafsadgwsgwsrgw
+<body id="registerApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">新用户注册</div>
+
+    <!--填写手机号码-->
+    <div class="padding-horizontal-10 margin-vertical-20">
+        <span class="block mb10">手机号码：</span>
+        <input v-model="mobile" class="block-input" type="text" placeholder="请输入您的手机号码">
+    </div>
+
+    <div class="padding-horizontal-10">
+        <button v-on:click="register()" class="btn width-full bg-red br4">立即注册</button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var registerApp = new Vue({
+            el: '#registerApp',
+            data: {
+                mobile: ''
+            },
+            methods: {
+                register: function () {
+                    var telReg = this.mobile.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+                    if(telReg){
+                        window.location = 'http://onebuy.ping-qu.com/Api/User/getNewOpenID?phone='+this.mobile;
+                    } else {
+                        alert("手机号码格式有误（请输入11位有效号码）");
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

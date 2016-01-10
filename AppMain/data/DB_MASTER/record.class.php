@@ -7,7 +7,6 @@ class record {
 			'goods_id'=> ['type' => 'i', 'value' => null],
 			'user_id'=> ['type' => 'i', 'value' => null],
 			'thematic_id'=> ['type' => 'i', 'value' => null],
-			'record_id'=> ['type' => 'i', 'value' => null],
 			'wxPay_sn'=> ['type' => 's', 'value' => null],
 			'num'=> ['type' => 'i', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],

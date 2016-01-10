@@ -25,7 +25,7 @@
     <!--头像显示区-->
     <a href="personal-detail.html?user_id={{userId}}" class="personal-headImg block text-center padding-vertical-20">
         <img class="round" v-bind:src="userImg">
-        <span class="block font-white f14 mt5">{{userPhone}}</span>
+        <span class="block font-white f14 mt5" v-cloak>{{userPhone}}</span>
     </a>
 
     <!--导航列表-->

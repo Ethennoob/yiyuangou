@@ -1,0 +1,4179 @@
+2015/12/30 11:14:40----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:14:40----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:14:40----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:20:16----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:20:16----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:20:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:20:31----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:20:31----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:20:31----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:15----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:15----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:15----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:26----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:26----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:31----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:31----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:31----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:32----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:32----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:32----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:33----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:33----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:33----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:34----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:34----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:34----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:35----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:35----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:35----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:21:55----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:21:55----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:21:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:22:44----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:22:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:22:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:23:00----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:23:00----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:23:00----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:23:12----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:23:12----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:23:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:24:13----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:24:13----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:24:13----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:24:45----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:24:45----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:24:45----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:24:47----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:24:47----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:24:47----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:36----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:36----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:36----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:38----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:38----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:38----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:39----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:39----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:39----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:39----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:40----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:40----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:40----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:41----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:41----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:41----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:42----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:42----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:42----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:42----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:42----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:42----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:43----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:43----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:43----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:43----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:43----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:43----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:44----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:44----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:25:52----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:25:52----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:25:52----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:26:27----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:26:27----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:26:27----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:26:38----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:26:38----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:26:38----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:26:45----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:26:45----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:26:45----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:26:53----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:26:53----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:26:53----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:26:58----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:26:58----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:26:58----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:31:34----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:31:34----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:31:34----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:34:07----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:34:07----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:34:07----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:34:19----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:34:19----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:34:19----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:34:45----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:34:45----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:34:45----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:35:12----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:35:12----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:35:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:35:33----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:35:33----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:35:33----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:35:46----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:35:46----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:35:46----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:35:48----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:35:48----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:35:48----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:38:55----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:38:55----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:38:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:39:21----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:39:21----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:39:21----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:39:29----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:39:29----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:39:29----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:51:16----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:51:16----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:51:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:51:39----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:51:39----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:51:39----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:52:02----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:52:02----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:52:02----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:52:22----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:52:22----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:52:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:55:34----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:55:34----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:55:34----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:56:01----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:56:01----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:56:01----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:02----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:02----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:02----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:05----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:05----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:05----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:06----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:06----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:06----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:06----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:06----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:07----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:07----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:07----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:07----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:08----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:08----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:08----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:08----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:08----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:08----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:09----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:09----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:09----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:10----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:10----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:10----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:10----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:10----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:10----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:11----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:11----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:11----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:11----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:12----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:12----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:12----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:20----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:20----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:20----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:21----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:21----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:21----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:21----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:21----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:22----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:22----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:57:56----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:57:56----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:57:56----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 11:58:14----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 11:58:14----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 11:58:14----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:01:55----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:01:55----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:01:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:02:00----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:02:00----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:02:00----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:02:01----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:02:01----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:02:01----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:02:03----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:02:03----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:02:03----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:02:04----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:02:04----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:02:04----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:07:15----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:07:15----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:07:15----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:09:28----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:09:28----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:09:28----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:09:31----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:09:31----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:09:31----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:14:33----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:14:33----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:14:33----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:14:44----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:14:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:14:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:14:59----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:14:59----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:14:59----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:15:34----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:15:34----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:15:34----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:16:09----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:16:09----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:16:09----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:16:26----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:16:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:16:26----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:16:55----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:16:55----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:16:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:17:12----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:17:13----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:17:13----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:17:29----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:17:29----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:17:29----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:17:57----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:17:57----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:17:57----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:18:38----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:18:38----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:18:38----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:18:57----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:18:57----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:18:57----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:19:05----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:19:05----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:19:05----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:19:12----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:19:12----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:19:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:19:19----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:19:19----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:19:19----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:24:36----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:24:36----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:24:36----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:24:36----
+select `Bvalue` from `system` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+Unknown column 'is_on' in 'where clause'
+2015/12/30 12:24:44----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:24:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:24:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:24:44----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:25:28----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:25:28----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:25:28----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:25:28----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:25:55----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:25:55----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:25:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:25:55----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:26:05----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:26:05----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:26:05----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:26:05----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:26:22----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:26:22----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:26:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:26:22----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:26:30----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:26:30----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:26:30----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:26:30----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:26:49----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:26:49----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:26:49----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:26:49----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:27:17----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:27:17----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:27:17----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:27:17----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:28:03----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:28:03----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:28:03----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:28:03----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:28:07----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:28:07----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:28:07----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:28:07----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:28:21----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:28:21----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:28:21----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:28:21----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:28:26----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:28:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:28:26----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:28:26----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:28:26----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:28:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:28:26----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:28:26----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:28:55----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:28:55----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:28:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:28:55----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:29:26----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:29:26----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:29:26----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:29:27----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:29:46----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:29:46----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:29:46----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:29:46----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:38:22----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:38:22----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:38:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:38:22----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 12:38:32----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 12:38:32----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 12:38:32----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 12:38:32----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 13:55:43----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 13:55:43----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 13:55:43----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 13:55:43----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 13:55:45----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 13:55:45----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 13:55:45----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 57 limit 0, 100
+
+2015/12/30 13:55:45----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 14:31:46----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 14:31:47----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/12/30 14:31:47----
+select `id` from `goods` where  `goods_sn` = '20151230258038' AND `is_on` = 1 limit 0, 1
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:50----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:31:51----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 14:33:32----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/12/30 14:33:32----
+select `id` from `goods` where  `goods_sn` = '20151230874618' AND `is_on` = 1 limit 0, 1
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:32----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:33----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:34----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:35----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:33:36----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 14:35:46----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/12/30 14:35:46----
+select `id` from `goods` where  `goods_sn` = '20151230455297' AND `is_on` = 1 limit 0, 1
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:46----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:47----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:48----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:35:49----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:47:19----
+select `limit_num` from `goods` where  `id` = '85' limit 0, 1
+
+2015/12/30 14:47:19----
+select `id` from `code` where  `goods_id` = '85' AND `is_use` = 0 limit 0, 1
+
+2015/12/30 14:47:19----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '85' AND `is_on` = 1
+
+2015/12/30 14:47:19----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '85' order by rand() limit 0, 50
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000069'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000004'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000009'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000048'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000053'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000040'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000001'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000023'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000094'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:19----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000099'
+
+2015/12/30 14:47:19----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000077'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000085'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000049'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000074'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000044'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000055'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000027'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000045'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000043'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000092'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000095'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000097'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000071'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000083'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000028'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000042'
+
+2015/12/30 14:47:20----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:20----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000076'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000100'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000090'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000065'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000002'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000016'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000013'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000035'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000015'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000060'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000020'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000003'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000091'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000032'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000079'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000033'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000006'
+
+2015/12/30 14:47:21----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:21----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000056'
+
+2015/12/30 14:47:22----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:22----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000007'
+
+2015/12/30 14:47:22----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:22----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000050'
+
+2015/12/30 14:47:22----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:22----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000046'
+
+2015/12/30 14:47:22----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:22----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000011'
+
+2015/12/30 14:47:22----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:22----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000054'
+
+2015/12/30 14:47:22----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:47:22----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000062'
+
+2015/12/30 14:47:22----
+insert into `record` (`goods_id`,`user_id`,`thematic_id`,`num`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:51:48----
+select `limit_num` from `goods` where  `id` = '85' limit 0, 1
+
+2015/12/30 14:51:48----
+select `id` from `code` where  `goods_id` = '85' AND `is_use` = 0 limit 0, 1
+
+2015/12/30 14:51:48----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '85' AND `is_on` = 1
+
+2015/12/30 14:51:48----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '85' order by rand() limit 0, 20
+
+2015/12/30 14:51:48----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:48----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000041'
+
+2015/12/30 14:51:48----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:48----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000087'
+
+2015/12/30 14:51:48----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:48----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000008'
+
+2015/12/30 14:51:48----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:48----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000005'
+
+2015/12/30 14:51:48----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:48----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000037'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000012'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000017'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000068'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000029'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000073'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000018'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000066'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000024'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000088'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000047'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000098'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000052'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000036'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000059'
+
+2015/12/30 14:51:49----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:51:49----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000084'
+
+2015/12/30 14:51:49----
+insert into `record` (`goods_id`,`user_id`,`thematic_id`,`num`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 14:54:31----
+select `limit_num` from `goods` where  `id` = '85' limit 0, 1
+
+2015/12/30 14:54:31----
+select `id` from `code` where  `goods_id` = '85' AND `is_use` = 0 limit 0, 1
+
+2015/12/30 14:54:31----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '85' AND `is_on` = 1
+
+2015/12/30 14:54:31----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '85' order by rand() limit 0, 20
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000021'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000025'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000096'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000075'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000063'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000019'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000061'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000082'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000064'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000072'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000034'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000030'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000093'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000070'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000014'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000058'
+
+2015/12/30 14:54:31----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:31----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000039'
+
+2015/12/30 14:54:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000057'
+
+2015/12/30 14:54:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000078'
+
+2015/12/30 14:54:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 14:54:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000086'
+
+2015/12/30 14:54:32----
+insert into `record` (`goods_id`,`user_id`,`thematic_id`,`num`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:00:21----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 15:00:21----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 15:00:21----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:00:49----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 15:00:49----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 15:00:49----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:01:18----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 15:01:18----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 15:01:18----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:01:29----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 15:01:29----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 15:01:29----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:01:29----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:01:42----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 57 limit 0, 1
+
+2015/12/30 15:01:42----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 57
+
+2015/12/30 15:01:42----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:01:42----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:02:14----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:02:14----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:02:28----
+select `limit_num` from `goods` where  `id` = '85' limit 0, 1
+
+2015/12/30 15:02:28----
+select `id` from `code` where  `goods_id` = '85' AND `is_use` = 0 limit 0, 1
+
+2015/12/30 15:02:28----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '85' AND `is_on` = 1
+
+2015/12/30 15:02:32----
+select `limit_num` from `goods` where  `id` = '85' limit 0, 1
+
+2015/12/30 15:02:32----
+select `id` from `code` where  `goods_id` = '85' AND `is_use` = 0 limit 0, 1
+
+2015/12/30 15:02:32----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '85' AND `is_on` = 1
+
+2015/12/30 15:02:32----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '85' order by rand() limit 0, 9
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000080'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000067'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000038'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000026'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000031'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000089'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000051'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000022'
+
+2015/12/30 15:02:32----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`,`ms_time`) values (?,?,?,?,?,?)
+
+2015/12/30 15:02:32----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = '10000081'
+
+2015/12/30 15:02:33----
+insert into `record` (`goods_id`,`user_id`,`thematic_id`,`num`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:03:57----
+select `limit_num` from `goods` where  `id` = '85' limit 0, 1
+
+2015/12/30 15:03:57----
+select `id` from `code` where  `goods_id` = '85' AND `is_use` = 0 limit 0, 1
+
+2015/12/30 15:07:38----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:07:38----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:07:38----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:08:35----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:08:35----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:08:35----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:08:44----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:08:44----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:08:44----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:08:45----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:09:18----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:09:18----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:09:18----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:09:37----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:09:37----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:09:37----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:10:01----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:10:01----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:10:01----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:10:09----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:10:09----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:10:09----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:10:10----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:12:36----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:12:36----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:12:36----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:12:36----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:12:47----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:12:47----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:12:47----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:12:47----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:13:11----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:13:11----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:13:11----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:13:11----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:13:22----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:13:22----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:13:22----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:13:22----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:13:30----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:13:30----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:13:30----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:13:30----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:16:09----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:16:09----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:16:10----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:16:10----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:16:10----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:16:10----
+select `code`,`user_id` from `code` where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `is_lucky` = 1 limit 0, 1
+
+2015/12/30 15:16:10----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = '10000077' limit 0, 1
+
+2015/12/30 15:16:10----
+select `id` from `record` where  `is_on` = 1 AND `goods_id` = 85 AND `add_time` = 1451458039 limit 0, 1
+
+2015/12/30 15:23:02----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:23:02----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:23:02----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:23:02----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:23:02----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:23:02----
+select `code`,`user_id` from `code` where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `is_lucky` = 1 limit 0, 1
+
+2015/12/30 15:23:02----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = '10000077' limit 0, 1
+
+2015/12/30 15:23:02----
+select `id` from `record` where  `is_on` = 1 AND `goods_id` = 85 AND `add_time` = 1451458039 limit 0, 1
+
+2015/12/30 15:25:16----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:25:16----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:25:16----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:25:16----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:25:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = null limit 0, 1
+
+2015/12/30 15:26:19----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:26:19----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:26:19----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:26:19----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:26:19----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:26:27----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:26:27----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:26:27----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:26:27----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:26:27----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:26:27----
+select `code`,`user_id` from `code` where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `is_lucky` = 1 limit 0, 1
+
+2015/12/30 15:26:28----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND ( `code` = null AND `code` = null  ) limit 0, 1
+
+2015/12/30 15:27:13----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:27:13----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:27:13----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:27:13----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:27:13----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:27:13----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:27:21----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:27:21----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:27:21----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:27:21----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:27:21----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:27:21----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:27:21----
+select `id` from `record` where  `is_on` = 1 AND `goods_id` = 85 AND `add_time` = 1451458039 limit 0, 1
+
+2015/12/30 15:27:57----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:27:57----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:27:57----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:27:57----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:27:57----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:27:57----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:28:18----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:28:18----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:28:18----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:28:18----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:28:18----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:28:18----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:28:18----
+select `id` from `record` where  `is_on` = 1 AND `goods_id` = 85 AND `add_time` = 1451458039 limit 0, 1
+
+2015/12/30 15:37:18----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:37:18----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:37:18----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:37:18----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:37:18----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:37:18----
+select `record_id` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:37:18----
+select `id` from `record` where  `is_on` = 1 AND `goods_id` = 85 AND `add_time` = 148 limit 0, 1
+
+2015/12/30 15:38:02----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:38:02----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:38:02----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:38:02----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:38:02----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:38:02----
+select `record_id` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:38:13----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 85 limit 0, 1
+
+2015/12/30 15:38:13----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 85
+
+2015/12/30 15:38:13----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 15:38:13----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:38:13----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85 AND `code` = 10000077
+
+2015/12/30 15:38:13----
+select `record_id` from `purchase` where  `is_on` = 1 AND `goods_id` = 85 AND `code` = 10000077 limit 0, 1
+
+2015/12/30 15:38:13----
+insert into `bill` (`thematic_id`,`goods_id`,`bill_sn`,`add_time`) values (?,?,?,?)
+
+2015/12/30 15:38:13----
+update `code` set `update_time`=?,`is_on`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 85
+
+2015/12/30 15:59:22----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:59:26----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 15:59:26----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/12/30 15:59:26----
+select `id` from `goods` where  `goods_sn` = '20151230326922' AND `is_on` = 1 limit 0, 1
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:26----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:27----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:27----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 15:59:27----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:05----
+select `buy_limit` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 16:00:05----
+insert into `goods` (`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_thumb`,`goods_img`,`free_post`,`add_time`) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+2015/12/30 16:00:05----
+select `id` from `goods` where  `goods_sn` = '20151230564254' AND `is_on` = 1 limit 0, 1
+
+2015/12/30 16:00:05----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:06----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:07----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:00:08----
+insert into `code` (`goods_id`,`thematic_id`,`code`,`key`,`add_time`) values (?,?,?,?,?)
+
+2015/12/30 16:38:14----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2015/12/30 16:38:15----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = 86
+
+2015/12/30 16:38:15----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2015/12/30 16:38:15----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2015/12/30 16:38:15----
+update `code` set `is_lucky`=?,`update_time`=? where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 86 AND `code` = 9999913
+
+2015/12/30 16:38:15----
+select `code`,`user_id` from `code` where  `is_on` = 1 AND `is_use` = 1 AND `goods_id` = 86 AND `is_lucky` = 1 limit 0, 1
+

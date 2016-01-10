@@ -132,8 +132,41 @@ class RecordController extends BaseClass {
                 $detail [$k]['logistics_number'] = $status['logistics_number'];
             $status = $this->table('record')->where(['is_on'=>1,'id'=>$v['record_id']])->get(['num'],true);
                 $detail [$k]['num'] = $status['num'];
+            $status = $this->table('user_address')->where(['is_on'=>1,'id'=>$v['address_id']])->get(['province','city'
+                ,'area','street','mobile','name'],true);
+                $detail [$k]['province'] = $status['province'];
+                $detail [$k]['city'] = $status['city'];
+                $detail [$k]['area'] = $status['area'];
+                $detail [$k]['street'] = $status['street'];
+                $detail [$k]['mobile'] = $status['mobile'];
+                $detail [$k]['name'] = $status['name'];
             }
-            unset($detail [$k]['add_time']);
+            
             $this->R(['detail'=>$detail]);
+    }
+    /**
+     * 50条roll_record A值等
+     */
+    public function rollRecord(){
+        $this->V(['goods_id'=>['egNum',null,true]]);
+        $id = intval($_POST['goods_id']);
+        $pageInfo = $this->P();
+        //调用Helper类
+        $dataClass=$this->H('Roll');
+        $where = 'A.goods_id = '.$id;
+        $order='A.id desc';
+        $rollRecord=$dataClass->getRollRecord(null,null,null,false,$order);
+        $rollRecord=$this->getOnePageData($pageInfo, $dataClass, 'getRollRecord','getRollRecordListLength',[$where,null,null,false,$order],true);
+        if($rollRecord){
+                foreach ($rollRecord as $k=>$v){
+                    $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname'],true);
+                    $rollRecord[$k]['nickname'] = $status['nickname'];
+                    $rollRecord[$k]['date'] = date('Y-m-d H:i:s',$v['time']).".".$v['ms_time'];
+                    $rollRecord[$k]['time'] = $v['time'].$v['ms_time'];
+                }
+        }else{
+            $rollRecord=false;
+        }
+        $this->R(['rollRecord'=>$rollRecord,'page'=>$pageInfo]);
     }
 }

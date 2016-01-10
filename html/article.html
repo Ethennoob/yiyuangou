@@ -16,14 +16,13 @@
 </head>
 <body id="articleApp">
     <!--顶栏-->
-    <div class="text-center bg-white top-bar">{{article.title}}
+    <div class="text-center bg-white top-bar">
+        <span v-cloak>{{article.title}}</span>
         <a href="javascript: history.back();">
             <img class="back" src="assets/i/back.png" />
         </a>
     </div>
-
-    {{article.content}}
-
+    <div v-cloak>{{{article.content}}}</div>
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>

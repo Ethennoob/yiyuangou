@@ -1,0 +1,36 @@
+2015/12/02 22:02:28----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=39
+
+2015/12/02 22:02:28----
+select `logistics_number` from `record` where  `is_on` = 1 AND `bill_id` = 13 limit 0, 1
+Unknown column 'logistics_number' in 'field list'
+2015/12/02 22:02:59----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=39
+
+2015/12/02 22:02:59----
+select `logistics_number` from `record` where  `is_on` = 1 AND `bill_id` = 13 limit 0, 1
+Unknown column 'logistics_number' in 'field list'
+2015/12/02 22:04:09----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=39
+
+2015/12/02 22:04:09----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 13 limit 0, 1
+
+2015/12/02 22:04:21----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=39
+
+2015/12/02 22:04:21----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 13 limit 0, 1
+
+2015/12/02 22:05:09----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=39
+
+2015/12/02 22:05:09----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 13 limit 0, 1
+
+2015/12/02 22:10:36----
+select A.id,A.goods_id,A.user_id,A.thematic_id,A.status,A.code,A.add_time,B.goods_sn,B.goods_title,B.price,B.goods_thumb,B.free_post,C.thematic_name,D.nickname,D.user_img,D.phone from bill as A  left join goods as B on A.goods_id=B.id left join thematic as C on A.thematic_id=C.id left join user as D on A.user_id=D.id where A.is_on=1 and A.is_confirm=1 and A.goods_id=39
+
+2015/12/02 22:10:36----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 13 limit 0, 1
+

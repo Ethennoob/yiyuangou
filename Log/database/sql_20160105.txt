@@ -1,0 +1,84 @@
+2016/01/05 13:29:11----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:32:38----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:33:27----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:34:17----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:35:02----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:37:27----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:37:36----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:38:40----
+select `id` from `goods` where  `is_on` = 1 AND `goods_id` = 3 limit 0, 1
+Unknown column 'goods_id' in 'where clause'
+2016/01/05 13:38:49----
+select `id` from `roll` where  `is_on` = 1 AND `goods_id` = 3 limit 0, 1
+
+2016/01/05 13:38:49----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:38:50----
+select `id` from `roll` where  `is_on` = 1 AND `goods_id` = 3 limit 0, 1
+
+2016/01/05 13:39:11----
+select `id` from `roll` where  `is_on` = 1 AND `goods_id` = 3 limit 0, 1
+
+2016/01/05 13:39:17----
+select `id` from `roll` where  `is_on` = 1 AND `goods_id` = 4 limit 0, 1
+
+2016/01/05 13:39:17----
+insert into `roll` (`goods_id`) values (?)
+
+2016/01/05 13:47:22----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:47:22----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND ( `id` = null  ) limit 0, 1
+
+2016/01/05 13:47:31----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:49:29----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:49:29----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND ( `id` = null  ) limit 0, 1
+
+2016/01/05 13:49:42----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:49:42----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND ( `id` = null  ) limit 0, 1
+
+2016/01/05 13:54:44----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:54:53----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:54:59----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 13:55:12----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/05 17:57:06----
+select `id`,`cid`,`keywords`,`description` from `seo` limit 0, 1
+
+2016/01/05 22:17:25----
+select `id`,`cid`,`keywords`,`description` from `seo` limit 0, 1
+
+2016/01/05 22:26:11----
+select `id`,`cid`,`keywords`,`description` from `seo` limit 0, 1
+

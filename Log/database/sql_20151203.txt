@@ -1,0 +1,276 @@
+2015/12/03 14:56:13----
+select count(*) from `goods` where  `is_on` = 1
+
+2015/12/03 14:56:13----
+select `id`,`goods_sn`,`thematic_id`,`goods_thumb`,`goods_name`,`cost_price`,`price`,`goods_ablum`,`free_post`,`is_show`,`limit_num`,`add_time` from `goods` where  `is_on` = 1 order by add_time desc limit 0, 15
+Unknown column 'goods_ablum' in 'field list'
+2015/12/03 15:00:19----
+select count(*) from `record` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `id`,`user_id`,`num`,`add_time` from `record` where  `is_on` = 1 AND `goods_id` = 39 order by add_time desc limit 0, 15
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 4 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 4 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 4 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 4 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 4 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 4 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 5 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 5 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 3 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 3 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 2 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 2 AND `goods_id` = 39
+
+2015/12/03 15:00:19----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/12/03 15:00:19----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 1 AND `goods_id` = 39
+
+2015/12/03 15:00:30----
+select count(*) from `record` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:00:30----
+select `id`,`user_id`,`num`,`add_time` from `record` where  `is_on` = 1 AND `goods_id` = 39 order by add_time desc limit 0, 15
+
+2015/12/03 15:00:30----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 4 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 4 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 4 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 4 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 4 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 4 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 5 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 5 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 3 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 3 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 2 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 2 AND `goods_id` = 39
+
+2015/12/03 15:00:31----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2015/12/03 15:00:31----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 1 AND `goods_id` = 39
+
+2015/12/03 15:00:39----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1 AND `status` = 0 limit 0, 1
+
+2015/12/03 15:00:39----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 8
+
+2015/12/03 15:00:39----
+select `id`,`goods_name`,`price` from `goods` where  `is_on` = 1 AND `thematic_id` = 8 order by add_time desc limit 0, 15
+
+2015/12/03 15:00:39----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 41
+
+2015/12/03 15:00:39----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/03 15:00:39----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:00:42----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1 AND `status` = 0 limit 0, 1
+
+2015/12/03 15:00:42----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 8
+
+2015/12/03 15:00:42----
+select `id`,`goods_name`,`price` from `goods` where  `is_on` = 1 AND `thematic_id` = 8 order by add_time desc limit 0, 15
+
+2015/12/03 15:00:42----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 41
+
+2015/12/03 15:00:42----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/03 15:00:42----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:01:55----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1 AND `status` = 0 limit 0, 1
+
+2015/12/03 15:01:55----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 8
+
+2015/12/03 15:01:55----
+select `id`,`goods_name`,`price` from `goods` where  `is_on` = 1 AND `thematic_id` = 8 order by add_time desc limit 0, 15
+
+2015/12/03 15:01:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 41
+
+2015/12/03 15:01:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/03 15:01:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:02:07----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1 AND `status` = 0 limit 0, 1
+
+2015/12/03 15:02:07----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 8
+
+2015/12/03 15:02:07----
+select `id`,`goods_name`,`price` from `goods` where  `is_on` = 1 AND `thematic_id` = 8 order by add_time desc limit 0, 15
+
+2015/12/03 15:02:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 41
+
+2015/12/03 15:02:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/03 15:02:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:02:15----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1 AND `status` = 0 limit 0, 1
+
+2015/12/03 15:02:15----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 8
+
+2015/12/03 15:02:15----
+select `id`,`goods_name`,`price` from `goods` where  `is_on` = 1 AND `thematic_id` = 8 order by add_time desc limit 0, 15
+
+2015/12/03 15:02:15----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 41
+
+2015/12/03 15:02:15----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/03 15:02:15----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 39
+
+2015/12/03 15:02:44----
+select `limit_num` from `goods` where  `id` = '37' limit 0, 1
+
+2015/12/03 15:02:44----
+select `id` from `code` where  `goods_id` = '37' AND `is_use` = 0 limit 0, 1
+
+2015/12/03 15:02:52----
+select `limit_num` from `goods` where  `id` = '42' limit 0, 1
+
+2015/12/03 15:02:56----
+select `limit_num` from `goods` where  `id` = '41' limit 0, 1
+
+2015/12/03 15:02:56----
+select `id` from `code` where  `goods_id` = '41' AND `is_use` = 0 limit 0, 1
+
+2015/12/03 15:02:56----
+select `id` from `purchase` where  `user_id` = '6' AND `goods_id` = '41' AND `is_on` = 1
+
+2015/12/03 15:02:56----
+select `code` from `code` where  `is_on` = 1 AND `is_use` = 0 AND `goods_id` = '41' limit 0, 1
+
+2015/12/03 15:02:56----
+insert into `purchase` (`user_id`,`goods_id`,`thematic_id`,`code`,`add_time`) values (?,?,?,?,?)
+
+2015/12/03 15:02:56----
+update `code` set `user_id`=?,`is_use`=?,`update_time`=? where  `code` = 'ZG80M1C6WDG1B6L'
+
+2015/12/03 15:02:56----
+insert into `record` (`goods_id`,`user_id`,`thematic_id`,`num`,`add_time`) values (?,?,?,?,?)
+
+2015/12/03 15:03:43----
+select count(*) from `bill` where  `is_on` = 1 AND `thematic_id` = 2
+
+2015/12/03 15:03:43----
+select `id`,`goods_id`,`user_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `thematic_id` = 2 order by add_time desc limit 0, 15
+
+2015/12/03 15:03:43----
+select `goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 35 limit 0, 1
+
+2015/12/03 15:03:43----
+select `nickname`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 6 limit 0, 1
+
+2015/12/03 15:03:43----
+select `goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 38 limit 0, 1
+
+2015/12/03 15:03:43----
+select `nickname`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 2 limit 0, 1
+
+2015/12/03 15:03:43----
+select `goods_name`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 37 limit 0, 1
+
+2015/12/03 15:03:43----
+select `nickname`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 5 limit 0, 1
+
+2015/12/03 16:50:41----
+select `id`,`thematic_name` from `thematic` where  `is_on` = 1 AND `status` = 0 limit 0, 1
+
+2015/12/03 16:50:41----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 8
+
+2015/12/03 16:50:41----
+select `id`,`goods_name`,`price` from `goods` where  `is_on` = 1 AND `thematic_id` = 8 order by add_time desc limit 0, 15
+
+2015/12/03 16:50:41----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 41
+
+2015/12/03 16:50:41----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 40
+
+2015/12/03 16:50:41----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 39
+

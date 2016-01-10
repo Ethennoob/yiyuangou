@@ -16,37 +16,35 @@
 		$characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
 		$promotion_codes = array();//这个数组用来接收生成的优惠码 
 		for($j = 0 ; $j < $no_of_codes; $j++) 
-		{ 
-		$code = ""; 
-		for ($i = 0; $i < $code_length; $i++) 
-		{ 
-		$code .= $characters[mt_rand(0, strlen($characters)-1)]; 
-		} 
-		//如果生成的4位随机数不再我们定义的$promotion_codes函数里面 
-		if(!in_array($code,$promotion_codes)) 
-		{ 
-		if(is_array($exclude_codes_array))// 
-		{ 
-		if(!in_array($code,$exclude_codes_array))//排除已经使用的优惠码 
-		{ 
-		$promotion_codes[$j] = $code;//将生成的新优惠码赋值给promotion_codes数组 
-		} 
-		else 
-		{ 
-		$j--; 
-		} 
-		} 
-		else 
-		{ 
-		$promotion_codes[$j] = $code;//将优惠码赋值给数组 
-		} 
-		} 
-		else 
-		{ 
-		$j--; 
-		} 
-		} 
+		{   
+			$code = ""; 
+			for ($i = 0; $i < $code_length; $i++) 
+			{ 
+				$code .= $characters[mt_rand(0, strlen($characters)-1)]; 
+			} 
+			//如果生成的4位随机数不再我们定义的$promotion_codes函数里面 
+			if(!in_array($code,$promotion_codes)) 
+			{ 
+			    if(is_array($exclude_codes_array)){//  
+			        if(!in_array($code,$exclude_codes_array)){ //排除已经使用的优惠码 
+			            $promotion_codes[$j] = $code;//将生成的新优惠码赋值给promotion_codes数组 
+			        }else{ 
+			        	$j--; 
+			        } 
+			}else{ 
+			    $promotion_codes[$j] = $code;//将优惠码赋值给数组 
+			} 
+		    }else{ 
+		    	$j--; 
+		    } 
+	    } 
 		return $promotion_codes; 
 		}
+		public function generate_promotion_new_code($number){
+            for ($i=1; $i <= $number; $i++) {
+                $code[$i] = 10000000+$i;
+            }
+            return $code;
+        }
 	}
 ?> 

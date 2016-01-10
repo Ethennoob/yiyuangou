@@ -26,7 +26,7 @@
     <ul class="link-list bg-white">
         <li v-for="item in articles">
             <a href="article.html?article_id={{item.id}}" class="block">
-                <span class="ml16">{{$index + 1}}、{{item.title}}</span>
+                <span class="ml16" v-cloak>{{$index + 1}}、{{item.title}}</span>
             </a>
         </li>
     </ul>

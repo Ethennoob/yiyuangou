@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>登录后台管理系统</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body id="loginApp">
+<div class="header">
+  <div class="am-g">
+    <h1 class="am-text-primary">一元购</h1>
+    <p>登录后台管理系统</p>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    <h3>登录</h3>
+    <hr>
+
+    <form method="post" class="am-form">
+      <label for="manage-name">管理员账户名:</label>
+      <input v-model="manageData.manager_name" type="text" id="manage-name" value="">
+      <br>
+      <label for="password">密码:</label>
+      <input v-model="manageData.manager_pwd" type="password" id="password" value="">
+      <br />
+      <div class="am-cf">
+        <input v-on:click="login" type="button" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
+      </div>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/vue.js"></script>
+<script type="text/javascript" src="assets/js/base.js"></script>
+<script type="text/javascript">
+  var loginApp = new Vue({
+    el: '#loginApp',
+    data: {
+      manageData: {
+        manager_name: '',
+        manager_pwd: '',
+        is_remember: ''
+      }
+    },
+    methods: {
+      login: function() {
+        //登录
+        $.post('http://onebuy.ping-qu.com/Admin/Login/Login', this.manageData).done(function(data) {
+          if(data.errcode == '0'){
+            window.location = 'index.html'
+          } else if(data.errcode == '70001') {
+            alert("用户名或密码错误")
+          } else if(data.errcode == '80000') {
+            window.location = 'index.html'
+          } else {
+            alert("登录失败");
+          }
+        }).fail(function() {
+          alert("请求失败");
+        });
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

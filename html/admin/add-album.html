@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>添加商品相册</title>
+  <!--<meta name="description" content="商品添加页面">-->
+  <!--<meta name="keywords" content="form">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">-->
+  <!--<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">-->
+  <!--<meta name="apple-mobile-web-app-title" content="Amaze UI" />-->
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="addAlbumApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>一元购</strong>
+    <small>后台管理系统</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li>
+          <a href="index.html">
+            <span class="am-icon-home"></span> 首页
+          </a>
+        </li>
+        <li>
+          <a href="user.html">
+            <span class="am-icon-users"></span> 会员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
+            <span class="am-icon-shopping-cart"></span> 商品管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
+            <li>
+              <a href="add-goods.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加商品
+              </a>
+            </li>
+            <li>
+              <a href="goods-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 商品列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
+            <span class="am-icon-bookmark"></span> 专题管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
+            <li>
+              <a href="add-thematic.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加专题
+              </a>
+            </li>
+            <li>
+              <a href="thematic-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 专题列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
+            <span class="am-icon-newspaper-o"></span> 文章管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
+            <li>
+              <a href="add-article.html" class="am-cf">
+                <span class="am-icon-plus"></span> 发表文章
+              </a>
+            </li>
+            <li>
+              <a href="article-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 文章列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="sale-list.html">
+            <span class="am-icon-money"></span> 销售明细
+          </a>
+        </li>
+        <li>
+          <a href="prize-status.html">
+            <span class="am-icon-gift"></span> 中奖情况
+          </a>
+        </li>
+        <li>
+          <a href="order.html">
+            <span class="am-icon-file-text"></span> 订单管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
+            <span class="am-icon-truck"></span> 物流管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
+            <li>
+              <a href="add-logistics.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加物流单
+              </a>
+            </li>
+            <li>
+              <a href="logistics-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 物流单列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="administrator.html">
+            <span class="am-icon-user"></span> 后台管理员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
+            <span class="am-icon-gears"></span> 系统设置
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
+            <li>
+              <a href="limit-set.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 认购上限设置
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span class="am-icon-sign-out"></span> 注销
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品相册</strong> / <small>Goods Album</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+      <form id="album-form" enctype="multipart/form-data">
+        <div class="am-u-sm-11 am-u-sm-push-1">
+          <div class="am-panel am-panel-default">
+            <div class="am-panel-bd">
+              <div v-if="!albumImg" class="am-g">
+                <input v-model="goodsId" type="text" class="am-hide" name="goods_id">
+                <div class="am-u-sm-6">
+                  <p>上传商品图片</p>
+                  <div class="am-form-group">
+                    <input name="goods_album[]" type="file">
+                    <p class="am-form-help">请选择要上传的文件...</p>
+                    <!--<button type="button" class="am-btn am-btn-primary am-btn-xs" id="preview">预览</button>-->
+                  </div>
+                </div>
+                <div class="am-u-sm-6">
+                  <p>上传商品图片</p>
+                  <div class="am-form-group">
+                    <input name="goods_album[]" type="file">
+                    <p class="am-form-help">请选择要上传的文件...</p>
+                    <!--<button type="button" class="am-btn am-btn-primary am-btn-xs" id="preview">预览</button>-->
+                  </div>
+                </div>
+
+                <div class="am-u-sm-6">
+                  <p>上传商品图片</p>
+                  <div class="am-form-group">
+                    <input name="goods_album[]" type="file">
+                    <p class="am-form-help">请选择要上传的文件...</p>
+                    <!--<button type="button" class="am-btn am-btn-primary am-btn-xs" id="preview">预览</button>-->
+                  </div>
+                </div>
+                <div class="am-u-sm-6">
+                  <p>上传商品图片</p>
+                  <div class="am-form-group">
+                    <input name="goods_album[]" type="file">
+                    <p class="am-form-help">请选择要上传的文件...</p>
+                    <!--<button type="button" class="am-btn am-btn-primary am-btn-xs" id="preview">预览</button>-->
+                  </div>
+                </div>
+
+                <div class="am-u-sm-6">
+                  <p>上传商品图片</p>
+                  <div class="am-form-group">
+                    <input name="goods_album[]" type="file">
+                    <p class="am-form-help">请选择要上传的文件...</p>
+                    <!--<button type="button" class="am-btn am-btn-primary am-btn-xs" id="preview">预览</button>-->
+                  </div>
+                </div>
+                <div class="am-u-sm-6">
+                  <p>上传商品图片</p>
+                  <div class="am-form-group">
+                    <input name="goods_album[]" type="file">
+                    <p class="am-form-help">请选择要上传的文件...</p>
+                    <!--<button type="button" class="am-btn am-btn-primary am-btn-xs" id="preview">预览</button>-->
+                  </div>
+                </div>
+
+              </div>
+
+              <div v-else class="am-g">
+                <div v-for="item in albumImg" class="am-u-sm-6">
+                  <img v-bind:src="item" class="am-img-circle am-img-thumbnail" alt=""/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-11 am-u-sm-push-1 am-padding-bottom">
+              <button v-if="!albumImg" v-on:click="subAlbum()" type="button" class="am-btn am-btn-primary">
+                添加相册
+              </button>
+              <button v-else v-on:click="deleteAlbum()" type="button" class="am-btn am-btn-danger" id="goods-edit">
+                删除相册
+              </button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
+<script type="text/javascript">
+  var addAlbumApp = new Vue({
+    el: '#addAlbumApp',
+    data: {
+      albumImg: [],
+      goodsId: '',
+      thematicId: ''
+    },
+    methods: {
+      subAlbum: function() {//添加相册
+        $('#album-form').ajaxSubmit({
+          url: 'http://onebuy.ping-qu.com/Admin/Goods/albumAdd',
+          type: 'POST',
+          dataType: 'json',
+          success: function(data) {
+            if (data.errcode == '0') {
+              alert("添加成功");
+
+              //获取商品相册数据
+              $.post('http://onebuy.ping-qu.com/Admin/Goods/albumList', {goods_id: addAlbumApp.goodsId}).done(function(data) {
+                addAlbumApp.albumImg = data.data.albumList;//修改实例数据
+              }).fail(function() {
+                alert("请求失败");
+              });
+
+            } else {
+              alert("添加失败");
+            }
+          },
+          error: function() {
+            alert("请求失败");
+          }
+        });
+      },
+      deleteAlbum: function() {//删除相册
+        $.post('http://onebuy.ping-qu.com/Admin/Goods/albumDel', {goods_id: addAlbumApp.goodsId}).done(function(data) {
+          if(data.errcode == 0){
+            addAlbumApp.albumImg = null;//修改实例数据
+          } else {
+            alert("删除失败");
+          }
+        }).fail(function() {
+          alert("请求失败");
+        });
+      }
+    }
+  });
+
+  //获取专题名称列表
+  $.post('http://onebuy.ping-qu.com/Admin/Goods/albumList', {goods_id: getParam('goods_id')}).done(function(data) {
+    addAlbumApp.albumImg = data.data.albumList;
+    addAlbumApp.goodsId = getParam('goods_id');
+  }).fail(function() {
+    alert("请求失败");
+  });
+
+
+</script>
+</body>
+</html>

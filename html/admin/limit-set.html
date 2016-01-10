@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>认购上限设置</title>
+  <!--<meta name="description" content="这是一个 user 页面">-->
+  <!--<meta name="keywords" content="user">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">-->
+  <!--<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">-->
+  <!--<meta name="apple-mobile-web-app-title" content="Amaze UI" />-->
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="limitSetApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>一元购</strong> <small>后台管理系统</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li>
+          <a href="index.html">
+            <span class="am-icon-home"></span> 首页
+          </a>
+        </li>
+        <li>
+          <a href="user.html">
+            <span class="am-icon-users"></span> 会员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
+            <span class="am-icon-shopping-cart"></span> 商品管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
+            <li>
+              <a href="add-goods.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加商品
+              </a>
+            </li>
+            <li>
+              <a href="goods-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 商品列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
+            <span class="am-icon-bookmark"></span> 专题管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
+            <li>
+              <a href="add-thematic.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加专题
+              </a>
+            </li>
+            <li>
+              <a href="thematic-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 专题列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
+            <span class="am-icon-newspaper-o"></span> 文章管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
+            <li>
+              <a href="add-article.html" class="am-cf">
+                <span class="am-icon-plus"></span> 发表文章
+              </a>
+            </li>
+            <li>
+              <a href="article-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 文章列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="sale-list.html">
+            <span class="am-icon-money"></span> 销售明细
+          </a>
+        </li>
+        <li>
+          <a href="prize-status.html">
+            <span class="am-icon-gift"></span> 中奖情况
+          </a>
+        </li>
+        <li>
+          <a href="order.html">
+            <span class="am-icon-file-text"></span> 订单管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
+            <span class="am-icon-truck"></span> 物流管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
+            <li>
+              <a href="add-logistics.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加物流单
+              </a>
+            </li>
+            <li>
+              <a href="logistics-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 物流单列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="administrator.html">
+            <span class="am-icon-user"></span> 后台管理员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
+            <span class="am-icon-gears"></span> 系统设置
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
+            <li>
+              <a href="limit-set.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 认购上限设置
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span class="am-icon-sign-out"></span> 注销
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">认购上限设置</strong> / <small>Limit Set</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+      <div class="am-u-sm-12">
+        <form class="am-form am-form-horizontal" id="thematic-form">
+          <div class="am-form-group">
+            <label for="limit-set" class="am-u-sm-3 am-form-label">认购百分比</label>
+            <div class="am-u-sm-5 am-u-end">
+              <div class="am-input-group">
+                <input v-model="limitNum" type="text" class="am-form-field" id="limit-set">
+                <span class="am-input-group-label">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-11 am-u-sm-push-3 am-padding-bottom">
+              <button v-on:click="saveSet()" type="button" class="am-btn am-btn-primary">保存设置</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+  var limitSetApp = new Vue({
+    el: '#limitSetApp',
+    data: {
+      limitNum: ''
+    },
+    created: function() {
+      $.post('http://onebuy.ping-qu.com/Admin/System/buyLimitDetail').done(function(data) {
+        limitSetApp.limitNum = data.data.buy_limit.buy_limit;
+      }).fail(function() {
+        alert("请求失败");
+      });
+    },
+    methods: {
+      saveSet: function() {
+        $.post('http://onebuy.ping-qu.com/Admin/System/buyLimitEdit',
+                {
+                  buy_limit: this.limitNum
+                }
+        ).done(function(data) {
+          if(data.errcode == '0'){
+            alert("设置成功");
+          } else {
+            alert("设置失败");
+          }
+        }).fail(function() {
+          alert("请求失败");
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>

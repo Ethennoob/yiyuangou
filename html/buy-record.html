@@ -35,43 +35,43 @@
                 </div>
 
                 <div class="col-xs-9">
-                    <span>{{item.goods_title}}</span>
+                    <span v-cloak>{{item.goods_title}}</span>
 
                     <!--已揭晓-->
-                    <div v-if="item.nickname">
+                    <div v-if="goodsStatus[$index] == 'end'">
                     <span class="block mt10">
                         <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
-                        <span class="font-red">{{item.nickname}}</span>
+                        <span class="font-red" v-cloak>{{item.nickname}}</span>
                     </span>
-                        <span class="block font-grey mt5">揭晓时间：{{item.lucky_time | date}}</span>
+                        <span class="block font-grey mt5" v-cloak>揭晓时间：{{item.lucky_time | date}}</span>
                     </div>
 
                     <!--正在进行-->
-                    <div v-if="item.last_num > 0" class="mt10 bg-white f15 grid-container">
+                    <div v-if="goodsStatus[$index] == 'ing'" class="mt10 bg-white f15 grid-container">
                         <div class="progress cf">
                             <div class="progress-bar" v-bind:style="{width: progressWidth($index)}"></div>
                         </div>
                         <div class="row mt10">
                             <div class="col-xs-4">
-                                <span class="block">{{item.purchase_num}}</span>
+                                <span class="block" v-cloak>{{item.purchase_num}}</span>
                                 <span class="f14 font-grey">已参与</span>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <span class="block">{{item.total_num}}</span>
+                                <span class="block" v-cloak>{{item.total_num}}</span>
                                 <span class="f14 font-grey">总需人次</span>
                             </div>
                             <div class="col-xs-4 text-right">
-                                <span class="block">{{item.last_num}}</span>
+                                <span class="block" v-cloak>{{item.last_num}}</span>
                                 <span class="f14 font-grey">剩余</span>
                             </div>
                         </div>
                     </div>
 
                     <!--正在揭晓-->
-                    <div v-if="item.lucky_time && !item.nickname">
+                    <div v-if="goodsStatus[$index] == 'ending'">
                         <button class="btn index-grey-btn">
                             <img src="assets/i/clock.png" height="18px" class="mr5 vertical-top">揭晓倒计时
-                            <span class="font-red">{{countDown($index)}}</span>
+                            <span class="font-red">{{countDownTime[$index].time}}{{countDown($index)}}</span>
                         </button>
                     </div>
 
@@ -88,7 +88,40 @@
             el: '#buyRecordApp',
             data: {
                 goods: {},
-                userId: ''
+                userId: '',
+                countDownTime: [],//装多个商品的倒计时时间
+                goodsStatus: []//商品状态，是否揭晓
+            },
+            created: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Api/User/purchaseList',
+                        {
+                            user_id: getParam('user_id')
+                        }
+                ).done(function (res) {
+                    that.goods = res.data.detailpage;
+                    that.userId = getParam('user_id');
+
+                    //计算每个商品的状态
+                    var mydate = new Date();
+                    for(var i = 0; i < that.goods.length; i++){
+
+                        var nowTime = Date.UTC(mydate.getFullYear(), mydate.getMonth() - 1, mydate.getDate(),
+                                mydate.getHours(), mydate.getMinutes(),　mydate.getSeconds());
+                        var luckyTime = that.goods[i].lucky_time * 1000;
+
+                        if(luckyTime >= nowTime){//正在揭晓（未到开奖时间）
+                            that.goodsStatus[i] = 'ending';
+                        } else if (luckyTime < nowTime) {//已揭晓（当前时间大于lucky_time）
+                            that.goodsStatus[i] = 'end';
+                        } else {
+                            that.goodsStatus[i] = 'ing';
+                        }
+
+                    }
+                }).fail(function () {
+                    alert("请求失败");
+                });
             },
             methods: {
                 progressWidth: function(index) {
@@ -110,15 +143,23 @@
                         return 'goods-detail.html?user_id=' + this.userId + '&goods_id=' +
                                 this.goods[index].goods_id;
                     }
+                },
+                countDown:function(index) {//正在揭晓商品倒计时
+                    var that = this;
+                    var time = setInterval(function() {
+                        var myDate = new Date();
+                        var millisecond = that.goods[index].lucky_time * 1000 - myDate.getTime();
+                        if(millisecond <= 0){//倒计时结束
+                            that.goodsStatus.$set(index, 'end');
+
+                        }
+                        var temp = Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
+                        that.countDownTime.$set(index, {time: temp});
+                    },1000);
                 }
             }
         });
-        $.post('http://onebuy.ping-qu.com/Api/User/purchaseList', {user_id: getParam('user_id')}).done(function (data) {
-            buyRecordApp.goods = data.data.detailpage;
-            buyRecordApp.userId = getParam('user_id');
-        }).fail(function () {
-            alert("请求失败");
-        });
+
     </script>
 </body>
 </html>

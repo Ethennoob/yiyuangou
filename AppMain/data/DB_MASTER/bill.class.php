@@ -5,6 +5,7 @@ class bill {
 		return [
 			'id'=> ['type' => 'i', 'value' => null],
 			'user_id'=> ['type' => 'i', 'value' => null],
+			'address_id'=> ['type' => 'i', 'value' => null],
 			'thematic_id'=> ['type' => 'i', 'value' => null],
 			'record_id'=> ['type' => 'i', 'value' => null],
 			'goods_id'=> ['type' => 'i', 'value' => null],

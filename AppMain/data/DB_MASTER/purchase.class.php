@@ -10,6 +10,7 @@ class purchase {
 			'record_id'=> ['type' => 'i', 'value' => null],
 			'code'=> ['type' => 's', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],
+			'ms_time'=> ['type' => 's', 'value' => null],
 			'update_time'=> ['type' => 'i', 'value' => null],
 			'is_on'=> ['type' => 'i', 'value' => null],
 		];

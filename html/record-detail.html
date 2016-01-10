@@ -29,7 +29,7 @@
             <div class="product-state">已揭晓</div>
         </div>
 
-        <div class="col-xs-9">
+        <div class="col-xs-9" v-cloak>
             <span>{{recordInfo.goods_title}}</span>
             <span class="block mt5">
                 <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
@@ -44,9 +44,8 @@
     
     <!--记录列表-->
     <ul class="bg-white padding-horizontal-10 cf record-list">
-        <li>您总共参与{{totalNum}}人次
-        </li>
-        <li v-for="item in record">
+        <li v-cloak>您总共参与{{totalNum}}人次</li>
+        <li v-for="item in record" v-cloak>
             <div class="font-grey mb10">
                 <span class="mr16">{{item.add_time | date}}</span>
                 <span>{{item.num}}人次</span>

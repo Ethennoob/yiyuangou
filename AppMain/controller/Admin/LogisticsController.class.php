@@ -37,16 +37,16 @@
             foreach ($rule as $k => $v) {
             	$data[$k] = $_POST[$k];
             }
-            $userAddr = $this->table('user_address')->where(['user_id'=>$userId,'is_default'=>1])->get(['id'],true);
+            $userAddr = $this->table('bill')->where(['id'=>$bill_id])->get(['address_id'],true);
             if (!$userAddr) {
-                $userAddr['id'] =null;
+                $userAddr['address_id'] =null;
             }
             $data = array(
             		'logistics_number'  =>$data['logistics_number'],
                     'logistics_name'    =>$data['logistics_name'],
                     'logistics_status'  =>0,
                     'bill_id'           =>$billId,
-                    'user_address_id'   =>$userAddr['id'],
+                    'user_address_id'   =>$userAddr['address_id'],
                     'add_time'          =>time(),
             	);
             $logistics = $this->table('logistics')->save($data);

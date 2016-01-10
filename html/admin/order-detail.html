@@ -1,0 +1,374 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>订单详情</title>
+  <!--<meta name="description" content="这是一个 user 页面">-->
+  <!--<meta name="keywords" content="user">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">-->
+  <!--<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">-->
+  <!--<meta name="apple-mobile-web-app-title" content="Amaze UI" />-->
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="orderDetailApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>一元购</strong> <small>后台管理系统</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li>
+          <a href="index.html">
+            <span class="am-icon-home"></span> 首页
+          </a>
+        </li>
+        <li>
+          <a href="user.html">
+            <span class="am-icon-users"></span> 会员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
+            <span class="am-icon-shopping-cart"></span> 商品管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
+            <li>
+              <a href="add-goods.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加商品
+              </a>
+            </li>
+            <li>
+              <a href="goods-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 商品列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
+            <span class="am-icon-bookmark"></span> 专题管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
+            <li>
+              <a href="add-thematic.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加专题
+              </a>
+            </li>
+            <li>
+              <a href="thematic-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 专题列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
+            <span class="am-icon-newspaper-o"></span> 文章管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
+            <li>
+              <a href="add-article.html" class="am-cf">
+                <span class="am-icon-plus"></span> 发表文章
+              </a>
+            </li>
+            <li>
+              <a href="article-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 文章列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="sale-list.html">
+            <span class="am-icon-money"></span> 销售明细
+          </a>
+        </li>
+        <li>
+          <a href="prize-status.html">
+            <span class="am-icon-gift"></span> 中奖情况
+          </a>
+        </li>
+        <li>
+          <a href="order.html">
+            <span class="am-icon-file-text"></span> 订单管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
+            <span class="am-icon-truck"></span> 物流管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
+            <li>
+              <a href="add-logistics.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加物流单
+              </a>
+            </li>
+            <li>
+              <a href="logistics-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 物流单列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="administrator.html">
+            <span class="am-icon-user"></span> 后台管理员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
+            <span class="am-icon-gears"></span> 系统设置
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
+            <li>
+              <a href="limit-set.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 认购上限设置
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span class="am-icon-sign-out"></span> 注销
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">订单详细信息</strong> / <small>Order Detail</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g am-margin-bottom">
+
+      <div class="am-u-sm-12">
+        <div class="am-form am-form-horizontal">
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">订单ID：</label>
+            <div class="am-u-sm-9">
+              {{order.id}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">订单状态:</label>
+            <div v-if="order.status == 0" class="am-u-sm-9">待确认</div>
+            <div v-if="order.status == 1" class="am-u-sm-9">已确认</div>
+            <div v-if="order.status == 2" class="am-u-sm-9">已发货</div>
+            <div v-if="order.status == 3" class="am-u-sm-9">已收货</div>
+            <div v-if="order.status == 4" class="am-u-sm-9">已晒单</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">获得者：</label>
+            <div class="am-u-sm-9">
+              <img v-bind:src="order.user_img" class="am-round am-margin-right-sm" width="50">
+              {{order.nickname}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">获得者联系方式：</label>
+            <div class="am-u-sm-9">{{order.phone}}</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">专题名称：</label>
+            <div class="am-u-sm-9">
+              {{order.thematic_name}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">商品名称：</label>
+            <div class="am-u-sm-9">
+              {{order.goods_title}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">商品性质：</label>
+            <div v-if="order.nature == 1" class="am-u-sm-9">虚拟</div>
+            <div v-else class="am-u-sm-9">实物</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">商品成本：</label>
+            <div class="am-u-sm-9">{{order.cost_price}} 元</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">商品售价：</label>
+            <div class="am-u-sm-9">{{order.price}} 元</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">是否包邮：</label>
+            <div v-if="order.is_post == 0" class="am-u-sm-9">不包邮</div>
+            <div v-else class="am-u-sm-9">包邮</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">中奖号码：</label>
+            <div class="am-u-sm-9">{{order.code}}</div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">商品缩略图：</label>
+            <div class="am-u-sm-9">
+              <img v-bind:src="order.goods_thumb" width="200">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-11 am-u-sm-push-1 am-padding-bottom">
+              <button v-if="order.status == 0" v-on:click="confirmBill()" type="button" class="am-btn am-btn-primary am-margin-right-sm">
+                确认订单
+              </button>
+              <button v-if="order.status == 1" type="button" v-on:click="cancelBill()" class="am-btn am-btn-primary am-margin-right-sm">
+                取消订单
+              </button>
+              <a href="add-logistics.html?bill_id={{billId}}&user_id=" v-if="order.status == 0 || order.status == 1" type="button" class="am-btn am-btn-danger am-margin-right-sm">
+                发货
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+  var orderDetailApp = new Vue({
+    el: '#orderDetailApp',
+    data: {
+      order: {},
+      billId: '',
+      userId: ''
+    },
+    created: function() {
+      var that = this;
+      $.post('http://onebuy.ping-qu.com/Admin/Bill/billOneDetail',
+              {
+                bill_id: getParam('bill_id')
+              }
+      ).done(function(res) {
+        that.order = res.data.bill;
+        that.billId = getParam('bill_id');
+      }).fail(function() {
+        alert("获取订单详情失败");
+      });
+    },
+    methods: {
+      confirmBill: function() {
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Bill/billConfirm',
+                {
+                  bill_id: that.billId
+                }
+        ).done(function(res) {
+          if(res.errcode == '0'){
+            alert("确认成功");
+            window.location = 'order.html';
+          } else {
+            alert("确认操作失败");
+          }
+        }).fail(function() {
+          alert("确认订单请求失败");
+        });
+      },
+      cancelBill: function() {
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Bill/billCancel',
+                {
+                  bill_id: that.billId
+                }
+        ).done(function(res) {
+          if(res.errcode == '0'){
+            alert("取消成功");
+            window.location = 'order.html';
+          } else {
+            alert("取消操作失败");
+          }
+        }).fail(function() {
+          alert("取消订单请求失败");
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>

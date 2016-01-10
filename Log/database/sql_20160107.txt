@@ -1,0 +1,273 @@
+2016/01/07 19:39:05----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:39:05----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/07 19:39:05----
+select `id`,`price`,`thematic_id`,`goods_sn` from `goods` where  `is_on` = 1 AND `id` = 3 limit 0, 1
+
+2016/01/07 19:39:33----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:39:33----
+delete from `roll` where  `is_on` = 1
+
+2016/01/07 19:39:50----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:39:50----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/07 19:39:50----
+delete from `roll` where  `is_on` = 1
+
+2016/01/07 19:41:25----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:41:25----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/07 19:41:25----
+delete from `roll` where  `is_on` = 1
+
+2016/01/07 19:43:23----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:43:23----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 limit 0, 50
+
+2016/01/07 19:44:18----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:44:18----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:45:06----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:45:07----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:46:00----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:46:00----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:46:44----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:46:44----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:47:01----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:47:01----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:48:06----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:48:06----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:49:45----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:49:45----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:52:04----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:52:04----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:52:10----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:52:10----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:52:31----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:52:31----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:52:45----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:52:45----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:52:56----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:52:56----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:53:12----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:53:12----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:53:41----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:53:41----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:54:20----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:54:20----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:55:00----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:55:00----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:55:54----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:55:54----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:55:54----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:58:51----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:58:51----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:58:51----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:28----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:28----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:28----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:30----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:30----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:30----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:37----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:37----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:37----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:45----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:45----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:45----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:47----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:47----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:47----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:54----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:54----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:54----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 19:59:55----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 19:59:55----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 19:59:55----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 20:00:27----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 20:00:27----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 20:00:27----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 20:00:32----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 20:00:32----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 20:00:32----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 20:01:48----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 20:01:48----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 20:01:48----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 20:01:53----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 20:01:53----
+select `add_time`,`ms_time` from `purchase` where  `is_on` = 1 order by add_time desc limit 0, 50
+
+2016/01/07 20:01:53----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 20:05:34----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 20:05:34----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/07 20:05:34----
+delete from `roll` where  `is_on` = 1
+
+2016/01/07 20:07:04----
+update `system` set `Bvalue`=? where  `id` = 1
+
+2016/01/07 20:07:04----
+select `goods_id` from `roll` where  `is_on` = 1
+
+2016/01/07 20:29:54----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+
+2016/01/07 20:51:52----
+select `Bvalue` from `system` where  `id` = 1 limit 0, 1
+

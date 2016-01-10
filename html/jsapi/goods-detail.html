@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/common.css" />
+    <link rel="stylesheet" href="../assets/css/swiper.min.css" />
+</head>
+<body class="bg-grey" id="goodsDetailApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar">商品详情页
+        <a href="javascript: history.back();">
+            <img class="back" src="../assets/i/back.png" />
+        </a>
+        <a href="../personal.html?user_id={{userId}}">
+            <img class="personal-top-link" src="../assets/i/personal-logo.png" />
+        </a>
+    </div>
+
+    <!--商品轮播图-->
+    <div  class="swiper-container bd-bottom bd-grey">
+        <div class="swiper-wrapper">
+        </div>
+        <!-- 进度条 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!--商品名称&简介-->
+    <div class="padding-horizontal-10 padding-vertical-14 bd-bottom bd-grey bg-white">
+        <span class="f15 block" v-cloak>{{goods.goods_name}}</span>
+    </div>
+
+    <!--参与人数进度条-->
+    <div v-if="goodsStatus == 'ing'" class="padding-horizontal-10 padding-vertical-14 bd-bottom bd-grey bg-white f15 grid-container">
+
+        <div class="row mb10" v-cloak>
+            <div class="col-xs-9">价值：￥{{goods.price}}
+            </div>
+            <div class="col-xs-3 text-right">限购{{goods.limit_num}}人次
+            </div>
+        </div>
+
+        <div class="progress cf">
+            <div class="progress-bar" v-bind:style="{width: progressWidth}"></div>
+        </div>
+
+        <div class="row mt10" v-cloak>
+            <div class="col-xs-4">
+                <span class="block">{{goods.purchase_num}}</span>已参与
+            </div>
+            <div class="col-xs-4 text-center">
+                <span class="block">{{goods.total_num}}</span>总需人次
+            </div>
+            <div class="col-xs-4 text-right">
+                <span class="block">{{goods.last_num}}</span>剩余
+            </div>
+        </div>
+
+    </div>
+
+    <!--商品正在揭晓-->
+    <div v-if="ending">
+        <button class="btn index-grey-btn">
+            <img src="assets/i/clock.png" height="18px" class="mr5 vertical-top">揭晓倒计时
+            <span class="font-red" v-cloak>{{countDownTime}}{{countDown()}}</span>
+        </button>
+    </div>
+
+    <!--参与记录、图文详情入口-->
+    <ul class="link-list bg-white f15 margin-vertical-20">
+        <li>
+            <a href="../join-record.html?goods_id={{goodsId}}" class="block">
+                <span class="ml10">参与记录</span>
+            </a>
+        </li>
+        <li>
+            <a href="../goods-img-detail.html?goods_id={{goodsId}}" class="block">
+                <span class="ml10">图文详情（建议在WI-FI下使用）</span>
+            </a>
+        </li>
+    </ul>
+
+    <!--立即一元购按钮-->
+    <div class="padding-horizontal-10 padding-vertical-10 bg-white bd-top bd-grey margin-vertical-20">
+        <button v-show="goods.last_num > 0" class="btn bg-red width-full font-white br4 buy-btn goods-popup-trigger">
+            立即一元购
+        </button>
+        <button v-else disabled="disabled"  class="btn bg-grey width-full br4 buy-btn">
+            已售完
+        </button>
+    </div>
+
+
+    <div class="popup goods-popup" role="alert">
+        <div class="popup-container padding-vertical-10 bg-grey">
+            <a href="javascript:;" class="popup-close goods-popup-close"></a>
+            <div class="padding-horizontal-20 bd-bottom bd-grey mb10" v-cloak>
+                <div class="f15 font-grey">剩余{{goods.last_num}}人次</div>
+                <div class="margin-vertical-10 f15">{{goods.goods_title}}</div>
+            </div>
+            <div class="goods-counter text-left padding-horizontal-20" v-cloak>
+                <span class="subtract" v-on:click="numCut">-</span><span class="count-box">{{num}}</span><span class="add" v-on:click="numAdd">+</span>
+                <span class="ml10">限购{{goods.limit_num}}人次</span>
+            </div>
+            <div class="text-left padding-vertical-10 padding-horizontal-20" v-cloak>
+                合计：<span class="font-red f20">{{num}}</span>
+                <span class="font-red f18">元</span>
+            </div>
+            <div class="padding-horizontal-20">
+                <button id="chooseWXPay" class="btn br4 width-full bg-red font-white" >去结算</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/base.js"></script>
+    <script type="text/javascript" src="../assets/js/swiper.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        //初始化轮播
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            observer:true,
+            observeParents:true,
+            autoHeight: true,
+            updateOnImagesReady : true,
+            autoplay : 3000,
+            autoplayDisableOnInteraction : false,
+            setWrapperSize :true
+        });
+
+        var goodsDetailApp = new Vue({
+            el: '#goodsDetailApp',
+            data: {
+                userId: getParam('user_id'),
+                goodsId: getParam('goods_id'),
+                goods: {},
+                num: 1,
+                goodsStatus: ''
+            },
+            created: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
+                        {
+                            goods_id: getParam('goods_id')
+                        }
+                ).done(function (res) {
+                    that.goods = res.data.goodinfo;
+
+                    //插入轮播图
+                    for(key in res.data.goodinfo.img){
+                        swiper.appendSlide("<div class='swiper-slide'><img src='" + res.data.goodinfo.img[key] + "' width='100%' ></div>");
+                    }
+
+                }).fail(function() {
+                    alert("请求失败");
+                });
+
+            },
+            ready: function() {
+                var that = this;
+
+                //结算弹框
+                $('.goods-popup-trigger').on('click', function(event){
+                    event.preventDefault();
+                    $('.goods-popup').addClass('is-visible');
+                });
+                //关闭结算弹框
+                $('.goods-popup').on('click', function(event){
+                    if( $(event.target).is('.goods-popup-close') || $(event.target).is('.goods-popup') ) {
+                        event.preventDefault();
+                        $(this).removeClass('is-visible');
+                    }
+                });
+
+                //计算商品的状态
+                var mydate = new Date();
+                var nowTime = Date.UTC(mydate.getFullYear(), mydate.getMonth() - 1, mydate.getDate(),
+                        mydate.getHours(), mydate.getMinutes(),　mydate.getSeconds());
+                if(that.goods.lucky_time){
+                    var luckyTime = that.goods.lucky_time * 1000;
+                } else {
+                    that.goodsStatus = 'ing';
+                    return false;
+                }
+                if(luckyTime >= nowTime){//正在揭晓（未到开奖时间）
+                    that.goodsStatus = 'ending';
+                } else if (luckyTime < nowTime) {//已揭晓（当前时间大于lucky_time）
+                    that.goodsStatus = 'end';
+                }
+            },
+            computed: {
+                progressWidth: function() {
+                    var buyProgress = Math.floor((this.goods.purchase_num / this.goods.total_num) * 100);
+                    return buyProgress.toString() + '%';
+                }
+            },
+            methods:{
+                numAdd: function() {
+                    if(this.num < this.goods.limit_num){
+                        this.num ++;
+                    }
+                },
+                numCut: function() {
+                    if(this.num > 1){
+                        this.num --;
+                    }
+                },
+                countDown:function(index) {//正在揭晓商品倒计时
+                    var that = this;
+                    var time = setInterval(function() {
+                        var myDate = new Date();
+                        var millisecond = that.goods[index].lucky_time * 1000 - myDate.getTime();
+                        if(millisecond <= 0){//倒计时结束
+                            that.goodsStatus.$set(index, 'end');
+                        }
+                        var temp = Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
+                        that.countDownTime.$set(index, {time: temp});
+                    },1000);
+
+                }
+            }
+        });
+
+        $.post('http://onebuy.ping-qu.com/Api/Wechatpay/wechatPayConfig',
+                {
+                    url: window.location.href
+                }
+        ).done(function(res) {
+            if(res.errcode == '0'){
+                wx.config({
+                    debug: false,
+                    appId: res.data.wechatConfig.appid,
+                    timestamp: res.data.wechatConfig.timestamp,
+                    nonceStr: res.data.wechatConfig.noncestr,
+                    signature: res.data.wechatConfig.signature,
+                    jsApiList: [
+                        'chooseWXPay'
+                    ]
+                });
+
+                document.querySelector('#chooseWXPay').onclick = function() {
+
+                    $.post('http://onebuy.ping-qu.com/Api/Wechatpay/purchase',
+                            {
+                                goods_sn: goodsDetailApp.goods.goods_sn,
+                                price: goodsDetailApp.num,
+                                goods_id: goodsDetailApp.goodsId,
+                                user_id: goodsDetailApp.userId
+                            }
+                    ).done(function(payInfo) {
+                        if(payInfo.errcode == '0'){
+                            var pay = JSON.parse(payInfo.data.wechatPay);
+                            wx.chooseWXPay({
+                                appId: pay.appId,
+                                timestamp: pay.timeStamp,
+                                nonceStr: pay.nonceStr,
+                                package: pay.package,
+                                signType: pay.signType,
+                                paySign: pay.paySign,
+                                success: function (payRes) {
+                                    // 支付成功后的回调函数
+                                    window.location = '../pay-result.html?goods_id='+ goodsDetailApp.goodsId;
+                                }
+                            });
+                        } else if(payInfo.errcode == '90001'){
+                            alert("超过限购数，无法购买！");
+                        } else {
+                            alert("购买失败，错误码：" + payInfo.errcode);
+                        }
+
+                    }).fail(function() {
+                        alert("获取支付数据失败");
+                    });
+                };
+
+            } else {
+                alert("jssdk配置失败");
+            }
+        }).fail(function () {
+            alert("jssdk配置数据获取失败");
+        });
+
+    </script>
+</body>
+</html>

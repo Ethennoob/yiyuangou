@@ -29,6 +29,12 @@ html, body {
     height: 100%;
 }
 
+a, button,input[type="text"] ,textarea{
+    -ms-touch-action: none !important;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 
 /*------font-colol------*/
 .font-white{color: #fff !important;}
@@ -253,4 +259,7 @@ html, body {
     -ms-user-select: none;
     user-select: none;
 }
+
+/*隐藏Vue未编译Mustache 标签*/
+[v-cloak] { display: none }
 

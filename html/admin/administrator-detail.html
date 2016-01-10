@@ -1,0 +1,338 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>管理员信息</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="adminDetailApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>一元购</strong> <small>后台管理系统</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li>
+          <a href="index.html">
+            <span class="am-icon-home"></span> 首页
+          </a>
+        </li>
+        <li>
+          <a href="user.html">
+            <span class="am-icon-users"></span> 会员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
+            <span class="am-icon-shopping-cart"></span> 商品管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
+            <li>
+              <a href="add-goods.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加商品
+              </a>
+            </li>
+            <li>
+              <a href="goods-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 商品列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
+            <span class="am-icon-bookmark"></span> 专题管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
+            <li>
+              <a href="add-thematic.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加专题
+              </a>
+            </li>
+            <li>
+              <a href="thematic-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 专题列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
+            <span class="am-icon-newspaper-o"></span> 文章管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
+            <li>
+              <a href="add-article.html" class="am-cf">
+                <span class="am-icon-plus"></span> 发表文章
+              </a>
+            </li>
+            <li>
+              <a href="article-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 文章列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="sale-list.html">
+            <span class="am-icon-money"></span> 销售明细
+          </a>
+        </li>
+        <li>
+          <a href="prize-status.html">
+            <span class="am-icon-gift"></span> 中奖情况
+          </a>
+        </li>
+        <li>
+          <a href="order.html">
+            <span class="am-icon-file-text"></span> 订单管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
+            <span class="am-icon-truck"></span> 物流管理
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
+            <li>
+              <a href="add-logistics.html" class="am-cf">
+                <span class="am-icon-plus"></span> 添加物流单
+              </a>
+            </li>
+            <li>
+              <a href="logistics-list.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 物流单列表
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="administrator.html">
+            <span class="am-icon-user"></span> 后台管理员管理
+          </a>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
+            <span class="am-icon-gears"></span> 系统设置
+            <span class="am-icon-angle-right am-fr am-margin-right"></span>
+          </a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
+            <li>
+              <a href="limit-set.html" class="am-cf">
+                <span class="am-icon-list-alt"></span> 认购上限设置
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span class="am-icon-sign-out"></span> 注销
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">管理员信息</strong> / <small>Administrator Info</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g am-margin-bottom">
+
+      <div class="am-u-sm-12">
+        <div class="am-form am-form-horizontal">
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">管理员ID：</label>
+            <div class="am-u-sm-9">
+              {{managerInfo.id}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">管理员账户名：</label>
+            <div class="am-u-sm-9">
+              {{managerInfo.manager_name}}
+            </div>
+          </div>
+
+          <div class="am-form-group am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label">电话：</label>
+            <div class="am-u-sm-9">
+              <input v-model="managerPhone" type="text">
+            </div>
+          </div>
+
+          <div class="am-form-group am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label">邮箱：</label>
+            <div class="am-u-sm-9">
+              <input v-model="managerEmail" type="text">
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">最近一次登录时间：</label>
+            <div class="am-u-sm-9">
+              {{managerInfo.last_login}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">最近一次登录ip：</label>
+            <div class="am-u-sm-9">
+              {{managerInfo.last_ip}}
+            </div>
+          </div>
+
+          <div class="am-g am-padding-vertical-sm">
+            <label class="am-u-sm-3 am-form-label am-padding-0">注册时间：</label>
+            <div class="am-u-sm-9">
+              {{managerInfo.add_time}}
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-11 am-u-sm-push-1 am-padding-bottom">
+              <button v-on:click="editManager()" type="button" class="am-btn am-btn-primary">保存修改</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+  var adminDetailApp = new Vue({
+    el: '#adminDetailApp',
+    data: {
+      managerInfo: {},
+      managerId: '',
+      managerPhone: '',
+      managerEmail: ''
+    },
+    created: function() {
+      var that = this;
+      $.post('http://onebuy.ping-qu.com/Admin/Manager/managerOneDetail',
+              {
+                id: getParam('manager_id')
+              }
+      ).done(function(res) {
+        that.managerInfo = res.data.manager;
+        that.managerId = getParam('manager_id');
+        that.managerPhone = res.data.manager.manager_phone;
+        that.managerEmail = res.data.manager.manager_email;
+
+      }).fail(function() {
+        alert("获取管理员信息失败");
+      });
+    },
+    methods: {
+      editManager: function() {
+        var that = this;
+        var editData = {};//需要传入修改接口的数据
+
+        //判断修改了哪些信息
+        if(that.managerPhone != that.managerInfo.manager_phone){
+          editData.manager_phone = that.managerPhone;
+        }
+        if(that.managerEmail != that.managerInfo.manager_email){
+          editData.manager_email = that.managerEmail;
+        }
+
+        //判断是否修改了数据
+        if(editData.manager_phone || editData.manager_email){
+          editData.id = that.managerId;
+        } else {
+          alert("信息未被修改");
+          return false;
+        }
+
+        $.post('http://onebuy.ping-qu.com/Admin/Manager/managerEdit', editData).done(function(res) {
+          if(res.errcode == '0'){
+            alert("修改成功");
+            window.location = 'administrator.html';
+          } else if(res.errcode == '70011') {
+            alert("邮箱已被使用");
+          } else if(res.errcode == '40018') {
+            alert("手机号码格式有误");
+          }else {
+            alert("修改失败");
+          }
+        }).fail(function() {
+          alert("修改请求失败");
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>

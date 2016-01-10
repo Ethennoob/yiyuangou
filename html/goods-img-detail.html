@@ -14,15 +14,41 @@
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
 </head>
-<body>
+<body id="imgDetailApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">图文详情
-        <a href="#">
+        <a href="javascript: history.back();">
             <img class="back" src="assets/i/back.png" />
         </a>
         <a href="#">
             <img class="personal-top-link" src="assets/i/personal-logo.png" />
         </a>
     </div>
+
+    <div class="img-detail" v-cloak>{{{detail}}}</div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var imgDetailApp = new Vue({
+            el: '#imgDetailApp',
+            data: {
+                detail: {}
+            },
+            created: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
+                        {
+                            goods_id: getParam('goods_id')
+                        }
+                ).done(function(res) {
+                    that.detail = res.data.goodinfo.goods_desc;
+                }).fail(function () {
+                    alert("请求失败");
+                });
+            }
+        });
+    </script>
 </body>
 </html>

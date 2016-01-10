@@ -1,3 +1,7 @@
+//window.addEventListener( "load", function() {
+//    FastClick.attach( document.body );
+//}, false );
+
 function getParam(name) {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest = new Object();

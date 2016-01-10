@@ -44,4 +44,15 @@ class SystemController extends BaseClass {
      $this->R(['buy_limit'=>$buy_limit]);
 
     }
+    /**
+     *查询设置B值
+     */
+    public function Bvalue(){
+        $Bvalue = $this->table('system')->where(['id'=>1])->get(['Bvalue'],true);
+        if(!$Bvalue){
+            $this->R('',70009);
+        }
+     $this->R(['Bvalue'=>$Bvalue['Bvalue']]);
+
+    }
 }

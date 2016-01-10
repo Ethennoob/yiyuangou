@@ -31,13 +31,13 @@
                 </div>
 
                 <div class="col-xs-9">
-                    <span>{{item.goods_title}}</span>
-                <span class="block mt5">本期购入{{item.num}}人次
+                    <span v-cloak>{{item.goods_title}}</span>
+                <span class="block mt5" v-cloak>本期购入{{item.num}}人次
                 </span>
                 <span class="block mt5">中奖码
-                    <span class="font-red">{{item.code}}</span>
+                    <span class="font-red" v-cloak>{{item.code}}</span>
                 </span>
-                    <span class="block font-grey mt5">揭晓时间：{{item.lucky_time | date}}</span>
+                    <span class="block font-grey mt5" v-cloak>揭晓时间：{{item.lucky_time | date}}</span>
                 </div>
             </a>
         </li>

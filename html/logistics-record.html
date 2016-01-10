@@ -30,8 +30,8 @@
         <li v-for="item in logistics" v-bind:class="{'logistics-end': isEnd($index)}"><!-- logistics-end在已签收时才添加 logistics-end-->
             <div class="logistics-list-dot"></div>
             <div class="logistics-content">
-                <span class="block">{{item.context}}</span>
-                <div class="f14 font-grey mt5">{{item.time}}</div>
+                <span class="block" v-cloak>{{item.context}}</span>
+                <div class="f14 font-grey mt5" v-cloak>{{item.time}}</div>
             </div>
         </li>
     </ul>
@@ -48,13 +48,13 @@
             </div>
 
             <div class="col-xs-9">
-                <span>{{goods.goods_title}}</span>
-                <span class="block mt5">本期购入{{goods.num}}人次
+                <span v-cloak>{{goods.goods_title}}</span>
+                <span class="block mt5" v-cloak>本期购入{{goods.num}}人次
                 </span>
                 <span class="block mt5">中奖码
-                    <span class="font-red">{{goods.code}}</span>
+                    <span class="font-red" v-cloak>{{goods.code}}</span>
                 </span>
-                <span class="block font-grey mt5 f14">揭晓时间：{{goods.lucky_time | date}}</span>
+                <span class="block font-grey mt5 f14" v-cloak>揭晓时间：{{goods.lucky_time | date}}</span>
             </div>
         </a>
     </div>

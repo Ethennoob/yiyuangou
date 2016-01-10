@@ -85,7 +85,7 @@ class BaseTable {
     }
     
     public function setTable($tableName,$isJoinTable=false){
-        dump($this->db);
+        //dump($this->db);
     	//如果不是连表操作
     	if (!$isJoinTable){
     		$this->initSqlStmt();

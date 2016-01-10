@@ -11,6 +11,7 @@ class goods {
 			'upload_date'=> ['type' => 'i', 'value' => null],
 			'cost_price'=> ['type' => 'i', 'value' => null],
 			'price'=> ['type' => 'i', 'value' => null],
+			'nature'=> ['type' => 'i', 'value' => null],
 			'limit_num'=> ['type' => 'i', 'value' => null],
 			'goods_desc'=> ['type' => 's', 'value' => null],
 			'goods_album'=> ['type' => 's', 'value' => null],

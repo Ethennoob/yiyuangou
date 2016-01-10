@@ -1,10 +1,4 @@
 <?php
-/**
- * 一元购系统---商品管理类
- * @authors 凌翔 (553299576@qq.com)
- * @date    2015-11-26 13:11:35
- * @version $Id$
- */
 
 namespace AppMain\controller\Admin;
 use \System\BaseClass;
@@ -68,13 +62,13 @@ class GoodsController extends BaseClass {
 		private function createCode($goods_id,$thematic_id,$number){
 			
 			$code=array();
-            $codeCreate=$this->H('Code')->generate_promotion_code($number,null,15);
-            for ($i=0; $i <$number ; $i++) { 
+            $codeCreate=$this->H('Code')->generate_promotion_new_code($number);
+            for ($i=1; $i <=$number ; $i++) { 
             	$data[$i] = array(
             		    'goods_id'   => $goods_id,
             			'thematic_id' => $thematic_id,
             			'code' => $codeCreate[$i],
-            			'key'   => $i+1,
+            			'key'   => $i,
             			'add_time' => time(),
             		);
             	$code = $this->table('code')->save($data[$i]);
@@ -170,6 +164,89 @@ class GoodsController extends BaseClass {
             foreach ($goodspage  as $k=>$v){
                 $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
                 $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$id])->get(['thematic_name'],true);
+                $goodspage [$k]['thematic_name'] = $status['thematic_name'];
+                unset($goodspage [$k]['thematic_id']);
+            }
+        }else{
+            $goodspage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['goodspage'=>$goodspage,'pageInfo'=>$pageInfo]);
+        
+    }
+    /**
+     * 模糊查询（商品名称）
+     */
+    public function goodsListName(){
+        $this->V(['goods_name'=>[]]);
+        $goods_name = $_POST['goods_name'];
+        $pageInfo = $this->P();
+        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
+        $where = 'is_on = 1 and goods_name like "%'.$goods_name.'%"';
+        $class = $this->table('goods')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($goodspage ){
+            foreach ($goodspage  as $k=>$v){
+                $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodspage[$k]['id']])->get(['thematic_name'],true);
+                $goodspage [$k]['thematic_name'] = $status['thematic_name'];
+                unset($goodspage [$k]['thematic_id']);
+            }
+        }else{
+            $goodspage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['goodspage'=>$goodspage,'pageInfo'=>$pageInfo]);
+        
+    }
+    /**
+     * 模糊查询（商品名称）
+     */
+    public function goodsListSn(){
+        $this->V(['goods_sn'=>[]]);
+        $goods_sn = $_POST['goods_sn'];
+        $pageInfo = $this->P();
+        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
+        $where = 'is_on = 1 and goods_sn like "%'.$goods_sn.'%"';
+        $class = $this->table('goods')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($goodspage ){
+            foreach ($goodspage  as $k=>$v){
+                $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodspage[$k]['id']])->get(['thematic_name'],true);
+                $goodspage [$k]['thematic_name'] = $status['thematic_name'];
+                unset($goodspage [$k]['thematic_id']);
+            }
+        }else{
+            $goodspage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['goodspage'=>$goodspage,'pageInfo'=>$pageInfo]);
+        
+    }
+    /**
+     * 模糊查询（专题名称）
+     */
+    public function goodsListThematic(){
+        $this->V(['thematic_name'=>[]]);
+        $thematic_name = $_POST['thematic_name'];
+        $where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
+        $thematic = $this->table('thematic')->where($where)->get(['id'],true);
+        $pageInfo = $this->P();
+        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
+        
+       $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$thematic['id']])->order('add_time desc');
+
+        //查询并分页
+        $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($goodspage ){
+            foreach ($goodspage  as $k=>$v){
+                $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodspage[$k]['id']])->get(['thematic_name'],true);
                 $goodspage [$k]['thematic_name'] = $status['thematic_name'];
                 unset($goodspage [$k]['thematic_id']);
             }

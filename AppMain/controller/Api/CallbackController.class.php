@@ -52,7 +52,9 @@
         $data['user_id'] = $isUser['id'];
         $data['wxPay_sn'] = $orderxml['out_trade_no'];
         $data['add_time'] = time();
-        $data['num'] = $orderxml['total_fee'];
+        $count = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$data['goods_id']])->get(['code'],false);
+        $data['num'] = count($count);
+        // $data['num'] = $orderxml['total_fee'];
         $record = $this->table('record')->save($data);
         $record_id = $this->table('record')->where(array('wxPay_sn'=>$data['wxPay_sn'],'is_on'=>1))->get(['id'],true);
 
@@ -74,26 +76,26 @@
        * $user_id,$goods_id,$thematic_id,$num
        */
       private function generateCodeToUser($user_id,$goods_id,$thematic_id,$num,$record_id){
-
-          $code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->limit($num)->get(['code'],false);
-          $count = count($code);
-              for ($i=0; $i < $count; $i++) { 
-                  $data['code'] = $code[$i]['code'];
-                  $data['user_id'] = $user_id;
-                  $data['goods_id'] = $goods_id;
-                  $data['thematic_id'] = $thematic_id;
-                  $data['record_id'] = $record_id;
-                  $data['add_time'] = time();
-                  $purchase = $this->table('purchase')->save($data);
-                  if(!$purchase){
-                      $this->R('',40001);
-                  }
-                  $codeupdate = $this->table('code')->where(['code'=>$data['code']])->update(['is_use'=>1,'user_id'=>$user_id,'update_time'=>time()]);
-                  if(!$codeupdate){
-                      $this->R('',40001);
-                  }
-              }
-      }
+        $codenum = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->order("rand()")->limit($num)->get(['code'],false);
+        $count = count($codenum);
+            for ($i=0; $i < $count; $i++) { 
+                $data['code'] = $codenum[$i]['code'];
+                $data['user_id'] = $user_id;
+                $data['goods_id'] = $goods_id;
+                $data['thematic_id'] = $thematic_id;
+                $data['record_id'] = $record_id;
+                $data['add_time'] = time();
+                $data['ms_time'] = sprintf("%03d",floor(microtime()*1000));
+                $purchase = $this->table('purchase')->save($data);
+                if(!$purchase){
+                    $this->R('',40001);
+                }
+                $codeupdate = $this->table('code')->where(['code'=>$data['code']])->update(['is_use'=>1,'user_id'=>$user_id,'update_time'=>time()]);
+                if(!$codeupdate){
+                    $this->R('',40001);
+                }
+            }
+    }
 
      /**
       * 返回错误给微信

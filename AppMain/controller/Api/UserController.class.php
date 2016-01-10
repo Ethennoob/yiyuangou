@@ -323,10 +323,14 @@ class UserController extends Baseclass {
                 if ($detailpage [$k]['last_num']==0) {
                     $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['goods_id']])->order('add_time desc')->limit(0,1)->get(['add_time'],true);
                 if ($status!=null) {
-                    $detailpage[$k]['lucky_time'] =$status['add_time']+240;//+4分钟;
+                    ////究极无敌大判定////
+                    $time = $status['add_time'];
+                    $dataClass=$this->H('Roll');
+                    $detailpage[$k]['lucky_time']=$dataClass->rollTime($time);
                 }
                      $status = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$v['goods_id']])->get(['user_id','code','add_time'],true);
                      //$detailpage[$k]['lucky_time'] = $status['add_time'];
+                     //$detailpage[$k]['lucky_time'] =$status['add_time']+240;
                      $detailpage[$k]['code'] = $status['code'];
                      $status = $this->table('user')->where(['is_on'=>1,'id'=>$status['user_id']])->get(['nickname','user_img'],true);
                      $detailpage[$k]['nickname'] = $status['nickname'];
@@ -507,11 +511,11 @@ class UserController extends Baseclass {
      * $user_id,$goods_id,$thematic_id,$num
      */
     private function generateCodeToUser($user_id,$goods_id,$thematic_id,$num){
-
-        $code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->limit($num)->get(['code'],false);
-        $count = count($code);
+        $codenum = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->order("rand()")->limit($num)->get(['code'],false);
+        $count = count($codenum);
             for ($i=0; $i < $count; $i++) { 
-                $data['code'] = $code[$i]['code'];
+                //$code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->order("rand()")->get(['code'],true);
+                $data['code'] = $codenum[$i]['code'];
                 $data['user_id'] = $user_id;
                 $data['goods_id'] = $goods_id;
                 $data['thematic_id'] = $thematic_id;

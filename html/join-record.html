@@ -36,8 +36,8 @@
                 <img class="round" src="assets/img/headImg.png" width="40">
             </span>
             <span class="ml10 inline-block vertical-top">
-                <span class="font-red">{{item.nickname}}</span>购买了{{item.num}}人次
-                <span class="block f14 font-grey mt5">{{item.add_time | date}}</span>
+                <span class="font-red" v-cloak>{{item.nickname}}</span>购买了{{item.num}}人次
+                <span class="block f14 font-grey mt5" v-cloak>{{item.add_time | date}}</span>
             </span>
         </li>
     </ul>
@@ -46,12 +46,12 @@
     <div v-bind:class="{'is-visible': CodePopupVisible}" v-on:click="buyCodePopupClose" class="popup buy-code-popup f15" role="alert">
         <div v-on:click.stop class="popup-container bg-grey">
             <a v-on:click="buyCodePopupClose" href="javascript:;" class="popup-close buy-code-popup-close"></a>
-            <div class="default-font padding-horizontal-10 padding-vertical-10 bd-bottom bd-grey">
+            <div class="default-font padding-horizontal-10 padding-vertical-10 bd-bottom bd-grey" v-cloak>
                 <span class="font-red">{{buyCodeData.nickname}}</span>购买了{{buyCodeData.code.length}}人次
             </div>
             <div class="text-left default-font padding-horizontal-10 padding-vertical-20">认购码：
                 <div>
-                    <span v-for="item in buyCodeData.code" class="inline-block mr16 padding-vertical-10">{{item}}</span>
+                    <span v-for="item in buyCodeData.code" class="inline-block mr16 padding-vertical-10" v-cloak>{{item}}</span>
                 </div>
             </div>
         </div>

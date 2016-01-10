@@ -5,6 +5,12 @@
      * 用户收货地址类
      */
     class AddressController extends BaseClass {
+        public function test(){
+            $db = 'DB_GROUPBUY';
+            $seo = $this->table('seo',$db)->get(null,true);
+            var_dump($seo);
+            exit();
+        }
         /**
          * 添加用户收货地址
          */
@@ -33,7 +39,7 @@
                 'mobile'    =>$data['mobile'],
                 'name'      =>$data['name'],
                 'postcode'  =>isset($_POST['postcode']) ? $_POST['postcode'] : '',
-                'is_default'=>isset($_POST['is_default']) ? $_POST['is_default'] : '',
+                'is_default'=>isset($_POST['is_default']) ? $_POST['is_default'] : 0,
                 'add_time'  =>time(),
                 );
 
@@ -66,6 +72,7 @@
                     'street'   =>[],
                     'mobile'   =>['mobile'],
                     'name'     =>[],
+                    'is_default'=>['in',[0,1],true],
             ];
             $this->V($rule);
 
@@ -80,9 +87,20 @@
                     $data[$k] = $_POST[$k];
                 }
             }
+            if ($data['is_default']==1) {
 
+            $address = $this->table('user_address')->where(['is_on'=>1,'user_id'=>$userId])->update(['is_default'=>0]);
+            if(!$address){
+                $this->R('',70009);
+            }
+            /*$address = $this->table('user_address')->where(['is_on'=>1,'id'=>$addressId])->update(['is_default'=>1]);
+            if(!$address){
+                $this->R('',70009);
+            }*/
+
+            }
             //判断用户是否只有一条地址记录 如果是，设置为默认地址
-            $address = $this->table('user_address')->where(['user_id'=>$userId,'is_on'=>1])->get(['id']);
+           /* $address = $this->table('user_address')->where(['user_id'=>$userId,'is_on'=>1])->get(['id']);
             if(!$address){
                 $data['is_default'] = 1;
             }
@@ -92,7 +110,7 @@
                     if (!$address) {
                         $this->R('',40001);
                     }
-            }
+            }*/
             $data['update_time'] = time();
             $address = $this->table('user_address')->where(['id'=>$addressId])->update($data);
             if(!$address){
@@ -159,6 +177,51 @@
                 $this->R('',40001);
             }
             }
+            $this->R();
+        }
+        /**
+         * 设置默认收货地址
+         */
+        public function defaultAddress(){
+            $this->V(['address_id'=>['egNum',null,true]]);
+            $addressId = intval($_POST['address_id']);
+            $address = $this->table('user_address')->where(['id'=>$addressId,'is_on'=>1])->get(['user_id'],true);
+            if(!$address){
+                $this->R('',70009);
+            }
+            $address = $this->table('user_address')->where(['is_on'=>1,'user_id'=>$address['user_id']])->update(['is_default'=>0]);
+            if(!$address){
+                $this->R('',70009);
+            }
+            $address = $this->table('user_address')->where(['is_on'=>1,'id'=>$addressId])->update(['is_default'=>1]);
+            if(!$address){
+                $this->R('',70009);
+            }
+            $this->R();
+        }
+        /**
+         * 设置订单收货地址
+         */
+        public function chooseAddress(){
+            $this->V([
+                'address_id'=>['egNum',null,true],
+                'bill_id'   =>['egNum',null,true],
+                ]);
+            $addressId = intval($_POST['address_id']);
+            $billId = intval($_POST['bill_id']);
+            $address = $this->table('user_address')->where(['id'=>$addressId,'is_on'=>1])->get(['id'],true);
+            if(!$address){
+                $this->R('',70009);
+            }
+            $address = $this->table('bill')->where(['id'=>$billId,'status'=>1,'is_on'=>1])->get(['id'],true);
+            if(!$address){
+                $this->R('',70009);
+            }
+            $chooseaddress = $this->table('bill')->where(['is_on'=>1,'status'=>1,'id'=>$billId])->update(['address_id'=>$addressId]);
+            if(!$chooseaddress){
+                $this->R('',40001);
+            }
+
             $this->R();
         }
     }
