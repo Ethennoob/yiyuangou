@@ -1,0 +1,72 @@
+2016/01/10 17:41:35----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`nature`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 97 limit 0, 1
+
+2016/01/10 17:41:35----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/10 17:41:35----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 97
+
+2016/01/10 17:41:35----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 97 limit 0, 1
+
+2016/01/10 17:41:35----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 97 order by add_time desc limit 0, 1
+
+2016/01/10 17:41:35----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/10 17:41:35----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/10 17:41:35----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 86 AND `goods_id` = 97
+
+2016/01/10 17:42:37----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`nature`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 97 limit 0, 1
+
+2016/01/10 17:42:37----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/10 17:42:37----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 97
+
+2016/01/10 17:42:37----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 97 limit 0, 1
+
+2016/01/10 17:42:37----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 97 order by add_time desc limit 0, 1
+
+2016/01/10 17:42:37----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = 169 limit 0, 1
+
+2016/01/10 17:42:37----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/10 17:42:38----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 86 AND `goods_id` = 97
+
+2016/01/10 17:42:53----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`nature`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 97 limit 0, 1
+
+2016/01/10 17:42:53----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/10 17:42:53----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 97
+
+2016/01/10 17:42:53----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 97 limit 0, 1
+
+2016/01/10 17:42:53----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 97 order by add_time desc limit 0, 1
+
+2016/01/10 17:42:53----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = 169 limit 0, 1
+
+2016/01/10 17:42:53----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/10 17:42:53----
+select `code` from `purchase` where  `is_on` = 1 AND `user_id` = 86 AND `goods_id` = 97
+

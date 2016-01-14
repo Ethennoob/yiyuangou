@@ -5,10 +5,11 @@ class manager {
 		return [
 			'id'=> ['type' => 'i', 'value' => null],
 			'manager_name'=> ['type' => 's', 'value' => null],
+			'manager_auth'=> ['type' => 's', 'value' => null],
 			'manager_email'=> ['type' => 's', 'value' => null],
 			'manager_phone'=> ['type' => 'i', 'value' => null],
 			'manager_pwd'=> ['type' => 's', 'value' => null],
-			'manager_level'=> ['type' => 'i', 'value' => null],
+			'role_id'=> ['type' => 'i', 'value' => null],
 			'manager_endlogin'=> ['type' => 'i', 'value' => null],
 			'last_ip'=> ['type' => 'i', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],

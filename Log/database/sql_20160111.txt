@@ -1,0 +1,60 @@
+2016/01/11 18:22:30----
+select `goods_album` from `goods` where  `is_on` = 1 AND `id` = 100 limit 0, 1
+
+2016/01/11 18:22:31----
+update `goods` set `goods_album`=? where  `id` = 100
+
+2016/01/11 18:22:52----
+select `goods_album` from `goods` where  `is_on` = 1 AND `id` = 100 limit 0, 1
+
+2016/01/11 18:22:52----
+update `goods` set `goods_album`=? where  `id` = 100
+
+2016/01/11 18:23:18----
+select `goods_album` from `goods` where  `is_on` = 1 AND `id` = 98 limit 0, 1
+
+2016/01/11 18:23:18----
+update `goods` set `goods_album`=? where  `id` = 98
+
+2016/01/11 18:23:50----
+select `goods_album` from `goods` where  `is_on` = 1 AND `id` = 98 limit 0, 1
+
+2016/01/11 18:23:50----
+update `goods` set `goods_album`=? where  `id` = 98
+
+2016/01/11 18:23:56----
+select `goods_album` from `goods` where  `is_on` = 1 AND `id` = 98 limit 0, 1
+
+2016/01/11 18:23:56----
+update `goods` set `goods_album`=? where  `id` = 98
+
+2016/01/11 18:24:17----
+select `goods_album` from `goods` where  `id` = 98 limit 0, 1
+
+2016/01/11 18:50:34----
+insert into `company` (`company_name`,`QR_code`,`add_time`,`update_time`) values (?,?,?,?)
+
+2016/01/11 18:51:04----
+select count(*) from `company` where  `is_on` = 1
+
+2016/01/11 18:51:04----
+select `id`,`company_name`,`QR_code`,`add_time`,`update_time`,`is_on` from `company` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2016/01/11 18:51:52----
+select `id`,`company_name`,`QR_code`,`add_time`,`update_time`,`is_on` from `company` where  `is_on` = 1 AND `id` = 1 limit 0, 1
+
+2016/01/11 18:52:24----
+select `id` from `company` where  `id` = 1 AND `is_on` = 1 limit 0, 1
+
+2016/01/11 18:52:24----
+update `company` set `is_on`=? where  `id` = 1
+
+2016/01/11 19:41:50----
+select count(*) from `goods` where  `is_on` = 1
+
+2016/01/11 19:41:50----
+select `id`,`goods_id` from `goods` where  `is_on` = 1 order by id desc limit 0, 15
+Unknown column 'goods_id' in 'field list'
+2016/01/11 19:42:24----
+select count(*) from `roll` where  `is_on` = 1
+

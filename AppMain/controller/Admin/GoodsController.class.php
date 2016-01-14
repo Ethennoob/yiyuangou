@@ -11,11 +11,13 @@ class GoodsController extends BaseClass {
     public function goodsAdd()
         {
             $rule = [
+                    'company_id'     =>['egNum'],
                     'thematic_id'    =>['egNum'],
                     'goods_name'     =>[],
                     'goods_title'    =>[],
                     'goods_desc'     =>[],
                     'cost_price'     =>['money'],
+                    'nature'         =>['in',[0,1],true],
                     'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
                     //'goods_album'  => [],
@@ -86,12 +88,14 @@ class GoodsController extends BaseClass {
 	public function goodsOneEdit()
         {  
             $rule = [
+                    'company_id'     =>['egNum'],
                     'goods_id'       =>['egNum'],
                     'thematic_id'    =>['egNum'],
                     'goods_name'     =>[],
                     'goods_title'    =>[],
                     'goods_desc'     =>[],
                     'cost_price'     =>['money'],
+                    'nature'         =>['in',[0,1],true],
                     //'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
                 ];
@@ -154,7 +158,7 @@ class GoodsController extends BaseClass {
         $this->V(['thematic_id'=>['egNum']]);
         $id = intval($_POST['thematic_id']);
         $pageInfo = $this->P();
-        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
+        $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
 
         $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id])->order('add_time desc');
 
@@ -337,19 +341,31 @@ class GoodsController extends BaseClass {
     //增加相册图片
     public function albumAdd(){
         $goodsId = intval($_POST['goods_id']);
-        $pictureAlbum = $_FILES;
+        /*$pictureAlbum = $_FILES;
         $imgarray = $this->H('PictureUpload')->pictureUploadMore($pictureAlbum,'goodsAlbum',false);
+        $data['goods_album'] = $imgarray['img'];*/
+        //图片上传
+        $albumurl = $this->table('goods')->where(['is_on'=>1,'id'=>$goodsId])->get(['goods_album'],true);
+        $pictureName = $_FILES['goods_album'];
+        $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'goods',true);
+        if ($albumurl['goods_album']==null) {
         $data['goods_album'] = $imgarray['img'];
         $goods = $this->table('goods')->where(['id'=>$goodsId])->update($data);
             if(!$goods){
                 $this->R('',40001);
             }
+            $this->R(); 
+        }else{
+            $data['goods_album'] = $albumurl['goods_album'].";".$imgarray['img'];
+            $goods = $this->table('goods')->where(['id'=>$goodsId])->update($data);
             $this->R();
+        }
     }
     //删除相册的图片
     public function albumDel(){
         $goodsId = intval($_POST['goods_id']);
-        $album = $this->table('goods')->where(['id'=>$goodsId])->get(['goods_album'],true);
+
+        $album = $this->table('goods')->where(['is_on'=>1,'id'=>$goodsId])->get(['goods_album'],true);
         if ($album) {
             $goodsUrlArray = explode(";",$album['goods_album'] );
             $number=count($goodsUrlArray)-1;
@@ -369,7 +385,7 @@ class GoodsController extends BaseClass {
             $albumList = null;
         }else{
         $albumList = explode(";",$album['goods_album'] );
-        unset($albumList[6]);
+        //unset($albumList[6]);
         }
         
         $this->R(['albumList'=>$albumList]);

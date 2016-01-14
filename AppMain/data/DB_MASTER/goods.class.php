@@ -5,6 +5,7 @@ class goods {
 		return [
 			'id'=> ['type' => 'i', 'value' => null],
 			'goods_sn'=> ['type' => 's', 'value' => null],
+			'company_id'=> ['type' => 'i', 'value' => null],
 			'thematic_id'=> ['type' => 'i', 'value' => null],
 			'goods_name'=> ['type' => 's', 'value' => null],
 			'goods_title'=> ['type' => 's', 'value' => null],

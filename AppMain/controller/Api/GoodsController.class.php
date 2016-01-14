@@ -53,9 +53,9 @@ class GoodsController extends BaseClass {
         $goodinfo['add_time'] = date('Y-m-d H:i:s',$goodinfo['add_time']);
         $goodinfo['upload_date'] = date('Y-m-d H:i:s',$goodinfo['upload_date']);
         unset($goodinfo['goods_album']);
-        $status = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$id])->get(['record_id'
+        $record_id = $this->table('bill')->where(['is_on'=>1,'goods_id'=>$id])->get(['record_id'
             ,'code','add_time'],true);
-        $goodinfo['luckycode'] = $status['code'];
+        $goodinfo['luckycode'] = $record_id['code'];
         $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$id])->order('add_time desc')->limit(0,1)->get(['add_time'],true);
                 if ($status!=null) {
                     ////究极无敌大判定////
@@ -64,7 +64,7 @@ class GoodsController extends BaseClass {
                     $goodinfo['lucky_time']=$dataClass->rollTime($time);
                 }
         //$goodinfo['lucky_time'] = $status['add_time']+240;
-        $status = $this->table('record')->where(['is_on'=>1,'id'=>$status['record_id']])->get(['num','user_id'],true);
+        $status = $this->table('record')->where(['is_on'=>1,'id'=>$record_id['record_id']])->get(['num','user_id'],true);
         $goodinfo['buynum'] = $status['num'];
         $status = $this->table('user')->where(['is_on'=>1,'id'=>$status['user_id']])->get(['user_img','area','nickname'],true);
         $goodinfo['user_img'] = $status['user_img'];

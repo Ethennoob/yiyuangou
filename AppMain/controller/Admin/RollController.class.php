@@ -68,6 +68,7 @@ class RollController extends BaseClass {
             'user_id' => $va['user_id'],
             'time' => $va['time'],
             'shishicai' => $shishicai,
+            'B' => $data['Bvalue'],
             'ms_time' => $va['ms_time'],
         );
         //生成roll_record
@@ -218,5 +219,33 @@ class RollController extends BaseClass {
         }
        
         $this->R();
+    }
+    /**
+     * 查询此时需要抽奖的商品
+     */
+    public function rollGoodsList(){
+
+        $pageInfo = $this->P();
+        $file = ['id','goods_id'];
+
+        $class = $this->table('roll')->where(['is_on'=>1])->order('id desc');
+
+        //查询并分页
+        $rollGoodsList = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($rollGoodsList ){
+            foreach ($rollGoodsList  as $k=>$v){
+                $goodsstatus = $this->table('goods')->where(['is_on'=>1,'id'=>$v['id']])->get(['goods_name','thematic_id','company_id'],true);
+                $rollGoodsList[$k]['goods_name'] = $goodsstatus['goods_name'];
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodsstatus['thematic_id']])->get(['thematic_name'],true);
+                $rollGoodsList[$k]['thematic_name'] = $status['thematic_name'];
+                $status = $this->table('company')->where(['is_on'=>1,'id'=>$goodsstatus['company_id']])->get(['company_name'],true);
+                $rollGoodsList[$k]['company_name'] = $status['company_name'];
+            }
+        }else{
+            $rollGoodsList  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['rollGoodsList'=>$rollGoodsList,'pageInfo'=>$pageInfo]);
+
     }
 }

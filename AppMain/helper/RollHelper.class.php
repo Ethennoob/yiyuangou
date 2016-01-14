@@ -55,7 +55,7 @@ use System\BaseHelper;
         }
         private function RollRecordLinkedTable(&$fieldsName, &$multiSqlStmt, $whereStmt, $bindParams = null, $bindTypes = null, $orderBy = null, $sqlFunction = null) {            
             $fieldsName = array(
-                    'roll_record as A' => 'id,goods_id,user_id,time,shishicai,ms_time',
+                    'roll_record as A' => 'id,goods_id,user_id,time,shishicai,B,ms_time',
                     'user as B' => 'nickname',
                     
             );

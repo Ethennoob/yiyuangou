@@ -8,6 +8,7 @@ class roll_record {
 			'goods_id'=> ['type' => 'i', 'value' => null],
 			'time'=> ['type' => 'i', 'value' => null],
 			'shishicai'=> ['type' => 'i', 'value' => null],
+			'B'=> ['type' => 'i', 'value' => null],
 			'ms_time'=> ['type' => 's', 'value' => null],
 			'is_on'=> ['type' => 'i', 'value' => null],
 		];

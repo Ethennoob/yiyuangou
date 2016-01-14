@@ -18,8 +18,9 @@ class ThematicController extends BaseClass {
     public function thematicOneAdd(){
         //-----------字段验证-----------
         $rule = [
+            'company_id'      =>['egNum'],
             'thematic_name'   =>[],
-            'nature'          =>['in',[0,1]],
+            //'nature'          =>['in',[0,1]],
             //'poster'          =>[],
         ];
         $this->V($rule);
@@ -47,11 +48,12 @@ class ThematicController extends BaseClass {
      */
     public function thematicOneEdit(){
        $rule = [
+            'company_id'     =>['egNum'],
             'id'              =>['egNum'],//已有会员id
             'thematic_name'   =>[],
-           'status'           =>['in',[0,2]],
-            'nature'          =>['in',[0,1]],
-           'is_show'          =>['in',[0,1]],
+            'status'           =>['in',[0,2]],
+            //'nature'          =>['in',[0,1]],
+            'is_show'          =>['in',[0,1]],
             //'poster'          =>[],
         ];
         $this->V($rule);
