@@ -38,6 +38,26 @@ class Template extends BaseClass
             }
             return false;
   }
+  /**
+   * 发送消息给用户（需传入用户openid和消息内容）
+   */
+  public function setScene(){
+    $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
+        $this->weObj = $weObj;
+         $data = '{"action_name": "QR_LIMIT_STR_SCENE","action_info": {"scene": {"scene_str": "1235"}}}';
+         $accessToken = $this->getAccessToken();
+        $result = $this->http_post("https://api.weixin.qq.com/cgi-bin/qrcode/create?".'access_token='.$accessToken,$data);
+        if ($result)
+            {
+                $json = json_decode($result,true);
+                $ticket = $json['ticket'];
+                $url = $json['url'];
+                return $result;
+              }
+       // $url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".urlencode($ticket);
+        }
+
+
   private function getAccessToken() {
       $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$this->appId&secret=$this->appSecret";
       $res = json_decode($this->httpGet($url));

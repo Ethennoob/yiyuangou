@@ -162,7 +162,11 @@ class RecordController extends BaseClass {
                     $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname'],true);
                     $rollRecord[$k]['nickname'] = $status['nickname'];
                     $rollRecord[$k]['date'] = date('Y-m-d H:i:s',$v['time']).".".$v['ms_time'];
-                    $rollRecord[$k]['time'] = $v['time'].$v['ms_time'];
+                    //$rollRecord[$k]['time'] = $v['time'].$v['ms_time'];
+                    $date = date('H:i:s',$v['time']);
+                    $dateArr = explode(':', $date);
+                    $rollRecord[$k]['time'] = implode('',$dateArr).$v['ms_time'];
+                    $rollRecord[$k]['url'] = substr($v['shishicai'],0,8);
                 }
         }else{
             $rollRecord=false;

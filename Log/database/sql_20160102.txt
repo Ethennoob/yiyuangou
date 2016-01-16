@@ -1,0 +1,1419 @@
+2016/01/02 00:51:06----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 00:51:10----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut9S9SLn5MtJQfyrka7ajCLU' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 00:51:10----
+update `user` set `user_img`=?,`last_login`=?,`last_ip`=?,`nickname`=? where  `id` = 91
+
+2016/01/02 00:51:11----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 00:51:11----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 00:51:11----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 00:51:11----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 00:51:11----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 00:51:11----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 00:51:11----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 00:51:11----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 00:51:11----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 00:51:11----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 00:51:11----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 00:51:11----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 00:51:11----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 00:51:11----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 00:51:11----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 00:51:11----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 00:51:11----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 00:51:11----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 00:51:11----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 00:51:11----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 00:51:19----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 91 limit 0, 1
+
+2016/01/02 00:52:53----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 00:52:55----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 00:52:55----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 00:52:55----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 00:52:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 00:52:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 00:52:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 00:52:55----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 00:52:55----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 00:52:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 00:52:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 00:52:55----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 00:52:55----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 00:52:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 00:52:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 00:52:55----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 00:52:55----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 00:52:55----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 00:52:55----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 00:52:55----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 00:52:55----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 16:02:08----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 16:02:11----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut9WfZYiRO7ejJhrmpR5sq0U' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 16:02:11----
+update `user` set `user_img`=?,`last_login`=?,`last_ip`=?,`nickname`=? where  `id` = 87
+
+2016/01/02 16:02:12----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 16:02:12----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 16:02:12----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 16:02:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 16:02:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 16:02:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 16:02:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 16:02:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 16:02:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 16:02:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 16:02:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 16:02:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 16:02:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 16:02:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 16:02:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 16:02:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 16:02:20----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 16:02:20----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/02 16:02:20----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 16:02:20----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 89 limit 0, 1
+
+2016/01/02 16:02:20----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 16:02:20----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 16:02:24----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 16:02:24----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 16:02:24----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 16:02:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 16:02:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 16:02:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 16:02:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 16:02:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 16:02:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 16:02:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 16:02:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 16:02:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 16:02:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 16:02:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 16:02:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 16:02:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 16:02:28----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 72 limit 0, 1
+
+2016/01/02 16:02:28----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/02 16:02:28----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 16:02:28----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 16:02:28----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = 120 limit 0, 1
+
+2016/01/02 16:02:28----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 16:02:46----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 16:02:46----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 16:02:46----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 16:02:46----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 16:02:46----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 16:02:46----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:46----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 16:02:46----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 16:02:46----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 16:02:46----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:46----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 16:02:46----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 16:02:46----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 16:02:46----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:46----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 16:02:46----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 16:02:46----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 16:02:46----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 16:02:46----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 16:02:46----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:18:04----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:18:10----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut6MX4_AenAYe9vTmcMpZYnk' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 18:18:10----
+update `user` set `user_img`=?,`last_login`=?,`last_ip`=?,`nickname`=? where  `id` = 86
+
+2016/01/02 18:18:12----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 18:18:12----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 18:18:12----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 18:18:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:18:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:18:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:18:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:18:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 18:18:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 18:18:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 18:18:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 18:18:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 18:18:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 18:18:12----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 18:18:12----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:12----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 18:18:12----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:18:16----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 18:18:16----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 18:18:16----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 18:18:16----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:18:16----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:18:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:16----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:18:16----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:18:16----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 18:18:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:16----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 18:18:16----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 18:18:16----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 18:18:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:16----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 18:18:16----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 18:18:16----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 18:18:16----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 18:18:16----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 18:18:16----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:19:28----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`content`,`msg_id`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:19:28----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `is_on` = 1 AND `keywords` = '方法' AND `type` = 0 limit 0, 1
+
+2016/01/02 18:19:28----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `is_on` = 1 AND `type` = 1 limit 0, 1
+
+2016/01/02 18:19:37----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`content`,`msg_id`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:19:37----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `is_on` = 1 AND `keywords` = '我' AND `type` = 0 limit 0, 1
+
+2016/01/02 18:19:37----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `is_on` = 1 AND `type` = 1 limit 0, 1
+
+2016/01/02 18:19:59----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:20:01----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 18:20:01----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 18:20:01----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 18:20:01----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:20:01----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:20:01----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:01----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:20:01----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:20:01----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 18:20:01----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:01----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 18:20:01----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 18:20:01----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 18:20:01----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:02----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 18:20:02----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 18:20:02----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 18:20:02----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:02----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 18:20:02----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:20:27----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 18:20:27----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/02 18:20:27----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:20:27----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 89 limit 0, 1
+
+2016/01/02 18:20:27----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 18:20:27----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 18:20:32----
+select `limit_num` from `goods` where  `id` = '89' limit 0, 1
+
+2016/01/02 18:20:32----
+select `id` from `code` where  `goods_id` = '89' AND `is_use` = 0 limit 0, 1
+
+2016/01/02 18:20:32----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '89' AND `is_on` = 1
+
+2016/01/02 18:20:51----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 18:20:51----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 18:20:51----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 18:20:51----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:20:51----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:20:51----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:51----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:20:51----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:20:51----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 18:20:51----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:51----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 18:20:51----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 18:20:51----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 18:20:51----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:51----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 18:20:51----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 18:20:51----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 18:20:51----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 18:20:51----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 18:20:51----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:20:54----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:20:56----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:21:30----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select `id`,`user_img`,`phone` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select count(*) from `record` where  `is_on` = 1 AND `user_id` = 86
+
+2016/01/02 18:37:37----
+select `id`,`goods_id`,`num` from `record` where  `is_on` = 1 AND `user_id` = 86 order by add_time desc limit 0, 5
+
+2016/01/02 18:37:37----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:37:37----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:37----
+select `user_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 58
+
+2016/01/02 18:37:37----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 58 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:37----
+select `user_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 18:37:37----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 58
+
+2016/01/02 18:37:37----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 58 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:37----
+select `user_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 18:37:37----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 58
+
+2016/01/02 18:37:37----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 58 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:37----
+select `user_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 18:37:37----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 58
+
+2016/01/02 18:37:37----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 58 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:37----
+select `user_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 58 limit 0, 1
+
+2016/01/02 18:37:37----
+select `nickname`,`user_img` from `user` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 18:37:37----
+select count(*) from `bill` where  `is_on` = 1 AND `user_id` = 86 AND `is_confirm` = 1
+
+2016/01/02 18:37:37----
+select `id`,`goods_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `user_id` = 86 AND `is_confirm` = 1 order by add_time desc limit 0, 5
+
+2016/01/02 18:37:37----
+select `goods_title`,`price`,`goods_thumb` from `goods` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select `num` from `record` where  `is_on` = 1 AND `goods_id` = 86 AND `user_id` = 86 limit 0, 1
+
+2016/01/02 18:37:37----
+select `logistics_number` from `logistics` where  `is_on` = 1 AND `bill_id` = 25 limit 0, 1
+
+2016/01/02 18:37:43----
+select count(*) from `record` where  `is_on` = 1 AND `user_id` = 86
+
+2016/01/02 18:37:43----
+select `id`,`goods_id`,`num` from `record` where  `is_on` = 1 AND `user_id` = 86 order by add_time desc limit 5, 5
+
+2016/01/02 18:37:48----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:37:50----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 18:37:50----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 18:37:50----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 18:37:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:37:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:37:50----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:50----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:37:50----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:37:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 18:37:50----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:50----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 18:37:50----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 18:37:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 18:37:50----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:50----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 18:37:50----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 18:37:50----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 18:37:50----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 18:37:50----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 18:37:50----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:38:07----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 18:38:07----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/02 18:38:07----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:38:07----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 89 limit 0, 1
+
+2016/01/02 18:38:07----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 18:38:07----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 18:38:20----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:38:22----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 18:38:22----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 18:38:22----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 18:38:22----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 18:38:22----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 18:38:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 18:38:22----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 18:38:22----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 18:38:22----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 18:38:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 18:38:22----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 18:38:22----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 18:38:22----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 18:38:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 18:38:22----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 18:38:22----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 18:38:22----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 18:38:22----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 18:38:22----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 18:38:22----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 18:39:00----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 18:39:02----
+select count(*) from `article` where  `is_on` = 1
+
+2016/01/02 18:39:02----
+select `id`,`title` from `article` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2016/01/02 18:39:06----
+select `id`,`title`,`content`,`pic`,`is_show`,`add_time`,`update_time`,`is_on` from `article` where  `is_on` = 1 AND `id` = 24 limit 0, 1
+
+2016/01/02 18:39:09----
+select count(*) from `article` where  `is_on` = 1
+
+2016/01/02 18:39:09----
+select `id`,`title` from `article` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2016/01/02 18:39:11----
+select `id`,`title`,`content`,`pic`,`is_show`,`add_time`,`update_time`,`is_on` from `article` where  `is_on` = 1 AND `id` = 14 limit 0, 1
+
+2016/01/02 21:58:38----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 21:58:42----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut9S9SLn5MtJQfyrka7ajCLU' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 21:58:42----
+update `user` set `user_img`=?,`last_login`=?,`last_ip`=?,`nickname`=? where  `id` = 91
+
+2016/01/02 21:58:44----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 21:58:44----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 21:58:44----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 21:58:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 21:58:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 21:58:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 21:58:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 21:58:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 21:58:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 21:58:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 21:58:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 21:58:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 21:58:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 21:58:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 21:58:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 21:58:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 21:58:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 21:58:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 21:58:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 21:58:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 22:16:52----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 22:16:52----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 22:16:52----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 22:16:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 22:16:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 22:16:52----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 22:16:52----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 22:16:52----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 22:16:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 22:16:52----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 22:16:52----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 22:16:52----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 22:16:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 22:16:52----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 22:16:52----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 22:16:52----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 22:16:52----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 22:16:52----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 22:16:52----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 22:16:52----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 22:17:01----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:17:03----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 22:17:03----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 22:17:03----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 22:17:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 22:17:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 22:17:03----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 22:17:03----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 22:17:03----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 22:17:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 22:17:03----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 22:17:03----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 22:17:03----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 22:17:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 22:17:03----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 22:17:03----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 22:17:03----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 22:17:03----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 22:17:03----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 22:17:03----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 22:17:03----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 22:19:22----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:19:24----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 22:19:24----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 22:19:24----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 22:19:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 22:19:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 22:19:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 22:19:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 22:19:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 22:19:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 22:19:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 22:19:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 22:19:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 22:19:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 22:19:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 22:19:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 22:19:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 22:19:24----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 22:19:24----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 22:19:24----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 22:19:24----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 22:19:29----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 22:19:29----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/02 22:19:29----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 22:19:29----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 89 limit 0, 1
+
+2016/01/02 22:19:29----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 22:19:29----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 22:19:36----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:20:29----
+select `id`,`type`,`rsp_type`,`keywords`,`text`,`news`,`add_time`,`update_time`,`is_on` from `wechat_response` where  `type` = 2 AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:32----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:20:34----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:40----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:42----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:20:43----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:20:44----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 22:20:44----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 22:20:44----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 22:20:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 22:20:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 22:20:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 22:20:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 22:20:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 22:20:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 22:20:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 22:20:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 22:20:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 22:20:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 22:20:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 22:20:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 22:20:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 22:20:44----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 22:20:44----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 22:20:44----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 22:20:44----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 22:20:44----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:46----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:47----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:20:49----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:56----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:20:59----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:20:59----
+select count(*) from `article` where  `is_on` = 1
+
+2016/01/02 22:20:59----
+select `id`,`title` from `article` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2016/01/02 22:21:03----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 22:21:04----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 22:21:07----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut_yv9hgApU46G1k0neZtsqA' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 23:41:01----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/02 23:41:06----
+select `id`,`phone`,`openid`,`user_img`,`area`,`last_login`,`last_ip`,`nickname`,`is_follow`,`is_froze`,`add_time`,`update_time`,`is_on` from `user` where  `openid` = 'o_Oqut6MX4_AenAYe9vTmcMpZYnk' AND `is_on` = 1 limit 0, 1
+
+2016/01/02 23:41:06----
+update `user` set `user_img`=?,`last_login`=?,`last_ip`=?,`nickname`=? where  `id` = 86
+
+2016/01/02 23:41:08----
+select `id`,`thematic_name`,`poster` from `thematic` where  `is_on` = 1 AND `status` = 0 AND `is_show` = 1 limit 0, 1
+
+2016/01/02 23:41:08----
+select count(*) from `goods` where  `is_on` = 1 AND `thematic_id` = 13
+
+2016/01/02 23:41:08----
+select `id`,`goods_name`,`price`,`goods_thumb`,`limit_num` from `goods` where  `is_on` = 1 AND `thematic_id` = 13 order by add_time desc limit 0, 15
+
+2016/01/02 23:41:08----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 23:41:08----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 86
+
+2016/01/02 23:41:08----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 86 order by add_time desc limit 0, 1
+
+2016/01/02 23:41:08----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 86 limit 0, 1
+
+2016/01/02 23:41:08----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 86 limit 0, 1
+
+2016/01/02 23:41:08----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 72
+
+2016/01/02 23:41:08----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 72 order by add_time desc limit 0, 1
+
+2016/01/02 23:41:08----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 72 limit 0, 1
+
+2016/01/02 23:41:08----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 88 limit 0, 1
+
+2016/01/02 23:41:08----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 71
+
+2016/01/02 23:41:08----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 71 order by add_time desc limit 0, 1
+
+2016/01/02 23:41:08----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 71 limit 0, 1
+
+2016/01/02 23:41:08----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 87 limit 0, 1
+
+2016/01/02 23:41:08----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 70
+
+2016/01/02 23:41:08----
+select `add_time` from `purchase` where  `is_on` = 1 AND `goods_id` = 70 order by add_time desc limit 0, 1
+
+2016/01/02 23:41:08----
+select `user_id`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 70 limit 0, 1
+
+2016/01/02 23:41:08----
+select `nickname` from `user` where  `is_on` = 1 AND `id` = 96 limit 0, 1
+
+2016/01/02 23:41:40----
+select `id`,`goods_sn`,`thematic_id`,`goods_name`,`goods_title`,`upload_date`,`cost_price`,`price`,`limit_num`,`goods_desc`,`goods_album`,`goods_thumb`,`goods_img`,`free_post`,`is_show`,`add_time`,`update_time`,`is_on` from `goods` where  `is_on` = 1 AND `id` = 89 limit 0, 1
+
+2016/01/02 23:41:40----
+select `thematic_name` from `thematic` where  `is_on` = 1 AND `id` = 13 limit 0, 1
+
+2016/01/02 23:41:40----
+select `id` from `purchase` where  `is_on` = 1 AND `goods_id` = 89
+
+2016/01/02 23:41:40----
+select `record_id`,`code`,`add_time` from `bill` where  `is_on` = 1 AND `goods_id` = 89 limit 0, 1
+
+2016/01/02 23:41:40----
+select `num`,`user_id` from `record` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 23:41:40----
+select `user_img`,`area`,`nickname` from `user` where  `is_on` = 1 AND `id` = null limit 0, 1
+
+2016/01/02 23:41:47----
+select `limit_num` from `goods` where  `id` = '89' limit 0, 1
+
+2016/01/02 23:41:47----
+select `id` from `code` where  `goods_id` = '89' AND `is_use` = 0 limit 0, 1
+
+2016/01/02 23:41:47----
+select `id` from `purchase` where  `user_id` = '86' AND `goods_id` = '89' AND `is_on` = 1
+

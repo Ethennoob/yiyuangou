@@ -29,12 +29,12 @@ class ThematicController extends BaseClass {
             $data[$k] = $_POST[$k];
         }
          //图片上传
-        $pictureName = $_FILES['poster'];
-        $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'poster',false);
+        /*$pictureName = $_FILES['poster'];
+        $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'poster',false);*/
 
         $data['add_time']     = time();
         $data['update_time']     = time();
-        $data['poster'] = $imgarray['img'];
+        //$data['poster'] = $imgarray['img'];
     
         $thematic = $this->table('thematic')->save($data);
         if(!$thematic){
@@ -71,7 +71,7 @@ class ThematicController extends BaseClass {
             }
         }
         //图片上传
-        if(isset($_FILES['poster'])){
+        /*if(isset($_FILES['poster'])){
         $pictureName = $_FILES['poster'];
         $imgarray = $this->H('PictureUpload')->pictureUpload($pictureName,'poster',false);
         //删除图片文件
@@ -82,7 +82,7 @@ class ThematicController extends BaseClass {
        
         $data['poster'] = $imgarray['img'];
             
-        }
+        }*/
 
         $thematic = $this->table('thematic')->where(['id'=>$id])->update($data);
         if(!$thematic){
@@ -92,13 +92,15 @@ class ThematicController extends BaseClass {
         $this->R();
     }
     /**
-     * 查询专题列表(分页)
+     * 模糊查询专题列表(通过专题名)
      */
-    public function thematicList(){
+    public function thematicListName(){
         $pageInfo = $this->P();
+        $this->V(['thematic_name'=>[]]);
+        $thematic_name = $_POST['thematic_name'];
         $file = ['id','thematic_name','nature','status','is_show','add_time'];
-
-        $class = $this->table('thematic')->where(['is_on'=>1])->order('add_time desc');
+        $where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
+        $class = $this->table('thematic')->where($where)->order('add_time desc');
 
         //查询并分页
         $thematicpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
@@ -129,11 +131,133 @@ class ThematicController extends BaseClass {
         
     }
     /**
+     * 模糊查询专题列表(通过专题状态：0进行中,1即将揭晓,2已揭晓)
+     */
+    public function thematicListStatus(){
+        $pageInfo = $this->P();
+        $this->V(['status'=>['num']]);
+        $status = $_POST['status'];
+        $file = ['id','thematic_name','nature','status','is_show','add_time'];
+        $where = 'is_on = 1 and status = "'.$status.'"';
+        $class = $this->table('thematic')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $thematicpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($thematicpage ){
+            foreach ($thematicpage  as $k=>$v){
+                $thematicpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                /*$goodsarr = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->get(['goods_name','price','limit_num'],false);*/
+                $file = ['id','goods_name','price','limit_num','add_time'];
+                $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->order('add_time desc');
+                //查询并分页
+                $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+                if(!$goodspage){
+                    $goodspage=null;
+                }
+                /*$count = count($goodsarr);
+                    for ($i=0; $i < $count; $i++) { 
+                $v = implode(",",$goodsarr[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }*/
+            $thematicpage[$k]['goods']=$goodspage;
+            unset($goodspage);
+            }
+        }else{
+            $thematicpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['thematicpage'=>$thematicpage,'pageInfo'=>$pageInfo]);
+        
+    }
+    /**
+     * 模糊查询专题列表(通过专题添加时间)
+     */
+    public function thematicListTime(){
+        $pageInfo = $this->P();
+        $this->V(['add_time'=>[]]);
+        $add_time = $_POST['add_time'];
+        $time1 = intval(strtotime($add_time));
+        $time2 = $time1+24*3600;
+        $file = ['id','thematic_name','nature','status','is_show','add_time'];
+        $where = 'is_on = 1 and add_time > "'.$time1.'" and add_time < "'.$time1.'"';
+        $class = $this->table('thematic')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $thematicpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($thematicpage ){
+            foreach ($thematicpage  as $k=>$v){
+                $thematicpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                /*$goodsarr = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->get(['goods_name','price','limit_num'],false);*/
+                $file = ['id','goods_name','price','limit_num','add_time'];
+                $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->order('add_time desc');
+                //查询并分页
+                $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+                if(!$goodspage){
+                    $goodspage=null;
+                }
+                /*$count = count($goodsarr);
+                    for ($i=0; $i < $count; $i++) { 
+                $v = implode(",",$goodsarr[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }*/
+            $thematicpage[$k]['goods']=$goodspage;
+            unset($goodspage);
+            }
+        }else{
+            $thematicpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['thematicpage'=>$thematicpage,'pageInfo'=>$pageInfo]);
+        
+    }
+    /**
+     * 查询专题列表(分页)
+     */
+    public function thematicList(){
+        $this->V(['company_id'=>['egNum',null,true]]);
+        $id = intval($_POST['company_id']);
+        $pageInfo = $this->P();
+        $file = ['id','thematic_name','nature','status','is_show','add_time'];
+
+        $class = $this->table('thematic')->where(['is_on'=>1,'company_id'=>$id])->order('add_time desc');
+
+        //查询并分页
+        $thematicpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($thematicpage ){
+            foreach ($thematicpage  as $k=>$v){
+                $thematicpage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                /*$goodsarr = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->get(['goods_name','price','limit_num'],false);*/
+                $file = ['id','goods_name','price','limit_num','add_time'];
+                $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$v['id']])->order('add_time desc');
+                //查询并分页
+                $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+                if(!$goodspage){
+                    $goodspage=null;
+                }
+                $status = $this->table('company')->where(['is_on'=>1,'id'=>$id])->get(['company_name'],true);
+                $thematicpage [$k]['company_name'] = $status['company_name'];
+                /*$count = count($goodsarr);
+                    for ($i=0; $i < $count; $i++) { 
+                $v = implode(",",$goodsarr[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }*/
+            $thematicpage[$k]['goods']=$goodspage;
+            unset($goodspage);
+            }
+        }else{
+            $thematicpage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['thematicpage'=>$thematicpage,'pageInfo'=>$pageInfo]);
+        
+    }
+    /**
      * 查出所有专题名(status=0)
      */
     public function thematicSelect(){
-       
-        $thematicSelect = $this->table('thematic')->where(['is_on'=>1])->order('add_time desc')->get(['id','thematic_name'],false);
+        $this->V(['company_id'=>['egNum',null,true]]);
+        $id = intval($_POST['company_id']);
+        $thematicSelect = $this->table('thematic')->where(['is_on'=>1,'company_id'=>$id])->order('add_time desc')->get(['id','thematic_name'],false);
         
         if(!$thematicSelect){
             $thematicSelect  = null;
@@ -157,7 +281,22 @@ class ThematicController extends BaseClass {
         if(!$thematic){
             $this->R('',70009);
         }
+        $status = $this->table('company')->where(['is_on'=>1,'id'=>$thematic['company_id']])->get(['company_name'],true);
+        $thematic['company_name'] = $status['company_name'];
         $this->R(['thematic'=>$thematic]);
+    }
+    /**
+     * 判定首页的默认专题是否卖完了
+     */
+    public function changeThematic(){
+        $this->V(['thematic_id'=>['egNum',null,true]]);
+        $id = intval($_POST['thematic_id']);
+        $thematic = $this->table('thematic')->where(['id'=>$id])->update(['status'=>2]);
+        if(!$thematic){
+            $this->R('',40001);
+        }
+
+        $this->R();
     }
     /*
     删除一条专题信息数据（设置数据库字段为0，相当于回收站）

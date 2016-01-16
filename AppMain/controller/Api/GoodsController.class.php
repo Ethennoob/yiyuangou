@@ -40,9 +40,13 @@ class GoodsController extends BaseClass {
         //查询一条数据
         $goodinfo = $this->table('goods')->where(['is_on'=>1,'id'=>$id])->get(null,true);
         $albumList = explode(";",$goodinfo['goods_album'] );
-        $goodinfo['img'] = $albumList;
+        if ($albumList[0]==null) {
+            $goodinfo['img'] = null;
+        }else{
+            $goodinfo['img'] = $albumList;
+        }
         $count=count($albumList);
-        unset($goodinfo['img'][$count-1]);
+        //unset($goodinfo['img'][$count-1]);
         $thematic = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodinfo['thematic_id']])->get(['thematic_name'],true);
         $goodinfo['thematic_name'] = $thematic['thematic_name'];
         $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$id])->get(['id'],false);
@@ -64,12 +68,20 @@ class GoodsController extends BaseClass {
                     $goodinfo['lucky_time']=$dataClass->rollTime($time);
                 }
         //$goodinfo['lucky_time'] = $status['add_time']+240;
-        $status = $this->table('record')->where(['is_on'=>1,'id'=>$record_id['record_id']])->get(['num','user_id'],true);
-        $goodinfo['buynum'] = $status['num'];
-        $status = $this->table('user')->where(['is_on'=>1,'id'=>$status['user_id']])->get(['user_img','area','nickname'],true);
+        $status = $this->table('record')->where(['is_on'=>1,'id'=>$record_id['record_id']])->get(['user_id'],true);
+        $status = $this->table('user')->where(['is_on'=>1,'id'=>$status['user_id']])->get(['id','user_img','area','nickname'],true);
         $goodinfo['user_img'] = $status['user_img'];
         $goodinfo['area'] = $status['area'];
         $goodinfo['nickname'] = $status['nickname'];
+        $status = $this->table('record')->where(['is_on'=>1,'user_id'=>$status['id'],'goods_id'=>$id])->get(['num'],false);
+        if ($status!==null) {
+            foreach ($status as $key => $v) {
+            $temp1[]= $v['num'];
+            }
+            $goodinfo['buynum'] = array_sum($temp1);
+        }else{
+            $goodinfo['buynum'] = 0;
+        }
         $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$userid,'goods_id'=>$id])->get(['code'],false);
             //拼接认购码
             $count = count($status);
@@ -88,25 +100,38 @@ class GoodsController extends BaseClass {
      * 首页商品展示
      */
     public function index(){
+        //传入专区id
+        $this->V(['company_id'=>['egNum']]);
+        $company_id = intval($_POST['company_id']); 
+        
+        $company = $this->table('company')->where(['is_on'=>1,'id'=>$company_id])->get(['id','company_name'],true);      
+            if (!$company) {
+                $index  = null;
+                //返回数据，参见System/BaseClass.class.php方法
+                $this->R(['index'=>$index,'thematic'=>null,'poster'=>null,'pageInfo'=>null]);
+            }
+        $company_name = $company['company_name'];
         //传入专题
         if (isset($_POST['thematic_id'])) {
             $this->V(['thematic_id'=>['egNum',null,true]]);
             $id = intval($_POST['thematic_id']);
             //查询专题
-            $thematic = $this->table('thematic')->where(['is_on'=>1,'id'=>$id,'is_show'=>1])->get(['id','thematic_name'],true);
+            $thematic = $this->table('thematic')->where(['is_on'=>1,'id'=>$id,'company_id'=>$company_id,'is_show'=>1])->get(['id','thematic_name'],true);
             if (!$thematic) {
                 $index  = null;
+                //返回数据，参见System/BaseClass.class.php方法
+                $this->R(['index'=>$index,'thematic'=>null,'poster'=>null,'pageInfo'=>null]);
             }
         }else{
             //查询专题
-            $thematic = $this->table('thematic')->where(['is_on'=>1,'status'=>0,'is_show'=>1])->get(['id','thematic_name'],true);
+            $thematic = $this->table('thematic')->where(['is_on'=>1,'status'=>0,'is_show'=>1,'company_id'=>$company_id])->get(['id','thematic_name'],true);
             if (!$thematic) {
-                $index  = null;
+                $this->R(['index'=>null,'thematic'=>null,'poster'=>null,'pageInfo'=>null]);
             }
         }
 
     $pageInfo = $this->P();
-    $file = ['id','goods_name','price','goods_thumb','limit_num'];
+    $file = ['id','goods_name','price','goods_img','goods_thumb','limit_num'];
 
     $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$thematic['id']])->order('add_time desc');
 
@@ -141,19 +166,26 @@ class GoodsController extends BaseClass {
                //}
             }
         }
-        $thematic['thematic_name'] = $thematic['thematic_name'];
-        $advlist = $this->table('advertisement')->where(['is_on'=>1])->order('sort_order asc')->get(['id','adv_name','adv_img','adv_url','sort_order'],false);
-        $count = count($advlist);
-        foreach ($advlist as $key => $value) {
-            $poster[$key] = $value;
-        }
 
     }else{
-        $index  = null;
+        $index = null;
+        //$this->R(['index'=>null,'thematic'=>null,'poster'=>null,'pageInfo'=>null]);
     }
+    $thematic['thematic_name'] = $thematic['thematic_name'];
+        $advlist = $this->table('advertisement')->where(['is_on'=>1,'company_id'=>$company_id])->order('sort_order asc')->get(['id','adv_name','adv_img','adv_url','sort_order'],false);
+        $count = count($advlist);
+        if ($advlist==null) {
+            $poster = null;
+        }else{
+            foreach ($advlist as $key => $value) {
+            $poster[] = $value;
+        }
+    //查询最新一期专题
+            $newthematic = $this->table('thematic')->where(['is_on'=>1,'company_id'=>$company_id])->order('add_time desc')->get(['id'],false);
+            $newthematic = $newthematic[0]['id'];
     //返回数据，参见System/BaseClass.class.php方法
-    $this->R(['index'=>$index,'thematic'=>$thematic,'poster'=>$poster,'pageInfo'=>$pageInfo]);
+    $this->R(['company_name'=>$company_name,'index'=>$index,'thematic'=>$thematic,'newthematic'=>$newthematic,'poster'=>$poster,'pageInfo'=>$pageInfo]);
     }
-    
+    }
 
 }

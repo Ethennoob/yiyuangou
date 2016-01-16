@@ -9,11 +9,22 @@ class AdvertisementController extends BaseClass {
     /**
      * 增加轮播图
      */
+    public function test1(){
+        echo strtotime("2016-01-14")."</br>";
+        echo strtotime("2016-01-15");
+
+        echo date("Y-m-d",time());
+        echo date("Y-m-d",1452700800);
+        echo date("Y-m-d",1452756660);
+        echo date("Y-m-d",1452700000);
+ 
+    }
     public function advertisementOneAdd(){
 
         $rule = [
             'adv_name'        =>[],
             'adv_url'         =>[],
+            'company_id'      =>['egNum'],
         ];
         
          $this->V($rule);
@@ -40,7 +51,9 @@ class AdvertisementController extends BaseClass {
      * 轮播图列表
      */
     public function advertisementOneList(){
-        $where=['is_on'=>1];
+        $this->V(['company_id'=>['egNum']]);
+        $id = intval($_POST['company_id']); 
+        $where=['is_on'=>1,'company_id'=>$id];
         $pageInfo = $this->P();
         $class = $this->table('advertisement')->where($where)->order('update_time desc');
         //查询并分页
@@ -49,6 +62,8 @@ class AdvertisementController extends BaseClass {
             foreach ($advertisement as $k=>$v){
                 $advertisement[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
                 $advertisement[$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
+                $status = $this->table('company')->where(['is_on'=>1,'id'=>$id])->get(['company_name'],true);
+            $advertisement[$k]['company_name'] = $status['company_name'];
             }
         }else{
             $advertisement = null;
@@ -63,8 +78,7 @@ class AdvertisementController extends BaseClass {
         $this->V(['id'=>['egNum']]);
         $id = intval($_POST['id']); 
         // //查找memcache缓存
-         $advertisement1Detail=$this->S()->get($id);
-         if (!$advertisement1Detail){
+         
             //查询一条数据
             $advertisement = $this->table('advertisement')->where(['is_on'=>1,'id'=>$id])->get(null,true);
             if(!$advertisement){
@@ -72,13 +86,9 @@ class AdvertisementController extends BaseClass {
             }
             $advertisement['update_time'] = date('Y-m-d H:i:s',$advertisement['update_time']);
             $advertisement['add_time'] = date('Y-m-d H:i:s',$advertisement['add_time']);
-            //设置memcache缓存，serialize（序列化），兼容window和linux系统
-            $this->S()->set('advertisement_'.$id, serialize($advertisement1Detail),60*60);
-        }
-         else{
-             //设置memcache缓存，unserialize（反序列化），兼容window和linux系统
-             $advertisement1Detail=unserialize($advertisement1Detail);
-         }
+            $status = $this->table('company')->where(['is_on'=>1,'id'=>$id])->get(['company_name'],true);
+            $advertisement['company_name'] = $status['company_name'];
+           
         
          $this->R(['advertisement'=>$advertisement]);
     }
@@ -96,33 +106,36 @@ class AdvertisementController extends BaseClass {
      */
     public function advertisementOneEdit(){
         $rule = [
-            'id'         =>['egNum'],
+            'advertisement_id'         =>['egNum'],
             'adv_name'   =>[],
             'adv_url'    =>[],
+            'company_id' =>['egNum'],
         ];
         $this->V($rule);
-        $id = intval($_POST['id']);
+        $id = intval($_POST['advertisement_id']);
         $advertisement = $this->table('advertisement')->where(['id'=>$id,'is_on'=>1])->get(['id'],true);
         if(!$advertisement){
             $this->R('',70009);
         }
         foreach ($advertisement as $k => $v) {
-             $delete = unlink($v);
+             $delete = @unlink($v);
          }
         unset($rule['id']);
-        $imgArray=$this->H('PictureUpload')->pictureUpload($_FILES['adv_img'],'advertisement',true);
-            if (!$imgArray) {
-                $errorMsg=$imgArray->getError();
-                $this->R(['errorMsg'=>$errorMsg],'40019');
-            }
         foreach ($rule as $k=>$v){
             if(isset($_POST[$k])){
                 $data[$k] = $_POST[$k];
             }
         }
+        if (isset($_FILES['adv_img'])) {
+            $imgArray=$this->H('PictureUpload')->pictureUpload($_FILES['adv_img'],'advertisement',true);
+            if (!$imgArray) {
+                $errorMsg=$imgArray->getError();
+                $this->R(['errorMsg'=>$errorMsg],'40019');
+            }
+            $data['adv_img']  = $imgArray['img'];
+            $data['adv_img_thumb'] = $imgArray['thumb'];
+        }
         $data['update_time']  = time();
-        $data['adv_img']  = $imgArray['img'];
-        $data['adv_img_thumb'] = $imgArray['thumb'];
         $advertisement = $this->table('advertisement')->where(['id'=>$id])->update($data);
         if(!$advertisement){
             $this->R('',40001);

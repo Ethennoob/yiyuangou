@@ -31,6 +31,7 @@ class RollController extends BaseClass {
     public function roll(){
     	$this->V(['B'=>['egNum']]);
         $data['Bvalue'] = intval($_POST['B']);
+        $B = intval($_POST['B']);
         $this->V(['ssc'=>['egNum']]);
         $shishicai = intval($_POST['ssc']);
 
@@ -45,7 +46,7 @@ class RollController extends BaseClass {
         }
         foreach ($goods_id as $key => $v) {
         //查询商品是否删除
-        $good = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['id','price','thematic_id','goods_sn'],true);
+        $good = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['id','company_id','price','thematic_id','goods_sn'],true);
         if (!$good) {
         	$this->R('',70009);
         }
@@ -55,7 +56,7 @@ class RollController extends BaseClass {
         	$this->R('',90002);
         }
         //抽奖(得到抽奖key,去匹配code表内的数据)
-        $time = $this->table('purchase')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['user_id','add_time','ms_time'],false);
+        $time = $this->table('record')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['user_id','add_time','ms_time'],false);
         if (!$time) {
             $this->R('',70009);
         }
@@ -66,9 +67,9 @@ class RollController extends BaseClass {
         $data = array(
             'goods_id' => $v['goods_id'],
             'user_id' => $va['user_id'],
-            'time' => $va['time'],
+            'time' => $va['add_time'],
             'shishicai' => $shishicai,
-            'B' => $data['Bvalue'],
+            'B' => $B,
             'ms_time' => $va['ms_time'],
         );
         //生成roll_record
@@ -85,15 +86,16 @@ class RollController extends BaseClass {
         if (!$code) {
         	$this->R('',40001);
         }
-        $luckyCode = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$v['goods_id'],'is_lucky'=>1])->get(['user_id'],true);
+        $luckyCode = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$v['goods_id'],'is_lucky'=>1])->get(['user_id','code'],true);
         if (!$luckyCode) {
         	$this->R('',70009);
         }
-        $add_time = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['goods_id'],'code'=>$luckyCode['code']])->get(['add_time'],true);
+        $add_time = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['goods_id'],'code'=>$luckyCode['code']])->get(['record_id'],true);
         if (!$add_time) {
             $this->R('',70009);
         }
-        $record_id = $this->table('record')->where(['is_on'=>1,'goods_id'=>$v['goods_id'],'add_time'=>$add_time['add_time']])->get(['id'],true);
+
+        $record_id = $this->table('record')->where(['is_on'=>1,'goods_id'=>$v['goods_id'],'id'=>$add_time['record_id']])->get(['id'],true);
         if (!$record_id) {
             $this->R('',70009);
         }
@@ -108,7 +110,8 @@ class RollController extends BaseClass {
             'user_id' => $luckyCode['user_id'],
             'record_id' => $record_id['id'],
             'address_id' => $address_id['id'],
-            'code' => $luckyCode,
+            'company_id' =>$good['company_id'],
+            'code' => $luckyCode['code'],
             'add_time' => time(),
         );
         //生成订单
@@ -147,7 +150,7 @@ class RollController extends BaseClass {
             $this->R('',90002);
         }
         //抽奖(得到抽奖key,去匹配code表内的数据)
-        $time = $this->table('purchase')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['add_time','ms_time'],false);
+        $time = $this->table('record')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['add_time','ms_time'],false);
         if (!$time) {
             $this->R('',70009);
         }
@@ -234,7 +237,7 @@ class RollController extends BaseClass {
         $rollGoodsList = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($rollGoodsList ){
             foreach ($rollGoodsList  as $k=>$v){
-                $goodsstatus = $this->table('goods')->where(['is_on'=>1,'id'=>$v['id']])->get(['goods_name','thematic_id','company_id'],true);
+                $goodsstatus = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','thematic_id','company_id'],true);
                 $rollGoodsList[$k]['goods_name'] = $goodsstatus['goods_name'];
                 $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodsstatus['thematic_id']])->get(['thematic_name'],true);
                 $rollGoodsList[$k]['thematic_name'] = $status['thematic_name'];

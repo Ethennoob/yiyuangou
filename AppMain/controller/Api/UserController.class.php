@@ -24,6 +24,7 @@ class UserController extends Baseclass {
      * 授权
      */
     public function getOpenID(){
+        $refer = $_GET['refer'];
         $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
         $this->weObj = $weObj;
         if (empty($_GET['code']) && empty($_GET['state'])) {
@@ -55,7 +56,7 @@ class UserController extends Baseclass {
                     'nickname'=>$isUser['nickname'],
                     'user_img'=>$isUser['user_img'],
                 ];
-                header("LOCATION:".getHost());//进入网站成功
+                header("LOCATION:".$refer);//进入网站成功
                 }
             }
         }
@@ -272,7 +273,7 @@ class UserController extends Baseclass {
             $user_id     = $_POST['user_id'];
             $num         = $_POST['num'];
 
-            $good = $this->table('goods')->where(['id'=>$goods_id])->get(['limit_num'],true);
+            $good = $this->table('goods')->where(['id'=>$goods_id])->get(['limit_num','price'],true);
             if(!$good){
                 $this->R('',90001);
             }
@@ -281,7 +282,8 @@ class UserController extends Baseclass {
                 $this->R('',90001);
             }
             //判断是否卖完了
-            $code = $this->table('code')->where(['goods_id'=>$goods_id,'is_use'=>0])->get(['id'],true);
+            $code = $this->table('code')->where(['goods_id'=>$goods_id,'is_use'=>0])->get(['code'],true);
+            var_dump($code);exit();
             if(!$code){
                 $this->R('',90001);
             }
@@ -312,10 +314,18 @@ class UserController extends Baseclass {
         $detailpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($detailpage ){
             foreach ($detailpage  as $k=>$v){
-                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_title','price','goods_thumb'],true);
-                $detailpage [$k]['goods_title'] = $status['goods_title'];
+                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['company_id','goods_name','limit_num','price','goods_thumb','goods_album'],true);
+                $detailpage [$k]['goods_name'] = $status['goods_name'];
+                $detailpage [$k]['limit_num'] = $status['limit_num'];
+                $detailpage [$k]['price'] = $status['price'];
                 $detailpage [$k]['total_num'] = $status['price'];
-                $detailpage [$k]['goods_thumb'] = $status['goods_thumb'];
+                if ($status['company_id']==37) {
+                    $a = explode(';', $status['goods_album']);
+                    $detailpage [$k]['goods_thumb'] = $a[0];
+                }else{
+                    $detailpage [$k]['goods_thumb'] = $status['goods_thumb'];
+                }
+                $a=explode(';', $status['goods_album']);
                 $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$v['goods_id']])->get(['id'],false);
                 $count = count($status);
                 $detailpage [$k]['purchase_num'] = $count;
@@ -425,10 +435,15 @@ class UserController extends Baseclass {
         if($luckypage ){
             foreach ($luckypage  as $k=>$v){
                 $luckypage [$k]['lucky_time'] = $v['add_time'];
-                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_title','price','goods_thumb'],true);
-                $luckypage [$k]['goods_title'] = $status['goods_title'];
+                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['company_id','goods_name','price','goods_thumb','goods_album'],true);
+                $luckypage [$k]['goods_name'] = $status['goods_name'];
                 $luckypage [$k]['total_num'] = $status['price'];
-                $luckypage [$k]['goods_thumb'] = $status['goods_thumb'];
+                if ($status['company_id']==37) {
+                    $a = explode(';', $status['goods_album']);
+                    $luckypage [$k]['goods_thumb'] = $a[0];
+                }else{
+                    $luckypage [$k]['goods_thumb'] = $status['goods_thumb'];
+                }
                 $status = $this->table('record')->where(['is_on'=>1,'goods_id'=>$v['goods_id'],'user_id'=>$id])->get(['num'],true);
                 $luckypage [$k]['num'] = $status['num'];
                 $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);

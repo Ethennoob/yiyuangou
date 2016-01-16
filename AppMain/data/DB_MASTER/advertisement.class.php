@@ -4,6 +4,7 @@ class advertisement {
 	static public function initTable(){ 
 		return [
 			'id'=> ['type' => 'i', 'value' => null],
+			'company_id'=> ['type' => 'i', 'value' => null],
 			'adv_name'=> ['type' => 's', 'value' => null],
 			'adv_img'=> ['type' => 's', 'value' => null],
 			'adv_url'=> ['type' => 's', 'value' => null],

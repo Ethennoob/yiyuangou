@@ -31,11 +31,11 @@ return [
       "dbName" => "oneBuy"
     ),
   // 旧数据库
-  "DB_GROUPBUY" => array(
-      "host" => "localhost",
-      'user' => 'root',
-      "password" => "root",
-      "dbName" => "fat",
+  "DB_OLD" => array(
+      "host" => "",
+      'user' => '',
+      "password" => "",
+      "dbName" => "",
   ),
 
     // memcached配置
@@ -80,9 +80,9 @@ return [
         'appsecret' => '5db67c37c90211bf57d07af54455a02a',
     ), // 填写高级调用功能的密钥
     //微信支付配置
-    /*'WEIXIN_PAY_CONFIG' => array(
-        'appid' => 'wx500d53069de27d71',
-        'mchid' => '1282518701', //商户号
+    'WEIXIN_PAY_CONFIG' => array(
+        'appid' => 'wxe50a5528b729b1aa',
+        'mchid' => '1299677801', //商户号
         'key' => 'SKINTALKyangmaimai20151212linlin', //key
         //证书路径,注意应该填写绝对路径
          'SSLCERT_PATH' => '/disk2/ftp/buy/www/cert/apiclient_cert.pem',
@@ -91,7 +91,7 @@ return [
         'NOTIFY_URL' => gethost() . '/Api/Callback/order',
         //curl超时设置
         'CURL_TIMEOUT' => 30,
-    ),*/
+    ),
     //支付宝配置参数
     'ALIPAY_CONFIG'=>array(
        'partner' =>'20********50',   //这里是你在成功申请支付宝接口后获取到的PID；

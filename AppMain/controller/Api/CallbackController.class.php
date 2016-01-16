@@ -53,8 +53,9 @@
         $data['wxPay_sn'] = $orderxml['out_trade_no'];
         $data['add_time'] = time();
         $count = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$data['goods_id']])->get(['code'],false);
-        $data['num'] = count($count);
-        // $data['num'] = $orderxml['total_fee'];
+        //$data['num'] = count($count);
+        $data['num'] = $orderxml['total_fee'];
+        $data['ms_time'] = sprintf("%03d",floor(microtime()*1000));
         $record = $this->table('record')->save($data);
         $record_id = $this->table('record')->where(array('wxPay_sn'=>$data['wxPay_sn'],'is_on'=>1))->get(['id'],true);
 
@@ -90,7 +91,7 @@
                 if(!$purchase){
                     $this->R('',40001);
                 }
-                $codeupdate = $this->table('code')->where(['code'=>$data['code']])->update(['is_use'=>1,'user_id'=>$user_id,'update_time'=>time()]);
+                $codeupdate = $this->table('code')->where(['code'=>$codenum[$i]['code']])->update(['is_use'=>1,'user_id'=>$user_id,'update_time'=>time()]);
                 if(!$codeupdate){
                     $this->R('',40001);
                 }

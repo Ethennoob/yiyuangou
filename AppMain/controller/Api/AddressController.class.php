@@ -7,8 +7,7 @@
     class AddressController extends BaseClass {
         public function test(){
             $db = 'DB_GROUPBUY';
-            $data['cid'] = 123;
-            $seo = $this->table('seo','DB_GROUPBUY')->joinOn($data['cid']);
+            $seo = $this->table('seo',$db)->get(null,true);
             var_dump($seo);
             exit();
         }

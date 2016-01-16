@@ -4,6 +4,7 @@ class logistics {
 	static public function initTable(){ 
 		return [
 			'id'=> ['type' => 'i', 'value' => null],
+			'company_id'=> ['type' => 'i', 'value' => null],
 			'logistics_number'=> ['type' => 's', 'value' => null],
 			'logistics_name'=> ['type' => 's', 'value' => null],
 			'logistics_status'=> ['type' => 'i', 'value' => null],

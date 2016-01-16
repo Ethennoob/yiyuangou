@@ -37,14 +37,19 @@
             foreach ($rule as $k => $v) {
             	$data[$k] = $_POST[$k];
             }
-            $userAddr = $this->table('bill')->where(['id'=>$bill_id])->get(['address_id'],true);
+            $userAddr = $this->table('bill')->where(['id'=>$bill_id])->get(['address_id','goods_id'],true);
             if (!$userAddr) {
                 $userAddr['address_id'] =null;
+            }
+            $company_id = $this->table('goods')->where(['id'=>$userAddr['goods_id']])->get(['company_id'],true);
+            if (!$company_id) {
+                $company_id['company_id'] =null;
             }
             $data = array(
             		'logistics_number'  =>$data['logistics_number'],
                     'logistics_name'    =>$data['logistics_name'],
                     'logistics_status'  =>0,
+                    'company_id'        =>$company_id['company_id'],
                     'bill_id'           =>$billId,
                     'user_address_id'   =>$userAddr['address_id'],
                     'add_time'          =>time(),
@@ -97,7 +102,9 @@
          * 物流列表
          */
         public function logisticsList(){
-            $where=['is_on'=>1];
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = intval($_POST['company_id']);
+            $where=['is_on'=>1,'company_id'=>$id];
             $pageInfo = $this->P();
             $class = $this->table('logistics')->where($where)->order('add_time desc');
             //查询并分页

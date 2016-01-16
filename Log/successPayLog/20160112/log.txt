@@ -1,0 +1,5 @@
+2016-01-12 12:01:07-----------
+{"appid":"wxe50a5528b729b1aa","attach":"{\"goods_sn\":\"20160110486974\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1299677801","nonce_str":"tywzhu6ft4brdou7m8451vrdfpg7nh8h","openid":"o_Oqut9WfZYiRO7ejJhrmpR5sq0U","out_trade_no":"201601104869748967","result_code":"SUCCESS","return_code":"SUCCESS","sign":"84AD4EE1F1B52AE19811173B6C8CF5A0","time_end":"20160112120211","total_fee":"1","trade_type":"JSAPI","transaction_id":"1010090017201601122653212363"}
+-----------
+结果：支付成功！
+------------------ 

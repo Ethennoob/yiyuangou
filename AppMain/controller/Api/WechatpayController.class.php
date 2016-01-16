@@ -40,9 +40,16 @@
                 $user_id     = $data['user_id'];
                 $num         = $data['price'];
 
-                $good = $this->table('goods')->where(['id'=>$goods_id])->get(['limit_num'],true);
+                $good = $this->table('goods')->where(['id'=>$goods_id])->get(['limit_num','price'],true);
                 if(!$good){
                     $this->R('',90001);
+                }
+                $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$goods_id])->get(['id'],false);
+                $count = count($status);
+                $total_num = $good['price'];
+                $last_num =$total_num-$count;
+                if ($num>$last_num) {
+                    $this->R('',90003);
                 }
                 //判断是否超过限购数
                 if ($num>$good['limit_num']) {
@@ -63,7 +70,7 @@
                 $data = array(
                      'orderSn' => $data['goods_sn'].rand(1,9999),//订单号不能唯一
                      'price'   => $data['price'],
-                     'attach' => json_encode(array('goods_sn' => $data['goods_sn'])),
+                     'attach' => json_encode(array('goods_sn' => $data['goods_sn'],'price'=>$data['price'])),
                     'body' => '一元购支付',
                     'detail' => '一元购支付服务',
                     'notifyUrl'=>gethost().'/Api/Callback/order',
@@ -81,8 +88,8 @@
             $this->V(['user_id'=>['egNum',null,true]]);
             $user_id = intval($_POST['user_id']);
             $record = $this->table('record')->where(['goods_id'=>$goods_id,'user_id'=>$user_id,'is_on'=>1])->order('add_time desc')->get(['num'],true);
-            $goods =$this->table('goods')->where(['id'=>$goods_id])->get(['goods_title','goods_thumb','price'],true);
-            $record['goods_title'] = $goods['goods_title'];
+            $goods =$this->table('goods')->where(['id'=>$goods_id])->get(['goods_name','goods_thumb','price'],true);
+            $record['goods_name'] = $goods['goods_name'];
             $record['goods_thumb'] = $goods['goods_thumb'];
             $status = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$goods_id])->get(['id'],false);
             $count = count($status);

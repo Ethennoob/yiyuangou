@@ -148,19 +148,22 @@ class GoodsController extends BaseClass {
         $goods['add_time'] = date('Y-m-d H:i:s',$goods['add_time']);
         $goods['update_time'] = date('Y-m-d H:i:s',$goods['update_time']);
         $goods['upload_date'] = date('Y-m-d H:i:s',$goods['upload_date']);
-
+        $status = $this->table('company')->where(['is_on'=>1,'id'=>$goods['company_id']])->get(['company_name'],true);
+        $goods['company_name'] = $status['company_name'];
         $this->R(['goods'=>$goods]);
     }
     /**
      * 查询一条商品列表(分页)
      */
     public function goodsList(){
+        $this->V(['company_id'=>['egNum']]);
+        $company_id = intval($_POST['company_id']); 
         $this->V(['thematic_id'=>['egNum']]);
         $id = intval($_POST['thematic_id']);
         $pageInfo = $this->P();
         $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
 
-        $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id])->order('add_time desc');
+        $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id,'company_id'=>$company_id])->order('add_time desc');
 
         //查询并分页
         $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);

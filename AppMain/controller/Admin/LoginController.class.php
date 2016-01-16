@@ -9,17 +9,15 @@
          * 登checkAdminLogin
          */
         public function checkAdminLogin(){
-            if(empty($_SESSION['adminInfo']['manager_id'])){
-                
-                    $this->R('',70002);//没登录，跳转到login登录
-                
-            }      
+            if(empty($_SESSION['adminInfo']['manager_id'])){         
+                $this->R('',70002);//没登录，跳转到login登录
+            }
         }
         /**
          * 登录操作
          */
         public function login(){
-            if(isset($_SESSION['manager_id'])&&$_SESSION['manager_id']>0){
+            if(isset($_SESSION['adminInfo']['manager_id'])&&$_SESSION['adminInfo']['manager_id']>0){
                 $this->R('',80000);//你已经登陆了
             }                
             $post=[
@@ -46,7 +44,7 @@
          * 自动登录操作
          */
         public function autoLogin(){
-            if (isset($_SESSION['manager_id'])&&$_SESSION['manager_id'] > 0){
+            if (isset($_SESSION['adminInfo']['manager_id'])&&$_SESSION['adminInfo']['manager_id'] > 0){
                     $this->R('','80000');//你已经登陆了
             }
             if (empty($_COOKIE['OneBuy-AUTOLOGIN'])){
@@ -55,10 +53,10 @@
             $token=$_COOKIE['OneBuy-AUTOLOGIN'];
             setcookie('OneBuy-AUTOLOGIN','1',time()-3600,'/');  //删除cookie
             //查找token
-            $isToken=$this->S()->get($token);
-            if (!$isToken){
-                    $this->R('','70004');
-            }
+            // $isToken=$this->S()->get($token);
+            // if (!$isToken){
+            //         $this->R('','70004');
+            // }
             //检查信息
             $manager= $this->table('manager')->where(['id'=>$isToken['manager_id']])->get(null,true);
             if (!$manager){
@@ -79,20 +77,24 @@
          */
         private function loginAction($manager,$loginStatus,$isAutoLogin){
             $_SESSION['adminInfo']['manager_id'] = $manager['id'];
-            /*$_SESSION['adminInfo']['manager_name']=$manager['manager_name'];
-            $_SESSION['role_base_id']=$manager['role_base_id'];
+            $_SESSION['adminInfo']['manager_name']=$manager['manager_name'];
+            //$_SESSION['role_base_id']=$manager['role_base_id'];
             $_SESSION['adminInfo']['autoLogin']=$loginStatus;
-*/
+            $role = $this->table('manager')->where(['id'=>$manager['id']])->get(['role_id'],true);
+            if (!$role) {
+                $this->R('','70012');
+            }
+            $_SESSION['adminInfo']['manager_role'] = $role['role_id'];
             if ($isAutoLogin==1){
                     $expire=60 * 60 * 24 * 7;
                     $timeout = time() + $expire;
                     $token=md5(uniqid(rand(), TRUE));
 
-                   /* $autoLogin=[
-                                    'manager_id'=> $manager['manager_id'],
-                                    //'identifier' => $manager['identifier'],
-                                    'timeout' => $timeout
-                    ];*/
+                    $autoLogin=[
+                                'manager_id'=> $manager['manager_id'],
+                                //'identifier' => $manager['identifier'],
+                                'timeout' => $timeout
+                    ];
                     //$this->S()->set($token,$autoLogin,60*60*24*7);
                     setcookie('OneBuy-AUTOLOGIN', $token,$timeout,'/');
             }

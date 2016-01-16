@@ -1,43 +1,62 @@
 <?php
-/**
- * 一元购系统---专区类
- * @authors 凌翔 (553299576@qq.com)
- * @date    2016-01-11 16:50:19
- * @version $Id$
- */
 
 namespace AppMain\controller\Admin;
 use \System\BaseClass;
-
+    /**
+     * 专区类
+     */
 class CompanyController extends BaseClass {
     /**
-     * 增加轮播图
+     * 增加专区
      */
     public function companyOneAdd(){
 
-        $rule = [
-            'company_name'        =>[],
-        ];
-        
-         $this->V($rule);
+        $rule = ['company_name' =>[]];
+        $this->V($rule);
         
         foreach ($rule as $k=>$v){
             $data[$k] = $_POST[$k];
         }
-        $imgArray=$this->H('PictureUpload')->pictureUpload($_FILES['QR_code'],'company',true);
-        if (!$imgArray) {
-            $errorMsg=$imgArray->getError();
-            $this->R(['errorMsg'=>$errorMsg],'40019');
-        }
         $data["add_time"]    = time();
         $data["update_time"] = time();
-        $data['QR_code']  = $imgArray['img'];
         $company = $this->table('company')->save($data);
-            if(!$company){
-                $this->R('',40001);
+        if(!$company){
+            $this->R('',40001);
+            }else{
+                $company = $this->table('company')->where(['is_on'=>1])->order('add_time desc')->limit(0,1)->get(['id'],false);
+                if (!$company) {
+                    $this->R('',40001);
                 }
+                $this->setQrcode($company[0]['id']);
+            }
+        
         $this->R();
-           }
+        }
+        /**
+         * 生成二维码
+         */
+        private function setQrcode($qrcode_id){
+        $id = $qrcode_id;
+        //查询一条数据
+        $company = $this->table('company')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+        if(!$company){
+            $this->R('',70009);
+        }
+        //$url = "http://onebuy.ping-qu.com/index.html/company_id=".$id;
+        $url = "http://onebuy.ping-qu.com/index.html?company_id=38";
+        $this->vendor('Phpqrcode.phpqrcode#class');
+        $qr = new \QRcode();
+        $qr->width=360;
+        $time =time();
+        $QRcode=$qr->png($url,false,QR_ECLEVEL_H,10,4,false,$time);
+        $data['update_time']  = time();
+        $data['QR_code'] = "../images/company/".$time.".png";
+        $company = $this->table('company')->where(['id'=>$id])->update($data);
+        if(!$company){
+            $this->R('',40001);
+        }
+        $this->R();
+    }
     /**
      * 轮播图列表
      */
@@ -82,7 +101,7 @@ class CompanyController extends BaseClass {
         $rule = [
             'company_id'         =>['egNum'],
             'company_name'   =>[],
-            'QR_code'    =>[],
+            //'QR_code'    =>[],
         ];
         $this->V($rule);
         $id = intval($_POST['company_id']);
@@ -90,22 +109,13 @@ class CompanyController extends BaseClass {
         if(!$company){
             $this->R('',70009);
         }
-        foreach ($company as $k => $v) {
-             $delete = @unlink($v);
-         }
         unset($rule['id']);
-        $imgArray=$this->H('PictureUpload')->pictureUpload($_FILES['QR_code'],'company',true);
-            if (!$imgArray) {
-                $errorMsg=$imgArray->getError();
-                $this->R(['errorMsg'=>$errorMsg],'40019');
-            }
         foreach ($rule as $k=>$v){
             if(isset($_POST[$k])){
                 $data[$k] = $_POST[$k];
             }
         }
         $data['update_time']  = time();
-        $data['QR_code']  = $imgArray['img'];
         $company = $this->table('company')->where(['id'=>$id])->update($data);
         if(!$company){
             $this->R('',40001);

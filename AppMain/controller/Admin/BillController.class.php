@@ -10,9 +10,11 @@
          * 中奖订单列表
          */
 		public function billList(){
+			$this->V(['company_id'=>['egNum',null,true]]);
+            $id = intval($_POST['company_id']);
 			$pageInfo = $this->P();
 	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
-	        $class = $this->table('bill')->where(['is_on'=>1])->order('add_time desc');
+	        $class = $this->table('bill')->where(['is_on'=>1,'company_id'=>$id])->order('add_time desc');
 
 	        //查询并分页
 	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
@@ -45,8 +47,8 @@
             }
              
 	                $bill['add_time'] = date('Y-m-d H:i:s',$bill['add_time']);
-	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$bill['goods_id']])->get(['goods_title','goods_thumb','cost_price','price','goods_sn'],true);
-	                $bill['goods_title'] = $status['goods_title'];
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$bill['goods_id']])->get(['goods_name','goods_thumb','cost_price','price','goods_sn'],true);
+	                $bill['goods_name'] = $status['goods_name'];
 	                $bill['goods_thumb'] = $status['goods_thumb'];
 	                $bill['price'] = $status['price'];
 	                $bill['cost_price'] = $status['cost_price'];
