@@ -33,7 +33,7 @@ use System\BaseHelper;
         private function BillDetailLinkedTable(&$fieldsName, &$multiSqlStmt, $whereStmt, $bindParams = null, $bindTypes = null, $orderBy = null, $sqlFunction = null) {            
             $fieldsName = array(
                     'bill as A' => 'id,goods_id,user_id,thematic_id,record_id,status,code,address_id,add_time',
-                    'goods as B' => 'goods_sn,goods_title,price,goods_thumb,free_post',
+                    'goods as B' => 'company_id,goods_sn,goods_title,price,goods_thumb,goods_album,free_post',
                     'thematic as C' => 'thematic_name',
                     'user as D' => 'nickname,user_img,phone'
                     

@@ -1,0 +1,17 @@
+/*-----反向团购样式前缀".gb"为group-buy缩写-----*/
+
+/*-----反向团购背景色-----*/
+.gb-bg-deep-grey{background-color: #313131;}
+.gb-bg-grey{background-color: #f6f6f6;}
+.gb-bg-label-grey{background-color: #f1f1f1;}
+.gb-bg-blue{background-color: #33bbff;}
+.gb-bg-yellow{background-color: #ffcc33;}
+
+/*-----反向团购字体色-----*/
+.gb-font-grey{color: #919191;}
+.gb-font-deep-grey{color: #5e5e5e;}
+.gb-font-red{color: #ff3333;}
+.gb-font-deep-red{color: #990f3d;}
+.gb-font-yellow{color: #ffee6e;}
+/*.gb-font-price-yellow{color: #ffdd33;}*/
+.gb-font-blue{color: #19b2ff;}

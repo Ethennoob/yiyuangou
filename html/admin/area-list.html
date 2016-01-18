@@ -1,0 +1,226 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>专题列表</title>
+    <meta name="description" content="这是一个 table 页面">
+    <meta name="keywords" content="table">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body id="areaListApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<topbar></topbar>
+
+<div class="am-cf admin-main">
+    <!-- sidebar start -->
+    <sidebar></sidebar>
+    <!-- sidebar end -->
+
+    <!-- content start -->
+    <div class="admin-content">
+
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf">
+                <strong class="am-text-primary am-text-lg">专区列表</strong> / <small>Company List</small>
+            </div>
+        </div>
+
+        <!--<div class="am-g">-->
+        <!--<div class="am-u-sm-12 am-u-md-3">-->
+        <!--<div class="am-form-group">-->
+        <!--<select data-am-selected="{btnSize: 'sm'}">-->
+        <!--<option value="0" selected>实物</option>-->
+        <!--<option value="1">虚拟</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="am-u-sm-12 am-u-md-3">-->
+        <!--<div class="am-input-group am-input-group-sm">-->
+        <!--<input type="text" class="am-form-field">-->
+        <!--<span class="am-input-group-btn">-->
+        <!--<button class="am-btn am-btn-default" type="button">搜索</button>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <form class="am-form">
+                    <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>专区名</th>
+                            <th>二维码</th>
+                            <th>添加时间</th>
+                            <th>更新时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="item in companyList">
+                            <td>{{item.id}}</td>
+                            <td>{{item.company_name}}</td>
+                            <td>
+                                <img v-bind:src="item.QR_code" width="100">
+                            </td>
+                            <td>{{item.add_time}}</td>
+                            <td>{{item.update_time}}</td>
+                            <td>
+                                <a href="{{item.QR_code}}" class="am-btn am-btn-success am-btn-xs">
+                                    <span class="am-icon-pencil-square-o"></span> 下载二维码
+                                </a>
+                                <a href="add-area.html?company_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
+                                    <span class="am-icon-pencil-square-o"></span> 详情
+                                </a>
+                                <button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">
+                                    <span class="am-icon-times"></span> 删除
+                                </button
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="am-cf">
+                        共 {{companyList.length}}<span v-cloak v-if="!companyList">0</span> 条记录
+                        <div class="am-fr">
+                            <ul class="am-pagination">
+                                <!--<li class="am-disabled"><a href="#">«</a></li>-->
+                                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                                    <a v-on:click.prevent="">{{pageItem}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+    <hr>
+    <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--删除确认弹框-->
+<div class="am-modal am-modal-alert" tabindex="-1" id="deleteTip">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">删除提示</div>
+        <div class="am-modal-bd">
+            是否要删除专区？
+        </div>
+        <div class="am-modal-footer">
+      <span v-on:click="companyDel()" class="am-u-sm-6 am-text-center am-text-danger bd-right line-height-44 modal-btn">
+        确定
+      </span>
+      <span class="am-modal-btn am-u-sm-6 am-text-center am-text-primary line-height-44 modal-btn">
+        取消
+      </span>
+        </div>
+    </div>
+</div>
+<!--删除确认弹框 end-->
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+    var areaListApp = new Vue({
+        el: '#areaListApp',
+        data: {
+            companyList: [],
+            psize: 15,
+            pageNum: '',
+            page: [],
+            deleteId: ''
+        },
+        created: function() {
+            var that = this;
+            $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList',
+                    {
+                        psize: that.psize,
+                        pn: 1
+                    }
+            ).done(function(res) {
+                that.companyList = res.data.company;
+
+                //计算数据页数
+                that.pageNum = Math.ceil(res.data.pageInfo.dataSize / res.data.pageInfo.psize);
+                //初始化分页器数据
+                for (var i = 0; i < that.pageNum; i++) {
+                    that.page.$set(i, i + 1);
+                }
+
+            }).fail(function() {
+                alert("请求失败");
+            });
+        },
+        methods: {
+            companyDel: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneDelete',
+                        {
+                            company_id: that.companyList[that.deleteId].id
+                        }
+                ).done(function(res) {
+                    that.companyList.splice(that.deleteId, 1);
+                    $('#deleteTip').modal('close');
+
+                }).fail(function() {
+                    alert("请求失败");
+                });
+            },
+            pageTurn: function(event, page) {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList',
+                        {
+                            psize: that.psize,
+                            pn: page
+                        }
+                ).done(function(response) {
+                    that.companyList = res.data.company;
+
+                    //为分页器页码设置激活状态
+                    $('.am-pagination li').removeClass('am-active');
+                    $(event.target.parentElement).addClass('am-active');
+
+                }).fail(function() {
+                    alert("无法获得专区数据");
+                });
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

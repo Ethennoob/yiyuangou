@@ -41,7 +41,7 @@ class UserController extends Baseclass {
                 
                 if ($isUser==null) {
                     //没有此用户跳转至输入注册的页面
-                    header("LOCATION:".getHost()."/register.html");
+                    header("LOCATION:".getHost()."/register.html?refer=".$refer);
                 }else{
                 $userID=$isUser['id'];
                 $updateUser = $this->table('user')->where(['id'=>$userID])->update([
@@ -99,6 +99,7 @@ class UserController extends Baseclass {
      * 新用户从微信注册
      */
     public function getNewOpenID(){
+        $refer = $_GET['refer'];
         $weObj = new \System\lib\Wechat\Wechat($this->config("WEIXIN_CONFIG"));
         $this->weObj = $weObj;
         if (empty($_GET['code']) && empty($_GET['state'])) {
@@ -117,11 +118,37 @@ class UserController extends Baseclass {
                         if (!$saveUser) {
                             $this->R('','40001');
                         }
-                        header("LOCATION:".getHost()."/Api/User/getOpenID");//
-                    }else{
-                        $this->R('','70000');//手机已注册
-                    }
+                        //header("LOCATION:".getHost()."/Api/User/getOpenID");
+                $userInfo=$this->getUserInfo($accessToken);
+                // 是否有用户记录
+                $isUser = $this->table('user')->where(["openid" => $accessToken['openid'],"is_on"=>1])->get(null, true);
+                /*var_dump($isUser);exit();*/
+                
+                if ($isUser==null) {
+                    //没有此用户跳转至输入注册的页面
+                    header("LOCATION:".getHost()."/register.html?refer=".$_GET['refer']);
                 }else{
+                $userID=$isUser['id'];
+                $updateUser = $this->table('user')->where(['id'=>$userID])->update([
+                    'last_login'=>time(),
+                    'last_ip'=>ip2long(getClientIp()),
+                    'nickname'=>$userInfo['nickname'],
+                    'user_img'=>$userInfo['headimgurl']]
+                    );
+                $_SESSION['userInfo']=[
+                    'openid'=>$isUser['openid'],
+                    'userid'=>$isUser['id'],
+                    'nickname'=>$isUser['nickname'],
+                    'user_img'=>$isUser['user_img'],
+                ];
+                header("LOCATION:".$refer);//进入网站成功
+                   
+                }
+
+                }else{
+                    $this->R('','70000');//手机已注册
+                }
+        }else{
             //用户取消授权
             $this->R('','90006');
         }
@@ -463,7 +490,9 @@ class UserController extends Baseclass {
         $id = $_POST['logistics_number'];
         $express = new \System\lib\Express\Express();
         $expressdetail = $express->getorder($id);
-        $updateExpress = $this->table('logistics')->where(['logistics_number'=>$id])->update(['logistics_status'=>$expressdetail['state']]);
+        if (@$expressdetail['state']!==null) {
+            $updateExpress = $this->table('logistics')->where(['logistics_number'=>$id])->update(['logistics_status'=>$expressdetail['state']]);
+        }
         $this->R(['expressdetail'=>$expressdetail]);
     }
     /////////////////////////////模拟购买数据接口/////////////////////勿删除

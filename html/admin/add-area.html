@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>添加专区</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="addAreaApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<topbar></topbar>
+
+<div class="am-cf admin-main">
+    <!-- sidebar start -->
+    <sidebar></sidebar>
+    <!-- sidebar end -->
+
+    <!-- content start -->
+    <div class="admin-content">
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">添加专区基本信息</strong> / <small>Areas information</small></div>
+        </div>
+
+        <hr/>
+
+        <div class="am-g">
+
+            <div class="am-u-sm-12">
+                <form class="am-form am-form-horizontal" id="goods-form" enctype="multipart/form-data">
+
+                    <div class="am-form-group">
+                        <label for="area_name" class="am-u-sm-3 am-form-label">专区名称 / Name</label>
+                        <div class="am-u-sm-9">
+                            <input v-model="companyName" type="text" name="area_name" placeholder="专区名称">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-11 am-u-sm-push-1 am-padding-bottom">
+                            <button v-if="!companyId" v-on:click="areaSub()" type="button" class="am-btn am-btn-primary">
+                                添加
+                            </button>
+                            <button v-else v-on:click="editSave()" type="button" class="am-btn am-btn-primary" id="goods-edit">
+                                保存修改
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+    <hr>
+    <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+    var addAreaApp = new Vue({
+        el: '#addAreaApp',
+        data: {
+            companyId: getParam('company_id'),
+            companyName: ''
+        },
+        created: function() {
+            var that = this;
+            if (that.companyId) {
+                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneDetail',
+                        {
+                            company_id: that.companyId
+                        }
+                ).done(function(res) {
+                    that.companyName = res.data.company.company_name;
+                }).fail(function() {
+                    alert("请求专区信息失败");
+                });
+            }
+        },
+        methods: {
+            areaSub: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneAdd',
+                        {
+                            company_name: that.companyName
+                        }
+                ).done(function(data) {
+                    if(data.errcode == '0'){
+                        alert("添加成功");
+                        window.location = 'area-list.html';
+                    }
+                }).fail(function() {
+                    alert("请求失败");
+                });
+            },
+            editSave: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneEdit',
+                        {
+                            company_id: that.companyId,
+                            company_name: that.companyName
+                        }
+                ).done(function(data) {
+                    if(data.errcode == '0'){
+                        alert("修改成功");
+                        window.location = 'area-list.html';
+                    }
+                }).fail(function() {
+                    alert("修改请求失败");
+                });
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="addressManageApp">
+<!--顶栏-->
+<div class="text-center bg-white top-bar">选择收货地址
+    <a href="javascript: history.back();">
+        <img class="back" src="assets/i/back.png" />
+    </a>
+</div>
+
+<!--地址列表-->
+<ul class="address-list bg-white width-full bd-bottom bd-grey f13 grid-container">
+    <li v-cloak v-for="item in address" class="position-rl padding-vertical-10 fl width-full">
+        <div class="col-xs-2 position-st">
+            <span class="round-checkBox" v-on:click="oneSelect($event, $index)"></span>
+        </div>
+        <ul class="pl10 col-xs-7" v-cloak>
+            <li class="margin-vertical-5">
+                <span>{{item.name}}</span>
+                <span>{{item.mobile}}</span>
+            </li>
+            <li class="margin-vertical-5">
+                <span>{{item.province}}</span>
+                <span>{{item.city}}</span>
+                <span>{{item.area}}</span>
+            </li>
+            <li class="margin-vertical-5">{{item.street}}</li>
+        </ul>
+        <div class="col-xs-3 position-st">
+            <a href="add-address.html?address_id={{item.id}}&company_id={{companyId}}" class="edit-btn">
+                <i class="i-editAddress"></i>编辑
+            </a>
+        </div>
+    </li>
+</ul>
+<!--新增收货地址-->
+<div class="pb80">
+    <a href="add-address.html?company_id={{companyId}}" class="block font-red text-right padding-horizontal-10 f13 cf pt10">
+        新增收货地址
+    </a>
+</div>
+
+<!--保存收货地址按钮-->
+<div v-cloak class="padding-horizontal-10 padding-vertical-10 position-fix bt0 width-full"
+     style="z-index: 10; background-color: rgba(255, 255, 255, 0.8);">
+    <button v-on:click="selectAddress()" class="btn bg-red width-full font-white br4">
+       确定
+    </button>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="assets/js/vue.js"></script>
+<script type="text/javascript" src="assets/js/base.js"></script>
+<script type="text/javascript" src="assets/js/addressManageApp.js"></script>
+</body>
+</html>

@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>一元购</title>
     <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <!-- 关闭电话号码识别： -->
     <meta name="format-detection" content="telephone=no" />
     <!-- 关闭邮箱地址识别： -->
@@ -20,7 +19,7 @@
         <a href="javascript: history.back();">
             <img class="back" src="assets/i/back.png" />
         </a>
-        <a href="#">
+        <a href="personal.html?company_id={{companyId}}">
             <img class="personal-top-link" src="assets/i/personal-logo.png" />
         </a>
     </div>
@@ -34,18 +33,25 @@
         var imgDetailApp = new Vue({
             el: '#imgDetailApp',
             data: {
-                detail: {}
+                userId: '',
+                detail: '',
+                companyId: getParam('company_id')
             },
             created: function() {
                 var that = this;
-                $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
-                        {
-                            goods_id: getParam('goods_id')
-                        }
-                ).done(function(res) {
-                    that.detail = res.data.goodinfo.goods_desc;
-                }).fail(function () {
-                    alert("请求失败");
+                checkLogin(function(userid) {
+                    that.userId = userid;//获取用户id
+
+                    $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
+                            {
+                                user_id: that.userId,
+                                goods_id: getParam('goods_id')
+                            }
+                    ).done(function(res) {
+                        that.detail = res.data.goodinfo.goods_desc;
+                    }).fail(function () {
+                        alert("请求失败");
+                    });
                 });
             }
         });

@@ -13,156 +13,193 @@
 
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <script src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+        setTimeout(function() {
+            $('.loader').fadeOut(1000);
+        },1200);
+    </script>
 </head>
 <body class="bg-grey" id="index-app">
+    <div class="loader">
+        <div class="loader-inner line-scale">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <!--顶栏-->
-    <div class="text-center bg-white top-bar">一元购
-        <a href="personal.html?user_id={{userId}}">
-            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+    <div class="text-center bg-white top-bar" v-cloak>{{companyName}}
+        <a href="personal.html?company_id={{companyId}}">
+            <img class="personal-top-link" src="assets/i/personal-logo.png" style="left: 10px;" />
         </a>
     </div>
 
-    <!--主背景图-->
-    <a href="#" class="block index-bg position-rl">
-        <img v-bind:src="bgSrc" width="100%">
-        <div class="periods">
-            <img src="assets/img/index-decoration1.png">
-            <span class="inline-block padding-horizontal-5">{{thematicName}}</span>
-            <img src="assets/img/index-decoration2.png">
+    <!--海报轮播-->
+    <div class="swiper-container index-swiper">
+        <div class="swiper-wrapper">
         </div>
-    </a>
+        <!-- 进度条 -->
+        <div class="swiper-pagination">
+        </div>
+    </div>
 
-    <!--商品列表-->
-    <ul class="index-goods-list f15">
-        <li v-for="item in goods">
-            <a class="index-goods-row" href="jsapi/goods-detail.html?goods_id={{item.id}}&user_id={{userId}}">
+    <!--期数选择-->
+    <div class="grid-container period-select" v-cloak>
+        <div class="row text-center font-white">
+            <div v-on:click="nextPeriod()" class="col-xs-3 last-period">下一期</div>
+            <div class="col-xs-6 padding-horizontal-3">
+                <span class="block br4 current-period" v-bind:class="{'ylsb-current-period': companyId == 37}">
+                    <span class="triangle"></span>{{thematic_name}}
+                </span>
+            </div>
+            <div v-on:click="prevPeriod()" class="col-xs-3 next-period" v-bind:class="{'ylsb-next-period': companyId == 37}">上一期</div>
+        </div>
+    </div>
+
+    <!--商品列表加载中-->
+    <div v-if="!goods" class="padding-vertical-20 text-center">数据加载中...</div>
+
+    <!--自营一元购商品列表-->
+    <ul v-if="companyId == 38" class="goods-list index-goods-list f15 padding-horizontal-10 pt16 pb30" v-cloak>
+        <li v-for="item in goods" class="br4 index-bd-grey position-rl grid-container mb10">
+            <a class="padding-horizontal-10 padding-vertical-10 block" v-bind:href="goodsHref($index)">
+
+                <!--进行中标签-->
+                <img v-if="goodsStatus && goodsStatus[$index] == 'ing'" src="assets/i/ing-icon.png" class="ing-icon">
 
                 <!--商品缩略图-->
-                <div class="index-goods-img bd-right bd-grey" v-bind:style="{'background-image': 'url(' + item.goods_thumb + ')'}">
-                    <div v-if="goodsStatus[$index] == 'ending'" class="index-product-state product-state-ing">
-                        正在揭晓
-                    </div>
-                    <div v-if="goodsStatus[$index] == 'end'" class="index-product-state">已揭晓</div>
+                <div class="bd index-bd-grey index-goods-img-box fl">
+                    <img v-bind:src="item.goods_img" width="100%">
                 </div>
 
-                <div class="index-goods-info">{{item.goods_name}}
-                    <span class="block mt5 font-red f22">价值：￥{{item.price}}元</span>
+                <!--右侧商品描述-->
+                <div class="index-goods-desc">
+                    <div class="index-goods-desc-top">
+                        <span class="line-clamp-2 f13" v-cloak>{{item.goods_name}}</span>
 
-                    <!--未开奖商品才显示-->
-                    <div v-if="goodsStatus[$index] == 'ing'">
-                        <span class="block mt5">
-                            <span class="bd-right bd-grey pr10">剩余：{{item.last_num}}</span>
-                            <span class="pl10">限购：{{item.total_num}}人次</span>
-                        </span>
-                        <!--进度条-->
-                        <div class="progress cf margin-vertical-10">
-                            <div class="progress-bar" v-bind:style="{width: progressWidth($index)}"></div>
-                        </div>
-                        <div>
-                            <div class="btn index-grey-btn">
-                                立即一元购
+                        <!--正在进行显示内容-->
+                        <div v-if="!goodsStatus || goodsStatus[$index] == 'ing'">
+                            <span class="block margin-vertical-5 font-red f13" v-cloak>价值：￥{{item.price}}元</span>
+                            <!--进度条-->
+                            <div class="progress">
+                                <div class="progress-bar" v-bind:style="{width: progressWidth($index)}"></div>
                             </div>
                         </div>
 
+                        <!--即将揭晓-->
+                        <div v-if="goodsStatus && goodsStatus[$index] == 'ending'">
+                            <span class="block font-red margin-vertical-5 f13" v-cloak>[即将揭晓]</span>
+                            <span class="block font-grey f11" v-cloak>揭晓时间：{{item.lucky_time | date}}</span>
+                        </div>
+
+                        <!--已揭晓-->
+                        <div v-if="goodsStatus && goodsStatus[$index] == 'end'">
+                            <span class="block font-green margin-vertical-5 f13" v-cloak>[已揭晓]</span>
+                            <span class="block font-grey f11" v-cloak>揭晓时间：{{item.lucky_time | date}}</span>
+                        </div>
                     </div>
 
-                    <!--正在揭晓商品-->
-                    <div v-if="goodsStatus[$index] == 'ending'">
-                        <button class="btn index-grey-btn">
-                            <img src="assets/i/clock.png" height="18px" class="mr5 vertical-top">揭晓倒计时
-                            <span class="font-red">{{countDownTime[$index].time}}{{countDown($index)}}</span>
-                        </button>
+                    <!--立即一元购按钮-->
+                    <button v-if="!goodsStatus || goodsStatus[$index] == 'ing'" v-bind:disabled="!goodsStatus" class="btn bg-red block width-full font-white br4 index-buy-btn f13 position-rl">
+                        <img src="assets/i/buy-icon.png" width="13" class="position-rl" style="top: 2px;">
+                        <span v-if="!goodsStatus">即将开始</span>
+                        <span v-else>立即一元购</span>
+                    </button>
+
+                    <!--即将揭晓倒计时-->
+                    <div v-if="goodsStatus && goodsStatus[$index] == 'ending'" class="btn bg-grey block width-full mt5 br4 index-buy-btn f13 position-rl">
+                        <img src="assets/i/clock.png" width="12" class="position-rl" style="top: 2px;"/>
+                        揭晓倒计时<span class="font-red f12" v-cloak> {{countDownTime[$index].time}} {{countDown($index)}}</span>
                     </div>
 
-                    <!--已揭晓商品-->
-                    <div v-if="goodsStatus[$index] == 'end'">
-                        <span class="block mt5 bd-top bd-grey pt10">
-                            <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
-                            <span class="font-red">{{item.nickname}}</span>
-                        </span>
-                        <span class="block font-grey mt5 f14">揭晓时间：{{item.lucky_time | date}}</span>
+                    <!--已揭晓中奖者-->
+                    <div v-if="goodsStatus && goodsStatus[$index] == 'end'" class="btn bg-grey block width-full mt5 br4 index-buy-btn text-ellipsis f13">
+                        <img src="assets/i/gift-icon.png" width="12" class="">
+                        获得者：<span class="font-red f12" v-cloak>{{item.nickname}}</span>
                     </div>
+
+                </div>
+            </a>
+            <div class="row margin-vertical-5 font-grey f11 padding-horizontal-10 margin-vertical-10 lh11">
+                <span class="col-xs-4" v-cloak >剩余：{{item.last_num}}人次</span>
+                <span class="col-xs-4 bd-right bd-left text-center" style="border-color: #d4d4d4;" v-cloak>限购：{{item.limit_num}}人次</span>
+                <span class="col-xs-4 text-right">参与人数：
+                    <span class="font-light-blue" v-cloak>{{item.purchase_num}}</span>人
+                </span>
+            </div>
+        </li>
+    </ul>
+
+    <!--伊丽莎白商品列表-->
+    <ul v-if="companyId == 37" class="ylsb-index-goods-list f15 padding-horizontal-10 pt16 pb30" v-cloak>
+        <li v-for="item in goods" class="br4 index-bd-grey bg-white position-rl grid-container mb10">
+            <a class="padding-horizontal-10 padding-vertical-10 block" v-bind:href="goodsHref($index)">
+
+                <!--进行中标签-->
+                <img v-if="goodsStatus && goodsStatus[$index] == 'ing'" src="assets/i/ing-icon.png" class="ing-icon">
+
+                <!--商品缩略图-->
+                <div>
+                    <img v-bind:src="item.goods_img" width="100%">
+                </div>
+
+                <!--商品名称-->
+                <span class="line-clamp-2 f13" v-cloak>{{item.goods_name}}</span>
+
+                <!--进度条/揭晓时间 & 价格-->
+                <div class="f0">
+                    <!--进度条-->
+                    <div v-if="!goodsStatus || goodsStatus[$index] != 'end'" class="progress inline-block" style="width: 60%;">
+                        <div v-if="!goodsStatus || goodsStatus[$index] == 'ing'" class="progress-bar ylsb-progress-bar" v-bind:style="{width: progressWidth($index)}"></div>
+                        <div v-if="goodsStatus && goodsStatus[$index] == 'ending'" class="progress-bar" style="width: 100%; background-color: #80ff00;"></div>
+                    </div>
+                    <!--揭晓时间-->
+                    <div v-if="goodsStatus && goodsStatus[$index] == 'end'" class="inline-block f13 font-grey text-nowrap" style="width: 60%;">
+                        揭晓时间：{{item.lucky_time | date}}
+                    </div>
+                    <!--价格-->
+                    <span class="inline-block margin-vertical-5 font-red f13 text-right" style="width: 40%" v-cloak>价值：￥{{item.price}}元</span>
+                </div>
+
+                <!--参与情况-->
+                <div class="row margin-vertical-5 font-grey f11 margin-vertical-10 lh11">
+                    <span class="col-xs-4" v-cloak >剩余：{{item.last_num}}人次</span>
+                    <span class="col-xs-4 bd-right bd-left text-center" style="border-color: #d4d4d4;" v-cloak>限购：{{item.limit_num}}人次</span>
+                    <span class="col-xs-4 text-right">参与人数：
+                        <span class="font-light-blue" v-cloak>{{item.purchase_num}}</span>人
+                    </span>
+                </div>
+
+                <!--立即一元购按钮-->
+                <button v-if="!goodsStatus || goodsStatus[$index] == 'ing'" v-bind:disabled="!goodsStatus" class="btn bg-red block width-full font-white br4 index-buy-btn f13 position-rl">
+                    <img src="assets/i/buy-icon.png" width="13" class="position-rl" style="top: 2px;">
+                    <span v-if="!goodsStatus">即将开始</span>
+                    <span v-else>立即一元购</span>
+                </button>
+
+                <!--即将揭晓倒计时-->
+                <div v-if="goodsStatus && goodsStatus[$index] == 'ending'" class="btn bg-grey block width-full mt5 br4 index-buy-btn f13 position-rl">
+                    <img src="assets/i/clock.png" width="12" class="position-rl" style="top: 2px;"/>
+                    揭晓倒计时<span class="font-red f12" v-cloak> {{countDownTime[$index].time}} {{countDown($index)}}</span>
+                </div>
+
+                <!--已揭晓中奖者-->
+                <div v-if="goodsStatus && goodsStatus[$index] == 'end'" class="btn bg-grey block width-full mt5 br4 index-buy-btn text-ellipsis f13">
+                    <img src="assets/i/gift-icon.png" width="12" class="">
+                    获得者：<span class="font-red f12" v-cloak>{{item.nickname}}</span>
                 </div>
             </a>
         </li>
     </ul>
 
-    <script src="assets/js/jquery-2.0.3.min.js"></script>
     <script src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="assets/js/base.js"></script>
-    <script type="text/javascript">
-//        $('')
-        var indexApp = new Vue({
-            el: '#index-app',
-            data: {
-                userId: '',
-                goods: {},
-                thematicName: '',
-                bgSrc: '',
-                countDownTime: [],//装多个商品的倒计时时间
-                goodsStatus: []//商品状态，是否揭晓
-            },
-            created: function() {
-                var that = this;
-                $.post('http://onebuy.ping-qu.com/Api/User/checklogin').done(function(res) {
-                    if(res.errcode == '90005'){
-                        //获取新用户信息
-                        window.location = 'http://onebuy.ping-qu.com/Api/User/getOpenID';
-                    } else if (res.data.user_id) {
-                        //老用户直接加载数据
-                        indexApp.userId = res.data.user_id;
-                        $.post('http://onebuy.ping-qu.com/Api/Goods/index').done(function(goodsData) {
-                            that.goods = goodsData.data.index;
-                            that.thematicName = goodsData.data.thematic.thematic_name;
-                            that.bgSrc = goodsData.data.thematic.poster;
-
-                            //计算每个商品的状态
-                            var mydate = new Date();
-                            for(var i = 0; i < that.goods.length; i++){
-
-                                var nowTime = Date.UTC(mydate.getFullYear(), mydate.getMonth() - 1, mydate.getDate(),
-                                        mydate.getHours(), mydate.getMinutes(),　mydate.getSeconds());
-                                var luckyTime = that.goods[i].lucky_time * 1000;
-
-                                if(luckyTime >= nowTime){//正在揭晓（未到开奖时间）
-                                    that.goodsStatus[i] = 'ending';
-                                } else if (luckyTime < nowTime) {//已揭晓（当前时间大于lucky_time）
-                                    that.goodsStatus[i] = 'end';
-                                } else {
-                                    that.goodsStatus[i] = 'ing';
-                                }
-
-                            }
-                        }).fail(function() {
-                            alert("请求数据失败");
-                        });
-                    }
-                });
-            },
-            methods: {
-                progressWidth: function(index) {
-                    var buyProgress = Math.floor((this.goods[index].purchase_num / this.goods[index].total_num) * 100);
-                    return buyProgress.toString() + '%';
-                },
-                countDown:function(index) {//正在揭晓商品倒计时
-                    var that = this;
-                    var time = setInterval(function() {
-                        var myDate = new Date();
-                        var millisecond = that.goods[index].lucky_time * 1000 - myDate.getTime();
-                        if(millisecond <= 0){//倒计时结束
-                            that.goodsStatus.$set(index, 'end');
-
-                        }
-                        var temp = Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
-                        that.countDownTime.$set(index, {time: temp});
-                    },1000);
-
-                }
-            }
-        });
-
-
-
-    </script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/indexApp.js"></script>
 </body>
 </html>

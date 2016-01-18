@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元购</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+</head>
+<body class="bg-grey" id="rollMethodApp">
+    <!--顶栏-->
+    <div class="text-center bg-white top-bar" v-cloak>计算方式
+        <a href="javascript: history.back();">
+            <img class="back" src="assets/i/back.png" />
+        </a>
+    </div>
+
+    <!--计算公式-->
+    <div class="padding-horizontal-10 padding-vertical-14">
+        <div class="bg-red br4 font-white f13 pd10">
+            <span class="block font-bold mb5">计算公式</span>
+            <span class="block f11">[(数值A+数值B)÷商品所需人次]取余数+10000001</span>
+        </div>
+    </div>
+
+    <!--数值A-->
+    <div class="pd10 bd-top bd-bottom bd-grey bg-white">
+        <span class="block f13 mb5">数值A</span>
+        <span class="block f11 mb5">=
+            <span class="font-grey">截止该商品开奖时间点前最后50条参与记录</span>
+        </span>
+        <span v-cloak class="block f11 mb5 position-rl">=
+            <span class="font-red font-bold" v-cloak>{{aValue}}</span>
+            <span v-on:click="showRecord()" class="font-light-blue position-ab rt0">
+                <span v-cloak v-if="isShowRecord == 0">展开</span>
+                <span v-cloak v-if="isShowRecord == 1">收起</span>
+            </span>
+        </span>
+        <ul v-cloak v-if="isShowRecord == 1" class="grid-container font-grey">
+            <li class="row f13 bd-top bd-bottom bd-grey padding-vertical-5">
+                <span class="col-xs-9 pr5">购买时间</span>
+                <span class="col-xs-3">用户昵称</span>
+            </li>
+            <li v-cloak v-for="item in rollRecord" class="row f11 bd-bottom bd-grey padding-vertical-5">
+                <span class="col-xs-9 pr5" v-cloak>{{item.date}}
+                    <span class="font-red font-bold" v-cloak>=>{{item.time}}</span></span>
+                <span class="col-xs-3" v-cloak>{{item.nickname}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <!--数值B-->
+    <div class="pd10 bd-top bd-bottom bd-grey bg-white">
+        <span class="block f13 mb5">数值B</span>
+        <span v-if="!rollRecord[0].shishicai" class="block f11 mb5" v-cloak>=
+            <span class="font-grey">
+                02:00-10:00时间段内由于时时彩无开奖结果，B值为当次开奖商品总参与人数值
+            </span>
+        </span>
+        <span v-if="!rollRecord[0].shishicai" class="block f11 mb5" v-cloak>=
+            <span class="font-red font-bold" v-cloak>{{rollRecord[0].B}}</span>
+        </span>
+        <span v-if="rollRecord[0].shishicai" class="block f11 mb5" v-cloak>=
+            <span class="font-grey">最近一期中国福利彩票“老时时彩”的开奖结果</span>
+        </span>
+        <span v-if="rollRecord[0].shishicai" class="block f11 mb5" v-cloak>=
+            <span class="font-red font-bold" v-cloak>{{rollRecord[0].B}}</span>
+            <span class="font-grey" v-cloak>(第{{rollRecord[0].shishicai}}期)</span>
+            <a href="http://caipiao.163.com/award/cqssc/{{rollRecord[0].url}}.html" class="font-light-blue ml10">开奖查询</a>
+        </span>
+    </div>
+
+    <!--计算结果-->
+    <div class="pd10 mt10 bd-top bd-bottom bd-grey bg-white f13">
+        <span class="block mb5">计算结果</span>
+        <span class="block mb5 text-center">幸运号码：
+            <span class="font-red font-bold" v-cloak>{{luckyCode}}</span>
+        </span>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
+    <script type="text/javascript">
+        var rollMethodApp = new Vue({
+            el: '#rollMethodApp',
+            data: {
+                companyId: getParam('company_id'),
+                rollRecord: [],
+                isShowRecord: 0,
+                luckyCode: getParam('luckycode'),
+                aValue: 0
+            },
+            created: function() {
+                var that = this;
+                $.post('http://onebuy.ping-qu.com/Api/Record/rollRecord',
+                        {
+                            goods_id: getParam('goods_id'),
+                            psize: 50
+                        }
+                ).done(function(res) {
+                    that.rollRecord = res.data.rollRecord;
+                    for (var i = 0; i < that.rollRecord.length; i++) {
+                        that.aValue += parseInt(that.rollRecord[i].time);
+                    }
+                }).fail(function() {
+                   alert("请求数据失败");
+                });
+            },
+            methods: {
+                showRecord: function() {
+                    if (this.isShowRecord == 0) {
+                        this.isShowRecord = 1;
+                    } else if (this.isShowRecord == 1) {
+                        this.isShowRecord = 0;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

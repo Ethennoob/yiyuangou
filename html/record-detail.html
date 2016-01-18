@@ -16,42 +16,40 @@
 </head>
 <body class="bg-grey" id="recordDetailApp">
     <!--顶栏-->
-    <div class="text-center bg-white top-bar">第191期记录
+    <div class="text-center bg-white top-bar" v-cloak>{{recordInfo.thematic_name}}记录
         <a href="javascript: history.back();">
             <img class="back" src="assets/i/back.png" />
         </a>
     </div>
 
     <!--商品信息-->
-    <div class="row padding-horizontal-10 padding-vertical-10 bg-white f15 bd-grey bd-bottom">
-        <div class="col-xs-3">
-            <div class="product-small-img" v-bind:style="{'background-image': 'url(' + recordInfo.goods_thumb + ')'}"></div>
-            <div class="product-state">已揭晓</div>
+    <div class="bg-white bd-bottom bd-grey padding-vertical-10 position-rl">
+        <img src="assets/i/end-icon.png" class="position-ab tp0 rt0" width="80">
+        <div class="record-detail-img bd-right bd-grey" v-bind:style="{'background-image': 'url(' + recordInfo.goods_thumb + ')'}">
         </div>
-
-        <div class="col-xs-9" v-cloak>
-            <span>{{recordInfo.goods_title}}</span>
-            <span class="block mt5">
-                <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
-                <span class="font-red">{{recordInfo.nickname}}</span>
-            </span>
-            <span class="block mt5">中奖码
-                <span class="font-red">{{recordInfo.lucky_code}}</span>
-            </span>
-            <span class="block font-grey mt5">揭晓时间：{{recordInfo.lucky_time | date}}</span>
-        </div>
+        <div class="padding-horizontal-10 mt10" v-cloak>{{recordInfo.goods_title}}</div>
+    </div>
+    <div class="f15 padding-horizontal-10 padding-vertical-5">
+        <span class="inline-block mt5">
+            <img src="assets/i/crown.png" width="20" height="20" class="vertical-top"/>获得者:
+            <span class="font-red" v-cloak>{{recordInfo.nickname}}</span>
+        </span>
+        <span class="inline-block mt5 ml20">中奖码
+            <span class="font-red" v-cloak>{{recordInfo.lucky_code}}</span>
+        </span>
+        <span class="block font-grey mt5 ml20 f12" v-cloak>揭晓时间：{{recordInfo.lucky_time | date}}</span>
     </div>
     
     <!--记录列表-->
-    <ul class="bg-white padding-horizontal-10 cf record-list">
+    <ul v-if="recordInfo.code" class="bg-white padding-horizontal-10 cf record-list">
         <li v-cloak>您总共参与{{totalNum}}人次</li>
         <li v-for="item in record" v-cloak>
             <div class="font-grey mb10">
-                <span class="mr16">{{item.add_time | date}}</span>
-                <span>{{item.num}}人次</span>
+                <span class="mr16" v-cloak>{{item.add_time | date}}</span>
+                <span v-cloak>{{item.num}}人次</span>
             </div>
             <div class="win-code">
-                <span v-for="code in item.code" v-bind:class="{'font-red': code == recordInfo.lucky_code}">{{code}}</span>
+                <span v-for="code in item.code" v-bind:class="{'font-red': code == recordInfo.lucky_code}" v-cloak>{{code}}</span>
             </div>
         </li>
     </ul>
@@ -59,7 +57,7 @@
     <!--其他人参与记录入口-->
     <ul class="link-list bg-white margin-vertical-36">
         <li>
-            <a href="join-record.html?user_id={{userId}}&goods_id={{goodsId}}" class="block">
+            <a href="join-record.html?goods_id={{goodsId}}&company_id={{companyId}}" class="block">
                 <span class="ml10">参与记录</span>
             </a>
         </li>
@@ -67,15 +65,40 @@
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
     <script type="text/javascript">
         var recordDetailApp = new Vue({
             el: '#recordDetailApp',
             data: {
-                recordInfo: {},
-                record: [],
+                companyId: getParam('company_id'),
+                recordInfo: {},//用来保存商品基本信息
+                record: [],//保存商品的购买记录
                 userId: '',
-                goodsId: ''
+                goodsId: getParam('goods_id')
+            },
+            created: function() {
+                var that = this;
+
+                //检测登录状态
+                checkLogin(function(userid) {
+                    $.post('http://onebuy.ping-qu.com/Api/User/purchaseOneDetail',
+                            {
+                                user_id: userid,
+                                goods_id: getParam('goods_id')
+                            }
+                    ).done(function (data) {
+                        that.recordInfo = data.data.detailpage[0] ? data.data.detailpage[0] : data.data.detailpage;
+                        that.record = data.data.detailpage[0] ? data.data.detailpage : null;
+                        that.userId = userid;
+                    }).fail(function () {
+                        alert("请求失败");
+                    });
+                });
+
+                //设置微信分享内容
+                shareIndex();
+
             },
             computed: {
               totalNum: function () {
@@ -90,14 +113,7 @@
 
             }
         });
-        $.post('http://onebuy.ping-qu.com/Api/User/purchaseOneDetail', {user_id: getParam('user_id'), goods_id: getParam('goods_id')}).done(function (data) {
-            recordDetailApp.recordInfo = data.data.detailpage[0];
-            recordDetailApp.record = data.data.detailpage;
-            recordDetailApp.userId = getParam('user_id');
-            recordDetailApp.goodsId = getParam('goods_id');
-        }).fail(function () {
-            alert("请求失败");
-        });
+
     </script>
 </body>
 </html>

@@ -68,7 +68,7 @@
     </div>
 
     <!--商品正在揭晓-->
-    <div v-if="ending">
+    <div v-if="goodsStatus == 'ending'">
         <button class="btn index-grey-btn">
             <img src="assets/i/clock.png" height="18px" class="mr5 vertical-top">揭晓倒计时
             <span class="font-red" v-cloak>{{countDownTime}}{{countDown()}}</span>
@@ -150,6 +150,7 @@
             },
             created: function() {
                 var that = this;
+
                 $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
                         {
                             goods_id: getParam('goods_id')
@@ -231,6 +232,18 @@
                 }
             }
         });
+
+        //登录检查
+//        $.post('http://onebuy.ping-qu.com/Api/User/checklogin').done(function(res) {
+//            if(res.errcode == '90005'){
+//                //获取新用户信息
+//                window.location = 'http://onebuy.ping-qu.com/Api/User/getOpenID';
+//            } else if (res.data.user_id) {
+//                alert("aa");
+//                //老用户直接展示数据
+//                new goodsDetailApp().$mount('#goodsDetailApp');//将dom挂载到实例上
+//            }
+//        });
 
         $.post('http://onebuy.ping-qu.com/Api/Wechatpay/wechatPayConfig',
                 {

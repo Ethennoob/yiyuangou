@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>B值设置</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="bvalueSetApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<topbar></topbar>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <sidebar></sidebar>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">B值设置</strong> / <small>B value</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+      <div class="am-u-sm-12">
+        <form class="am-form am-form-horizontal" id="thematic-form">
+          <div class="am-form-group">
+            <label for="bvalue" class="am-u-sm-3 am-form-label">B值</label>
+            <div class="am-u-sm-5 am-u-end">
+              <input v-model="bvalue" type="text" class="am-form-field" id="bvalue">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label for="period" class="am-u-sm-3 am-form-label">期数</label>
+            <div class="am-u-sm-5 am-u-end">
+              <input v-model="period" type="text" class="am-form-field" id="period">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <div class="am-u-sm-9 am-u-sm-push-3">
+              <button v-on:click="roll()" type="button" class="am-btn am-btn-primary">抽奖</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf">
+        <strong class="am-text-primary am-text-lg">待抽奖商品</strong> /
+        <small>Roll Goods</small>
+      </div>
+    </div>
+
+    <hr/>
+
+    <table v-if="rollGoods" v-cloak class="am-table am-table-striped am-table-hover table-main am-table-centered">
+      <thead>
+        <tr>
+          <th>专区</th>
+          <th>专题</th>
+          <th>商品名称</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in rollGoods">
+          <td>{{item.company_name}}</td>
+          <td>{{item.thematic_name}}</td>
+          <td>{{item.goods_name}}</td>
+          <!--<td>-->
+            <!--<a href="add-article.html?article_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">-->
+              <!--<span class="am-icon-pencil-square-o"></span> 修改-->
+            <!--</a>-->
+            <!--<button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">-->
+              <!--<span class="am-icon-times"></span> 删除-->
+            <!--</button>-->
+          <!--</td>-->
+        </tr>
+      </tbody>
+    </table>
+
+    <div v-cloak v-else class="am-text-center am-text-lg am-padding-vertical-lg">
+      <strong>无待抽奖商品</strong>
+    </div>
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+  var bvalueSetApp = new Vue({
+    el: '#bvalueSetApp',
+    data: {
+      bvalue: '',
+      period: 0,
+      rollGoods: []
+    },
+    created: function() {
+      var that = this;
+      $.post('http://onebuy.ping-qu.com/Admin/System/Bvalue').done(function(res) {
+        that.bvalue = res.data.Bvalue;
+      }).fail(function() {
+        alert("请求失败");
+      });
+
+      $.post('http://onebuy.ping-qu.com/Admin/Roll/rollGoodsList').done(function(res) {
+        that.rollGoods = res.data.rollGoodsList;
+      }).fail(function() {
+        alert("待抽奖商品请求失败");
+      });
+
+    },
+    methods: {
+      roll: function() {
+        var that = this;
+
+        //验证B值格式
+        var reg = new RegExp("^[0-9]{5}$");
+        if (!reg.test(that.bvalue)) {
+          alert("B值只能是5位数字！");
+          return;
+        } else if (!that.period) {
+          alert("请填写期数！");
+          return;
+        }
+
+        //提交B值
+        $.post('http://onebuy.ping-qu.com/Admin/Roll/roll',
+                {
+                  B: that.bvalue,
+                  ssc: that.period
+                }
+        ).done(function(res) {
+          if(res.errcode == 99999){
+            alert("无开奖商品");
+          } else if (res.errcode == 0) {
+            alert("抽奖成功！");
+            that.rollGoods = null;
+          }
+        }).fail(function() {
+          alert("请求失败");
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>

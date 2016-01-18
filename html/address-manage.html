@@ -25,7 +25,7 @@
     <!--新增、删除地址按钮-->
     <ul class="address-manage-btn font-white text-center lh42">
         <li class="add-address bg-red fl">
-            <a href="add-address.html?user_id={{userId}}" class="block">
+            <a href="add-address.html?company_id={{companyId}}" class="block">
                 <i class="i-addAddress"></i>
                 <span>新增地址</span>
             </a>
@@ -57,7 +57,7 @@
                 <li class="margin-vertical-5">{{item.street}}</li>
             </ul>
             <div class="col-xs-3 position-st">
-                <a href="add-address.html?user_id={{userId}}&address_id={{item.id}}" class="edit-btn">
+                <a href="add-address.html?address_id={{item.id}}&company_id={{companyId}}" class="edit-btn">
                     <i class="i-editAddress"></i>编辑
                 </a>
             </div>
@@ -65,7 +65,7 @@
     </ul>
 
     <!--删除地址按钮-->
-    <div v-if="showCheckBox" class="row bg-white lh42 mt20 position-rl bd-top bd-bottom bd-grey">
+    <div v-if="showCheckBox" class="row bg-white lh42 mt20 position-fix bt0 bd-top bd-bottom bd-grey">
         <div class="col-xs-2 position-st">
             <span v-on:click="allSelect()" class="round-checkBox" v-bind:class="{'checked': isAllSelect}">
             </span>
@@ -80,91 +80,6 @@
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
-    <script type="text/javascript">
-        var addressManageApp = new Vue({
-            el: '#addressManageApp',
-            data: {
-                userId: '',
-                address: {},
-                showCheckBox: false,
-                deleteId: [],
-                isAllSelect: false
-            },
-            methods: {
-                deleteBtn: function () {
-                    if(!this.showCheckBox){
-                        this.showCheckBox = true;
-                    } else {
-                        this.showCheckBox = false;
-                    }
-                },
-                select: function (index) {
-                    //
-                    if(this.deleteId[index]){
-                        //取消选中，将deleteId中相应的元素值设为false
-                        this.deleteId.$set(index, false);
-                    } else {
-                        //选中,将地址id放入deleteId数组
-                        this.deleteId.$set(index, this.address[index].id);
-                    }console.log(this.deleteId);
-                },
-                allSelect: function () {
-                    if(!this.isAllSelect){
-                        //全选
-                        for(var i = 0; i < this.address.length; i++){
-                            this.deleteId.$set(i, this.address[i].id);
-                        }
-                        this.isAllSelect = true;
-                    } else {
-                        //全不选
-                        this.deleteId = [];
-                        this.isAllSelect = false;
-                    }
-                },
-                delete: function () {
-                    var that = this;
-                    var deleteData = [];//储存要删除的地址的ID
-                    var len = 0;
-
-                    //将deleteID中的地址ID筛选出来
-                    for(var i = 0; i < that.deleteId.length; i++){
-                        if(that.deleteId[i]){
-                            deleteData[len++] = that.deleteId[i];
-                        }
-                    }
-                    $.post('http://onebuy.ping-qu.com/Api/Address/addressDeleteconfirm',
-                            {
-                                address_id: deleteData
-                            }
-                    ).done(function (res) {
-                        if(res.errcode == '0'){
-
-                            //更新实例中的地址数据
-                            for(var i = 0; i < that.deleteId.length; i++){
-                                if(that.deleteId[i]){
-                                    if(i == 0){
-                                        that.address.shift();
-                                        that.deleteId.shift();
-                                    } else {
-                                        that.address.splice(i);
-                                        that.deleteId.splice(i);
-                                    }
-                                }
-                            }
-//                            alert("删除成功");
-                        }
-                    }).fail(function () {
-                        alert("请求失败");
-                    });
-                }
-            }
-        });
-        $.post('http://onebuy.ping-qu.com/Api/Address/addressList', {user_id: getParam('user_id')}).done(function (data) {
-            addressManageApp.address = data.data.addresslist;
-            addressManageApp.userId = getParam('user_id');
-        }).fail(function () {
-            alert("请求失败");
-        });
-    </script>
+    <script type="text/javascript" src="assets/js/addressManageApp.js"></script>
 </body>
 </html>

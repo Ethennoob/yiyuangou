@@ -54,7 +54,7 @@ class RollController extends BaseClass {
         $code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$v['goods_id']])->get(['code'],false);
         if ($code) {
         	$this->R('',90002);
-        }
+        } 
         //抽奖(得到抽奖key,去匹配code表内的数据)
         $time = $this->table('record')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['user_id','add_time','ms_time'],false);
         if (!$time) {
@@ -138,19 +138,29 @@ class RollController extends BaseClass {
     public function nightRoll(){
         $this->V(['goods_id'=>['egNum']]);
         $goods_id = intval($_POST['goods_id']);
-
         //查询商品是否删除
-        $good = $this->table('goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id','price','thematic_id','goods_sn'],true);
+        $good = $this->table('goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id','company_id','price','thematic_id','goods_sn'],true);
         if (!$good) {
             $this->R('',70009);
         }
+
         //查询是否符合开奖要求(认购码全部卖完)
         $code = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->get(['code'],false);
         if ($code) {
             $this->R('',90002);
         }
+        //计算B值
+        $goods_purchase = $this->table('record')->where(['is_on'=>1,'goods_id'=>$goods_id])->get(['user_id'],false);
+        if (!$goods_purchase) {
+            $this->R('',70009);
+        }
+        foreach ($goods_purchase as $key => $value) {
+            $aa[]=$value['user_id'];
+        }
+        $nightBValue = sprintf("%05d",count(array_count_values ($aa)));
+        $shishicai=0;
         //抽奖(得到抽奖key,去匹配code表内的数据)
-        $time = $this->table('record')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['add_time','ms_time'],false);
+        $time = $this->table('record')->where(['is_on'=>1])->limit(50)->order('add_time desc')->get(['user_id','add_time','ms_time'],false);
         if (!$time) {
             $this->R('',70009);
         }
@@ -159,10 +169,12 @@ class RollController extends BaseClass {
             $dateArr = explode(':', $date);
             $temp[] = implode('',$dateArr).$v['ms_time'];
             $data = array(
-            'goods_id' => $v['goods_id'],
-            'user_id' => $va['user_id'],
-            'time' => $va['time'],
-            'ms_time' => $va['ms_time'],
+            'goods_id' => $goods_id,
+            'user_id' => $v['user_id'],
+            'time' => $v['add_time'],
+            'shishicai' => $shishicai,
+            'B' => $nightBValue,
+            'ms_time' => $v['ms_time'],
         );
         //生成roll_record
         $roll_record = $this->table('roll_record')->save($data);
@@ -170,44 +182,40 @@ class RollController extends BaseClass {
             $this->R('',40001);
         }
         }
-        $goods_purchase = $this->table('record')->where(['is_on'=>1,'goods_id'=>$goods_id])->get(['id'],false);
-        if (!$goods_purchase) {
-            $this->R('',70009);
-        }
-        $nightBValue = sprintf("%05d",count($goods_purchase));
-
         $Avalue = array_sum($temp);
         //$Bvalue = $this->table('system')->where(['id'=>1])->get(['Bvalue'],true);
-        $luckyCode = ($Avalue+$nightBValue)%$good['price']+10000001;
+        $luckyCodeA = ($Avalue+$nightBValue)%$good['price']+10000001;
         ///////////抽奖完/////////
-        $code = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$goods_id,'code'=>$luckyCode])->update(['is_lucky'=>1,'update_time'=>time()]);
+        $code = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$goods_id,'code'=>$luckyCodeA])->update(['is_lucky'=>1,'update_time'=>time()]);
         if (!$code) {
             $this->R('',40001);
         }
-        $luckyCode = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$goods_id,'is_lucky'=>1])->get(['user_id'],true);
+        $luckyCode = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$goods_id,'is_lucky'=>1])->get(['user_id','code'],true);
         if (!$luckyCode) {
             $this->R('',70009);
         }
-        $add_time = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$goods_id,'code'=>$luckyCode['code']])->get(['add_time'],true);
+        $add_time = $this->table('purchase')->where(['is_on'=>1,'goods_id'=>$goods_id,'code'=>$luckyCode['code']])->get(['record_id'],true);
         if (!$add_time) {
             $this->R('',70009);
         }
-        $record_id = $this->table('record')->where(['is_on'=>1,'goods_id'=>$goods_id,'add_time'=>$add_time['add_time']])->get(['id'],true);
+        $record_id = $this->table('record')->where(['is_on'=>1,'goods_id'=>$goods_id,'id'=>$add_time['record_id']])->get(['id'],true);
         if (!$record_id) {
             $this->R('',70009);
         }
+
         $address_id = $this->table('user_address')->where(['is_on'=>1,'is_default'=>1,'user_id'=>$luckyCode['user_id'],])->get(['id'],true);
         if (!$record_id) {
             $this->R('',70009);
         }
         $data = array(
-            'goods_id' => $v['goods_id'],
+            'goods_id' => $goods_id,
             'thematic_id' =>$good['thematic_id'],
             'bill_sn' =>$good['goods_sn'],
             'user_id' => $luckyCode['user_id'],
             'record_id' => $record_id['id'],
             'address_id' => $address_id['id'],
-            'code' => $luckyCode,
+            'company_id' =>$good['company_id'],
+            'code' => $luckyCodeA,
             'add_time' => time(),
         );
         //生成订单

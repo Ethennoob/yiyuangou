@@ -125,7 +125,12 @@ class RecordController extends BaseClass {
                 $this->R('',70009);
             }
             foreach ($detail as $k => $v) {
-            
+            if ($v['company_id']==37) {
+                    $a = explode(';', $v['goods_album']);
+                    $detail [$k]['goods_thumb'] = $a[0];
+                }else{
+                    $detail [$k]['goods_thumb'] = $v['goods_thumb'];
+                }
            
             $detail [$k]['lucky_time'] = $v['add_time'];
             $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);
@@ -167,6 +172,7 @@ class RecordController extends BaseClass {
                     $dateArr = explode(':', $date);
                     $rollRecord[$k]['time'] = implode('',$dateArr).$v['ms_time'];
                     $rollRecord[$k]['url'] = substr($v['shishicai'],0,8);
+                    $rollRecord[$k]['B'] = sprintf("%05d",$v['B']);
                 }
         }else{
             $rollRecord=false;

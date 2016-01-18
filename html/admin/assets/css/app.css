@@ -1,1 +1,25 @@
 /* Write your styles */
+
+/*订单管理表格中操作按钮列*/
+.order-table-toolbar{
+    min-width: 158px;
+}
+
+/* ==========================================================================
+  专题列表-thematic-list.html
+    ============================================================================ */
+/*查看商品的模态框
+ ============================================================================ */
+.goods-modal-hd{
+    height: 50px;
+}
+.goods-modal-bd{
+    height: 350px;
+    overflow-y: scroll;
+}
+
+
+/*隐藏Vue未编译Mustache 标签*/
+[v-cloak] { display: none }
+
+.hide{visibility: hidden;}

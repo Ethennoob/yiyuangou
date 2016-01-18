@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>物流单列表</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body id="logisticsListApp">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<topbar></topbar>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <sidebar></sidebar>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf">
+        <strong class="am-text-primary am-text-lg">物流单列表</strong> / <small>Logistics List</small>
+      </div>
+    </div>
+
+    <!--专区选择下拉菜单-->
+    <div class="am-g am-form am-form-horizontal">
+      <div class="am-form-group">
+        <label class="am-u-sm-2 am-text-right">专区选择</label>
+        <div class="am-u-sm-4 am-u-end">
+          <select v-cloak v-on:change="loadData()" v-model="companyId" name="company_id">
+            <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <form v-if="logistics" class="am-form" v-cloak>
+          <table class="am-table am-table-striped am-table-hover am-table-centered">
+            <thead>
+              <tr>
+                <th>物流单号</th>
+                <th>订单ID</th>
+                <th>物流单号</th>
+                <th>物流公司</th>
+                <th>物流状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in logistics">
+                <td>{{item.logistics_number}}</td>
+                <td>{{item.bill_id}}</td>
+                <td>{{item.logistics_number}}</td>
+                <td >{{item.logistics_name}}</td>
+                <td v-if="item.logistics_status == 0">已发货</td>
+                <td v-if="item.logistics_status == 1">揽件</td>
+                <td v-if="item.logistics_status == 2">疑难</td>
+                <td v-if="item.logistics_status == 3">签收</td>
+                <td v-if="item.logistics_status == 4">退签</td>
+                <td v-if="item.logistics_status == 5">派件</td>
+                <td v-if="item.logistics_status == 6">退回</td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <a href="logistics-detail.html?logistics_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
+                        <span class="am-icon-pencil-square-o"></span> 详情
+                      </a>
+                      <button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">
+                        <span class="am-icon-pencil-square-o"></span> 删除
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!--分页器-->
+          <div class="am-cf">
+            共 {{logistics.length}}<span v-cloak v-if="!logistics">0</span> 条记录
+            <div class="am-fr">
+              <ul class="am-pagination">
+                <!--<li class="am-disabled"><a href="#">«</a></li>-->
+                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                  <a v-on:click.prevent="">{{pageItem}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--分页器 end-->
+
+        </form>
+
+        <div v-cloak v-else class="am-text-center am-text-lg am-padding-vertical-lg">
+          <strong>暂无物流记录</strong>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- content end -->
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--删除确认弹框-->
+<div class="am-modal am-modal-alert" tabindex="-1" id="deleteTip">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">删除提示</div>
+    <div class="am-modal-bd">
+      是否要删除物流单？
+    </div>
+    <div class="am-modal-footer">
+                <span v-on:click="deleteLogistics()" class="am-u-sm-6 am-text-center am-text-danger bd-right line-height-44 modal-btn">
+                  确定
+                </span>
+                <span v-on:click="closeModal()" class="am-u-sm-6 am-text-center am-text-primary line-height-44 modal-btn">
+                  取消
+                </span>
+    </div>
+  </div>
+</div>
+<!--删除确认弹框 end-->
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="assets/js/base.js"></script>
+<script type="text/javascript">
+  var logisticsListApp = new Vue({
+    el: '#logisticsListApp',
+    data: {
+      logistics: [],
+      companyList: [],
+      companyId: '',
+      deleteId: '',
+      psize: 15,
+      pageNum: '',
+      page: []
+    },
+    created: function() {
+      var that = this;
+      //获取专区数据
+      $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
+        that.companyList = res.data.company;
+        that.companyId = that.companyList[0].id;
+
+        //加载物流数据
+        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsList',
+                {
+                  company_id: that.companyId,
+                  psize: that.psize,
+                  pn: 1
+                }
+        ).done(function(logistics) {
+          that.logistics = logistics.data.logisticslist;
+
+          //计算数据页数
+          that.pageNum = Math.ceil(logistics.data.pageInfo.dataSize / logistics.data.pageInfo.psize);
+          //初始化分页器数据
+          for (var i = 0; i < that.pageNum; i++) {
+            that.page.$set(i, i + 1);
+          }
+
+        }).fail(function() {
+          alert("物流数据请求失败");
+        });
+      }).fail(function() {
+        alert("专区数据请求失败");
+      });
+
+    },
+    methods: {
+      loadData: function() {
+        var that = this;
+
+        //加载物流数据
+        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsList',
+                {
+                  company_id: that.companyId,
+                  psize: that.psize,
+                  pn: 1
+                }
+        ).done(function(logistics) {
+          that.logistics = logistics.data.logisticslist;
+
+          //计算数据页数
+          that.pageNum = Math.ceil(logistics.data.pageInfo.dataSize / logistics.data.pageInfo.psize);
+          //初始化分页器数据
+          for (var i = 0; i < that.pageNum; i++) {
+            that.page.$set(i, i + 1);
+          }
+
+        }).fail(function() {
+          alert("物流数据请求失败");
+        });
+      },
+      deleteLogistics: function(){
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsDelete',
+                {
+                  logistics_id: that.logistics[that.deleteId].id
+                }
+        ).done(function(res) {
+          if(res.errcode == '0'){
+            that.logistics.splice(that.deleteId, 1);
+            $('#deleteTip').modal('close');
+
+          } else {
+            alert("删除失败");
+          }
+        }).fail(function() {
+          alert("删除请求失败");
+        });
+      },
+      closeModal: function() {
+        $('#deleteTip').modal('close');
+      },
+      pageTurn: function(event, page) {
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsList',
+                {
+                  company_id: that.companyId,
+                  psize: that.psize,
+                  pn: page
+                }
+        ).done(function(response) {
+          that.logistics = response.data.logisticslist;
+
+          //为分页器页码设置激活状态
+          $('.am-pagination li').removeClass('am-active');
+          $(event.target.parentElement).addClass('am-active');
+
+        }).fail(function() {
+          alert("无法获得用户数据");
+        });
+      }
+    }
+  });
+
+</script>
+</body>
+</html>

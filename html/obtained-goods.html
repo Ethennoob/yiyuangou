@@ -13,6 +13,24 @@
 
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
+    <style>
+        .wrapper {
+            position: absolute;
+            z-index: 1;
+            top: 38px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #f2f2f2;
+            overflow: hidden;
+        }
+
+        .scroller {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+        }
+    </style>
 </head>
 <body class="bg-grey" id="obtainedGoodsApp">
     <!--顶栏-->
@@ -22,43 +40,44 @@
         </a>已获得的商品
     </div>
 
-    <!--商品列表-->
-    <ul class="obtained-goods-list f15">
-        <li v-for="item in obtainedGoods" class="row">
-            <a href="logistics-record.html?logistics_number={{item.logistics_number}}&goods_id={{item.goods_id}}">
-                <div class="col-xs-3">
-                    <div class="product-small-img" v-bind:style="{'background-image': 'url('+item.goods_thumb+')'}"></div>
-                </div>
+    <!--无记录-->
+    <div v-if="!obtainedGoods" class="text-center font-bold bg-white text-center" v-cloak>
+        <img src="assets/img/no-record.png" class=" mt20 mb20" width="70">
+    </div>
 
-                <div class="col-xs-9">
-                    <span v-cloak>{{item.goods_title}}</span>
-                <span class="block mt5" v-cloak>本期购入{{item.num}}人次
-                </span>
-                <span class="block mt5">中奖码
-                    <span class="font-red" v-cloak>{{item.code}}</span>
-                </span>
-                    <span class="block font-grey mt5" v-cloak>揭晓时间：{{item.lucky_time | date}}</span>
-                </div>
-            </a>
-        </li>
-    </ul>
+    <!--商品列表-->
+    <div id="obWrapper" v-bind:class="{'wrapper': true, 'hide': !obtainedGoods }">
+
+        <div id="obScroller" class="bg-grey scroller" v-cloak>
+            <ul class="goods-list index-goods-list ob-goods-list padding-horizontal-10 f13 pt10">
+                <li v-for="item in obtainedGoods" class="br4 index-bd-grey position-rl mb10">
+                    <a class="block pd10" href="logistics-record.html?logistics_number={{item.logistics_number}}&goods_id={{item.goods_id}}&company_id={{companyId}}">
+                        <!--商品缩略图-->
+                        <div class="bd index-bd-grey index-goods-img-box fl">
+                            <img v-bind:src="item.goods_thumb" width="100%">
+                        </div>
+
+                        <!--商品信息，购买信息-->
+                        <div class="index-goods-desc">
+                            <span v-cloak class="text-ellipsis block">{{item.goods_name}}</span>
+                            <span class="block mt5" v-cloak>本期购入{{item.num}}人次</span>
+                            <span class="block mt5">中奖码
+                                <span class="font-red" v-cloak>{{item.code}}</span>
+                            </span>
+                            <span class="block font-grey mt5 f11" v-cloak>揭晓时间：{{item.lucky_time | date}}</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div v-if="obtainedGoods.length >= psize" class="text-center width-full position-ab bt0 font-grey" v-cloak>{{obScroller.loadTip}}</div>
+    </div>
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
-    <script type="text/javascript">
-        var obtainedGoodsApp = new Vue({
-            el: '#obtainedGoodsApp',
-            data: {
-                obtainedGoods: {}
-            }
-        });
-
-        $.post('http://onebuy.ping-qu.com/Api/User/luckyList', {user_id: getParam('user_id')}).done(function (data) {
-            obtainedGoodsApp.obtainedGoods = data.data.obtained_goods;
-        }).fail(function () {
-            alert("请求失败");
-        });
-    </script>
+    <script type="text/javascript" src="assets/js/iscroll-probe.js"></script>
+    <script type="text/javascript" src="assets/js/obGoodsApp.js"></script>
 </body>
 </html>

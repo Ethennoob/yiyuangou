@@ -23,7 +23,7 @@
     </div>
 
     <!--头像显示区-->
-    <a href="personal-detail.html?user_id={{userId}}" class="personal-headImg block text-center padding-vertical-20">
+    <a href="personal-detail.html?company_id={{companyId}}" class="personal-headImg block text-center padding-vertical-20">
         <img class="round" v-bind:src="userImg">
         <span class="block font-white f14 mt5" v-cloak>{{userPhone}}</span>
     </a>
@@ -31,25 +31,25 @@
     <!--导航列表-->
     <ul class="link-list bg-white">
         <li>
-            <a href="buy-record.html?user_id={{userId}}" class="block">
+            <a href="buy-record.html?company_id={{companyId}}" class="block">
                 <i class="i-buy"></i>
                 <span class="ml40">购买记录</span>
             </a>
         </li>
         <li>
-            <a href="obtained-goods.html?user_id={{userId}}" class="block">
+            <a href="obtained-goods.html?company_id={{companyId}}" class="block">
                 <i class="i-obtainedGoods"></i>
                 <span class="ml40">已获得的商品</span>
             </a>
         </li>
         <li>
-            <a href="address-manage.html?user_id={{userId}}" class="block">
+            <a href="address-manage.html?company_id={{companyId}}" class="block">
                 <i class="i-addressManage"></i>
                 <span class="ml40">收货地址管理</span>
             </a>
         </li>
         <li>
-            <a href="help-center.html" class="block">
+            <a href="help-center.html?company_id={{companyId}}" class="block">
                 <i class="i-helpCenter"></i>
                 <span class="ml40">帮助中心</span>
             </a>
@@ -65,23 +65,40 @@
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var personalApp = new Vue({
             el: '#personalApp',
             data: {
                 userImg: '',
                 userPhone: '',
-                userId: ''
+                userId: '',
+                companyId: getParam('company_id')
+            },
+            created: function() {
+                var that = this;
+
+                //检查是否是登录状态
+                checkLogin(function(userid) {
+                    that.userId = userid;
+                    //登录状态下加载数据的函数
+                    $.post('http://onebuy.ping-qu.com/Api/User/userOneAllDetail',
+                            {
+                                user_id: userid
+                            }
+                    ).done(function (res2) {
+                        that.userImg = res2.data.user.user_img;
+                        that.userPhone = res2.data.user.phone;
+                    }).fail(function () {
+                        alert("请求失败");
+                    });
+                });
+
             }
         });
 
-        $.post('http://onebuy.ping-qu.com/Api/User/userOneAllDetail', {user_id: getParam('user_id')}).done(function (data) {
-            personalApp.userImg = data.data.user.user_img;
-            personalApp.userPhone = data.data.user.phone;
-            personalApp.userId = getParam('user_id');
-        }).fail(function () {
-            alert("请求失败");
-        });
+        //设置微信分享内容
+        shareIndex();
     </script>
 </body>
 </html>

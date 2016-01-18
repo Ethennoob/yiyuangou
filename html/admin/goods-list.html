@@ -21,162 +21,11 @@
   以获得更好的体验！</p>
 <![endif]-->
 
-<header class="am-topbar admin-header">
-  <div class="am-topbar-brand">
-    <strong>一元购</strong>
-    <small>后台管理系统</small>
-  </div>
-
-  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
-    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
-      <li class="am-dropdown" data-am-dropdown>
-        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-        </a>
-        <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-        </ul>
-      </li>
-      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-    </ul>
-  </div>
-</header>
+<topbar></topbar>
 
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
-    <div class="am-offcanvas-bar admin-offcanvas-bar">
-      <ul class="am-list admin-sidebar-list">
-        <li>
-          <a href="index.html">
-            <span class="am-icon-home"></span> 首页
-          </a>
-        </li>
-        <li>
-          <a href="user.html">
-            <span class="am-icon-users"></span> 会员管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
-            <span class="am-icon-shopping-cart"></span> 商品管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
-            <li>
-              <a href="add-goods.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加商品
-              </a>
-            </li>
-            <li>
-              <a href="goods-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 商品列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
-            <span class="am-icon-bookmark"></span> 专题管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
-            <li>
-              <a href="add-thematic.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加专题
-              </a>
-            </li>
-            <li>
-              <a href="thematic-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 专题列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
-            <span class="am-icon-newspaper-o"></span> 文章管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
-            <li>
-              <a href="add-article.html" class="am-cf">
-                <span class="am-icon-plus"></span> 发表文章
-              </a>
-            </li>
-            <li>
-              <a href="article-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 文章列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="sale-list.html">
-            <span class="am-icon-money"></span> 销售明细
-          </a>
-        </li>
-        <li>
-          <a href="prize-status.html">
-            <span class="am-icon-gift"></span> 中奖情况
-          </a>
-        </li>
-        <li>
-          <a href="order.html">
-            <span class="am-icon-file-text"></span> 订单管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
-            <span class="am-icon-truck"></span> 物流管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
-            <li>
-              <a href="add-logistics.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加物流单
-              </a>
-            </li>
-            <li>
-              <a href="logistics-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 物流单列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="administrator.html">
-            <span class="am-icon-user"></span> 后台管理员管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
-            <span class="am-icon-gears"></span> 系统设置
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
-            <li>
-              <a href="limit-set.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 认购上限设置
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-            <span class="am-icon-sign-out"></span> 注销
-          </a>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+  <sidebar></sidebar>
   <!-- sidebar end -->
 
   <!-- content start -->
@@ -190,14 +39,21 @@
 
     <div class="am-g am-form am-form-horizontal">
       <div class="am-form-group">
-        <label class="am-u-sm-2">专题选择</label>
-        <div class="am-u-sm-4">
-          <select v-model="thematicId" name="thematic_id">
-            <option v-for="item in thematic" v-bind:value="item.id">{{item.thematic_name}}</option>
+        <div class="am-u-sm-6">
+          <label>专区选择</label>
+          <select v-cloak v-on:change="thematicChange()" v-model="filterData.company_id" name="company_id">
+            <option v-for="item in companyList" v-bind:value="item.id">
+              {{item.company_name}}
+            </option>
           </select>
         </div>
-        <div class="am-u-sm-2 am-u-end">
-          <button v-on:click="searchGoods()" class="am-btn am-btn-primary">确定</button>
+        <div class="am-u-sm-6">
+          <label>专题选择</label>
+          <select v-cloak v-on:change="loadGoods()" v-model="filterData.thematic_id" name="thematic_id">
+            <option v-for="item in thematic" v-bind:value="item.id">
+              {{item.thematic_name}}
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -215,10 +71,11 @@
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
-          <table v-show="goods" class="am-table am-table-striped am-table-hover table-main">
+          <table v-cloak v-show="goods" class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
-            <tr>
+            <tr class="am-text-nowrap">
               <th>商品名称</th>
+              <th>商品性质</th>
               <th>成本价</th>
               <th>销售价</th>
               <th>商品货号</th>
@@ -230,52 +87,48 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="item in goods">
-              <td>{{item.goods_name}}</td>
-              <td>{{item.cost_price}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.goods_sn}}</td>
-              <td>{{item.limit_num}}</td>
-              <td v-if="item.is_show == 1">显示</td>
-              <td v-else>不显示</td>
-              <td v-if="item.free_post == 1">包邮</td>
-              <td v-else>不包邮</td>
-              <td>{{item.add_time}}</td>
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <a href="add-goods.html?goods_id={{item.id}}" class="am-btn am-btn-default am-btn-xs">
-                      <span class="am-icon-pencil-square-o"></span> 查看详情
-                    </a>
-                    <a href="add-album.html?goods_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
-                      <span class="am-icon-pencil-square-o"></span> 商品相册
-                    </a>
-                  </div>
-                </div>
-              </td>
-            </tr>
+              <tr v-cloak v-for="item in goods">
+                <td v-cloak>{{item.goods_name}}</td>
+                <td v-cloak v-if="item.nature == null"></td>
+                <td v-cloak v-if="item.nature == 0">实物</td>
+                <td v-cloak v-if="item.nature == 1">虚拟</td>
+                <td v-cloak>{{item.cost_price}}</td>
+                <td v-cloak>{{item.price}}</td>
+                <td v-cloak>{{item.goods_sn}}</td>
+                <td v-cloak>{{item.limit_num}}</td>
+                <td v-cloak v-if="item.is_show == 1">显示</td>
+                <td v-cloak v-else>不显示</td>
+                <td v-cloak v-if="item.free_post == 1">包邮</td>
+                <td v-cloak v-else>不包邮</td>
+                <td v-cloak>{{item.add_time}}</td>
+                <td>
+                  <a href="add-goods.html?goods_id={{item.id}}&company_id={{filterData.company_id}}" class="am-btn am-btn-default am-btn-xs">
+                    <span class="am-icon-pencil-square-o"></span> 查看详情
+                  </a>
+                  <a href="add-album.html?goods_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
+                    <span class="am-icon-pencil-square-o"></span> 商品相册
+                  </a>
+                </td>
+              </tr>
             </tbody>
           </table>
-          <div v-if="!goods" class="am-text-center am-text-lg am-padding-vertical-lg">
+          <div v-cloak v-if="!goods" class="am-text-center am-text-lg am-padding-vertical-lg">
             <strong>该专题未添加商品</strong>
           </div>
 
-          <!--<div class="am-cf">-->
-  <!--共 15 条记录-->
-  <!--<div class="am-fr">-->
-    <!--<ul class="am-pagination">-->
-      <!--<li class="am-disabled"><a href="#">«</a></li>-->
-      <!--<li class="am-active"><a href="#">1</a></li>-->
-      <!--<li><a href="#">2</a></li>-->
-      <!--<li><a href="#">3</a></li>-->
-      <!--<li><a href="#">4</a></li>-->
-      <!--<li><a href="#">5</a></li>-->
-      <!--<li><a href="#">»</a></li>-->
-    <!--</ul>-->
-  <!--</div>-->
-<!--</div>-->
-          <!--<hr />-->
-          <!--<p>注：.....</p>-->
+          <!--分页器-->
+          <div v-cloak class="am-cf">
+            共 {{goods.length}}<span v-cloak v-if="!goods">0</span> 条记录
+            <div class="am-fr">
+              <ul class="am-pagination">
+                <!--<li class="am-disabled"><a href="#">«</a></li>-->
+                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                  <a v-on:click.prevent="">{{pageItem}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </form>
       </div>
 
@@ -309,49 +162,166 @@
     el: '#goodsListApp',
     data: {
       goods: [],
-      thematicId: '',
-      thematic: []
+      filterData: {
+        company_id: '',
+        thematic_id: ''
+      },
+      companyList: [],
+      thematic: [],
+      psize: 15,
+      pageNum: '',
+      page: []
+    },
+    created: function() {
+      var that = this;
+      if (getParam('thematic_id') && getParam('company_id')) {//添加完商品跳转到此页时
+        //获取专区数据
+        $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
+          that.companyList = res.data.company;
+          that.filterData.company_id = getParam('company_id');
+        }).fail(function() {
+          alert("专区数据加载失败");
+        });
+        //获取专题名称列表
+        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+                {
+                  company_id: getParam('company_id')
+                }
+        ).done(function(res) {
+          that.thematic = res.data.thematicSelect;
+          that.filterData.thematic_id = getParam('thematic_id');
+        }).fail(function() {
+          alert("专题数据加载失败");
+        });
+
+        //获取商品数据
+        $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
+                {
+                  thematic_id: getParam('thematic_id'),
+                  company_id: getParam('company_id'),
+                  psize: that.psize,
+                  pn: 1
+                }
+        ).done(function(res) {
+          that.goods = res.data.goodspage;
+
+          //计算数据页数
+          that.pageNum = Math.ceil(res.data.pageInfo.dataSize / res.data.pageInfo.psize);
+          //初始化分页器数据
+          for (var i = 0; i < that.pageNum; i++) {
+            that.page.$set(i, i + 1);
+          }
+
+        }).fail(function() {
+          alert("获取商品数据失败");
+        });
+      } else {//从导航进入商品列表页时
+        //获取专区数据
+        $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
+          that.companyList = res.data.company;
+          that.filterData.company_id = that.companyList[0].id;
+
+          //获取专题名称列表
+          $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+                  {
+                    company_id: that.filterData.company_id
+                  }
+          ).done(function(res2) {
+            that.thematic = res2.data.thematicSelect;
+            if (!that.thematic) {
+              that.thematic = [{id: 0, thematic_name: '无'}];
+            }
+            that.filterData.thematic_id = that.thematic[0].id;
+
+            //获取商品数据
+            $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
+                    {
+                      thematic_id: that.filterData.thematic_id,
+                      company_id: that.filterData.company_id,
+                      psize: that.psize,
+                      pn: 1
+                    }
+            ).done(function(res3) {
+              that.goods = res3.data.goodspage;
+
+              //计算数据页数
+              that.pageNum = Math.ceil(res3.data.pageInfo.dataSize / res3.data.pageInfo.psize);
+              //初始化分页器数据
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+            }).fail(function() {
+              alert("请求失败");
+            });
+          }).fail(function() {
+            alert("请求失败");
+          });
+        }).fail(function() {
+          alert("专区数据获取失败");
+        });
+      }
+
     },
     methods: {
-      searchGoods: function() {
+      thematicChange:function() {//当专区改变，重新获取专题选项
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
-                {thematic_id: that.thematicId}
-        ).done(function(data) {
-          that.goods = data.data.goodspage;
+        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+                {
+                  company_id: that.filterData.company_id
+                }
+        ).done(function(res) {
+          that.thematic = res.data.thematicSelect;
+          that.filterData.thematic_id = that.thematic[0].id;
+          that.loadGoods();
         }).fail(function() {
           alert("请求失败");
         });
+      },
+      loadGoods: function() {
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
+                {
+                  company_id: that.filterData.company_id,
+                  thematic_id: that.filterData.thematic_id,
+                  psize: that.psize,
+                  pn: 1
+                }
+        ).done(function(res) {
+          that.goods = res.data.goodspage;
+
+          //计算数据页数
+          that.pageNum = Math.ceil(res.data.pageInfo.dataSize / res.data.pageInfo.psize);
+          //初始化分页器数据
+          for (var i = 0; i < that.pageNum; i++) {
+            that.page.$set(i, i + 1);
+          }
+
+        }).fail(function() {
+          alert("请求失败");
+        });
+      },
+      pageTurn: function(event, page) {
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
+                {
+                  company_id: that.filterData.company_id,
+                  thematic_id: that.filterData.thematic_id,
+                  psize: that.psize,
+                  pn: page
+                }
+        ).done(function(response) {
+          that.goods = response.data.goodspage;
+
+          //为分页器页码设置激活状态
+          $('.am-pagination li').removeClass('am-active');
+          $(event.target.parentElement).addClass('am-active');
+
+        }).fail(function() {
+          alert("无法获得商品数据");
+        });
       }
     }
-  });
-
-  //获取专题名称列表
-  $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect').done(function(data) {
-    goodsListApp.thematic = data.data.thematicSelect;
-    if(!getParam('thematic_id')){
-      //获取商品数据
-      $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
-              {thematic_id: data.data.thematicSelect[0].id}
-      ).done(function(data2) {
-        goodsListApp.goods = data2.data.goodspage;
-        goodsListApp.thematicId = data.data.thematicSelect[0].id;
-      }).fail(function() {
-        alert("请求失败");
-      });
-    } else {
-      //获取商品数据
-      $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList',
-              {thematic_id: getParam('thematic_id')}
-      ).done(function(data2) {
-        goodsListApp.goods = data2.data.goodspage;
-        goodsListApp.thematicId = getParam('thematic_id');
-      }).fail(function() {
-        alert("请求失败");
-      });
-    }
-  }).fail(function() {
-    alert("请求失败");
   });
 
 </script>

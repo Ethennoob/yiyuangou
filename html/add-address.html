@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/scroll-base.css" />
+    <style rel="stylesheet">
+        .mobiscroll-input{
+            border: 1px solid #dcdcdc;
+            line-height: 30px;
+            padding-right: 10px;
+        }
+    </style>
 </head>
 <body class="bg-grey" id="addAddressApp">
     <!--顶栏-->
@@ -24,40 +31,28 @@
     </div>
 
     <!--表单-->
-    <div class="padding-horizontal-10 bg-white row">
+    <div class="padding-horizontal-10 bg-white grid-container">
         <label class="up-label">收货人姓名</label>
-        <input v-model="postData.name" class="block-input">
+        <input v-model="postData.name" class="block-input text-left">
         <label class="up-label">手机号码</label>
-        <input v-model="postData.mobile" class="block-input">
+        <input v-model="postData.mobile" class="block-input text-left">
         <label class="up-label">收货地址</label>
         <div class="row margin-vertical-10">
             <div class="col-xs-3 lh35 font-grey">省份</div>
             <div class="col-xs-9">
-                <select v-model="postData.province" class="block-input">
-                    <option v-for="provinceItem in linkageData" v-bind:value="provinceItem.name">
-                        {{provinceItem.name}}
-                    </option>
-                </select>
+                <select id="province" class="block-input hide"></select>
             </div>
         </div>
         <div class="row margin-vertical-10">
             <div class="col-xs-3 lh35 font-grey">城市</div>
             <div class="col-xs-9">
-                <select v-model="postData.city" class="block-input" id="city-select">
-                    <option v-for="cityItem in cityData" v-bind:value="cityItem.name">
-                        {{cityItem.name}}
-                    </option>
-                </select>
+                <select id="city" class="block-input hide"></select>
             </div>
         </div>
         <div class="row margin-vertical-10">
             <div class="col-xs-3 lh35 font-grey">县区</div>
             <div class="col-xs-9">
-                <select v-model="postData.area" class="block-input">
-                    <option v-for="areaItem in areaData" v-bind:value="areaItem.name">
-                        {{areaItem.name}}
-                    </option>
-                </select>
+                <select id="area" class="block-input hide"></select>
             </div>
         </div>
         <div class="row margin-vertical-10">
@@ -66,6 +61,10 @@
                 <textarea v-model="postData.street" rows="5" class="block-input"></textarea>
             </div>
         </div>
+    </div>
+    <div v-cloak v-if="postData.address_id" class="f13 font-red position-rl pt10 pl10">
+        设为默认地址
+        <span v-on:click="setDefault($event)" class="default-radio" v-bind:class="{'default-checked': postData.is_default == '1'}"></span>
     </div>
 
     <!--按钮-->
@@ -77,130 +76,7 @@
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
     <script type="text/javascript" src="assets/js/scroll-base.js"></script>
-    <script type="text/javascript">
-        var addAddressApp = new Vue({
-            el: '#addAddressApp',
-            data: {
-                postData: {
-                    user_id: getParam('user_id'),
-                    province: '',
-                    city: '',
-                    area: '',
-                    street: '',
-                    mobile: '',
-                    name: ''
-                },
-                province: '',
-                city: '',
-                area: '',
-                linkageData: [],
-                cityArr: []
-            },
-            computed: {
-                cityData: function() {
-                    var that = this;
-                    this.cityArr = this.linkageData.filter(function (item) {
-                        return item.name == that.postData.province;
-                    })[0].sub;
-                    return this.cityArr;
-                },
-                areaData: function() {
-                    var that = this;
-                    var temp = this.cityArr.filter(function (item) {
-                        return item.name == that.postData.city;
-                    })[0];
-                    if(temp.sub){
-                        return temp.sub;
-                    } else {
-                        return [{name: '无'}];
-                    }
-                }
-            },
-            ready: function() {
-//                console.log(this.$els.citySelect);
-//                $('#city-select').mobiscroll().select({
-//                    theme: 'ios',     // Specify theme like: theme: 'ios' or omit setting to use default
-//                    mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
-//                    display: 'bottom', // Specify display mode like: display: 'bottom' or omit setting to use default
-//                    lang: 'zh',        // Specify language like: lang: 'pl' or omit setting to use default
-//                    validate: function(html, index){
-//                        console.log('validate');
-//                        console.log(html);
-//                        console.log(index);
-//                    },
-//                    onChange: function(val,inst){
-//                        console.log('onChange');
-//                        console.log(val);
-//                        console.log(inst);
-//                    },
-//                    onSelect: function(val,inst){
-//                        console.log('onSelect');
-//                        console.log(val);
-//                        console.log(inst);
-//                    }
-//                });
-            },
-            methods: {
-                addAdress: function () {
-                    var userId = this.postData.user_id;
-                    for(var key in this.postData){
-                        if(!this.postData[key]){
-                            alert("请填写完整信息！");
-                            return false;
-                        }
-                    }
-                    if(this.postData.address_id){
-                        $.post('http://onebuy.ping-qu.com/Api/Address/addressEdit', this.postData).done(function(res) {
-                            if(res.errcode != '0'){
-                                alert("修改失败");
-                            } else {
-                                window.location = 'address-manage.html?user_id=' + userId;
-                            }
-                        }).fail(function() {
-                            alert("请求失败");
-                        });
-                    } else {
-                        $.post('http://onebuy.ping-qu.com/Api/Address/addressAdd', this.postData).done(function(res) {
-                            if(res.errcode == '0'){
-                                window.location = 'address-manage.html?user_id=' + userId;
-                            } else if(res.errcode == '40018'){
-                                alert("手机格式有误");
-                            } else {
-                                alert("添加失败");
-                            }
-                        }).fail(function() {
-                            alert("请求失败");
-                        });
-                    }
-                }
-            }
-        });
-        if(getParam('address_id')){
-            $.post('http://onebuy.ping-qu.com/Api/Address/addressOneDetail',
-                    {address_id: getParam('address_id')}
-            ).done(function(data) {
-                var temp = data.data.address;
-                addAddressApp.postData = {
-                    user_id: getParam('user_id'),
-                    address_id: getParam('address_id'),
-                    province: temp.province,
-                    city: temp.city,
-                    area: temp.area,
-                    street: temp.street,
-                    mobile: temp.mobile,
-                    name: temp.name
-                };
-            }).fail(function() {
-                alert("请求失败");
-            });
-        }
-
-        $.getJSON('assets/json/city.json').done(function (data) {
-            addAddressApp.linkageData = data;
-        }).fail(function () {
-            alert("请求失败");
-        });
-    </script>
+    <script type="text/javascript" src="assets/js/addAddressApp.js"></script>
 
 </body>
 </html>

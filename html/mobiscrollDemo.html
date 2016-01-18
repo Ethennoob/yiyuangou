@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="assets/css/scroll-base.css" rel="stylesheet" type="text/css">
+    <style rel="stylesheet">
+        .mobiscroll-input{
+            border: 1px solid #dcdcdc;
+            line-height: 30px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<select id="province"></select>
+<select id="city"></select>
+<select id="area"></select>
+
+<script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+<script src="assets/js/scroll-base.js"></script>
+<script type="text/javascript">
+    $('#province').mobiscroll().select({
+        theme: 'ios',
+        mode: 'scroller',
+        display: 'bottom',
+        lang: 'zh',
+        inputClass: "mobiscroll-input",
+        onSelect: function(val,inst){
+//                console.log(inst._tempValue);
+//                $('#city').empty();
+//                for (var i = 0; i < res.city[inst._tempValue].length; i++) {
+//                    $('#city').append('<option value="' + res.city[inst._tempValue][i].value + '">' + res.city[inst._tempValue][i].text +'</option>');
+//                }
+//                $('#city').mobiscroll('init');
+
+        }
+    });
+
+    $('#city').mobiscroll().select({
+        theme: 'ios', //插件样式风格
+        mode: 'scroller',
+        display: 'bottom',
+        lang: 'zh',
+        inputClass: "mobiscroll-input",
+        onSelect: function(val,inst){
+
+        }
+    });
+
+    $('#area').mobiscroll().select({
+        theme: 'ios',
+        mode: 'scroller',
+        display: 'bottom',
+        lang: 'zh',
+        data: [
+            {text: '', value: '0'}
+        ],
+        inputClass: "mobiscroll-input",
+        onSelect: function(val,inst){
+
+        }
+    });
+
+    $.getJSON('assets/json/city.json').done(function (res) {
+        for (var i = 0; i < res.pro.length; i++) {
+            $('#province').append('<option value="' + res.pro[i].value + '">' + res.pro[i].text +'</option>');
+        }
+        $('#province').mobiscroll('init');
+        console,log($('#province').mobiscroll('getVal', false, false));
+
+    }).fail(function () {
+        alert("请求失败");
+    });
+//    $('#province').mobiscroll().select({
+//        theme: 'ios',     // Specify theme like: theme: 'ios' or omit setting to use default
+//        mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
+//        display: 'bottom', // Specify display mode like: display: 'bottom' or omit setting to use default
+//        lang: 'zh',        // Specify language like: lang: 'pl' or omit setting to use default
+//        data: pro,
+//        inputClass: "bd-grey",
+//        onSelect: function(val,inst){
+//            console.log('onSelect');
+//            console.log(val);
+//            console.log(inst);
+//            var cityInst = $('#city').mobiscroll('getInst');
+//            cityInst.settings.data = city[inst._tempValue];//选择完省后更新市select的数据
+//            $('#city').mobiscroll('setVal', '', true, false, false);
+//            $('#area').mobiscroll('setVal', '', true, false, false);
+//            //最后三个参数为fill（不能为false），change（t of f无所谓），temp（t of f无所谓）
+//            cityInst.refresh();
+//        },
+//        onBeforeShow: function() {
+//            $('.dw-ul').css('transform', 'translate3d(0px, 0px, 0px)');
+//        }
+//    });
+//    $('#city').mobiscroll().select({
+//        theme: 'ios',     // Specify theme like: theme: 'ios' or omit setting to use default
+//        mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
+//        display: 'bottom', // Specify display mode like: display: 'bottom' or omit setting to use default
+//        lang: 'zh',        // Specify language like: lang: 'pl' or omit setting to use default
+//        data: [
+//            {text: '', value: '0'}
+//        ],
+//        inputClass: "bd-grey",
+//        onSelect: function(val,inst){
+//            if(val != ''){//市select数据初始化时只有一个选项是''，如果选了area[inst._tempValue]值会出错
+//                var areaInst = $('#area').mobiscroll('getInst');
+//                areaInst.settings.data = area[inst._tempValue];
+//                $('#area').mobiscroll('setVal', '', true, false, false);
+//                areaInst.refresh();
+//            }
+//        }
+//    });
+//    $('#area').mobiscroll().select({
+//        theme: 'ios',     // Specify theme like: theme: 'ios' or omit setting to use default
+//        mode: 'scroller',       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
+//        display: 'bottom', // Specify display mode like: display: 'bottom' or omit setting to use default
+//        lang: 'zh',        // Specify language like: lang: 'pl' or omit setting to use default
+//        data: [
+//            {text: '', value: '0'}
+//        ],
+//        inputClass: "bd-grey",
+//        onSelect: function(val,inst){
+//
+//        }
+//    });
+</script>
+</body>
+</html>

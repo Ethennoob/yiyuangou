@@ -25,9 +25,9 @@
 			//获取订单id
 	        $billId = intval($_POST['bill_id']);
 
-	        $this->V(['user_id'=>['egNum',null,true]]);
+	        /*$this->V(['user_id'=>['egNum',null,true]]);
 	        //获取用户id
-	        $userId = intval($_POST['user_id']);
+	        $userId = intval($_POST['user_id']);*/
 
 	        $rule = [
                     'logistics_number'  =>[],
@@ -37,7 +37,7 @@
             foreach ($rule as $k => $v) {
             	$data[$k] = $_POST[$k];
             }
-            $userAddr = $this->table('bill')->where(['id'=>$bill_id])->get(['address_id','goods_id'],true);
+            $userAddr = $this->table('bill')->where(['is_on'=>1,'id'=>$billId])->get(['address_id','goods_id'],true);
             if (!$userAddr) {
                 $userAddr['address_id'] =null;
             }

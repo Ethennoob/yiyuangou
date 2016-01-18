@@ -179,7 +179,7 @@ class ThematicController extends BaseClass {
         $time1 = intval(strtotime($add_time));
         $time2 = $time1+24*3600;
         $file = ['id','thematic_name','nature','status','is_show','add_time'];
-        $where = 'is_on = 1 and add_time > "'.$time1.'" and add_time < "'.$time1.'"';
+        $where = 'is_on = 1 and add_time > "'.$time1.'" and add_time < "'.$time2.'"';
         $class = $this->table('thematic')->where($where)->order('add_time desc');
 
         //查询并分页

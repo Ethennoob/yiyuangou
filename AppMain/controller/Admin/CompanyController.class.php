@@ -50,7 +50,7 @@ class CompanyController extends BaseClass {
         $time =time();
         $QRcode=$qr->png($url,false,QR_ECLEVEL_H,10,4,false,$time);
         $data['update_time']  = time();
-        $data['QR_code'] = "../images/company/".$time.".png";
+        $data['QR_code'] = "http://onebuy.ping-qu.com/images/company/".$time.".png";
         $company = $this->table('company')->where(['id'=>$id])->update($data);
         if(!$company){
             $this->R('',40001);

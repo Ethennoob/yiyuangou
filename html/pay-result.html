@@ -17,76 +17,60 @@
 <body class="bg-grey" id="payResultApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">支付结果
-        <a href="#">
+        <a href="javascript: history.back();">
             <img class="back" src="assets/i/back.png" />
         </a>
-        <a href="#">
+        <a href="personal.html?company_id={{companyId}}">
             <img class="personal-top-link" src="assets/i/personal-logo.png" />
         </a>
     </div>
 
-    <div class="bg-white padding-vertical-20">
+    <div class="bg-white padding-vertical-20 mb40">
         <!--支付结果信息-->
         <div class="text-center pay-result-info bg-white">
             <img class="mb10" src="assets/i/pay-success.png" width="38" height="38" />
             <span class="block mb10">支付成功，请耐心等待揭晓结果！</span>
             <span class="block mb10 f14 font-grey">成功支付1个商品</span>
             <div>
-                <a href="#" class="btn bg-white buy-record-btn">查看购买记录</a>
-                <a href="#" class="btn bg-red continue-buy-btn font-white">继续购物</a>
+                <a href="buy-record.html?company_id={{companyId}}" class="btn bg-white buy-record-btn">查看购买记录</a>
+                <a href="index.html?company_id={{companyId}}" class="btn bg-red continue-buy-btn font-white">继续购物</a>
             </div>
         </div>
 
         <!--支付商品信息-->
-        <div class="panel pay-product-info mt20">
+        <a href="pay/goods-detail.html?goods_id={{goodsId}}&company_id={{companyId}}" class="panel pay-product-info mt20 mb40 block">
             <div class="panel-head">以下1件商品支付成功</div>
-            <div class="panel-body">
-                <div class="fl mr16 product-small-img" style="background-image: url('assets/img/iphone.jpg')"></div>
-                <div class="pay-product-intro">
-                    <span>[第190期] Apple Watch 智能手表(38毫米银色铝金属表壳搭配白色运动型表壳搭配白色运动</span>
-                    <span class="block font-grey mt16">1人次 支付成功</span>
+            <div class="panel-body table">
+                <div class="table-cell vertical-top">
+                    <div class="mr16 product-small-img" v-bind:style="{'background-image': 'url(' + payData.goods_thumb + ')'}"></div>
+                </div>
+                <div class="pay-product-intro table-cell vertical-top">
+                    <span v-cloak>{{payData.goods_name}}</span>
+                    <span class="block font-grey mt16" v-cloak>{{payNum}}人次 支付成功</span>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 
     <!--分享按钮-->
-    <div class="padding-horizontal-10">
-        <button class="btn bg-white share-btn">
-            <span class="mr5">
-                <img src="assets/i/share.png" height="16" />
-            </span>
-            我要炫耀一下
-        </button>
+    <div v-on:click="sharePopup" class="padding-vertical-10 text-center bd-top bd-grey bg-white position-fix bt0 width-full">
+        <span class="mr5">
+            <img src="assets/i/share.png" height="16" />
+        </span>
+        分享求祝福
+    </div>
+
+    <!--分享指引弹窗-->
+    <div v-bind:class="{'is-visible': sharePopupVisible}" v-on:click="sharePopupClose" class="popup" role="alert">
+        <div v-on:click.stop>
+            <img src="assets/img/share-tip.png" class="share-tip">
+        </div>
     </div>
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
-    <script type="text/javascript">
-        var payResultApp = new Vue({
-            el: '#payResultApp',
-            data: {
-                payData: {}
-            },
-            ready: function() {
-                if(1){//当商品剩余数量为0时
-                    $.post('http://onebuy.ping-qu.com/Admin/Roll/roll',
-                            {
-                                goods_id: getParam('goods_id')
-                            }
-                    ).done(function(res) {
-                        if(res.errcode == '0'){
-
-                        } else {
-                            alert("抽奖失败");
-                        }
-                    }).fail(function() {
-                        alert("抽奖请求失败");
-                    });
-                }
-            }
-        });
-    </script>
+    <script type="text/javascript" src="assets/js/payResultApp.js"></script>
 </body>
 </html>

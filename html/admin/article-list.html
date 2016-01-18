@@ -21,161 +21,11 @@
   以获得更好的体验！</p>
 <![endif]-->
 
-<header class="am-topbar admin-header">
-  <div class="am-topbar-brand">
-    <strong>一元购</strong> <small>后台管理系统</small>
-  </div>
-
-  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
-    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
-      <li class="am-dropdown" data-am-dropdown>
-        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-        </a>
-        <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-        </ul>
-      </li>
-      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-    </ul>
-  </div>
-</header>
+<topbar></topbar>
 
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
-    <div class="am-offcanvas-bar admin-offcanvas-bar">
-      <ul class="am-list admin-sidebar-list">
-        <li>
-          <a href="index.html">
-            <span class="am-icon-home"></span> 首页
-          </a>
-        </li>
-        <li>
-          <a href="user.html">
-            <span class="am-icon-users"></span> 会员管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
-            <span class="am-icon-shopping-cart"></span> 商品管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
-            <li>
-              <a href="add-goods.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加商品
-              </a>
-            </li>
-            <li>
-              <a href="goods-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 商品列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
-            <span class="am-icon-bookmark"></span> 专题管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
-            <li>
-              <a href="add-thematic.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加专题
-              </a>
-            </li>
-            <li>
-              <a href="thematic-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 专题列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
-            <span class="am-icon-newspaper-o"></span> 文章管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
-            <li>
-              <a href="add-article.html" class="am-cf">
-                <span class="am-icon-plus"></span> 发表文章
-              </a>
-            </li>
-            <li>
-              <a href="article-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 文章列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="sale-list.html">
-            <span class="am-icon-money"></span> 销售明细
-          </a>
-        </li>
-        <li>
-          <a href="prize-status.html">
-            <span class="am-icon-gift"></span> 中奖情况
-          </a>
-        </li>
-        <li>
-          <a href="order.html">
-            <span class="am-icon-file-text"></span> 订单管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
-            <span class="am-icon-truck"></span> 物流管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
-            <li>
-              <a href="add-logistics.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加物流单
-              </a>
-            </li>
-            <li>
-              <a href="logistics-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 物流单列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="administrator.html">
-            <span class="am-icon-user"></span> 后台管理员管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
-            <span class="am-icon-gears"></span> 系统设置
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
-            <li>
-              <a href="limit-set.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 认购上限设置
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-            <span class="am-icon-sign-out"></span> 注销
-          </a>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+  <sidebar></sidebar>
   <!-- sidebar end -->
 
   <!-- content start -->
@@ -190,7 +40,7 @@
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
-          <table class="am-table am-table-striped am-table-hover table-main">
+          <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
               <tr>
                 <th>文章标题</th>
@@ -201,20 +51,30 @@
               <tr v-for="item in articles">
                 <td>{{item.title}}</td>
                 <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <a href="add-article.html?article_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
-                        <span class="am-icon-pencil-square-o"></span> 修改
-                      </a>
-                      <button v-on:click="deleteArticle($index)" type="button" class="am-btn am-btn-danger am-btn-xs">
-                        <span class="am-icon-times"></span> 删除
-                      </button>
-                    </div>
-                  </div>
+                  <a href="add-article.html?article_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
+                    <span class="am-icon-pencil-square-o"></span> 修改
+                  </a>
+                  <button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">
+                    <span class="am-icon-times"></span> 删除
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
+
+          <!--分页器-->
+          <div v-cloak class="am-cf">
+            共 {{articles.length}}<span v-cloak v-if="!articles">0</span> 条记录
+            <div class="am-fr">
+              <ul class="am-pagination">
+                <!--<li class="am-disabled"><a href="#">«</a></li>-->
+                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                  <a v-on:click.prevent="">{{pageItem}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </form>
       </div>
 
@@ -229,6 +89,25 @@
   <hr>
   <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
 </footer>
+
+<!--删除确认弹框-->
+<div class="am-modal am-modal-alert" tabindex="-1" id="deleteTip">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">删除提示</div>
+    <div class="am-modal-bd">
+      是否要删除文章？
+    </div>
+    <div class="am-modal-footer">
+      <span v-on:click="deleteArticle()" class="am-u-sm-6 am-text-center am-text-danger bd-right line-height-44 modal-btn">
+        确定
+      </span>
+      <span class="am-modal-btn am-u-sm-6 am-text-center am-text-primary line-height-44 modal-btn">
+        取消
+      </span>
+    </div>
+  </div>
+</div>
+<!--删除确认弹框 end-->
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -247,35 +126,67 @@
   var articleListApp = new Vue({
     el: '#articleListApp',
     data: {
-      articles: []
+      articles: [],
+      deleteId: '',
+      psize: 15,
+      pageNum: '',
+      page: []
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/Article/articleList').done(function(response) {
+      $.post('http://onebuy.ping-qu.com/Admin/Article/articleList',
+              {
+                psize: that.psize,
+                pn: 1
+              }
+      ).done(function(response) {
         that.articles = response.data.articlelist;
+
+        //计算数据页数
+        that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+        //初始化分页器数据
+        for (var i = 0; i < that.pageNum; i++) {
+          that.page.$set(i, i + 1);
+        }
+
       }).fail(function() {
         alert("文章数据请求失败");
       });
     },
     methods: {
-      deleteArticle: function(index) {
+      deleteArticle: function() {
         var that = this;
         $.post('http://onebuy.ping-qu.com/Admin/Article/articleDelete',
                 {
-                  id: that.articles[index].id
+                  id: that.articles[that.deleteId].id
                 }
         ).done(function(response) {
           if(response.errcode == '0'){
-            if(index == 0){
-              that.articles.shift();
-            } else {
-              that.articles.splice(index);
-            }
+            that.articles.splice(that.deleteId, 1);
+            $('#deleteTip').modal('close');
           } else {
             alert("删除失败");
           }
         }).fail(function() {
           alert("删除请求失败");
+        });
+      },
+      pageTurn: function(event, page) {
+        var that = this;
+        $.post('http://onebuy.ping-qu.com/Admin/Article/articleList',
+                {
+                  psize: that.psize,
+                  pn: page
+                }
+        ).done(function(response) {
+          that.articles = response.data.articlelist;
+
+          //为分页器页码设置激活状态
+          $('.am-pagination li').removeClass('am-active');
+          $(event.target.parentElement).addClass('am-active');
+
+        }).fail(function() {
+          alert("无法获得文章数据");
         });
       }
     }

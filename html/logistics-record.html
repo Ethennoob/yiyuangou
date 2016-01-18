@@ -23,10 +23,12 @@
     </div>
 
     <!--无记录时显示的信息-->
-    <div v-if="!logistics" class="text-center mt20 font-bold">暂无物流记录</div>
+    <div v-cloak v-if="!logistics" class="text-center width-full">
+        <img src="assets/img/no-record.png" class=" mt20 mb20" width="70">
+    </div>
 
     <!--物流状态列表-->
-    <ul class="logistics-list pl16 pr10 padding-vertical-20 bd-bottom bd-grey bg-white">
+    <ul v-cloak v-else class="logistics-list pl16 pr10 padding-vertical-20 bd-bottom bd-grey bg-white">
         <li v-for="item in logistics" v-bind:class="{'logistics-end': isEnd($index)}"><!-- logistics-end在已签收时才添加 logistics-end-->
             <div class="logistics-list-dot"></div>
             <div class="logistics-content">
@@ -36,37 +38,67 @@
         </li>
     </ul>
 
-    <!--所获商品信息-->
-    <div class="bg-white bd-top bd-bottom bd-grey grid-container margin-vertical-20">
-        <div class="bd-bottom bd-grey padding-horizontal-10 padding-vertical-10">
-            获得的商品
+    <!--收货地址-->
+    <div class="position-rl padding-vertical-10 width-full f13 bg-white bd-top bd-grey grid-container mt20">
+        <div class="f15 padding-horizontal-10 pb10 bd-bottom bd-grey">
+            收货地址
         </div>
-        <a href="goods-detail.html?goods_id={{goodsId}}&user_id={{userId}}" class="block row padding-horizontal-10 padding-vertical-10">
+        <div v-cloak v-if="showCheckBox" class="col-xs-2 position-st">
+            <span class="round-checkBox" v-on:click="select($index)" v-bind:class="{'checked': deleteId[$index]}"></span>
+        </div>
+        <ul v-cloak v-bind:class="{'pl10': !showCheckBox, 'col-xs-9': !showCheckBox, 'col-xs-7': showCheckBox}" v-cloak>
+            <li class="margin-vertical-5">
+                <span>{{goods.name}}</span>
+                <span>{{goods.mobile}}</span>
+            </li>
+            <li class="margin-vertical-5">
+                <span>{{goods.province}}</span>
+                <span>{{goods.city}}</span>
+                <span>{{goods.area}}</span>
+            </li>
+            <li class="margin-vertical-5">{{goods.street}}</li>
+        </ul>
+        <div v-cloak v-if="!logisticNum" class="col-xs-3 position-st">
+            <a href="address-select.html?bill_id={{goods.id}}&company_id={{companyId}}" class="edit-btn">
+                <i class="i-editAddress"></i>更改
+            </a>
+        </div>
+    </div>
 
-            <div class="col-xs-3">
-                <div class="product-small-img" v-bind:style="{'background-image': 'url(' + goods.goods_thumb + ')'}"></div>
+    <!--所获商品信息-->
+    <div class="pb50">
+        <div class="bg-white bd-top bd-bottom bd-grey grid-container margin-vertical-20 grid-container">
+            <div class="bd-bottom bd-grey padding-horizontal-10 padding-vertical-10 f15">
+                获得的商品
             </div>
+            <a href="pay/goods-detail.html?goods_id={{goodsId}}&company_id={{companyId}}"
+               class="block row logistics-goods-info f13 pt10 padding-horizontal-10" v-cloak>
 
-            <div class="col-xs-9">
-                <span v-cloak>{{goods.goods_title}}</span>
+                <!--商品缩略图-->
+                <div class="bd index-bd-grey index-goods-img-box fl">
+                    <img v-bind:src="goods.goods_thumb" width="100%">
+                </div>
+
+                <!--右侧商品描述-->
+                <div class="index-goods-desc">
+                    <span v-cloak class="text-ellipsis">{{goods.goods_title}}</span>
                 <span class="block mt5" v-cloak>本期购入{{goods.num}}人次
                 </span>
                 <span class="block mt5">中奖码
                     <span class="font-red" v-cloak>{{goods.code}}</span>
                 </span>
-                <span class="block font-grey mt5 f14" v-cloak>揭晓时间：{{goods.lucky_time | date}}</span>
-            </div>
-        </a>
+                    <span class="block font-grey mt5 f11" v-cloak>揭晓时间：{{goods.lucky_time | date}}</span>
+                </div>
+            </a>
+        </div>
     </div>
 
     <!--分享按钮-->
-    <div class="padding-horizontal-10 mb20">
-        <button class="btn bg-white share-btn" v-on:click="sharePopup">
-            <span class="mr5">
-                <img src="assets/i/share.png" height="16" />
-            </span>
-            分享求祝福
-        </button>
+    <div v-on:click="sharePopup" class="padding-vertical-10 text-center bd-top bd-grey bg-white position-fix bt0 width-full">
+        <span class="mr5">
+            <img src="assets/i/share.png" height="16" />
+        </span>
+        分享求祝福
     </div>
 
     <!--分享指引弹窗-->
@@ -78,46 +110,8 @@
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
-    <script type="text/javascript">
-        var logisticsApp = new Vue({
-            el: '#logisticsApp',
-            data: {
-                logistics: {},
-                logisticsState: '',
-                goods: {},
-                sharePopupVisible: false,
-                userId: '',
-                goodsId: ''
-            },
-            methods: {
-                isEnd: function (index) {
-                    return index == 0 && this.logisticsState == 3;
-                },
-                sharePopup: function () {
-                    this.sharePopupVisible = true;
-                },
-                sharePopupClose: function () {
-                    this.sharePopupVisible = false;
-                }
-
-            }
-        });
-        if(getParam('logistics_number') !== null){
-            $.post('http://onebuy.ping-qu.com/Api/User/getExpress', {logistics_number: getParam('logistics_number')}).done(function (data) {
-                logisticsApp.logistics = data.data.expressdetail.data;
-                logisticsApp.logisticsState = data.data.expressdetail.state;
-            }).fail(function () {
-                alert("请求失败");
-            });
-        }
-        $.post('http://onebuy.ping-qu.com/Api/Record/luckyOneDetail', {goods_id: getParam('goods_id')}).done(function (data) {
-            logisticsApp.goods = data.data.detail[0];
-            logisticsApp.userId = data.data.detail[0].user_id;
-            logisticsApp.goodsId = data.data.detail[0].goods_id;
-        }).fail(function () {
-            alert("请求失败");
-        });
-    </script>
+    <script type="text/javascript" src="assets/js/logisticsApp.js"></script>
 </body>
 </html>

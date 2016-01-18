@@ -21,161 +21,11 @@
   以获得更好的体验！</p>
 <![endif]-->
 
-<header class="am-topbar admin-header">
-  <div class="am-topbar-brand">
-    <strong>一元购</strong> <small>后台管理系统</small>
-  </div>
-
-  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
-    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
-      <li class="am-dropdown" data-am-dropdown>
-        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
-        </a>
-        <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-        </ul>
-      </li>
-      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-    </ul>
-  </div>
-</header>
+<topbar></topbar>
 
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
-    <div class="am-offcanvas-bar admin-offcanvas-bar">
-      <ul class="am-list admin-sidebar-list">
-        <li>
-          <a href="index.html">
-            <span class="am-icon-home"></span> 首页
-          </a>
-        </li>
-        <li>
-          <a href="user.html">
-            <span class="am-icon-users"></span> 会员管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#goods-nav'}">
-            <span class="am-icon-shopping-cart"></span> 商品管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="goods-nav">
-            <li>
-              <a href="add-goods.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加商品
-              </a>
-            </li>
-            <li>
-              <a href="goods-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 商品列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#thematic-nav'}">
-            <span class="am-icon-bookmark"></span> 专题管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="thematic-nav">
-            <li>
-              <a href="add-thematic.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加专题
-              </a>
-            </li>
-            <li>
-              <a href="thematic-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 专题列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#article-nav'}">
-            <span class="am-icon-newspaper-o"></span> 文章管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="article-nav">
-            <li>
-              <a href="add-article.html" class="am-cf">
-                <span class="am-icon-plus"></span> 发表文章
-              </a>
-            </li>
-            <li>
-              <a href="article-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 文章列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="sale-list.html">
-            <span class="am-icon-money"></span> 销售明细
-          </a>
-        </li>
-        <li>
-          <a href="prize-status.html">
-            <span class="am-icon-gift"></span> 中奖情况
-          </a>
-        </li>
-        <li>
-          <a href="order.html">
-            <span class="am-icon-file-text"></span> 订单管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#logistics-nav'}">
-            <span class="am-icon-truck"></span> 物流管理
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="logistics-nav">
-            <li>
-              <a href="add-logistics.html" class="am-cf">
-                <span class="am-icon-plus"></span> 添加物流单
-              </a>
-            </li>
-            <li>
-              <a href="logistics-list.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 物流单列表
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="administrator.html">
-            <span class="am-icon-user"></span> 后台管理员管理
-          </a>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#system-nav'}">
-            <span class="am-icon-gears"></span> 系统设置
-            <span class="am-icon-angle-right am-fr am-margin-right"></span>
-          </a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="system-nav">
-            <li>
-              <a href="limit-set.html" class="am-cf">
-                <span class="am-icon-list-alt"></span> 认购上限设置
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-            <span class="am-icon-sign-out"></span> 注销
-          </a>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+  <sidebar></sidebar>
   <!-- sidebar end -->
 
   <!-- content start -->
@@ -200,7 +50,7 @@
           </div>
 
           <div class="am-u-sm-11 am-u-sm-push-1 am-margin-bottom">
-            <textarea v-model="content" class="form-control" name="article-content"></textarea>
+            <script id="editor" type="text/plain" name="article-content" style="width:100%;height:360px;"></script>
           </div>
 
           <div class="am-form-group">
@@ -243,7 +93,13 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/base.js"></script>
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+
+<!--ueditor脚本-->
+<script type="text/javascript" charset="utf-8" src="assets/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="assets/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="assets/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--ueditor脚本-end-->
+
 <script type="text/javascript">
   var addArticleApp = new Vue({
     el: '#addArticleApp',
@@ -255,8 +111,8 @@
     },
     created: function() {
       var that = this;
-      that.editor = CKEDITOR.replace('article-content');
-      if(getParam('article_id')){
+
+      if (getParam('article_id')) {
         $.post('http://onebuy.ping-qu.com/Admin/Article/articleOneDetail',
                 {
                   article_id: getParam('article_id')
@@ -265,16 +121,23 @@
           that.title = res.data.article.title;
           that.content = res.data.article.content;
           that.articleId = getParam('article_id');
-          CKupdate();
+          //初始化编辑器
+          that.editor = UE.getEditor('editor').ready(function() {
+            this.setContent(addArticleApp.content);//为编辑器实例插入内容
+            that.editor = this;
+          });
+
         }).fail(function() {
           alert("请求失败");
         });
+      } else {
+        that.editor = UE.getEditor('editor');
       }
     },
     methods: {
       addArticle: function() {
         var that = this;
-        that.content = that.editor.getData();
+        that.content = that.editor.getContent();
         $.post('http://onebuy.ping-qu.com/Admin/Article/articleAdd',
                 {
                   title: that.title,
@@ -292,7 +155,7 @@
       },
       editArticle: function() {
         var that = this;
-        that.content = that.editor.getData();
+        that.content = that.editor.getContent();
         $.post('http://onebuy.ping-qu.com/Admin/Article/articleEdit',
                 {
                   id: that.articleId,
@@ -311,11 +174,6 @@
       }
     }
   });
-  function CKupdate() {//解决Ckedit不能与ajax一同使用问题
-    for(instance in CKEDITOR.instances){
-      CKEDITOR.instances[instance].updateElement();
-    }
-  }
 </script>
 </body>
 </html>
