@@ -3,15 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>专题列表</title>
-    <meta name="description" content="这是一个 table 页面">
-    <meta name="keywords" content="table">
+    <title>专区列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/app.css">
@@ -63,33 +57,33 @@
                     <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>专区名</th>
-                            <th>二维码</th>
-                            <th>添加时间</th>
-                            <th>更新时间</th>
-                            <th>操作</th>
+                            <th class="am-text-middle">ID</th>
+                            <th class="am-text-middle">专区名</th>
+                            <th class="am-text-middle">二维码</th>
+                            <th class="am-text-middle">添加时间</th>
+                            <th class="am-text-middle">更新时间</th>
+                            <th class="am-text-middle">操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="item in companyList">
-                            <td>{{item.id}}</td>
-                            <td>{{item.company_name}}</td>
-                            <td>
+                            <td class="am-text-middle">{{item.id}}</td>
+                            <td class="am-text-middle">{{item.company_name}}</td>
+                            <td class="am-text-middle">
                                 <img v-bind:src="item.QR_code" width="100">
                             </td>
-                            <td>{{item.add_time}}</td>
-                            <td>{{item.update_time}}</td>
-                            <td>
-                                <a href="{{item.QR_code}}" class="am-btn am-btn-success am-btn-xs">
+                            <td class="am-text-middle">{{item.add_time}}</td>
+                            <td class="am-text-middle">{{item.update_time}}</td>
+                            <td class="am-text-middle">
+                                <button type="button" v-on:click="downLoad(item.QR_code)" class="am-btn am-btn-success am-btn-xs">
                                     <span class="am-icon-pencil-square-o"></span> 下载二维码
-                                </a>
+                                </button>
                                 <a href="add-area.html?company_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
                                     <span class="am-icon-pencil-square-o"></span> 详情
                                 </a>
                                 <button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">
                                     <span class="am-icon-times"></span> 删除
-                                </button
+                                </button>
                             </td>
                         </tr>
                         </tbody>
@@ -217,6 +211,11 @@
                 }).fail(function() {
                     alert("无法获得专区数据");
                 });
+            },
+            downLoad:function(url) {
+                var str = url.substr(url.indexOf('images') - 1);
+                console.log(str);
+                window.location = 'http://onebuy.ping-qu.com/Admin/Company/downFile?url=' + str;
             }
         }
     });

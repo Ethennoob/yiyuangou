@@ -48,7 +48,6 @@ class ThematicController extends BaseClass {
      */
     public function thematicOneEdit(){
        $rule = [
-            'company_id'     =>['egNum'],
             'id'              =>['egNum'],//已有会员id
             'thematic_name'   =>[],
             'status'           =>['in',[0,2]],
@@ -95,11 +94,19 @@ class ThematicController extends BaseClass {
      * 模糊查询专题列表(通过专题名)
      */
     public function thematicListName(){
-        $pageInfo = $this->P();
         $this->V(['thematic_name'=>[]]);
         $thematic_name = $_POST['thematic_name'];
+        if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+                
+             $where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where='is_on = 1 and company_id = "'.$id.'" and thematic_name like "%'.$thematic_name.'%"';
+        }
+        $pageInfo = $this->P();
         $file = ['id','thematic_name','nature','status','is_show','add_time'];
-        $where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
+        
         $class = $this->table('thematic')->where($where)->order('add_time desc');
 
         //查询并分页
@@ -134,11 +141,19 @@ class ThematicController extends BaseClass {
      * 模糊查询专题列表(通过专题状态：0进行中,1即将揭晓,2已揭晓)
      */
     public function thematicListStatus(){
-        $pageInfo = $this->P();
+        
         $this->V(['status'=>['num']]);
         $status = $_POST['status'];
+        if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+             $where = 'is_on = 1 and status = "'.$status.'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where='is_on = 1 and company_id = "'.$id.'" and status = "'.$status.'"';
+        }
+        $pageInfo = $this->P();
         $file = ['id','thematic_name','nature','status','is_show','add_time'];
-        $where = 'is_on = 1 and status = "'.$status.'"';
+        //$where = 'is_on = 1 and status = "'.$status.'"';
         $class = $this->table('thematic')->where($where)->order('add_time desc');
 
         //查询并分页
@@ -173,13 +188,21 @@ class ThematicController extends BaseClass {
      * 模糊查询专题列表(通过专题添加时间)
      */
     public function thematicListTime(){
-        $pageInfo = $this->P();
+        
         $this->V(['add_time'=>[]]);
         $add_time = $_POST['add_time'];
         $time1 = intval(strtotime($add_time));
         $time2 = $time1+24*3600;
         $file = ['id','thematic_name','nature','status','is_show','add_time'];
-        $where = 'is_on = 1 and add_time > "'.$time1.'" and add_time < "'.$time2.'"';
+        
+        if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+             $where = 'is_on = 1 and add_time > "'.$time1.'" and add_time < "'.$time2.'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where='is_on = 1 and company_id = "'.$id.'" and add_time > "'.$time1.'" and add_time < "'.$time2.'"';
+        }
+        $pageInfo = $this->P();
         $class = $this->table('thematic')->where($where)->order('add_time desc');
 
         //查询并分页
@@ -214,12 +237,16 @@ class ThematicController extends BaseClass {
      * 查询专题列表(分页)
      */
     public function thematicList(){
-        $this->V(['company_id'=>['egNum',null,true]]);
-        $id = intval($_POST['company_id']);
         $pageInfo = $this->P();
-        $file = ['id','thematic_name','nature','status','is_show','add_time'];
-
-        $class = $this->table('thematic')->where(['is_on'=>1,'company_id'=>$id])->order('add_time desc');
+        if (isset($_POST['company_id'])) {
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = intval($_POST['company_id']);
+            $file = ['id','thematic_name','nature','status','is_show','add_time'];
+            $class = $this->table('thematic')->where(['is_on'=>1,'company_id'=>$company_id])->order('add_time desc');
+        }else{
+            $file = ['id','thematic_name','nature','status','is_show','add_time'];
+            $class = $this->table('thematic')->where(['is_on'=>1])->order('add_time desc');
+        }
 
         //查询并分页
         $thematicpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
@@ -234,7 +261,7 @@ class ThematicController extends BaseClass {
                 if(!$goodspage){
                     $goodspage=null;
                 }
-                $status = $this->table('company')->where(['is_on'=>1,'id'=>$id])->get(['company_name'],true);
+                $status = $this->table('company')->where(['is_on'=>1,'id'=>$v['id']])->get(['company_name'],true);
                 $thematicpage [$k]['company_name'] = $status['company_name'];
                 /*$count = count($goodsarr);
                     for ($i=0; $i < $count; $i++) { 

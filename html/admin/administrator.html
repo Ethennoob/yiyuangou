@@ -38,26 +38,26 @@
           <table class="am-table am-table-striped am-table-hover am-table-centered">
             <thead>
               <tr>
-                <th>管理员ID</th>
-                <th>管理员账户名</th>
-                <th>管理员电话</th>
-                <th>管理员邮箱</th>
-                <th>管理员等级</th>
-                <th>最后登录时间</th>
-                <th>注册时间</th>
-                <th>操作</th>
+                <th class="am-text-middle">管理员ID</th>
+                <th class="am-text-middle">管理员账户名</th>
+                <th class="am-text-middle">管理员电话</th>
+                <th class="am-text-middle">管理员邮箱</th>
+                <th class="am-text-middle">管理员等级</th>
+                <th class="am-text-middle">最后登录时间</th>
+                <th class="am-text-middle">注册时间</th>
+                <th class="am-text-middle">操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in administrators" v-cloak>
-                <td>{{item.id}}</td>
-                <td >{{item.manager_name}}</td>
-                <td>{{item.manager_phone}}</td>
-                <td>{{item.manager_email}}</td>
-                <td>{{item.manager_level}}</td>
-                <td>{{item.manager_endlogin}}</td>
-                <td>{{item.add_time}}</td>
-                <td>
+                <td class="am-text-middle">{{item.id}}</td>
+                <td class="am-text-middle">{{item.manager_name}}</td>
+                <td class="am-text-middle">{{item.manager_phone}}</td>
+                <td class="am-text-middle">{{item.manager_email}}</td>
+                <td class="am-text-middle">{{item.manager_level}}</td>
+                <td class="am-text-middle">{{item.manager_endlogin}}</td>
+                <td class="am-text-middle">{{item.add_time}}</td>
+                <td class="am-text-middle">
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
                       <a href="administrator-detail.html?manager_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">

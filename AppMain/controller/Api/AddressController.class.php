@@ -5,12 +5,18 @@
      * 用户收货地址类
      */
     class AddressController extends BaseClass {
-        public function test(){
-            $db = 'DB_GROUPBUY';
-            $seo = $this->table('seo',$db)->get(null,true);
-            var_dump($seo);
-            exit();
-        }
+
+public function downFile()
+{
+$file = "/images/company/1452755124.png";
+    //header("Content-type: application/octet-stream");
+    header("Content-type: image/png");
+    header("Content-Disposition: attachment; filename= '1452755124.png'");
+    header("Content-Length: ". filesize($file));
+    readfile($file);
+
+}
+
         /**
          * 添加用户收货地址
          */

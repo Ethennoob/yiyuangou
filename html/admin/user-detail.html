@@ -189,7 +189,9 @@
                 }
         ).done(function(response) {
           if(response.errcode == '0'){
-            window.location = 'user.html';
+            window.location = 'user.html?searchType=' + getParam('searchType')
+              + '&searchText=' + getParam('searchText')
+              + '&pn=' + getParam('pn');
           } else {
             alert("修改失败");
           }

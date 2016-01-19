@@ -944,6 +944,7 @@
             
             if ($filename === false) {
                 Header("Content-type: image/png");
+                //header("Content-type:text/html; charset=utf-8");
                 ImagePng($image,"../html/images/company/".$pngName.".png");
             } else {
                 if($saveandprint===TRUE){
@@ -997,8 +998,8 @@
                 }
             }
             
-            $target_image =ImageCreate($imgW * $pixelPerPoint, $imgH * $pixelPerPoint);
-            ImageCopyResized($target_image, $base_image, 0, 0, 0, 0, $imgW * $pixelPerPoint, $imgH * $pixelPerPoint, $imgW, $imgH);
+            $target_image =ImageCreate($imgW * $pixelPerPoint+260, $imgH * $pixelPerPoint+260);
+            ImageCopyResized($target_image, $base_image, 0, 0, 0, 0, $imgW * $pixelPerPoint+260, $imgH * $pixelPerPoint+260, $imgW, $imgH);
             ImageDestroy($base_image);
             
             return $target_image;

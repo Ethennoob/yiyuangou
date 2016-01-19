@@ -4,14 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>专题列表</title>
-  <meta name="description" content="这是一个 table 页面">
-  <meta name="keywords" content="table">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
   <link rel="stylesheet" href="assets/css/app.css">
@@ -39,35 +33,60 @@
     </div>
 
     <div class="am-g am-form am-form-horizontal">
-      <div class="am-form-group">
-        <label class="am-u-sm-2 am-text-right">专区选择</label>
-        <div class="am-u-sm-4 am-u-end">
-          <select v-cloak v-on:change="loadThematic()" v-model="companyId" name="company_id">
-            <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
-          </select>
+      <div class="am-form-group am-u-sm-3">
+        <label>专区选择</label>
+        <select v-cloak v-model="companyId" name="company_id">
+          <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
+        </select>
+      </div>
+      <div class="am-form-group am-u-sm-3">
+        <label>搜索字段</label>
+        <select v-model="searchType">
+          <option value="thematic_name" selected>专题名</option>
+          <option value="status">状态</option>
+          <option value="add_time">添加时间</option>
+        </select>
+      </div>
+
+      <!--专题状态-->
+      <div v-if="searchType == 'status'" class="am-form-group am-u-sm-6" v-cloak>
+        <label class="am-block">状态</label>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="is_follow" value="0">
+            进行中
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="is_follow" value="1">
+            即将揭晓
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="is_follow" value="2">
+            已揭晓
+          </label>
+        </div>
+        <div class="am-inline-block am-margin-left-sm">
+          <button v-on:click="search()" type="button" class="am-btn am-btn-primary">搜索</button>
         </div>
       </div>
+
+      <div v-else class="am-form-group am-u-sm-6" v-cloak>
+        <label>搜索内容</label>
+        <div class="am-input-group">
+          <input v-if="searchType == 'add_time'" v-model="searchText" type="text" class="am-form-field" placeholder="例：2016-01-10" v-cloak>
+          <input v-else v-model="searchText" type="text" class="am-form-field" v-cloak>
+          <span class="am-input-group-btn">
+            <button v-on:click="search()" class="am-btn am-btn-primary" type="button">搜索</button>
+          </span>
+        </div>
+      </div>
+
     </div>
 
-
-    <!--<div class="am-g">-->
-      <!--<div class="am-u-sm-12 am-u-md-3">-->
-        <!--<div class="am-form-group">-->
-          <!--<select data-am-selected="{btnSize: 'sm'}">-->
-            <!--<option value="0" selected>实物</option>-->
-            <!--<option value="1">虚拟</option>-->
-          <!--</select>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="am-u-sm-12 am-u-md-3">-->
-        <!--<div class="am-input-group am-input-group-sm">-->
-          <!--<input type="text" class="am-form-field">-->
-          <!--<span class="am-input-group-btn">-->
-            <!--<button class="am-btn am-btn-default" type="button">搜索</button>-->
-          <!--</span>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
 
     <div class="am-g">
       <div class="am-u-sm-12">
@@ -75,31 +94,31 @@
           <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>专题名</th>
-                <th>状态</th>
-                <th>是否显示</th>
-                <th>添加时间</th>
-                <th>商品列表</th>
-                <th>操作</th>
+                <th class="am-text-middle">ID</th>
+                <th class="am-text-middle">专题名</th>
+                <th class="am-text-middle">状态</th>
+                <th class="am-text-middle">是否显示</th>
+                <th class="am-text-middle">添加时间</th>
+                <th class="am-text-middle">商品列表</th>
+                <th class="am-text-middle">操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in thematicInfo">
-                <td>{{item.id}}</td>
-                <td>{{item.thematic_name}}</td>
-                <td v-if="item.status == '0'">进行中</td>
-                <td v-if="item.status == '1'">即将揭晓</td>
-                <td v-if="item.status == '2'">已揭晓</td>
-                <td v-if="item.is_show == '0'">不显示</td>
-                <td v-if="item.is_show == '1'">显示</td>
-                <td>{{item.add_time}}</td>
-                <td>
+                <td class="am-text-middle">{{item.id}}</td>
+                <td class="am-text-middle">{{item.thematic_name}}</td>
+                <td class="am-text-middle" v-if="item.status == '0'">进行中</td>
+                <td class="am-text-middle" v-if="item.status == '1'">即将揭晓</td>
+                <td class="am-text-middle" v-if="item.status == '2'">已揭晓</td>
+                <td class="am-text-middle" v-if="item.is_show == '0'">不显示</td>
+                <td class="am-text-middle" v-if="item.is_show == '1'">显示</td>
+                <td class="am-text-middle">{{item.add_time}}</td>
+                <td class="am-text-middle">
                   <div v-on:click="showGoods($index)" class="am-btn am-btn-primary am-btn-xs">
                     <span class="am-icon-eye"></span> 查看
                   </div>
                 </td>
-                <td>
+                <td class="am-text-middle">
                   <a href="thematic-detail.html?thematic_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
                     <span class="am-icon-pencil-square-o"></span> 查看详情
                   </a>
@@ -191,16 +210,23 @@
       //获取专区数据
       $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
         that.companyList = res.data.company;
+        that.companyList.unshift({id: 0, company_name: "全部"});
         that.companyId = that.companyList[0].id;
 
         //加载专区列表
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList',
-                {
-                  psize: that.psize,
-                  pn: 1,
-                  company_id: that.companyId
-                }
-        ).done(function(response) {
+        if (that.companyId == 0) {
+          var postData = {
+            psize: that.psize,
+            pn: 1
+          };
+        } else {
+          var postData = {
+            psize: that.psize,
+            pn: 1,
+            company_id: that.companyId
+          };
+        }
+        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList', postData).done(function(response) {
           that.thematicInfo = response.data.thematicpage;
 
           //计算数据页数
@@ -223,18 +249,25 @@
       loadThematic: function() {
         var that = this;
         //加载专题列表
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList',
-                {
-                  psize: that.psize,
-                  pn: 1,
-                  company_id: that.companyId
-                }
-        ).done(function(response) {
+        if (that.companyId == 0) {
+          var postData = {
+            psize: that.psize,
+            pn: 1
+          };
+        } else {
+          var postData = {
+            psize: that.psize,
+            pn: 1,
+            company_id: that.companyId
+          };
+        }
+        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList', postData).done(function(response) {
           that.thematicInfo = response.data.thematicpage;
 
           //计算数据页数
           that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
           //初始化分页器数据
+          that.page = [];
           for (var i = 0; i < that.pageNum; i++) {
             that.page.$set(i, i + 1);
           }

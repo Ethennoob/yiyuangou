@@ -51,7 +51,7 @@
           <label class="am-u-sm-4 am-text-right">搜索字段</label>
           <div class="am-u-sm-8 am-u-end">
             <select v-model="searchType">
-              <option value="all" selected>全部会员</option>
+              <option value="all">全部会员</option>
               <option value="nickname">昵称</option>
               <option value="mobile">手机</option>
               <option value="is_follow">是否关注公众号</option>
@@ -113,25 +113,25 @@
           <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
               <tr>
-                <th>头像</th>
-                <th>昵称</th>
-                <th>手机号</th>
-                <th>最后一次登录时间</th>
-                <th>注册时间</th>
-                <th class="am-text-nowrap">操作</th>
+                <th class="am-text-middle">头像</th>
+                <th class="am-text-middle">昵称</th>
+                <th class="am-text-middle">手机号</th>
+                <th class="am-text-middle">最后一次登录时间</th>
+                <th class="am-text-middle">注册时间</th>
+                <th class="am-text-nowrap am-text-middle">操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in user" v-cloak>
-                <td>
+                <td class="am-text-middle">
                   <img v-bind:src="item.user_img" class="am-round" width="50">
                 </td>
-                <td>{{item.nickname}}</td>
-                <td>{{item.phone}}</td>
-                <td>{{item.last_login}}</td>
-                <td>{{item.add_time}}</td>
-                <td class="am-text-nowrap">
-                  <a href="user-detail.html?user_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
+                <td class="am-text-middle">{{item.nickname}}</td>
+                <td class="am-text-middle">{{item.phone}}</td>
+                <td class="am-text-middle">{{item.last_login}}</td>
+                <td class="am-text-middle">{{item.add_time}}</td>
+                <td class="am-text-nowrap am-text-middle">
+                  <a v-bind:href="detailHref(item.id)" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
                     <span class="am-icon-pencil-square-o"></span> 详情
                   </a>
                   <button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">
@@ -215,38 +215,50 @@
     data: {
       user: [],
       deleteId: '',
-      searchType: '',//记录搜索的字段
+      searchType: 'all',//记录搜索的字段
       searchText: '',//搜索的内容
       psize: 15,
       pageNum: '',
-      page: []
+      page: [],
+      currentPage: 1
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/User/userList',
+      if (location.href.indexOf('?') != -1) {
+        that.searchText = decodeURI(getParam('searchText'));
+        that.searchType = getParam('searchType');
+        that.search(getParam('pn'));
+      } else {
+        $.post('http://onebuy.ping-qu.com/Admin/User/userList',
               {
                 psize: that.psize,
                 pn: 1
               }
-      ).done(function(response) {
-        that.user = response.data.userpage;
+        ).done(function(response) {
+          that.user = response.data.userpage;
 
-        //计算数据页数
-        that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
-        //初始化分页器数据
-        that.page = [];
-        for (var i = 0; i < that.pageNum; i++) {
-          that.page.$set(i, i + 1);
-        }
+          //计算数据页数
+          that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+          //初始化分页器数据
+          that.page = [];
+          for (var i = 0; i < that.pageNum; i++) {
+            that.page.$set(i, i + 1);
+          }
 
-      }).fail(function() {
-        alert("无法获得用户数据");
-      });
+        }).fail(function() {
+          alert("无法获得用户数据");
+        });
+      }
     },
     methods: {
       search: function(page) {
-        var that = this;
+        this.searchType = this.searchType ? this.searchType : getParam('searchType');
+        if (this.searchType != 'all') {
+          this.searchText = this.searchText ? this.searchText : decodeURI(getParam('searchText'));
+        }
         page = page > 0 ? page : 1;
+        this.currentPage = page;
+        var that = this;
         switch (this.searchType) {
           case 'all':
             $.post('http://onebuy.ping-qu.com/Admin/User/userList',
@@ -286,6 +298,7 @@
               for (var i = 0; i < that.pageNum; i++) {
                 that.page.$set(i, i + 1);
               }
+
             }).fail(function() {
               alert("搜索请求失败");
             });
@@ -308,6 +321,7 @@
               for (var i = 0; i < that.pageNum; i++) {
                 that.page.$set(i, i + 1);
               }
+
             }).fail(function() {
               alert("搜索请求失败");
             });
@@ -330,6 +344,7 @@
               for (var i = 0; i < that.pageNum; i++) {
                 that.page.$set(i, i + 1);
               }
+
             }).fail(function() {
               alert("搜索请求失败");
             });
@@ -352,6 +367,7 @@
               for (var i = 0; i < that.pageNum; i++) {
                 that.page.$set(i, i + 1);
               }
+
             }).fail(function() {
               alert("搜索请求失败");
             });
@@ -360,6 +376,10 @@
           default:
             alert("缺少搜索字段");
         }
+      },
+      detailHref: function(userId) {
+        return 'user-detail.html?user_id=' + userId + '&searchType=' + this.searchType
+                + '&searchText=' + encodeURI(this.searchText) + '&pn=' + this.currentPage;
       },
       deleteUser: function() {
         var that = this;

@@ -64,24 +64,24 @@
           <table v-show="filterData.thematic_id" class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
             <tr>
-              <th>商品名称</th>
-              <th>销售价</th>
-              <th>添加时间</th>
-              <th>商品总数</th>
-              <th>已购买数量</th>
-              <th>剩余数量</th>
-              <th>操作</th>
+              <th class="am-text-middle">商品名称</th>
+              <th class="am-text-middle">销售价</th>
+              <th class="am-text-middle">添加时间</th>
+              <th class="am-text-middle">商品总数</th>
+              <th class="am-text-middle">已购买数量</th>
+              <th class="am-text-middle">剩余数量</th>
+              <th class="am-text-middle">操作</th>
             </tr>
             </thead>
             <tbody>
             <tr v-cloak v-for="item in goods">
-              <td>{{item.goods_name}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.add_time}}</td>
-              <td>{{item.total_num}}</td>
-              <td>{{item.purchase_num}}</td>
-              <td>{{item.last_num}}</td>
-              <td>
+              <td class="am-text-middle">{{item.goods_name}}</td>
+              <td class="am-text-middle">{{item.price}}</td>
+              <td class="am-text-middle">{{item.add_time}}</td>
+              <td class="am-text-middle">{{item.total_num}}</td>
+              <td class="am-text-middle">{{item.purchase_num}}</td>
+              <td class="am-text-middle">{{item.last_num}}</td>
+              <td class="am-text-middle">
                 <a href="sale-detail.html?goods_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
                   <span class="am-icon-pencil-square-o"></span> 查看详情
                 </a>

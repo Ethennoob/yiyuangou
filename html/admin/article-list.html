@@ -43,14 +43,14 @@
           <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
               <tr>
-                <th>文章标题</th>
-                <th>操作</th>
+                <th class="am-text-middle">文章标题</th>
+                <th class="am-text-middle">操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in articles">
-                <td>{{item.title}}</td>
-                <td>
+                <td class="am-text-middle">{{item.title}}</td>
+                <td class="am-text-middle">
                   <a href="add-article.html?article_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
                     <span class="am-icon-pencil-square-o"></span> 修改
                   </a>

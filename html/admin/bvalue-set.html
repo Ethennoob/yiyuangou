@@ -69,24 +69,16 @@
     <table v-if="rollGoods" v-cloak class="am-table am-table-striped am-table-hover table-main am-table-centered">
       <thead>
         <tr>
-          <th>专区</th>
-          <th>专题</th>
-          <th>商品名称</th>
+          <th class="am-text-middle">专区</th>
+          <th class="am-text-middle">专题</th>
+          <th class="am-text-middle">商品名称</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="item in rollGoods">
-          <td>{{item.company_name}}</td>
-          <td>{{item.thematic_name}}</td>
-          <td>{{item.goods_name}}</td>
-          <!--<td>-->
-            <!--<a href="add-article.html?article_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">-->
-              <!--<span class="am-icon-pencil-square-o"></span> 修改-->
-            <!--</a>-->
-            <!--<button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">-->
-              <!--<span class="am-icon-times"></span> 删除-->
-            <!--</button>-->
-          <!--</td>-->
+          <td class="am-text-middle">{{item.company_name}}</td>
+          <td class="am-text-middle">{{item.thematic_name}}</td>
+          <td class="am-text-middle">{{item.goods_name}}</td>
         </tr>
       </tbody>
     </table>

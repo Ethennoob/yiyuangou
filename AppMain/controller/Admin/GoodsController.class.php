@@ -156,21 +156,31 @@ class GoodsController extends BaseClass {
      * 查询一条商品列表(分页)
      */
     public function goodsList(){
-        $this->V(['company_id'=>['egNum']]);
-        $company_id = intval($_POST['company_id']); 
-        $this->V(['thematic_id'=>['egNum']]);
-        $id = intval($_POST['thematic_id']);
         $pageInfo = $this->P();
-        $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
-
-        $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id,'company_id'=>$company_id])->order('add_time desc');
+        if (isset($_POST['company_id'])&&isset($_POST['thematic_id'])) {
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = intval($_POST['company_id']); 
+            $this->V(['thematic_id'=>['egNum']]);
+            $id = intval($_POST['thematic_id']);
+            $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id,'company_id'=>$company_id])->order('add_time desc');
+        }if(isset($_POST['company_id']) && !isset($_POST['thematic_id'])){
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = intval($_POST['company_id']);
+            $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $class = $this->table('goods')->where(['is_on'=>1,'company_id'=>$company_id])->order('add_time desc');
+        }elseif(!isset($_POST['company_id'])){
+            $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $class = $this->table('goods')->where(['is_on'=>1])->order('add_time desc');
+        }
+        
 
         //查询并分页
         $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
         if($goodspage ){
             foreach ($goodspage  as $k=>$v){
                 $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$id])->get(['thematic_name'],true);
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
                 $goodspage [$k]['thematic_name'] = $status['thematic_name'];
                 unset($goodspage [$k]['thematic_id']);
             }
@@ -185,11 +195,26 @@ class GoodsController extends BaseClass {
      * 模糊查询（商品名称）
      */
     public function goodsListName(){
+
         $this->V(['goods_name'=>[]]);
         $goods_name = $_POST['goods_name'];
+        if ((empty($_POST['thematic_id'])||!isset($_POST['thematic_id']))&&(empty($_POST['company_id'])||!isset($_POST['company_id']))) {
+            $where = 'is_on = 1 and goods_name like "%'.$goods_name.'%"';
+        }elseif(empty($_POST['thematic_id'])||!isset($_POST['thematic_id'])){
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and goods_name like "%'.$goods_name.'%"';
+        }else{
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $this->V(['thematic_id'=>['egNum']]);
+            $thematic_id = $_POST['thematic_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and thematic_id = "'.$thematic_id.'" and goods_name like "%'.$goods_name.'%"';
+        }
+       
         $pageInfo = $this->P();
         $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
-        $where = 'is_on = 1 and goods_name like "%'.$goods_name.'%"';
+        //$where = 'is_on = 1 and goods_name like "%'.$goods_name.'%"';
         $class = $this->table('goods')->where($where)->order('add_time desc');
 
         //查询并分页
@@ -214,9 +239,22 @@ class GoodsController extends BaseClass {
     public function goodsListSn(){
         $this->V(['goods_sn'=>[]]);
         $goods_sn = $_POST['goods_sn'];
+        if ((empty($_POST['thematic_id'])||!isset($_POST['thematic_id']))&&(empty($_POST['company_id'])||!isset($_POST['company_id']))) {
+            $where = 'is_on = 1 and goods_sn like "%'.$goods_sn.'%"';
+        }elseif(empty($_POST['thematic_id'])||!isset($_POST['thematic_id'])){
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and goods_sn like "%'.$goods_sn.'%"';
+        }else{
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $this->V(['thematic_id'=>['egNum']]);
+            $thematic_id = $_POST['thematic_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and thematic_id = "'.$thematic_id.'" and goods_sn like "%'.$goods_sn.'%"';
+        }
         $pageInfo = $this->P();
         $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
-        $where = 'is_on = 1 and goods_sn like "%'.$goods_sn.'%"';
+        //$where = 'is_on = 1 and goods_sn like "%'.$goods_sn.'%"';
         $class = $this->table('goods')->where($where)->order('add_time desc');
 
         //查询并分页
@@ -241,7 +279,20 @@ class GoodsController extends BaseClass {
     public function goodsListThematic(){
         $this->V(['thematic_name'=>[]]);
         $thematic_name = $_POST['thematic_name'];
-        $where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
+        if ((empty($_POST['thematic_id'])||!isset($_POST['thematic_id']))&&(empty($_POST['company_id'])||!isset($_POST['company_id']))) {
+            $where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
+        }elseif(empty($_POST['thematic_id'])||!isset($_POST['thematic_id'])){
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and thematic_name like "%'.$thematic_name.'%"';
+        }else{
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $this->V(['thematic_id'=>['egNum']]);
+            $thematic_id = $_POST['thematic_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and thematic_id = "'.$thematic_id.'" and thematic_name like "%'.$thematic_name.'%"';
+        }
+        //$where = 'is_on = 1 and thematic_name like "%'.$thematic_name.'%"';
         $thematic = $this->table('thematic')->where($where)->get(['id'],true);
         $pageInfo = $this->P();
         $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
@@ -263,6 +314,84 @@ class GoodsController extends BaseClass {
         //返回数据，参见System/BaseClass.class.php方法
         $this->R(['goodspage'=>$goodspage,'pageInfo'=>$pageInfo]);
         
+    }
+    /**
+     * 模糊查询（是否实物 0为实物 1为虚拟券）
+     */
+    public function goodsListNature(){
+        $this->V(['nature'=>['num']]);
+        $nature = $_POST['nature'];
+        if ((empty($_POST['thematic_id'])||!isset($_POST['thematic_id']))&&(empty($_POST['company_id'])||!isset($_POST['company_id']))) {
+            $where = 'is_on = 1 and nature = "'.$nature.'"';
+        }elseif(empty($_POST['thematic_id'])||!isset($_POST['thematic_id'])){
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and nature = "'.$nature.'"';
+        }else{
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $this->V(['thematic_id'=>['egNum']]);
+            $thematic_id = $_POST['thematic_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and thematic_id = "'.$thematic_id.'" and nature = "'.$nature.'"';
+        }
+        $pageInfo = $this->P();
+        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
+        //$where = 'is_on = 1 and nature like "%'.$nature.'%"';
+        $class = $this->table('goods')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($goodspage ){
+            foreach ($goodspage  as $k=>$v){
+                $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodspage[$k]['id']])->get(['thematic_name'],true);
+                $goodspage [$k]['thematic_name'] = $status['thematic_name'];
+                unset($goodspage [$k]['thematic_id']);
+            }
+        }else{
+            $goodspage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['goodspage'=>$goodspage,'pageInfo'=>$pageInfo]);
+    }
+    /**
+     * 模糊查询（价格）
+     */
+    public function goodsListPrice(){
+        $this->V(['price'=>['num']]);
+        $price = $_POST['price'];
+        if ((empty($_POST['thematic_id'])||!isset($_POST['thematic_id']))&&(empty($_POST['company_id'])||!isset($_POST['company_id']))) {
+            $where = 'is_on = 1 and price = "'.$price.'"';
+        }elseif(empty($_POST['thematic_id'])||!isset($_POST['thematic_id'])){
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and price = "'.$price.'"';
+        }else{
+            $this->V(['company_id'=>['egNum']]);
+            $company_id = $_POST['company_id'];
+            $this->V(['thematic_id'=>['egNum']]);
+            $thematic_id = $_POST['thematic_id'];
+            $where = 'is_on = 1 and company_id = "'.$company_id.'" and thematic_id = "'.$thematic_id.'" and price = "'.$price.'"';
+        }
+        $pageInfo = $this->P();
+        $file = ['id','goods_sn','thematic_id','goods_name','cost_price','price','free_post','is_show','limit_num','add_time'];
+        //$where = 'is_on = 1 and price like "%'.$price.'%"';
+        $class = $this->table('goods')->where($where)->order('add_time desc');
+
+        //查询并分页
+        $goodspage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
+        if($goodspage ){
+            foreach ($goodspage  as $k=>$v){
+                $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$goodspage[$k]['id']])->get(['thematic_name'],true);
+                $goodspage [$k]['thematic_name'] = $status['thematic_name'];
+                unset($goodspage [$k]['thematic_id']);
+            }
+        }else{
+            $goodspage  = null;
+        }
+        //返回数据，参见System/BaseClass.class.php方法
+        $this->R(['goodspage'=>$goodspage,'pageInfo'=>$pageInfo]);
     }
 	/**
     *删除商品（设置数据库字段为0，相当于回收站）

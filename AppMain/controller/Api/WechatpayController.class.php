@@ -101,6 +101,25 @@
             }
             $this->R(['record'=>$record]);
         }
+
+        /**
+         * 退款
+         */
+        public function refund(){
+            $this->V(['record_id'=>['egNum',null,true]]);
+            $id = intval($_POST['record_id']);
+            $this->V(['refund_fee'=>['egNum',null,true]]);
+            $refund_fee = intval($_POST['refund_fee']);
+            $order = $this->table('record')->where(['is_on'=>1,'id'=>$id])->get(null,true);
+            if (!$order) {
+                $this->R('','70009');
+            }
+            $total_fee = $order['num'];
+            $sn = $order['wxPay_sn'];
+            echo $total_fee;
+            echo $sn;
+
+        }
         /**
          * 授权
          */

@@ -37,6 +37,27 @@ function getParam(name) {
 }
 
 /**
+ * 将某个url加入浏览记录
+ * @param: {string} param url后面要连接的参数（例如'name=abc&id=1'）
+ *         {string} 网页的标题
+ * @return: 无
+ * @author: 文婷
+ * @create: 2016/01/18 16:58
+ * @modify: 2015/01/18 16:58
+ */
+function pushState(param, title) {
+    var url = decodeURI(location.href);
+    if (url.indexOf('?') != -1) {
+        url = url.substr(0, url.indexOf('?'));
+        url = url + '?'+ param;
+    } else {
+        url = location.href + '?' + param;
+    }
+    url = encodeURI(url);
+    history.pushState({}, title, url);
+}
+
+/**
  * 自定义的vue过滤器，用于将时间戳转换成YYYY-MM-DD HH-MM的格式
  * @param:
  * @return: {string} 正确格式的时间字符串
@@ -138,6 +159,9 @@ Vue.component('topbar', {
     '</button>' +
     '<div class="am-collapse am-topbar-collapse" id="topbar-collapse">' +
         '<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">' +
+            '<li><a href="add-manager.html">' +
+                '<span class="am-icon-users"></span> 添加管理员</a>' +
+            '</li>' +
             '<li class="am-dropdown" data-am-dropdown>' +
                 '<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">' +
                     '<span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>' +

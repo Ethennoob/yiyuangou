@@ -40,7 +40,52 @@
 		public function billListSn(){
 			$this->V(['bill_sn'=>['num']]);
         	$bill_sn = $_POST['bill_sn'];
-        	$where = 'is_on = 1 and bill_sn like "%'.$bill_sn.'%"';
+        	 if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+                
+             $where = 'is_on = 1 and bill_sn like "%'.$bill_sn.'%"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where='is_on = 1 and company_id = "'.$id.'" and bill_sn like "%'.$bill_sn.'%"';
+        }
+        	//$where = 'is_on = 1 and bill_sn like "%'.$bill_sn.'%"';
+			$pageInfo = $this->P();
+	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
+	        $class = $this->table('bill')->where($where)->order('add_time desc');
+
+	        //查询并分页
+	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
+	        if($bill ){
+	            foreach ($bill  as $k=>$v){
+	                $bill [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','price'],true);
+	                $bill [$k]['goods_name'] = $status['goods_name'];
+	                $bill [$k]['price'] = $status['price'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
+	                $bill [$k]['thematic_name'] = $status['thematic_name'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','phone','user_img'],true);
+	                $bill [$k]['nickname'] = $status['nickname'];
+	            }
+	        }else{
+	            $bill  = null;
+	        }
+	            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
+		}
+		/**
+         * 查询中奖订单列表（通过订单号）
+         */
+		public function billListStatus(){
+			$this->V(['status'=>['num']]);
+        	$bill_sn = $_POST['status'];
+        	 if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+                
+             $where = 'is_on = 1 and status = "'.$bill_sn.'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where='is_on = 1 and company_id = "'.$id.'" and status = "'.$bill_sn.'"';
+        }
+        	//$where = 'is_on = 1 and bill_sn like "%'.$bill_sn.'%"';
 			$pageInfo = $this->P();
 	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
 	        $class = $this->table('bill')->where($where)->order('add_time desc');
@@ -66,15 +111,136 @@
 		/**
          * 查询中奖订单列表（通过用户名）
          */
-		public function billListName(){
+		public function billListNickname(){
 			$this->V(['name'=>[]]);
         	$name = $_POST['name'];
         	$where = 'is_on = 1 and nickname like "%'.$name.'%"';
         	$value = $this->table('user')->where($where)->limit(0,1)->order('add_time desc')->get(['id'],false);
-        	dump($value);
+        	//dump($value);
+        	 if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+                
+             $where1 = 'is_on = 1 and user_id = "'.$value[0]['id'].'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where1='is_on = 1 and company_id = "'.$id.'" and user_id = "'.$value[0]['id'].'"';
+        }
 			$pageInfo = $this->P();
 	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
-	        $class = $this->table('bill')->where(['is_on'=>1,'user_id'=>$value[0]['id']])->order('add_time desc');
+	        $class = $this->table('bill')->where($where1)->order('add_time desc');
+
+	        //查询并分页
+	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
+	        if($bill ){
+	            foreach ($bill  as $k=>$v){
+	                $bill [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','price'],true);
+	                $bill [$k]['goods_name'] = $status['goods_name'];
+	                $bill [$k]['price'] = $status['price'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
+	                $bill [$k]['thematic_name'] = $status['thematic_name'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','phone','user_img'],true);
+	                $bill [$k]['nickname'] = $status['nickname'];
+	            }
+	        }else{
+	            $bill  = null;
+	        }
+	            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
+		}
+		/**
+         * 查询中奖订单列表（通过商品名稱）
+         */
+		public function billListGoodsName(){
+			$this->V(['goods_name'=>[]]);
+        	$name = $_POST['goods_name'];
+        	$where = 'is_on = 1 and goods_name like "%'.$name.'%"';
+        	$value = $this->table('goods')->where($where)->limit(0,1)->order('add_time desc')->get(['id'],false);
+        	 if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+             $where1 = 'is_on = 1 and goods_id = "'.$value[0]['id'].'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where1='is_on = 1 and company_id = "'.$id.'" and goods_id = "'.$value[0]['id'].'"';
+        }
+			$pageInfo = $this->P();
+	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
+	        $class = $this->table('bill')->where($where1)->order('add_time desc');
+
+	        //查询并分页
+	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
+	        if($bill ){
+	            foreach ($bill  as $k=>$v){
+	                $bill [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','price'],true);
+	                $bill [$k]['goods_name'] = $status['goods_name'];
+	                $bill [$k]['price'] = $status['price'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
+	                $bill [$k]['thematic_name'] = $status['thematic_name'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','phone','user_img'],true);
+	                $bill [$k]['nickname'] = $status['nickname'];
+	            }
+	        }else{
+	            $bill  = null;
+	        }
+	            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
+		}
+		/**
+         * 查询中奖订单列表（通过用户名）
+         */
+		public function billListThematicName(){
+			$this->V(['thematic_name'=>[]]);
+        	$name = $_POST['thematic_name'];
+        	$where = 'is_on = 1 and thematic_name like "%'.$name.'%"';
+        	$value = $this->table('thematic')->where($where)->limit(0,1)->order('add_time desc')->get(['id'],false);
+        	//dump($value);
+        	if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+             $where1 = 'is_on = 1 and thematic_id = "'.$value[0]['id'].'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where1='is_on = 1 and company_id = "'.$id.'" and thematic_id = "'.$value[0]['id'].'"';
+        }
+			$pageInfo = $this->P();
+	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
+	        $class = $this->table('bill')->where($where1)->order('add_time desc');
+
+	        //查询并分页
+	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
+	        if($bill ){
+	            foreach ($bill  as $k=>$v){
+	                $bill [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+	                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['goods_name','price'],true);
+	                $bill [$k]['goods_name'] = $status['goods_name'];
+	                $bill [$k]['price'] = $status['price'];
+	                $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
+	                $bill [$k]['thematic_name'] = $status['thematic_name'];
+	                $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','phone','user_img'],true);
+	                $bill [$k]['nickname'] = $status['nickname'];
+	            }
+	        }else{
+	            $bill  = null;
+	        }
+	            $this->R(['bill'=>$bill,'pageInfo'=>$pageInfo]);
+		}
+		/**
+         * 查询中奖订单列表（通过用户名）
+         */
+		public function billListThematicPrice(){
+			$this->V(['price'=>[]]);
+        	$name = $_POST['price'];
+        	$where = 'is_on = 1 and num = "'.$name.'"';
+        	$value = $this->table('record')->where($where)->limit(0,1)->order('add_time desc')->get(['id'],false);
+        	//dump($value);
+        	if (empty($_POST['company_id'])||!isset($_POST['company_id'])) {
+             $where1 = 'is_on = 1 and record_id = "'.$value[0]['id'].'"';
+        }else{
+            $this->V(['company_id'=>['egNum',null,true]]);
+            $id = $_POST['company_id'];
+            $where1='is_on = 1 and company_id = "'.$id.'" and record_id = "'.$value[0]['id'].'"';
+        }
+			$pageInfo = $this->P();
+	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
+	        $class = $this->table('bill')->where($where1)->order('add_time desc');
 
 	        //查询并分页
 	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);

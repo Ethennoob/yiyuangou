@@ -34,15 +34,88 @@
 
     <!--专区选择下拉菜单-->
     <div class="am-g am-form am-form-horizontal">
-      <div class="am-form-group">
-        <label class="am-u-sm-2 am-text-right">专区选择</label>
-        <div class="am-u-sm-4 am-u-end">
-          <select v-cloak v-on:change="loadData()" v-model="companyId" name="company_id">
-            <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
-          </select>
+      <div class="am-form-group am-u-sm-4 am-u-lg-4">
+        <label>专区选择</label>
+        <select v-cloak v-on:change="loadData()" v-model="companyId" name="company_id">
+          <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
+        </select>
+      </div>
+      <div class="am-form-group am-u-sm-4 am-u-lg-4">
+        <label>搜索字段</label>
+        <select v-model="searchType">
+          <option value="logistics_number" selected>物流单号</option>
+          <option value="bill_sn">订单号</option>
+          <option value="logistics_name">物流公司</option>
+          <option value="logistics_status">物流状态</option>
+          <option value="">收货人姓名</option>
+          <option value="mobile">收货人手机号码</option>
+        </select>
+      </div>
+
+      <!--搜索选项-->
+      <div v-if="searchType == 'logistics_status'" class="am-form-group am-u-sm-12 am-u-lg-4" v-cloak>
+        <label class="am-block">物流状态</label>
+
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="0">
+            已发货
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="1">
+            揽件
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="2">
+            疑难
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="3">
+            签收
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="4">
+            退签
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="5">
+            派件
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="logistics_status" value="6">
+            退回
+          </label>
+        </div>
+
+        <div class="am-inline-block am-margin-left-sm">
+          <button v-on:click="search()" type="button" class="am-btn am-btn-primary">搜索</button>
+        </div>
+      </div>
+
+      <!--搜索框-->
+      <div v-else class="am-form-group am-u-sm-4 am-u-lg-4 am-u-end" v-cloak>
+        <label>搜索内容</label>
+        <div class="am-input-group">
+          <input v-model="searchText" type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button v-on:click="search()" class="am-btn am-btn-primary" type="button">搜索</button>
+          </span>
         </div>
       </div>
     </div>
+
 
     <div class="am-g">
       <div class="am-u-sm-12">
@@ -50,28 +123,28 @@
           <table class="am-table am-table-striped am-table-hover am-table-centered">
             <thead>
               <tr>
-                <th>物流单号</th>
-                <th>订单ID</th>
-                <th>物流单号</th>
-                <th>物流公司</th>
-                <th>物流状态</th>
-                <th>操作</th>
+                <th class="am-text-middle">物流单号</th>
+                <th class="am-text-middle">订单ID</th>
+                <th class="am-text-middle">物流单号</th>
+                <th class="am-text-middle">物流公司</th>
+                <th class="am-text-middle">物流状态</th>
+                <th class="am-text-middle">操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in logistics">
-                <td>{{item.logistics_number}}</td>
-                <td>{{item.bill_id}}</td>
-                <td>{{item.logistics_number}}</td>
-                <td >{{item.logistics_name}}</td>
-                <td v-if="item.logistics_status == 0">已发货</td>
-                <td v-if="item.logistics_status == 1">揽件</td>
-                <td v-if="item.logistics_status == 2">疑难</td>
-                <td v-if="item.logistics_status == 3">签收</td>
-                <td v-if="item.logistics_status == 4">退签</td>
-                <td v-if="item.logistics_status == 5">派件</td>
-                <td v-if="item.logistics_status == 6">退回</td>
-                <td>
+                <td class="am-text-middle">{{item.logistics_number}}</td>
+                <td class="am-text-middle">{{item.bill_id}}</td>
+                <td class="am-text-middle">{{item.logistics_number}}</td>
+                <td class="am-text-middle">{{item.logistics_name}}</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 0">已发货</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 1">揽件</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 2">疑难</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 3">签收</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 4">退签</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 5">派件</td>
+                <td class="am-text-middle" v-if="item.logistics_status == 6">退回</td>
+                <td class="am-text-middle">
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
                       <a href="logistics-detail.html?logistics_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">

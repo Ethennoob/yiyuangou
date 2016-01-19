@@ -1,19 +1,6 @@
 /**
  * Created by xu on 2015/12/29.
  */
-//初始化轮播
-var swiper = new Swiper('.goods-detail-swiper', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    observer:true,
-    observeParents:true,
-    autoHeight: true,
-    //updateOnImagesReady : true,
-    autoplay : 3000,
-    autoplayDisableOnInteraction : false
-    //setWrapperSize :true
-});
-//初始化轮播---end
 
 //实例化vue对象
 var goodsDetailApp = new Vue({
@@ -45,9 +32,26 @@ var goodsDetailApp = new Vue({
                 that.companyId = that.goods.company_id;
 
                 //插入轮播图
-                for(key in res.data.goodinfo.img){
-                    swiper.appendSlide("<div class='swiper-slide'><img src='" + res.data.goodinfo.img[key] + "' width='100%' ></div>");
+                for(var i = 0; i < res.data.goodinfo.img.length; i++){
+                    $('.swiper-wrapper').append("<div class='swiper-slide'><img src='" + res.data.goodinfo.img[i] + "' width='100%' ></div>");
                 }
+
+                //初始化轮播
+                var swiper = new Swiper('.goods-detail-swiper', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    observer:true,
+                    observeParents:true,
+                    autoHeight: true,
+                    //updateOnImagesReady : true,
+                    autoplay : 3000,
+                    autoplayDisableOnInteraction : false,
+                    lazyLoading : true,
+                    loop: true
+                    //setWrapperSize :true
+                });
+                //初始化轮播---end
+
                 //计算轮播分页器宽度，并设置居中
                 //var paginationWidth = 10 + res.data.goodinfo.img.length * 10 + res.data.goodinfo.img.length * 10;
                 //$('.swiper-pagination').css('margin-left', -(paginationWidth / 2) + 'px');

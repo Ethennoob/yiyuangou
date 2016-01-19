@@ -11,7 +11,8 @@ var indexSwiper = new Swiper('.index-swiper', {
     autoHeight: true,
     updateOnImagesReady : true,
     autoplay : 3000,
-    autoplayDisableOnInteraction : false
+    autoplayDisableOnInteraction : false,
+    loop : true
 });
 //初始化轮播---end
 
@@ -64,8 +65,8 @@ var indexApp = new Vue({
                 that.newGoods = that.goods;
 
                 //插入轮播图
-                for(key in that.poster){
-                    indexSwiper.appendSlide("<a href='" + that.poster[key].adv_url + "' class='swiper-slide'><img src='" + that.poster[key].adv_img + "' width='100%' ></a>");
+                for(var i = 0; i < that.poster.length; i++){
+                    indexSwiper.appendSlide("<a href='" + that.poster[i].adv_url + "' class='swiper-slide'><img src='" + that.poster[i].adv_img + "' width='100%' ></a>");
                 }
 
                 //计算商品状态

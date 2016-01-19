@@ -61,25 +61,25 @@
         <table v-show="prizeInfo" class="am-table am-table-striped am-table-hover table-main am-table-centered">
           <thead>
             <tr>
-              <th>商品名称</th>
-              <th>销售价</th>
-              <th>中奖者头像</th>
-              <th>中奖者昵称</th>
-              <th>获奖认购码</th>
-              <th>该商品添加时间</th>
+              <th class="am-text-middle">商品名称</th>
+              <th class="am-text-middle">销售价</th>
+              <th class="am-text-middle">中奖者头像</th>
+              <th class="am-text-middle">中奖者昵称</th>
+              <th class="am-text-middle">获奖认购码</th>
+              <th class="am-text-middle">该商品添加时间</th>
             </tr>
           </thead>
           <tbody>
-          <tr v-for="item in prizeInfo">
-            <td>{{item.goods_name}}</td>
-            <td>{{item.price}}</td>
-            <td>
-              <img v-bind:src="item.user_img" class="am-round" width="50">
-            </td>
-            <td>{{item.nickname}}</td>
-            <td>{{item.code}}</td>
-            <td>{{item.add_time}}</td>
-          </tr>
+            <tr v-for="item in prizeInfo">
+              <td class="am-text-middle">{{item.goods_name}}</td>
+              <td class="am-text-middle">{{item.price}}</td>
+              <td class="am-text-middle">
+                <img v-bind:src="item.user_img" class="am-round" width="50">
+              </td>
+              <td class="am-text-middle">{{item.nickname}}</td>
+              <td class="am-text-middle">{{item.code}}</td>
+              <td class="am-text-middle">{{item.add_time}}</td>
+            </tr>
           </tbody>
         </table>
         <div v-if="!prizeInfo" class="am-text-center am-text-lg am-padding-vertical-lg">

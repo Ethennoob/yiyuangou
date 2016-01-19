@@ -9,6 +9,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body id="orderApp">
 <!--[if lte IE 9]>
@@ -38,12 +39,69 @@
 
     <!--专区选择下拉菜单-->
     <div class="am-g am-form am-form-horizontal">
-      <div class="am-form-group">
-        <label class="am-u-sm-2 am-text-right">专区选择</label>
-        <div class="am-u-sm-4 am-u-end">
-          <select v-cloak v-on:change="loadData()" v-model="companyId" name="company_id">
-            <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
-          </select>
+      <div class="am-form-group am-u-sm-3">
+        <label>专区选择</label>
+        <select v-cloak v-on:change="loadData()" v-model="companyId" name="company_id">
+          <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
+        </select>
+      </div>
+      <div class="am-form-group am-u-sm-3">
+        <label>搜索字段</label>
+        <select v-model="searchType">
+          <option value="no" selected>无</option>
+          <option value="bill_sn">订单号</option>
+          <option value="nickname">用户昵称</option>
+          <option value="goods_name">商品名称</option>
+          <option value="thematic_name">所在专题</option>
+          <option value="price">价格</option>
+          <option value="status">订单状态</option>
+        </select>
+      </div>
+      <div v-if="searchType == 'status'" class="am-form-group am-u-sm-6" v-cloak>
+        <label class="am-block">订单状态</label>
+
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="status" value="0">
+            待确认
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="status" value="1">
+            已确认
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="status" value="2">
+            已发货
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="status" value="3">
+            已收货
+          </label>
+        </div>
+        <div class="am-radio-inline">
+          <label>
+            <input v-model="searchText" type="radio" name="status" value="4">
+            已晒单
+          </label>
+        </div>
+
+        <div class="am-inline-block am-margin-left-sm">
+          <button v-on:click="search()" type="button" class="am-btn am-btn-primary">搜索</button>
+        </div>
+      </div>
+      <div v-else class="am-form-group am-u-sm-6 am-u-md-3 am-u-end" v-cloak>
+        <label>搜索内容</label>
+        <div class="am-input-group">
+          <input v-model="searchText" type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button v-on:click="search()" class="am-btn am-btn-primary" type="button">搜索</button>
+          </span>
         </div>
       </div>
     </div>
@@ -54,28 +112,28 @@
           <table class="am-table am-table-striped am-table-hover am-table-centered">
             <thead>
               <tr>
-                <th>订单号</th>
-                <th>用户昵称</th>
-                <th class="am-text-nowrap">专题名</th>
-                <th>商品名称</th>
-                <th>商品价格</th>
-                <th>订单状态</th>
-                <th class="order-table-toolbar">操作</th>
+                <th class="am-text-middle">订单号</th>
+                <th class="am-text-middle">用户昵称</th>
+                <th class="am-text-nowrap am-text-middle">专题名</th>
+                <th class="am-text-middle">商品名称</th>
+                <th class="am-text-middle">商品价格</th>
+                <th class="am-text-middle">订单状态</th>
+                <th class="order-table-toolbar am-text-middle">操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in order">
-                <td>{{item.bill_sn}}</td>
-                <td >{{item.nickname}}</td>
-                <td class="am-text-nowrap">{{item.thematic_name}}</td>
-                <td>{{item.goods_name}}</td>
-                <td>{{item.price}} 元</td>
-                <td v-if="item.status == 0">待确认</td>
-                <td v-if="item.status == 1">已确认</td>
-                <td v-if="item.status == 2">已发货</td>
-                <td v-if="item.status == 3">已收货</td>
-                <td v-if="item.status == 4">已晒单</td>
-                <td class="am-text-nowrap">
+                <td class="am-text-middle">{{item.bill_sn}}</td>
+                <td class="am-text-middle">{{item.nickname}}</td>
+                <td class="am-text-nowrap am-text-middle">{{item.thematic_name}}</td>
+                <td class="am-text-middle">{{item.goods_name}}</td>
+                <td class="am-text-middle">{{item.price}} 元</td>
+                <td class="am-text-middle" v-if="item.status == 0">待确认</td>
+                <td class="am-text-middle" v-if="item.status == 1">已确认</td>
+                <td class="am-text-middle" v-if="item.status == 2">已发货</td>
+                <td class="am-text-middle" v-if="item.status == 3">已收货</td>
+                <td class="am-text-middle" v-if="item.status == 4">已晒单</td>
+                <td class="am-text-nowrap am-text-middle">
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
                       <a href="order-detail.html?bill_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
@@ -97,7 +155,7 @@
             <div class="am-fr">
               <ul class="am-pagination">
                 <!--<li class="am-disabled"><a href="#">«</a></li>-->
-                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                <li v-for="pageItem in page" v-on:click="search(pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
                   <a v-on:click.prevent="">{{pageItem}}</a>
                 </li>
               </ul>
@@ -153,6 +211,11 @@
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/base.js"></script>
 <script type="text/javascript">
+  window.addEventListener("popstate", function() {
+    var currentState = history.state;
+    location.reload();
+  });
+
   var orderApp = new Vue({
     el: '#orderApp',
     data: {
@@ -162,7 +225,9 @@
       deleteId: '',
       psize: 15,
       pageNum: '',
-      page: []
+      page: [],
+      searchType: '',
+      searchText: ''
     },
     created: function() {
       var that = this;
@@ -172,53 +237,243 @@
         that.companyList = res.data.company;
         that.companyId = that.companyList[0].id;
 
-        $.post('http://onebuy.ping-qu.com/Admin/Bill/billList',
-                {
-                  company_id: that.companyId,
-                  psize: that.psize,
-                  pn: 1
-                }
-        ).done(function(response) {
-          that.order = response.data.bill;
+        var url = location.href;
+        if (url.indexOf('?') == -1) {
+          history.replaceState(null, "会员管理", url + '?searchType=no&searchText=&psize='
+                  + that.psize + '&pn=1&company_id=' + that.companyId);
+        }
 
-          //计算数据页数
-          that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
-          //初始化分页器数据
-          for (var i = 0; i < that.pageNum; i++) {
-            that.page.$set(i, i + 1);
-          }
-
-        }).fail(function() {
-          alert("订单数据请求失败");
-        });
+        that.search();
       }).fail(function() {
         alert("专区数据请求失败");
       });
 
     },
     methods: {
-      loadData: function() {
+      search: function(page) {
+        this.searchType = this.searchType ? this.searchType : getParam('searchType');
+        page = page > 0 ? page : getParam('pn');
+        this.companyId = this.companyId ? this.companyId : getParam('company_id');
+        this.searchText = this.searchText ? this.searchText : decodeURI(getParam('searchText'));
+
         var that = this;
 
-        $.post('http://onebuy.ping-qu.com/Admin/Bill/billList',
-                {
-                  company_id: that.companyId,
-                  psize: that.psize,
-                  pn: 1
-                }
-        ).done(function(response) {
-          that.order = response.data.bill;
+        switch (this.searchType) {
+          case 'no':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billList',
+                    {
+                      company_id: that.companyId,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
 
-          //计算数据页数
-          that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
-          //初始化分页器数据
-          for (var i = 0; i < that.pageNum; i++) {
-            that.page.$set(i, i + 1);
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=no&searchText=&psize='
+                      + that.psize + '&pn=' + page + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
           }
+            break;
+          case 'bill_sn':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billListSn',
+                    {
+                      company_id: that.companyId,
+                      bill_sn: that.searchText,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
 
-        }).fail(function() {
-          alert("订单数据请求失败");
-        });
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=bill_sn' +
+                      '&searchText=' + that.searchText
+                      +'&psize=' + that.psize
+                      + '&pn=' + page
+                      + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
+          }
+            break;
+          case 'nickname':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billListNickname',
+                    {
+                      company_id: that.companyId,
+                      name: that.searchText,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
+
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=name' +
+                      '&searchText=' + that.searchText
+                      + '&psize=' + that.psize
+                      + '&pn=' + page
+                      + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
+          }
+            break;
+          case 'goods_name':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billListGoodsName',
+                    {
+                      company_id: that.companyId,
+                      goods_name: that.searchText,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
+
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=goods_name' +
+                      '&searchText=' + that.searchText
+                      + '&psize=' + that.psize
+                      + '&pn=' + page
+                      + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
+          }
+            break;
+          case 'thematic_name':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billListThematicName',
+                    {
+                      company_id: that.companyId,
+                      thematic_name: that.searchText,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
+
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=thematic_name'
+                      + '&searchText=' + that.searchText
+                      + '&psize=' + that.psize
+                      + '&pn=' + page
+                      + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
+          }
+            break;
+          case 'price':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billListThematicPrice',
+                    {
+                      company_id: that.companyId,
+                      price: that.searchText,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
+
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=price'
+                      + '&searchText=' + that.searchText
+                      + '&psize=' + that.psize
+                      + '&pn=' + page
+                      + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
+          }
+            break;
+          case 'status':{
+            $.post('http://onebuy.ping-qu.com/Admin/Bill/billListStatus',
+                    {
+                      company_id: that.companyId,
+                      status: that.searchText,
+                      psize: that.psize,
+                      pn: page
+                    }
+            ).done(function(response) {
+              that.order = response.data.bill;
+
+              //计算数据页数
+              that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
+              //初始化分页器数据
+              that.page = [];
+              for (var i = 0; i < that.pageNum; i++) {
+                that.page.$set(i, i + 1);
+              }
+
+              var param = 'searchType=status'
+                      + '&searchText=' + that.searchText
+                      + '&psize=' + that.psize
+                      + '&pn=' + page
+                      + '&company_id=' + that.companyId;
+              pushState(param, "订单管理");
+
+            }).fail(function() {
+              alert("订单数据请求失败");
+            });
+          }
+            break;
+          default: alert("缺少搜索字段");
+        }
 
       },
       deleteOrder: function(){

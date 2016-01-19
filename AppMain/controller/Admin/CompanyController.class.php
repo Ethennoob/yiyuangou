@@ -42,13 +42,13 @@ class CompanyController extends BaseClass {
         if(!$company){
             $this->R('',70009);
         }
-        //$url = "http://onebuy.ping-qu.com/index.html/company_id=".$id;
-        $url = "http://onebuy.ping-qu.com/index.html?company_id=38";
+        $url = "http://onebuy.ping-qu.com/index.html?company_id=".$id;
+        //$url = "http://onebuy.ping-qu.com/index.html?company_id=37";
         $this->vendor('Phpqrcode.phpqrcode#class');
         $qr = new \QRcode();
-        $qr->width=360;
+        $qr->width=20000;
         $time =time();
-        $QRcode=$qr->png($url,false,QR_ECLEVEL_H,10,4,false,$time);
+        $QRcode=$qr->png($url,false,QR_ECLEVEL_H,35,5,false,$time);
         $data['update_time']  = time();
         $data['QR_code'] = "http://onebuy.ping-qu.com/images/company/".$time.".png";
         $company = $this->table('company')->where(['id'=>$id])->update($data);
@@ -170,5 +170,23 @@ class CompanyController extends BaseClass {
         }
         
         $this->R();
+    }
+     public function downFile(){
+        $url = $_GET['url'];
+        $data = "http://onebuy.ping-qu.com".$url;
+        $name = $this->table('company')->where(['QR_code'=>$data])->get(['company_name'],true);
+        $urlname=$name['company_name'];
+        $file =$_SERVER['DOCUMENT_ROOT'].$url;
+        $filename= basename($url);
+        //文件的类型
+        header("Content-type: image/png");
+        ////下载显示的名字
+        header("Content-Disposition: attachment; filename=".$urlname.".png");
+        readfile($file);                
+    }
+    public function test(){
+        $url = $_GET['url'];
+        $name = $this->table('company')->where(['QR_code'=>$url])->get(['company_name'],true);
+        dump($name['company_name']);
     }
 }
