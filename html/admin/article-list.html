@@ -134,7 +134,7 @@
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/Article/articleList',
+      $.post('/Admin/Article/articleList',
               {
                 psize: that.psize,
                 pn: 1
@@ -156,7 +156,7 @@
     methods: {
       deleteArticle: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Article/articleDelete',
+        $.post('/Admin/Article/articleDelete',
                 {
                   id: that.articles[that.deleteId].id
                 }
@@ -173,7 +173,7 @@
       },
       pageTurn: function(event, page) {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Article/articleList',
+        $.post('/Admin/Article/articleList',
                 {
                   psize: that.psize,
                   pn: page

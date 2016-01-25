@@ -83,6 +83,20 @@ class WechatHelper extends BaseHelper {
 		
 		return $jsApiParameters;
 	}
+	public function wechatRefund($data){
+		$this->vendor('WxPay.JsApi_pub');
+        $refund = new \Refund_pub();
+
+		$refund->setParameter("out_trade_no",$data["out_trade_no"]);//商户订单号
+		$refund->setParameter("out_refund_no",$data["out_refund_no"]);//商户退款单号
+		$refund->setParameter("total_fee",$data["total_fee"]);//总金额
+		$refund->setParameter("refund_fee",$data["refund_fee"]);//总金额
+		$refund->setParameter("op_user_id",$data["op_user_id"]);//操作员帐号, 默认为商户号
+	
+		$result = $refund->postXmlSSL();
+		//dump($result);
+		return $result;
+	}
 	
 
 }

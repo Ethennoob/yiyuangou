@@ -162,15 +162,15 @@ class GoodsController extends BaseClass {
             $company_id = intval($_POST['company_id']); 
             $this->V(['thematic_id'=>['egNum']]);
             $id = intval($_POST['thematic_id']);
-            $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
             $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id,'company_id'=>$company_id])->order('add_time desc');
         }if(isset($_POST['company_id']) && !isset($_POST['thematic_id'])){
             $this->V(['company_id'=>['egNum']]);
             $company_id = intval($_POST['company_id']);
-            $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
             $class = $this->table('goods')->where(['is_on'=>1,'company_id'=>$company_id])->order('add_time desc');
         }elseif(!isset($_POST['company_id'])){
-            $file = ['id','goods_sn','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
             $class = $this->table('goods')->where(['is_on'=>1])->order('add_time desc');
         }
         
@@ -182,6 +182,8 @@ class GoodsController extends BaseClass {
                 $goodspage [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
                 $status = $this->table('thematic')->where(['is_on'=>1,'id'=>$v['thematic_id']])->get(['thematic_name'],true);
                 $goodspage [$k]['thematic_name'] = $status['thematic_name'];
+                $status = $this->table('company')->where(['is_on'=>1,'id'=>$v['company_id']])->get(['company_name'],true);
+                $goodspage [$k]['company_name'] = $status['company_name'];
                 unset($goodspage [$k]['thematic_id']);
             }
         }else{

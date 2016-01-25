@@ -33,8 +33,8 @@
     </div>
     <!--顶栏-->
     <div class="text-center bg-white top-bar" v-cloak>{{companyName}}
-        <a href="personal.html?company_id={{companyId}}">
-            <img class="personal-top-link" src="assets/i/personal-logo.png" style="left: 10px;" />
+        <a href="personal.html?company_id={{companyId}}" class="index-personal-top-link">
+            <img src="assets/i/personal-logo.png" style="left: 10px;" />
         </a>
     </div>
 
@@ -127,7 +127,7 @@
             <div class="row margin-vertical-5 font-grey f11 padding-horizontal-10 margin-vertical-10 lh11">
                 <span class="col-xs-4" v-cloak >剩余：{{item.last_num}}人次</span>
                 <span class="col-xs-4 bd-right bd-left text-center" style="border-color: #d4d4d4;" v-cloak>限购：{{item.limit_num}}人次</span>
-                <span class="col-xs-4 text-right">参与人数：
+                <span class="col-xs-4 text-right">已购：
                     <span class="font-light-blue" v-cloak>{{item.purchase_num}}</span>人
                 </span>
             </div>
@@ -169,7 +169,7 @@
                 <div class="row margin-vertical-5 font-grey f11 margin-vertical-10 lh11">
                     <span class="col-xs-4" v-cloak >剩余：{{item.last_num}}人次</span>
                     <span class="col-xs-4 bd-right bd-left text-center" style="border-color: #d4d4d4;" v-cloak>限购：{{item.limit_num}}人次</span>
-                    <span class="col-xs-4 text-right">参与人数：
+                    <span class="col-xs-4 text-right">已购：
                         <span class="font-light-blue" v-cloak>{{item.purchase_num}}</span>人
                     </span>
                 </div>

@@ -5,7 +5,7 @@
      * @create: 2015/12/29 14:59
      * @modify: 2015/12/29 14:59
      */
-    $.post('http://onebuy.ping-qu.com/Api/Wechatpay/wechatPayConfig',
+    $.post('/Api/Wechatpay/wechatPayConfig',
         {
             url: window.location.href
         }
@@ -75,6 +75,35 @@ Vue.filter('date', function (value) {
         + hour + ':' + min;
 });
 
+//Vue.component('error-modal', {
+//    props: ['modalName',
+//            'errorTip'],
+//    data: function () {
+//        return { isVisible: false }
+//    },
+//    template: '<button v-on:click="modalClose(modalName)">aa</button>',
+//    //'<div v-on:click="modalClose(modalName)" v-bind:class="{\'is-visible\': isVisible, modalName: true}" role="alert">'
+//    //+ '<div v-on:click.stop class="popup-container bg-white">'
+//    //+ '<a v-on:click"modalClose(modalName)" href="javascript:;" class="popup-close"></a>'
+//    //+ '<div class="error-tip">{{errorTip}}</div>'
+//    //+ '<div v-on:click="modalClose(modalName)" class="error-confirm-btn"> 确定</div>'
+//    //+ '</div>'
+//    //+ '</div>',
+//    methods: {
+//        modalOpen: function(targetModal) {
+//            alert("aa");
+//            //this.isVisible = true;
+//            //event.preventDefault();
+//            //$(targetModal).addClass('is-visible');
+//        },
+//        modalClose: function(targetModal) {
+//            alert("aa");
+//            //event.preventDefault();
+//            //$(targetModal).removeClass('is-visible');
+//        }
+//    }
+//});
+
 /**
  * 用于计算每个商品的状态
  * @param: {object} goods 商品数据，可能是数组或json对象
@@ -92,8 +121,6 @@ function goodsStatus(goods) {
         for (var i = 0; i < goods.length; i++) {
             if (goods[i].last_num > 0) {
                 arr[i] = 'ing';
-            } else if(!goods[i].nickname) {
-                arr[i] = 'ending';
             } else {
                 arr[i] = (goods[i].lucky_time * 1000) >= nowTime ? 'ending' : 'end';
             }
@@ -102,9 +129,7 @@ function goodsStatus(goods) {
     } else {//单个商品
         if (goods.last_num > 0) {
             return 'ing';
-        } else if(!goods.nickname) {
-            return 'ending';
-        } else {
+        }  else {
             var rt = (goods.lucky_time * 1000) >= nowTime ? 'ending' : 'end';
             return rt;
         }
@@ -122,10 +147,10 @@ function goodsStatus(goods) {
  */
 function checkLogin(func) {
     var url = window.location.href;
-    $.post('http://onebuy.ping-qu.com/Api/User/checklogin').done(function(res) {
+    $.post('/Api/User/checklogin').done(function(res) {
         if (res.errcode == '90005') {
             //获取新用户信息
-            window.location = 'http://onebuy.ping-qu.com/Api/User/getOpenID/?refer=' + url;
+            window.location = '/Api/User/getOpenID/?refer=' + url;
         } else if (res.data.user_id) {
 
             func(res.data.user_id);//登录后的回调函数
@@ -147,15 +172,15 @@ function shareIndex(companyId){
         //分享到朋友圈内容自定义
         wx.onMenuShareTimeline({
             title: '一团云购', // 分享标题
-            link: 'http://onebuy.ping-qu.com?company_id=' + companyId + '&', // 分享链接
-            imgUrl: 'http://onebuy.ping-qu.com/assets/i/logo.jpg' // 分享图标
+            link: 'http://onebuy.91taoxue.cn?company_id=' + companyId + '&', // 分享链接
+            imgUrl: 'http://onebuy.91taoxue.cn/assets/i/logo.jpg' // 分享图标
         });
         //分享给朋友内容自定义
         wx.onMenuShareAppMessage({
             title: '一团云购', // 分享标题
             desc: '一元购，购你所想，购你所爱，一元购天下', // 分享描述
-            link: 'http://onebuy.ping-qu.com?company_id=' + companyId + '&', // 分享链接
-            imgUrl: 'http://onebuy.ping-qu.com/assets/i/logo.jpg' // 分享图标
+            link: 'http://onebuy.91taoxue.cn?company_id=' + companyId + '&', // 分享链接
+            imgUrl: 'http://onebuy.91taoxue.cn/assets/i/logo.jpg' // 分享图标
         });
     });
 }

@@ -19,6 +19,11 @@ class AdvertisementController extends BaseClass {
         echo date("Y-m-d",1452700000);
  
     }
+
+    public function test2(){
+        $data='a:15:{i:0;a:6:{s:4:"name";s:4:"News";i:1;s:1:"1";i:2;s:1:"1";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:1;a:6:{s:4:"name";s:9:"AutoReply";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:2;a:6:{s:4:"name";s:4:"Menu";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:3;a:6:{s:4:"name";s:6:"School";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:4;a:6:{s:4:"name";s:4:"test";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:5;a:6:{s:4:"name";s:7:"Article";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:6;a:6:{s:4:"name";s:5:"Media";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:7;a:6:{s:4:"name";s:4:"User";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:8;a:6:{s:4:"name";s:6:"Object";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:9;a:6:{s:4:"name";s:9:"Activity1";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:10;a:6:{s:4:"name";s:9:"Activity2";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:11;a:6:{s:4:"name";s:9:"Activity4";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:12;a:6:{s:4:"name";s:9:"Activity5";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:13;a:6:{s:4:"name";s:9:"Activity7";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}i:14;a:6:{s:4:"name";s:6:"dfgdfg";i:1;s:1:"0";i:2;s:1:"0";i:3;s:1:"0";i:4;s:1:"0";i:5;s:1:"0";}}';
+        print_r(unserialize($data));
+    }
     public function advertisementOneAdd(){
 
         $rule = [

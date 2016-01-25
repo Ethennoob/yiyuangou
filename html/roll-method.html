@@ -17,8 +17,11 @@
 <body class="bg-grey" id="rollMethodApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar" v-cloak>计算方式
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
+        </a>
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
         </a>
     </div>
 
@@ -87,6 +90,7 @@
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
     <script type="text/javascript">
         var rollMethodApp = new Vue({
@@ -100,7 +104,7 @@
             },
             created: function() {
                 var that = this;
-                $.post('http://onebuy.ping-qu.com/Api/Record/rollRecord',
+                $.post('/Api/Record/rollRecord',
                         {
                             goods_id: getParam('goods_id'),
                             psize: 50

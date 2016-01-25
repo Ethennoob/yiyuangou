@@ -19,7 +19,7 @@ var payResultApp = new Vue({
 
             that.userId = userid;
 
-            $.post('http://onebuy.ping-qu.com/Api/Wechatpay/record',
+            $.post('/Api/Wechatpay/record',
                 {
                     user_id: that.userId,
                     goods_id: that.goodsId
@@ -32,14 +32,14 @@ var payResultApp = new Vue({
                     var myDate = new Date();
                     var h = myDate.getHours();
                     if (h >= 2 && h <= 10) {
-                        $.post('http://onebuy.ping-qu.com/Admin/Roll/nightRoll',
+                        $.post('/Admin/Roll/nightRoll',
                             {
                                 goods_id: that.goodsId
                             }
                         );
                     } else {
                         //时间为早上10:00到晚上02:00
-                        $.post('http://onebuy.ping-qu.com/Admin/Roll/saveRollGoodID',
+                        $.post('/Admin/Roll/saveRollGoodID',
                             {
                                 goods_id: that.goodsId
                             }

@@ -16,15 +16,29 @@
     top: 50%;
     margin-top: -12px;
 }
-.top-bar .back{
+.top-bar a{
+    height: 100%;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+}
+.top-bar .back img{
     height: 18px;
+    vertical-align: top;
     position: absolute;
     left: 10px;
     top: 50%;
     margin-top: -9px;
 }
 
-.top-bar .personal-top-link{
+.personal-top-link{
+    right: 0;
+}
+.index-personal-top-link{
+    left: 0;
+}
+.top-bar .personal-top-link img,.top-bar .index-personal-top-link img{
     height: 24px;
     position: absolute;
     right: 10px;
@@ -158,9 +172,25 @@
  ============================================================================ */
 .no-record-tip{
     text-align: center;
-    position: absolute;
-    z-index: 100;
     width: 100%;
+    margin-top: 30px;
+    color: #878787;
+    font-size: 14px;
+}
+.no-record-tip img{
+    width: 54px;
+}
+/* 错误弹窗
+ ============================================================================ */
+.error-tip{
+    padding: 40px 10px;
+    text-align: center;
+}
+.error-confirm-btn{
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #dcdcdc;
+    color: #ea3a3c;
 }
 
 /* ==========================================================================

@@ -44,7 +44,7 @@ class UserController extends Baseclass {
                     header("LOCATION:".getHost()."/register.html?refer=".$refer);
                 }else{
                 $userID=$isUser['id'];
-                $updateUser = $this->table('user')->where(['id'=>$userID])->update([
+                $updateUser = $this->table('user')->where(['is_on'=>1,'id'=>$userID])->update([
                     'last_login'=>time(),
                     'last_ip'=>ip2long(getClientIp()),
                     'nickname'=>$userInfo['nickname'],
@@ -484,15 +484,51 @@ class UserController extends Baseclass {
         //返回数据，参见System/BaseClass.class.php方法
         $this->R(['obtained_goods'=>$luckypage,'pageInfo'=>$pageInfo]);
     }
-
+    /**
+     * 物流数据
+     */
     public function getExpress(){
+        $express = new \System\lib\Express\Express();
+        $this->V(['logistics_number'=>['egNum',null,true]]);
+        $id = $_POST['logistics_number'];
+        $Express = $this->table('logistics_data')->where(['logistics_number'=>$id])->get(null,true);
+        $expressdetail = json_decode($Express['data'], true);
+        $this->R(['expressdetail'=>$expressdetail]);
+       /* if (time()>=$Express['update_time']+24*3600 || $Express['data']==null) {
+            echo "string";
+            $expressdetail = $express->getorder($id);
+            $Json = $express->getJson($id);
+            if (@$expressdetail['state']!==null) {
+            $data = array(
+                'logistics_number' => $id,
+                'data' =>$Json,
+                'update_time' => time(),
+                );
+            //echo ($data['data']);exit();
+            $record = $this->table('logistics_data')->where(['logistics_number'=>$id])->update($data);
+            if (!$record) {
+               $this->R('',40001);
+            }
+            $updateExpress = $this->table('logistics')->where(['logistics_number'=>$id])->update(['logistics_status'=>$expressdetail['state']]);
+            if (!$updateExpress) {
+               $this->R('',40001);
+            }
+                $this->R(['expressdetail'=>$expressdetail]);
+            }else{
+                $this->R(['expressdetail'=>null]);
+            }
+        }else{
+            $result = $this->table('logistics_data')->where(['logistics_number'=>$id])->get(null,true);
+            $expressdetail = json_decode($result['data'], true);
+            $this->R(['expressdetail'=>$expressdetail]);
+        }*/
+    }
+    public function getExpresstest(){
         $this->V(['logistics_number'=>['egNum',null,true]]);
         $id = $_POST['logistics_number'];
         $express = new \System\lib\Express\Express();
         $expressdetail = $express->getorder($id);
-        if (@$expressdetail['state']!==null) {
-            $updateExpress = $this->table('logistics')->where(['logistics_number'=>$id])->update(['logistics_status'=>$expressdetail['state']]);
-        }
+        
         $this->R(['expressdetail'=>$expressdetail]);
     }
     /////////////////////////////模拟购买数据接口/////////////////////勿删除

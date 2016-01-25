@@ -50,7 +50,7 @@
             methods: {
                 getVerify: function() {
                     var that = this;
-                    $.get('http://onebuy.ping-qu.com/Api/User/setCode?phone=' + that.mobile).done(function() {
+                    $.get('/Api/User/setCode?phone=' + that.mobile).done(function() {
 
                     }).fail(function() {
                         alert("验证码请求失败");
@@ -75,7 +75,7 @@
                         return false;
                     }
 
-                    $.post('http://onebuy.ping-qu.com/Api/User/checkPhone',
+                    $.post('/Api/User/checkPhone',
                             {
                                 phone: that.mobile,
                                 verify: that.verify
@@ -87,7 +87,7 @@
                             alert("验证码错误");
                         } else if (res.errcode == '0') {
                             var refer = location.href.substr(location.href.indexOf('=') + 1);
-                            window.location = 'http://onebuy.ping-qu.com/Api/User/getNewOpenID?phone='
+                            window.location = '/Api/User/getNewOpenID?phone='
                                     + that.mobile
                                     + '&refer=' + refer;
                         } else {

@@ -17,7 +17,7 @@ var addressManageApp = new Vue({
         //检查是否是登录状态
         checkLogin(function(userid) {
             that.userId = userid;
-            $.post('http://onebuy.ping-qu.com/Api/Address/addressList',
+            $.post('/Api/Address/addressList',
                 {
                     user_id: that.userId
                 }
@@ -70,7 +70,7 @@ var addressManageApp = new Vue({
                     deleteData[len++] = that.deleteId[i];
                 }
             }
-            $.post('http://onebuy.ping-qu.com/Api/Address/addressDeleteconfirm',
+            $.post('/Api/Address/addressDeleteconfirm',
                 {
                     address_id: deleteData
                 }
@@ -97,7 +97,7 @@ var addressManageApp = new Vue({
         },
         selectAddress: function() {
             var that = this;
-            $.post('http://onebuy.ping-qu.com/Api/Address/chooseAddress',
+            $.post('/Api/Address/chooseAddress',
                 {
                     address_id: that.oneSelectId,
                     bill_id: getParam('bill_id')

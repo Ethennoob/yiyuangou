@@ -108,7 +108,7 @@
     created: function() {
       var that = this;
       //获取专区数据
-      $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
+      $.post('/Admin/Company/companyOneList').done(function(res) {
         that.companyList = res.data.company;
         that.thematicData.company_id = that.companyList[0].id;
       }).fail(function() {
@@ -117,10 +117,12 @@
     },
     methods: {
       addThematic: function () {
+        var that = this;
         //添加专题
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicOneAdd', this.thematicData).done(function (res) {
+        $.post('/Admin/Thematic/thematicOneAdd', that.thematicData).done(function (res) {
           alert("专题添加成功");
-          window.location = 'thematic-list.html';
+          window.location = 'thematic-list.html?company_id=' + that.thematicData.company_id
+                  + '&searchType=no&pn=1&searchText=';
         }).fail(function () {
           alert("专题添加失败");
         });

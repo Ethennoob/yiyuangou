@@ -42,7 +42,8 @@
       <div class="am-form-group am-u-sm-3">
         <label>搜索字段</label>
         <select v-model="searchType">
-          <option value="thematic_name" selected>专题名</option>
+          <option value="no" selected>无</option>
+          <option value="thematic_name">专题名</option>
           <option value="status">状态</option>
           <option value="add_time">添加时间</option>
         </select>
@@ -96,6 +97,7 @@
               <tr>
                 <th class="am-text-middle">ID</th>
                 <th class="am-text-middle">专题名</th>
+                <th class="am-text-middle">所属专区</th>
                 <th class="am-text-middle">状态</th>
                 <th class="am-text-middle">是否显示</th>
                 <th class="am-text-middle">添加时间</th>
@@ -107,6 +109,7 @@
               <tr v-for="item in thematicInfo">
                 <td class="am-text-middle">{{item.id}}</td>
                 <td class="am-text-middle">{{item.thematic_name}}</td>
+                <td class="am-text-middle">{{item.company_name}}</td>
                 <td class="am-text-middle" v-if="item.status == '0'">进行中</td>
                 <td class="am-text-middle" v-if="item.status == '1'">即将揭晓</td>
                 <td class="am-text-middle" v-if="item.status == '2'">已揭晓</td>
@@ -119,7 +122,7 @@
                   </div>
                 </td>
                 <td class="am-text-middle">
-                  <a href="thematic-detail.html?thematic_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
+                  <a v-on:click="detailHref(item.id)" class="am-btn am-btn-primary am-btn-xs">
                     <span class="am-icon-pencil-square-o"></span> 查看详情
                   </a>
                 </td>
@@ -132,7 +135,7 @@
             <div class="am-fr">
               <ul class="am-pagination">
                 <!--<li class="am-disabled"><a href="#">«</a></li>-->
-                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                <li v-for="pageItem in page" v-on:click="search(pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
                   <a v-on:click.prevent="">{{pageItem}}</a>
                 </li>
               </ul>
@@ -192,119 +195,6 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/base.js"></script>
-<script type="text/javascript">
-  var thematicListApp = new Vue({
-    el: '#thematicListApp',
-    data: {
-      companyId: '',
-      companyList: [],
-      thematicInfo: [],
-      goodsModalData: {},
-      psize: 15,
-      pageNum: '',
-      page: []
-    },
-    created: function() {
-      var that = this;
-
-      //获取专区数据
-      $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
-        that.companyList = res.data.company;
-        that.companyList.unshift({id: 0, company_name: "全部"});
-        that.companyId = that.companyList[0].id;
-
-        //加载专区列表
-        if (that.companyId == 0) {
-          var postData = {
-            psize: that.psize,
-            pn: 1
-          };
-        } else {
-          var postData = {
-            psize: that.psize,
-            pn: 1,
-            company_id: that.companyId
-          };
-        }
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList', postData).done(function(response) {
-          that.thematicInfo = response.data.thematicpage;
-
-          //计算数据页数
-          that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
-          //初始化分页器数据
-          for (var i = 0; i < that.pageNum; i++) {
-            that.page.$set(i, i + 1);
-          }
-
-        }).fail(function() {
-          alert("请求失败");
-        });
-
-      }).fail(function() {
-        alert("专区数据获取失败");
-      });
-
-    },
-    methods: {
-      loadThematic: function() {
-        var that = this;
-        //加载专题列表
-        if (that.companyId == 0) {
-          var postData = {
-            psize: that.psize,
-            pn: 1
-          };
-        } else {
-          var postData = {
-            psize: that.psize,
-            pn: 1,
-            company_id: that.companyId
-          };
-        }
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList', postData).done(function(response) {
-          that.thematicInfo = response.data.thematicpage;
-
-          //计算数据页数
-          that.pageNum = Math.ceil(response.data.pageInfo.dataSize / response.data.pageInfo.psize);
-          //初始化分页器数据
-          that.page = [];
-          for (var i = 0; i < that.pageNum; i++) {
-            that.page.$set(i, i + 1);
-          }
-
-        }).fail(function() {
-          alert("请求失败");
-        });
-      },
-      pageTurn: function(event, page) {
-        var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicList',
-                {
-                  company_id: that.companyId,
-                  psize: that.psize,
-                  pn: page
-                }
-        ).done(function(response) {
-          that.thematicInfo = response.data.thematicpage;
-
-          //为分页器页码设置激活状态
-          $('.am-pagination li').removeClass('am-active');
-          $(event.target.parentElement).addClass('am-active');
-
-        }).fail(function() {
-          alert("无法获得专题数据");
-        });
-      },
-      showGoods: function(index) {
-        this.goodsModalData = this.thematicInfo[index];
-        $('#goods-modal').modal({
-          height: 400
-        });
-        $('#goods-modal').modal('open');
-      }
-    }
-  });
-
-</script>
+<script src="assets/js/thematicListApp.js" type="text/javascript"></script>
 </body>
 </html>

@@ -113,7 +113,7 @@
       var that = this;
 
       if (getParam('article_id')) {
-        $.post('http://onebuy.ping-qu.com/Admin/Article/articleOneDetail',
+        $.post('/Admin/Article/articleOneDetail',
                 {
                   article_id: getParam('article_id')
                 }
@@ -138,7 +138,7 @@
       addArticle: function() {
         var that = this;
         that.content = that.editor.getContent();
-        $.post('http://onebuy.ping-qu.com/Admin/Article/articleAdd',
+        $.post('/Admin/Article/articleAdd',
                 {
                   title: that.title,
                   content: that.content
@@ -156,7 +156,7 @@
       editArticle: function() {
         var that = this;
         that.content = that.editor.getContent();
-        $.post('http://onebuy.ping-qu.com/Admin/Article/articleEdit',
+        $.post('/Admin/Article/articleEdit',
                 {
                   id: that.articleId,
                   title: that.title,

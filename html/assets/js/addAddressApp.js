@@ -14,11 +14,6 @@ var addAddressApp = new Vue({
             mobile: '',
             name: ''
         },
-        //province: '',
-        //city: '',
-        //area: '',
-        //linkageData: [],
-        //cityArr: [],
         cityData: {}//省市区数据
     },
     created: function() {
@@ -36,8 +31,10 @@ var addAddressApp = new Vue({
                 lang: 'zh',
                 inputClass: "mobiscroll-input",
                 onSelect: function(val,inst){
+                    console.log(inst);
                     var that = addAddressApp;
-                    that.selUpdate(that.cityData, inst._value);
+                    that.cityUpdate(that.cityData, inst._value);
+                    that.areaUpdate(that.cityData, that.cityData.city[inst._value][0].text);
                     that.postData.province = inst._value;
                 }
             });
@@ -49,8 +46,9 @@ var addAddressApp = new Vue({
                 lang: 'zh',
                 inputClass: "mobiscroll-input",
                 onSelect: function(val,inst){
+                    console.log(inst);
                     var that = addAddressApp;
-                    that.selUpdate(that.cityData, false, inst._value);
+                    that.areaUpdate(that.cityData, inst._value);
                     that.postData.city = inst._value;
                 }
             });
@@ -62,6 +60,7 @@ var addAddressApp = new Vue({
                 lang: 'zh',
                 inputClass: "mobiscroll-input",
                 onSelect: function(val,inst){
+                    console.log(inst);
                     var that = addAddressApp;
                     that.postData.area = inst._value;
                 }
@@ -69,7 +68,7 @@ var addAddressApp = new Vue({
             //初始化下拉菜单插件--end
 
             if(getParam('address_id')){//修改地址
-                $.post('http://onebuy.ping-qu.com/Api/Address/addressOneDetail',
+                $.post('/Api/Address/addressOneDetail',
                     {
                         address_id: getParam('address_id')
                     }
@@ -119,19 +118,19 @@ var addAddressApp = new Vue({
                 }
             }
             if(this.postData.address_id){//修改地址
-                $.post('http://onebuy.ping-qu.com/Api/Address/addressEdit', this.postData).done(function(res) {
+                $.post('/Api/Address/addressEdit', this.postData).done(function(res) {
                     if(res.errcode != '0'){
                         alert("修改失败");
                     } else {
-                        history.back();
+                        window.location = 'address-manage.html?company_id=' + that.companyId;
                     }
                 }).fail(function() {
                     alert("请求失败");
                 });
             } else {//添加地址
-                $.post('http://onebuy.ping-qu.com/Api/Address/addressAdd', this.postData).done(function(res) {
+                $.post('/Api/Address/addressAdd', this.postData).done(function(res) {
                     if(res.errcode == '0'){
-                        history.back();
+                        window.location = 'address-manage.html?company_id=' + that.companyId;
                     } else if(res.errcode == '40018'){
                         alert("手机格式有误");
                     } else {
@@ -152,57 +151,86 @@ var addAddressApp = new Vue({
             }
 
         },
-        selUpdate: function(data, pro, city, area) {//省市区三级联动更新
-            var proValue = pro ? pro : data.pro[0].value;//如果未选择省份则默认为省份数据中的第一个省
-            var cityValue = city ? city : data.city[proValue][0].value;//如果未选择城市则默认为相应城市数据中的第一个城市
-            var areaValue = area ? area : data.area[cityValue][0].value;
-
-            //更新省份
-            if ((pro && city && area) || (!pro && !city && !area)) {
-                $('#province').empty();
-                for (var i = 0; i < data.pro.length; i++) {
-                    if (pro && data.pro[i].text == pro) {//如果已经选择了省份
-                        $('#province').append('<option value="' + data.pro[i].value + '" selected>' + data.pro[i].text +'</option>');
-                    } else {//未选择省份
-                        $('#province').append('<option value="' + data.pro[i].value + '">' + data.pro[i].text +'</option>');
-                    }
-                }
-                $('#province').mobiscroll('init');
+        cityUpdate: function(data, pro) {
+            //更新城市
+            this.postData.city = data.city[pro][0].text;//用户还未选择城市时默认为第一个
+            $('#city').empty();
+            for (var i = 0; i < data.city[pro].length; i++) {
+                $('#city').append('<option value="'
+                    + data.city[pro][i].text
+                    + '">'
+                    + data.city[pro][i].text
+                    +'</option>');
             }
-
-            if (pro || (!pro && !city && !area)) {
-                //更新城市
-                $('#city').empty();
-                for (var i = 0; i < data.city[proValue].length; i++) {
-                    if (city && data.city[proValue][i].text == city) {//如果已经选择了城市
-                        $('#city').append('<option value="'
-                            + data.city[proValue][i].value
-                            + '" selected>'
-                            + data.city[proValue][i].text
-                            +'</option>');
-                    } else {//未选择城市
-                        $('#city').append('<option value="'
-                            + data.city[proValue][i].value
-                            + '">'
-                            + data.city[proValue][i].text
-                            +'</option>');
-                    }
-                }
-                $('#city').mobiscroll('init');
-            }
-
-
+            $('#city').mobiscroll('init');
+        },
+        areaUpdate: function(data, city) {
+            //更新地区
+            this.postData.area = data.area[city][0].text;//用户还未选择区域时默认为第一个
             $('#area').empty();
+            for (var i = 0; i < data.area[city].length; i++) {
+                $('#area').append('<option value="'
+                    + data.area[city][i].text
+                    + '">'
+                    + data.area[city][i].text
+                    +'</option>');
+            }
+            $('#area').mobiscroll('init');
+        },
+        selUpdate: function(data, pro, city, area) {
+            //省市区三级联动数据初始化
+            var proValue = pro ? pro : data.pro[0].text;
+            var cityValue = city ? city : data.city[proValue][0].text;
+            var areaValue = area ? area : data.area[cityValue][0].text;
+
+            this.postData.province = proValue;
+            this.postData.city = cityValue;
+            this.postData.area = areaValue;
+
+            for (var i = 0; i < data.pro.length; i++) {
+                if (pro && data.pro[i].text == pro) {//如果已经选择了省份
+                    $('#province').prepend('<option value="'
+                        + data.pro[i].text
+                        + '" selected>'
+                        + data.pro[i].text
+                        +'</option>');
+                } else {//未选择省份
+                    $('#province').append('<option value="'
+                        + data.pro[i].text
+                        + '">'
+                        + data.pro[i].text
+                        +'</option>');
+                }
+            }
+            $('#province').mobiscroll('init');
+
+            for (var i = 0; i < data.city[proValue].length; i++) {
+                if (city && data.city[proValue][i].text == city) {//如果已经选择了城市
+                    $('#city').prepend('<option value="'
+                        + data.city[proValue][i].text
+                        + '" selected>'
+                        + data.city[proValue][i].text
+                        +'</option>');
+                } else {//未选择城市
+                    $('#city').append('<option value="'
+                        + data.city[proValue][i].text
+                        + '">'
+                        + data.city[proValue][i].text
+                        +'</option>');
+                }
+            }
+            $('#city').mobiscroll('init');
+
             for (var i = 0; i < data.area[cityValue].length; i++) {
                 if (area && data.area[cityValue][i].text  == area) {//如果已经选择了区域
                     $('#area').append('<option value="'
-                        + data.area[cityValue][i].value
+                        + data.area[cityValue][i].text
                         + '" selected>'
                         + data.area[cityValue][i].text
                         +'</option>');
                 } else {//未选择区域
                     $('#area').append('<option value="'
-                        + data.area[cityValue][i].value
+                        + data.area[cityValue][i].text
                         + '">'
                         + data.area[cityValue][i].text
                         +'</option>');

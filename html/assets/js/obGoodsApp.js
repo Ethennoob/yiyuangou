@@ -22,17 +22,17 @@ var obtainedGoodsApp = new Vue({
         var that = this;
         checkLogin(function(userid) {
             that.userId = userid;
-            $.post('http://onebuy.ping-qu.com/Api/User/luckyList',
+            $.post('/Api/User/luckyList',
                 {
                     user_id: that.userId,
                     pn: that.obScroller.pn++,
                     psize: that.psize
                 }
             ).done(function (luckyData) {
-                obtainedGoodsApp.obtainedGoods = luckyData.data.obtained_goods;
+                that.obtainedGoods = luckyData.data.obtained_goods;
 
                 //初始化iScroll插件
-                if(that.obtainedGoods.length == that.psize){//记录数量达到一页,上拉加载初始化
+                if(that.obtainedGoods && that.obtainedGoods.length == that.psize){//记录数量达到一页,上拉加载初始化
                     $('#obScroller ul').css('height', (that.obScroller.liHeight * that.psize) + 10 + 'px');
                     that.obScroller.scroller = new IScroll('#obWrapper', {probeType: 2, click: true, scrollbars: true});
 
@@ -43,7 +43,7 @@ var obtainedGoodsApp = new Vue({
                         if(-(this.y - parseInt($('#obWrapper').css('height'))) >= this.scrollerHeight
                             && that.obScroller.pn == that.obScroller.currentPn + 1) {
 
-                            $.post('http://onebuy.ping-qu.com/Api/User/luckyList',
+                            $.post('/Api/User/luckyList',
                                 {
                                     user_id: that.userId,
                                     pn: that.obScroller.pn++,
@@ -77,8 +77,10 @@ var obtainedGoodsApp = new Vue({
                         }
                     });
                 } else {//记录数量未达一页，仅初始化iScroll
-                    $('#obScroller ul').css('height', (that.obScroller.liHeight * that.obtainedGoods.length) + 10 + 'px');
-                    that.obScroller.scroller = new IScroll('#obWrapper', {probeType: 2, click: true, scrollbars: true});
+                    if (that.obtainedGoods) {
+                        $('#obScroller ul').css('height', (that.obScroller.liHeight * that.obtainedGoods.length) + 10 + 'px');
+                        that.obScroller.scroller = new IScroll('#obWrapper', {probeType: 2, click: true, scrollbars: true});
+                    }
                 }
             }).fail(function () {
                 alert("请求失败");

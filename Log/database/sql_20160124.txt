@@ -1,0 +1,42 @@
+2016/01/24 00:10:51----
+select count(*) from `company` where  `is_on` = 1
+
+2016/01/24 00:10:51----
+select `id`,`company_name`,`QR_code`,`add_time`,`update_time`,`is_on` from `company` where  `is_on` = 1 order by add_time desc limit 0, 15
+
+2016/01/24 09:47:57----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/24 12:39:15----
+update `logistics_data` set `logistics_number`=?,`data`=?,`update_time`=? where  `logistics_number` = '3301637014901'
+
+2016/01/24 13:13:45----
+update `logistics_data` set `logistics_number`=?,`data`=?,`update_time`=? where  `logistics_number` = '3301637014901'
+
+2016/01/24 13:48:44----
+update `logistics_data` set `logistics_number`=?,`data`=?,`update_time`=? where  `logistics_number` = '3301637014901'
+
+2016/01/24 14:23:44----
+update `logistics_data` set `logistics_number`=?,`data`=?,`update_time`=? where  `logistics_number` = '3301637014901'
+
+2016/01/24 15:00:45----
+update `logistics_data` set `logistics_number`=?,`data`=?,`update_time`=? where  `logistics_number` = '3301637014901'
+
+2016/01/24 15:46:49----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/24 15:46:58----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/24 15:47:27----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/24 15:48:04----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/24 15:48:15----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+
+2016/01/24 15:49:41----
+insert into `wechat_receive` (`msg_style`,`to_name`,`from_name`,`create_time`,`msg_type`,`event`,`event_key`) values (?,?,?,?,?,?,?)
+

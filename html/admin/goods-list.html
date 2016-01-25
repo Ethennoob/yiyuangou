@@ -36,7 +36,7 @@
       <div class="am-form-group am-u-sm-2 am-u-md-2">
         <label>专区选择</label>
         <select v-cloak v-on:change="thematicChange()" v-model="filterData.company_id" name="company_id">
-          <option v-for="item in companyList" v-bind:value="item.id">
+          <option v-for="item in companyList" v-bind:value="item.id" v-cloak>
             {{item.company_name}}
           </option>
         </select>
@@ -44,7 +44,7 @@
       <div class="am-form-group am-u-sm-2 am-u-md-2">
         <label>专题选择</label>
         <select v-cloak v-model="filterData.thematic_id" name="thematic_id">
-          <option v-for="item in thematic" v-bind:value="item.id">
+          <option v-for="item in thematic" v-bind:value="item.id" v-cloak>
             {{item.thematic_name}}
           </option>
         </select>
@@ -52,7 +52,7 @@
       <div class="am-form-group am-u-sm-2 am-u-md-2">
         <label>搜索字段</label>
         <select v-model="searchType">
-          <option value="no" selected>无</option>
+          <option value="no">无</option>
           <option value="goods_name">商品名称</option>
           <option value="goods_sn">商品货号</option>
           <option value="is_show">显示状态</option>
@@ -60,7 +60,7 @@
           <option value="nature">商品类型</option>
         </select>
       </div>
-      <div v-if="searchType != 'is_show' && searchType != 'nature'" class="am-form-group am-u-sm-6 am-u-md-3 am-u-end">
+      <div v-cloak v-if="searchType != 'is_show' && searchType != 'nature'" class="am-form-group am-u-sm-6 am-u-md-3 am-u-end">
         <label>搜索内容</label>
         <div class="am-input-group">
           <input v-model="searchText" type="text" class="am-form-field">
@@ -69,7 +69,7 @@
           </span>
         </div>
       </div>
-      <div v-if="searchType == 'is_show'" class="am-form-group am-u-sm-6 am-u-md-6">
+      <div v-cloak v-if="searchType == 'is_show'" class="am-form-group am-u-sm-6 am-u-md-6">
         <label class="am-block">显示状态</label>
         <div class="am-radio-inline">
           <label>
@@ -88,7 +88,7 @@
           <button v-on:click="search()" type="button" class="am-btn am-btn-primary">搜索</button>
         </div>
       </div>
-      <div v-if="searchType == 'nature'" class="am-form-group am-u-sm-6 am-u-md-6">
+      <div v-cloak v-if="searchType == 'nature'" class="am-form-group am-u-sm-6 am-u-md-6">
         <label class="am-block">显示状态</label>
         <div class="am-radio-inline">
           <label>
@@ -115,6 +115,8 @@
           <table v-cloak v-show="goods" class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
             <tr class="am-text-nowrap">
+              <th class="am-text-middle">所属专区</th>
+              <th class="am-text-middle">所属专题</th>
               <th class="am-text-middle">商品名称</th>
               <th class="am-text-middle">商品性质</th>
               <th class="am-text-middle">成本价</th>
@@ -129,6 +131,8 @@
             </thead>
             <tbody>
               <tr v-cloak v-for="item in goods">
+                <td class="am-text-middle" v-cloak>{{item.company_name}}</td>
+                <td class="am-text-middle" v-cloak>{{item.thematic_name}}</td>
                 <td class="am-text-middle" v-cloak>{{item.goods_name}}</td>
                 <td class="am-text-middle" v-cloak v-if="item.nature == null"></td>
                 <td class="am-text-middle" v-cloak v-if="item.nature == 0">实物</td>
@@ -142,13 +146,16 @@
                 <td class="am-text-middle" v-cloak v-if="item.free_post == 1">包邮</td>
                 <td class="am-text-middle" v-cloak v-else>不包邮</td>
                 <td class="am-text-middle" v-cloak>{{item.add_time}}</td>
-                <td class="am-text-middle">
-                  <a href="add-goods.html?goods_id={{item.id}}&company_id={{filterData.company_id}}" class="am-btn am-btn-default am-btn-xs">
-                    <span class="am-icon-pencil-square-o"></span> 查看详情
-                  </a>
-                  <a href="add-album.html?goods_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs">
-                    <span class="am-icon-pencil-square-o"></span> 商品相册
-                  </a>
+                <td class="am-text-middle am-text-nowrap">
+                  <button type="button" v-on:click="detailHref(item.id)" class="am-btn am-btn-default am-btn-xs">
+                    <span class="am-icon-pencil-square-o"></span> 详情
+                  </button>
+                  <button type="button" v-on:click="albumHref(item.id)" class="am-btn am-btn-primary am-btn-xs">
+                    <span class="am-icon-pencil-square-o"></span> 相册
+                  </button>
+                  <button type="button" v-on:click="showGoodsHref(item.id)" class="am-btn am-btn-success am-btn-xs">
+                    <span class="am-icon-pencil-square-o"></span> 链接
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -163,7 +170,7 @@
             <div class="am-fr">
               <ul class="am-pagination">
                 <!--<li class="am-disabled"><a href="#">«</a></li>-->
-                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                <li v-for="pageItem in page" v-on:click="search(pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
                   <a v-on:click.prevent="">{{pageItem}}</a>
                 </li>
               </ul>
@@ -185,6 +192,16 @@
   <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
 </footer>
 
+<div class="am-modal am-modal-alert" tabindex="-1" id="goods-href">
+  <div class="am-modal-dialog">
+    <div class="am-modal-bd">
+      {{goodsHref}}
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn">确定</span>
+    </div>
+  </div>
+</div>
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>

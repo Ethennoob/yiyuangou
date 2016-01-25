@@ -36,18 +36,20 @@
 <body id="joinRecordApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">参与记录
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
         </a>
-        <a href="personal.html?company_id={{companyId}}">
-            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
         </a>
     </div>
 
     <!--无记录时显示的信息-->
-    <div v-if="!recordList" class="text-center font-bold bg-white text-center">
-        <img src="assets/img/no-record.png" class=" mt20 mb20" width="70">
+    <div v-if="!recordList" class="no-record-tip" v-cloak>
+        <img src="assets/img/no-record.png">
+        <div>暂无记录</div>
     </div>
+
 
     <!--记录列表-->
     <div id="joinWrapper" v-bind:class="{'wrapper': true, 'hide': !recordList }">

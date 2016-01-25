@@ -91,7 +91,7 @@
       limitNum: ''
     },
     created: function() {
-      $.post('http://onebuy.ping-qu.com/Admin/System/buyLimitDetail').done(function(data) {
+      $.post('/Admin/System/buyLimitDetail').done(function(data) {
         limitSetApp.limitNum = data.data.buy_limit.buy_limit;
       }).fail(function() {
         alert("请求失败");
@@ -99,7 +99,7 @@
     },
     methods: {
       saveSet: function() {
-        $.post('http://onebuy.ping-qu.com/Admin/System/buyLimitEdit',
+        $.post('/Admin/System/buyLimitEdit',
                 {
                   buy_limit: this.limitNum
                 }

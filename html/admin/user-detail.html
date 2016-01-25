@@ -51,11 +51,18 @@
 
           <div class="am-form-group am-padding-vertical-sm">
             <label class="am-u-sm-3 am-form-label">手机号码：</label>
-            <div class="am-u-sm-6">
+            <div class="am-u-sm-9">
               <input v-model="phone" type="text">
             </div>
-            <div class="am-u-sm-3">
-              <button v-on:click="alterPhone()" type="button" class="am-btn am-btn-primary">保存修改</button>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user_froze" class="am-u-sm-3 am-form-label">是否冻结：</label>
+            <div class="am-u-sm-9">
+              <select v-model="isFroze" name="user_froze">
+                <option value="1">冻结</option>
+                <option value="0">未冻结</option>
+              </select>
             </div>
           </div>
 
@@ -89,11 +96,12 @@
 
           <div class="am-g am-padding-vertical-sm">
             <label class="am-u-sm-3 am-form-label am-padding-0">是否关注公众号：</label>
-            <div v-if="userInfo.is_follow == 1" class="am-u-sm-2">已关注</div>
-            <div v-else class="am-u-sm-2">未关注</div>
-            <label class="am-u-sm-2 am-form-label am-padding-0">账户是否冻结：</label>
-            <div v-if="userInfo.is_froze == 1" class="am-u-sm-2 am-u-end">冻结</div>
-            <div v-else class="am-u-sm-2 am-u-end">未冻结</div>
+            <div v-if="userInfo.is_follow == 1" class="am-u-sm-2 am-u-end">已关注</div>
+            <div v-else class="am-u-sm-2 am-u-end">未关注</div>
+          </div>
+
+          <div class="am-u-sm-3 am-u-end am-text-right">
+            <button v-on:click="alterUser()" type="button" class="am-btn am-btn-primary">保存修改</button>
           </div>
 
         </div>
@@ -164,39 +172,41 @@
     data: {
       userInfo: {},
       phone: '',
-      userId: ''
+      userId: '',
+      isFroze: ''
     },
     created: function() {
-      $.post('http://onebuy.ping-qu.com/Admin/User/userOneDetail',
+      $.post('/Admin/User/userOneDetail',
               {
                 user_id: getParam('user_id')
               }
       ).done(function(response) {
         userDetailApp.userInfo = response.data.userinfo;
         userDetailApp.phone = response.data.userinfo.phone;
+        userDetailApp.isFroze = response.data.userinfo.is_froze;
         userDetailApp.userId = getParam('user_id');
       }).fail(function() {
         alert("获取用户详情失败");
       });
     },
     methods: {
-      alterPhone: function() {
+      alterUser: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/User/userOneEdit',
+        $.post('/Admin/User/userOneEdit',
                 {
                   id: that.userId,
-                  phone: that.phone
+                  phone: that.phone,
+                  is_froze: that.isFroze
                 }
         ).done(function(response) {
           if(response.errcode == '0'){
-            window.location = 'user.html?searchType=' + getParam('searchType')
-              + '&searchText=' + getParam('searchText')
-              + '&pn=' + getParam('pn');
+            alert("修改成功");
+            history.back();
           } else {
             alert("修改失败");
           }
         }).fail(function() {
-          alert("获取用户详情失败");
+          alert("修改用户请求失败");
         });
       }
     }

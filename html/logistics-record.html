@@ -17,14 +17,18 @@
 <body class="bg-grey" id="logisticsApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">物流记录
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
+        </a>
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
         </a>
     </div>
 
     <!--无记录时显示的信息-->
-    <div v-cloak v-if="!logistics" class="text-center width-full">
-        <img src="assets/img/no-record.png" class=" mt20 mb20" width="70">
+    <div v-if="!logistics" class="no-record-tip" v-cloak>
+        <img src="assets/img/no-record.png">
+        <div>暂无记录</div>
     </div>
 
     <!--物流状态列表-->
@@ -33,7 +37,7 @@
             <div class="logistics-list-dot"></div>
             <div class="logistics-content">
                 <span class="block" v-cloak>{{item.context}}</span>
-                <div class="f14 font-grey mt5" v-cloak>{{item.time}}</div>
+                <div class="f14 font-grey mt5" v-cloak>{{item.ftime}}</div>
             </div>
         </li>
     </ul>

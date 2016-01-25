@@ -144,19 +144,19 @@
       var that = this;
 
       //获取专区数据
-      $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(companyData) {
+      $.post('/Admin/Company/companyOneList').done(function(companyData) {
         that.companyList = companyData.data.company;
         that.filterData.company_id = that.companyList[0].id;
 
         //获取专题名称列表
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+        $.post('/Admin/Thematic/thematicSelect',
                 {
                   company_id: that.filterData.company_id
                 }
         ).done(function(res) {
           that.thematicList = res.data.thematicSelect;
           that.filterData.thematic_id = that.thematicList[0].id;
-            $.post('http://onebuy.ping-qu.com/Admin/Sale/beforeRecordList',
+            $.post('/Admin/Sale/beforeRecordList',
                     {
                       company_id: that.filterData.company_id,
                       thematic_id: that.filterData.thematic_id,
@@ -187,7 +187,7 @@
     methods: {
       thematicChange: function() {//当专区改变，重新获取专题选项
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+        $.post('/Admin/Thematic/thematicSelect',
                 {
                   company_id: that.filterData.company_id
                 }
@@ -202,7 +202,7 @@
       },
       loadData: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Sale/beforeRecordList',
+        $.post('/Admin/Sale/beforeRecordList',
                 {
                   company_id: that.filterData.company_id,
                   thematic_id: that.filterData.thematic_id,
@@ -225,7 +225,7 @@
       },
       pageTurn: function(event, page) {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Sale/beforeRecordList',
+        $.post('/Admin/Sale/beforeRecordList',
                 {
                   thematic_id: that.filterData.thematic_id,
                   company_id: that.filterData.company_id,

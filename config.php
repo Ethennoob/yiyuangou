@@ -7,7 +7,7 @@
 
 return [
 
-    'IS_DB_DEBUG' => true,
+    'IS_DB_DEBUG' => false,
     // 数据库(主库)(必须存在，请勿删除)
      "DB_MASTER" => array(
       "host" => "203.195.151.134",
@@ -76,17 +76,17 @@ return [
     'WEIXIN_CONFIG' => array(
         'token' => 'OneTrade', // 填写你设定的key
         'encodingaeskey' => 'UbobcIF5nFgcqwXAFoytFa6EufA5kyB0vFzIPDThHR4', // 填写加密用的EncodingAESKey
-        'appid' => 'wxe50a5528b729b1aa', // 填写高级调用功能的app id
-        'appsecret' => '5db67c37c90211bf57d07af54455a02a',
+        'appid' => 'wxfd18311ddcb8de73', // 填写高级调用功能的app id
+        'appsecret' => '8841c34efe9b69f56e3fb12f681b9017',
     ), // 填写高级调用功能的密钥
     //微信支付配置
     'WEIXIN_PAY_CONFIG' => array(
-        'appid' => 'wxe50a5528b729b1aa',
-        'mchid' => '1299677801', //商户号
-        'key' => 'SKINTALKyangmaimai20151212linlin', //key
+        'appid' => 'wxfd18311ddcb8de73',
+        'mchid' => '1243036302', //商户号
+        'key' => '3ae00f86d1b1b07a73ff5903d2cab550', //key
         //证书路径,注意应该填写绝对路径
-         'SSLCERT_PATH' => '/disk2/ftp/buy/www/cert/apiclient_cert.pem',
-         'SSLKEY_PATH' => '/disk2/ftp/buy/www/cert/apiclient_key.pem',
+         'SSLCERT_PATH' => '/disk2/www/taoxue/cert/WechatPay/apiclient_cert.pem',
+         'SSLKEY_PATH' => '/disk2/www/taoxue/cert/WechatPay/apiclient_key.pem',
         //异步通知url，商户根据实际开发过程设定
         'NOTIFY_URL' => gethost() . '/Api/Callback/order',
         //curl超时设置

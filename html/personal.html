@@ -17,8 +17,8 @@
 <body class="bg-grey" id="personalApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">个人中心
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
         </a>
     </div>
 
@@ -64,8 +64,8 @@
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
-    <script type="text/javascript" src="assets/js/base.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="assets/js/base.js"></script>
     <script type="text/javascript">
         var personalApp = new Vue({
             el: '#personalApp',
@@ -82,7 +82,7 @@
                 checkLogin(function(userid) {
                     that.userId = userid;
                     //登录状态下加载数据的函数
-                    $.post('http://onebuy.ping-qu.com/Api/User/userOneAllDetail',
+                    $.post('/Api/User/userOneAllDetail',
                             {
                                 user_id: userid
                             }
@@ -97,8 +97,6 @@
             }
         });
 
-        //设置微信分享内容
-        shareIndex();
     </script>
 </body>
 </html>

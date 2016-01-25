@@ -1,3 +1,6 @@
+/* ==========================================================================
+  公共样式
+    ============================================================================ */
 /*-----反向团购样式前缀".gb"为group-buy缩写-----*/
 
 /*-----反向团购背景色-----*/
@@ -8,10 +11,138 @@
 .gb-bg-yellow{background-color: #ffcc33;}
 
 /*-----反向团购字体色-----*/
-.gb-font-grey{color: #919191;}
+/*.gb-font-grey{color: #919191;}*/
 .gb-font-deep-grey{color: #5e5e5e;}
 .gb-font-red{color: #ff3333;}
 .gb-font-deep-red{color: #990f3d;}
 .gb-font-yellow{color: #ffee6e;}
-/*.gb-font-price-yellow{color: #ffdd33;}*/
+.gb-font-price-yellow{color: #ffdd33;}
 .gb-font-blue{color: #19b2ff;}
+
+/*-----反向团购边框色-----*/
+.gb-bd-grey{border-color: #e2e2e2;}
+
+/* ==========================================================================
+  公共组件
+    ============================================================================ */
+/* 顶栏
+ ============================================================================ */
+.gb-top-bar{
+    height: 40px;
+    font-size: 17px;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+    background-color: #fff;
+}
+.gb-top-bar .back{
+    height: 18px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -9px;
+}
+.gb-personal-icon{
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    margin-top: -14px;
+    left: 10px;
+}
+.gb-personal-icon img{
+    width: 28px;
+    height: 28px;
+}
+/* 导航列表
+ ============================================================================ */
+.link-list li{
+    height: 42px;
+    line-height: 42px;
+    position: relative;
+}
+.link-list li + li{
+    border-top: 1px solid #dcdcdc;
+}
+.link-list li:after{
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    right: 10px;
+    background-image: url("../i/arrow-right.png");
+    background-size: 100% 100%;
+}
+.link-list li i{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+}
+/* 黄色按钮
+ ============================================================================ */
+.gb-yellow-btn{
+    width: 131px;
+    height: 44px;
+    line-height: 28px;
+    font-size: 17px;
+    color: #f61d4b !important;
+    background-color: #ffee6e;
+    border-radius: 10px;
+    box-shadow: 0 2px #a61142;
+}
+
+/* ==========================================================================
+  首页-index.html
+    ============================================================================ */
+.gb-index-bg{
+    background-color: #a61142;
+}
+.gb-peoplenum-icon{
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+.gb-index-goods-name{
+    height: 42px;
+}
+.gb-index-goods-title{
+    height: 32px;
+}
+.gb-index-market-price{
+    background-color: #c21750;
+    color: #730b2e;
+}
+.gb-index-yellow-btn{
+    right: 0;
+}
+
+/* ==========================================================================
+  团购详情页-group-detail.html
+    ============================================================================ */
+/*.gb-price-board > span{*/
+    /*height: 4.4rem;*/
+/*}*/
+/*.gb-price-board > span + span{*/
+    /*height: 2rem;*/
+/*}*/
+.gb-join-link{
+    height: 112px;
+    background-image: url('../img/gb-join-detail-bg.png');
+    background-size: cover;
+    background-position: center;
+}
+.gb-join-link-text{
+    color: #ffff19;
+}
+.gb-last-time{
+    height: 41px;
+}
+.gb-goods-info{
+    height: 111px;
+}

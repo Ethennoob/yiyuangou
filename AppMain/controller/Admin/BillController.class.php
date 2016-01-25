@@ -10,12 +10,15 @@
          * 中奖订单列表
          */
 		public function billList(){
+			$pageInfo = $this->P();
+			if (isset($_POST['company_id'])) {
 			$this->V(['company_id'=>['egNum',null,true]]);
             $id = intval($_POST['company_id']);
-			$pageInfo = $this->P();
-	        $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
 	        $class = $this->table('bill')->where(['is_on'=>1,'company_id'=>$id])->order('add_time desc');
-
+	    }else{
+	    	$class = $this->table('bill')->where(['is_on'=>1])->order('add_time desc');
+	    }
+	    $field = ['id','goods_id','user_id','thematic_id','is_confirm','status','bill_sn','add_time'];
 	        //查询并分页
 	        $bill = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$field],false);
 	        if($bill ){

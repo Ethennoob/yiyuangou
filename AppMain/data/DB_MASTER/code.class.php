@@ -9,6 +9,7 @@ class code {
 			'user_id'=> ['type' => 'i', 'value' => null],
 			'code'=> ['type' => 's', 'value' => null],
 			'key'=> ['type' => 'i', 'value' => null],
+			'is_get'=> ['type' => 'i', 'value' => null],
 			'is_use'=> ['type' => 'i', 'value' => null],
 			'is_lucky'=> ['type' => 'i', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],

@@ -6,7 +6,7 @@
  * @create: 2015/12/23 21:49
  * @modify: 2016/01/15 11:26
  */
-$.post('http://onebuy.ping-qu.com/Admin/Login/checkAdminLogin').done(function(data) {
+$.post('/Admin/Login/checkAdminLogin').done(function(data) {
     if(data.errcode == '70002'){
         window.location = 'login.html';
     }
@@ -37,15 +37,15 @@ function getParam(name) {
 }
 
 /**
- * 将某个url加入浏览记录
+ * 替换浏览记录中的当前url
  * @param: {string} param url后面要连接的参数（例如'name=abc&id=1'）
  *         {string} 网页的标题
  * @return: 无
  * @author: 文婷
  * @create: 2016/01/18 16:58
- * @modify: 2015/01/18 16:58
+ * @modify: 2015/01/20 17:37
  */
-function pushState(param, title) {
+function replaceState(param, title) {
     var url = decodeURI(location.href);
     if (url.indexOf('?') != -1) {
         url = url.substr(0, url.indexOf('?'));
@@ -54,7 +54,7 @@ function pushState(param, title) {
         url = location.href + '?' + param;
     }
     url = encodeURI(url);
-    history.pushState({}, title, url);
+    history.replaceState(null, title, url);
 }
 
 /**
@@ -132,13 +132,21 @@ Vue.component('sidebar', {
                     '<li><a href="bvalue-set.html" class="am-cf"><span class="am-icon-list-alt"></span> B值设置</a></li>' +
                 '</ul>' +
             '</li>' +
+            '<li class="admin-parent"><a class="am-cf" data-am-collapse="{target: \'#auth-nav\'}">' +
+                '<span class="am-icon-gears"></span> 权限管理' +
+                '<span class="am-icon-angle-right am-fr am-margin-right"></span></a>' +
+                '<ul class="am-list am-collapse admin-sidebar-sub" id="auth-nav">' +
+                    '<li><a href="auth-list.html" class="am-cf"><span class="am-icon-list-alt"></span> 权限模块列表</a></li>' +
+                    '<li><a href="role-list.html" class="am-cf"><span class="am-icon-list-alt"></span> 角色列表</a></li>' +
+                '</ul>' +
+            '</li>' +
             '<li><a v-on:click="logout()" href="#"><span class="am-icon-sign-out"></span> 注销</a></li>' +
         '</ul>' +
     '</div>' +
     '</div>',
     methods: {
         logout:function() {
-            window.location = 'http://onebuy.ping-qu.com/Admin/Login/logout';
+            window.location = '/Admin/Login/logout';
         }
     }
 });
@@ -178,7 +186,7 @@ Vue.component('topbar', {
     '</header>',
     methods: {
         logout:function() {
-            window.location = 'http://onebuy.ping-qu.com/Admin/Login/logout';
+            window.location = '/Admin/Login/logout';
         }
     }
 });
@@ -199,7 +207,7 @@ function uploaderInit(server, pick, fileVal, formData, thumbnail, fileNumLimit) 
     var up = WebUploader.create({
         auto: false,// 选完文件后，是否自动上传。
 
-        swf: 'http://onebuy.ping-qu.com/admin/assets/swf/Uploader.swf',// swf文件路径
+        swf: '/admin/assets/swf/Uploader.swf',// swf文件路径
 
         server: server, // 文件接收服务端。
 

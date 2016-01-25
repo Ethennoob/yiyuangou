@@ -34,7 +34,7 @@ var personalDetailApp = new Vue({
         checkLogin(function(userid) {
             that.userId = userid;
             //获取用户头像与手机号
-            $.post('http://onebuy.ping-qu.com/Api/User/userOneAllDetail',
+            $.post('/Api/User/userOneAllDetail',
                 {
                     user_id: that.userId
                 }
@@ -46,7 +46,7 @@ var personalDetailApp = new Vue({
             });
 
             //购买记录
-            $.post('http://onebuy.ping-qu.com/Api/User/purchaseList',
+            $.post('/Api/User/purchaseList',
                 {
                     user_id: that.userId,
                     pn: that.buyScroller.pn++,
@@ -56,10 +56,12 @@ var personalDetailApp = new Vue({
                 that.buyRecord = buyData.data.detailpage;
 
                 //计算每个商品的状态
-                that.goodsStatus = goodsStatus(that.buyRecord);
+                if (that.buyRecord) {
+                    that.goodsStatus = goodsStatus(that.buyRecord);
+                }
 
                 //初始化iScroll插件
-                if(that.buyRecord.length == that.psize){//记录数量达到一页,初始化下拉加载插件
+                if(that.buyRecord && that.buyRecord.length == that.psize){//记录数量达到一页,初始化下拉加载插件
 
                     $('#buyScroller ul').css('height', (that.buyScroller.liHeight * that.psize) + 10 + 'px');
                     that.buyScroller.scroller = new IScroll('#buyWrapper', {probeType: 2, click: true});
@@ -70,7 +72,7 @@ var personalDetailApp = new Vue({
                         if(-(this.y - parseInt($('#buyWrapper').css('height'))) >= this.scrollerHeight
                             && that.buyScroller.pn == that.buyScroller.currentPn + 1) {
 
-                            $.post('http://onebuy.ping-qu.com/Api/User/purchaseList',
+                            $.post('/Api/User/purchaseList',
                                 {
                                     user_id: that.userId,
                                     pn: that.buyScroller.pn++,
@@ -106,15 +108,17 @@ var personalDetailApp = new Vue({
                         }
                     });
                 } else {//记录数量未达一页，仅初始化iScroll
-                    $('#buyScroller ul').css('height', (that.buyScroller.liHeight * that.buyRecord.length) + 10 + 'px');
-                    that.buyScroller.scroller = new IScroll('#buyWrapper', {probeType: 2, click: true});
+                    if (that.buyRecord) {
+                        $('#buyScroller ul').css('height', (that.buyScroller.liHeight * that.buyRecord.length) + 10 + 'px');
+                        that.buyScroller.scroller = new IScroll('#buyWrapper', {probeType: 2, click: true});
+                    }
                 }
             }).fail(function () {
                 alert("请求失败");
             });
 
             //获得商品数据
-            $.post('http://onebuy.ping-qu.com/Api/User/luckyList',
+            $.post('/Api/User/luckyList',
                 {
                     user_id: that.userId,
                     pn: that.obScroller.pn++,
@@ -124,7 +128,7 @@ var personalDetailApp = new Vue({
                 that.obtainedGoods = luckyData.data.obtained_goods;
 
                 //初始化iScroll插件
-                if(that.obtainedGoods.length == that.psize){//记录数量达到一页,初始化下拉加载
+                if(that.obtainedGoods && that.obtainedGoods.length == that.psize){//记录数量达到一页,初始化下拉加载
 
                     $('#obScroller ul').css('height', (that.obScroller.liHeight * that.psize) + 10 + 'px');
                     that.obScroller.scroller = new IScroll('#obWrapper', {probeType: 2, click: true, scrollbars: true});
@@ -136,7 +140,7 @@ var personalDetailApp = new Vue({
                         if(-(this.y - parseInt($('#obWrapper').css('height'))) >= this.scrollerHeight
                             && that.obScroller.pn == that.obScroller.currentPn + 1) {
 
-                            $.post('http://onebuy.ping-qu.com/Api/User/luckyList',
+                            $.post('/Api/User/luckyList',
                                 {
                                     user_id: that.userId,
                                     pn: that.obScroller.pn++,
@@ -170,8 +174,10 @@ var personalDetailApp = new Vue({
                         }
                     });
                 } else {//记录数量未达一页，仅初始化iScroll
-                    $('#obScroller ul').css('height', (that.obScroller.liHeight * that.obtainedGoods.length) + 10 + 'px');
-                    that.obScroller.scroller = new IScroll('#obWrapper', {probeType: 2, click: true, scrollbars: true});
+                    if (that.obtainedGoods) {
+                        $('#obScroller ul').css('height', (that.obScroller.liHeight * that.obtainedGoods.length) + 10 + 'px');
+                        that.obScroller.scroller = new IScroll('#obWrapper', {probeType: 2, click: true, scrollbars: true});
+                    }
                 }
             }).fail(function () {
                 alert("请求失败");

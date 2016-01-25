@@ -4,14 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>销售详情</title>
-  <!--<meta name="description" content="这是一个 table 页面">-->
-  <!--<meta name="keywords" content="table">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">-->
-  <!--<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">-->
-  <!--<meta name="apple-mobile-web-app-title" content="Amaze UI" />-->
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
 </head>
@@ -40,7 +35,7 @@
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
-          <table class="am-table am-table-striped am-table-hover table-main">
+          <table class="am-table am-table-striped am-table-hover table-main am-table-centered">
             <thead>
             <tr>
               <th>用户头像</th>
@@ -53,14 +48,14 @@
             </thead>
             <tbody>
             <tr v-for="item in detail">
-              <td>
+              <td class="am-text-middle">
                 <img v-bind:src="item.user_img" class="am-round" width="50">
               </td>
-              <td>{{item.nickname}}</td>
-              <td>{{item.num}}</td>
-              <td>{{item.add_time}}</td>
-              <td>{{item.phone}}</td>
-              <td>
+              <td class="am-text-middle">{{item.nickname}}</td>
+              <td class="am-text-middle">{{item.num}}</td>
+              <td class="am-text-middle">{{item.add_time}}</td>
+              <td class="am-text-middle">{{item.phone}}</td>
+              <td class="am-text-middle">
                 <div v-on:click="showCode($index)" class="am-btn am-btn-primary am-btn-xs">
                   <span class="am-icon-eye"></span> 查看
                 </div>
@@ -136,7 +131,7 @@
     created: function() {
       var that = this;
       //获取单个商品销售详情
-      $.post('http://onebuy.ping-qu.com/Admin/Sale/oneGoodSaleList',
+      $.post('/Admin/Sale/oneGoodSaleList',
               {
                 goods_id: that.goodsId,
                 psize: that.psize,
@@ -166,7 +161,7 @@
       },
       pageTurn: function(event, page) {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Sale/oneGoodSaleLis',
+        $.post('/Admin/Sale/oneGoodSaleLis',
                 {
                   goods_id: that.goodsId,
                   psize: that.psize,

@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>添加商品相册</title>
-  <!--<meta name="description" content="商品添加页面">-->
-  <!--<meta name="keywords" content="form">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">-->
-  <!--<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">-->
-  <!--<meta name="apple-mobile-web-app-title" content="Amaze UI" />-->
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
   <link rel="stylesheet" href="assets/css/app.css">
   <link rel="stylesheet" href="assets/css/webuploader.css">
+  <style rel="stylesheet">
+    #fileList .info{
+      width: 100px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body id="addAlbumApp">
 <!--[if lte IE 9]>
@@ -58,7 +61,11 @@
               <div id="uploader" v-bind:class="{'hide': albumImg}">
                 <!--用来存放item-->
                 <div id="fileList" class="uploader-list"></div>
-                <div id="filePicker">选择图片</div>
+                <div id="filePicker" class="am-inline-block">选择图片</div>
+                <button v-on:click="clearImg()" class="am-btn am-btn-danger am-inline-block"
+                        style="vertical-align: top; height: 45px; border-radius: 3px;" type="button">
+                  清空图片
+                </button>
               </div>
               <div v-cloak>{{uploadedTip}}</div>
             </div>
@@ -119,7 +126,7 @@
     created: function() {
       var that = this;
       //获取专题名称列表
-      $.post('http://onebuy.ping-qu.com/Admin/Goods/albumList',
+      $.post('/Admin/Goods/albumList',
               {
                 goods_id: getParam('goods_id')
               }
@@ -132,7 +139,7 @@
 
       //初始化上传插件
       that.uploader = uploaderInit(
-              'http://onebuy.ping-qu.com/Admin/Goods/albumAdd',//数据接收接口
+              '/Admin/Goods/albumAdd',//数据接收接口
               '#filePicker',//上传图片按钮
               'goods_album[]',//文件上传的name
               {//除文件以外上传的额外数据
@@ -161,7 +168,7 @@
 
       },
       deleteAlbum: function() {//删除相册
-        $.post('http://onebuy.ping-qu.com/Admin/Goods/albumDel', {goods_id: addAlbumApp.goodsId}).done(function(data) {
+        $.post('/Admin/Goods/albumDel', {goods_id: addAlbumApp.goodsId}).done(function(data) {
           if(data.errcode == 0){
             addAlbumApp.albumImg = null;//修改实例数据
           } else {
@@ -170,6 +177,10 @@
         }).fail(function() {
           alert("请求失败");
         });
+      },
+      clearImg: function() {
+        this.uploader.reset();
+        $('#fileList').empty();
       }
     }
   });

@@ -1,0 +1,30 @@
+2016-01-22 09:06:20-----------
+{"appid":"wxfd18311ddcb8de73","attach":"{\"goods_sn\":\"20160121736933\",\"price\":\"1\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1243036302","nonce_str":"3stj8g5h1bac0pp9ln491nimi3uinnhx","openid":"oCZO9s0BnUv3InJNQIoqvhoA9HBc","out_trade_no":"201601217369332884","result_code":"SUCCESS","return_code":"SUCCESS","sign":"408D8954D9FEE4CC0756FC6C1BA64D9B","time_end":"20160122090736","total_fee":"1","trade_type":"JSAPI","transaction_id":"1002560830201601222832185726"}
+-----------
+结果：支付成功！
+------------------ 
+2016-01-22 09:09:34-----------
+{"appid":"wxfd18311ddcb8de73","attach":"{\"goods_sn\":\"20160121434420\",\"price\":\"1\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1243036302","nonce_str":"g17z2j2inkkxbpwk6gqymmp7k00x24pp","openid":"oCZO9s0BnUv3InJNQIoqvhoA9HBc","out_trade_no":"201601214344208964","result_code":"SUCCESS","return_code":"SUCCESS","sign":"01CA25BB74EAEC7BED6AEBC8511C6F78","time_end":"20160122091050","total_fee":"1","trade_type":"JSAPI","transaction_id":"1002560830201601222832233819"}
+-----------
+结果：支付成功！
+------------------ 
+2016-01-22 09:28:47-----------
+{"appid":"wxfd18311ddcb8de73","attach":"{\"goods_sn\":\"20160122272820\",\"price\":\"1\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1243036302","nonce_str":"xsg7rc4xvsak7kw84tneebsjjv2opjhm","openid":"oCZO9s0BnUv3InJNQIoqvhoA9HBc","out_trade_no":"201601222728203973","result_code":"SUCCESS","return_code":"SUCCESS","sign":"65C2D83F1EE4A7A43FDC18779BD63438","time_end":"20160122093003","total_fee":"1","trade_type":"JSAPI","transaction_id":"1002560830201601222832464743"}
+-----------
+结果：支付成功！
+------------------ 
+2016-01-22 09:33:13-----------
+{"appid":"wxfd18311ddcb8de73","attach":"{\"goods_sn\":\"20160121696834\",\"price\":\"1\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1243036302","nonce_str":"77h9tumlptt2agfhjn113ek2l4d82yhq","openid":"oCZO9s0BnUv3InJNQIoqvhoA9HBc","out_trade_no":"20160121696834130","result_code":"SUCCESS","return_code":"SUCCESS","sign":"E20AFF7BF353B30CAF30976883367536","time_end":"20160122093429","total_fee":"1","trade_type":"JSAPI","transaction_id":"1002560830201601222832522802"}
+-----------
+结果：支付成功！
+------------------ 
+2016-01-22 09:35:56-----------
+{"appid":"wxfd18311ddcb8de73","attach":"{\"goods_sn\":\"20160122377153\",\"price\":\"1\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1243036302","nonce_str":"dgxuu0l1qx1z1ssd3wkla1utylbgll4e","openid":"oCZO9s0BnUv3InJNQIoqvhoA9HBc","out_trade_no":"201601223771536988","result_code":"SUCCESS","return_code":"SUCCESS","sign":"9A1E98CDE50DB824F5FE343A3B37A84E","time_end":"20160122093711","total_fee":"1","trade_type":"JSAPI","transaction_id":"1002560830201601222832565708"}
+-----------
+结果：支付成功！
+------------------ 
+2016-01-22 12:23:05-----------
+{"appid":"wxfd18311ddcb8de73","attach":"{\"goods_sn\":\"20160122169260\",\"price\":\"1\"}","bank_type":"CFT","cash_fee":"1","fee_type":"CNY","is_subscribe":"Y","mch_id":"1243036302","nonce_str":"f6jdmwbus315sn0hv483vzdu3clb02ks","openid":"oCZO9s0BnUv3InJNQIoqvhoA9HBc","out_trade_no":"201601221692603979","result_code":"SUCCESS","return_code":"SUCCESS","sign":"D624D0C1E47A0ABC97AB02184F44A782","time_end":"20160122122420","total_fee":"1","trade_type":"JSAPI","transaction_id":"1002560830201601222835949982"}
+-----------
+结果：支付成功！
+------------------ 

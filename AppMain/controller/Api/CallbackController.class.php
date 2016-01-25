@@ -52,32 +52,47 @@
         $data['user_id'] = $isUser['id'];
         $data['wxPay_sn'] = $orderxml['out_trade_no'];
         $data['add_time'] = time();
-        $count = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$data['goods_id']])->get(['code'],false);
+        //$count = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$data['goods_id']])->get(['code'],false);
         //$data['num'] = count($count);
         $data['num'] = $orderxml['total_fee'];
         $data['ms_time'] = sprintf("%03d",floor(microtime()*1000));
+        //开启事务
+        //$this->table()->startTrans();
         $record = $this->table('record')->save($data);
-        $record_id = $this->table('record')->where(array('wxPay_sn'=>$data['wxPay_sn'],'is_on'=>1))->get(['id'],true);
+        $record_id = $this->table('record')->where(array('wxPay_sn'=>$data['wxPay_sn'],'is_on'=>1))->get(['id','num'],true);
 
-          
+        /*$goods_id    = $data['goods_id'];
+        $user_id     = $data['user_id'];
+        $thematic_id     = $data['thematic_id'];
+        $record_id = $record_id['id'];*/
         //分配认购码给用户,生成购物流水单
-        $roll = $this->generateCodeToUser($data['user_id'],$data['goods_id'],$data['thematic_id'],$data['num'],$record_id['id']);
-         
-         //通知微信已支付成功
-        $callback = $this->returnSuccess('支付成功！',$info);
-        if (!$callback) {
+        $roll = $this->generateCodeToUser($data['user_id'],$data['goods_id'],$data['thematic_id'],$record_id['id']);
+        
+        $codenuma = $this->table('purchase')->where(['is_on'=>1,'record_id'=>$record_id['id'],'goods_id'=>$data['goods_id']])->get(['id'],false);
+        if (count($codenuma) == $record_id['num']) {
+          $this->table()->commit();
+          //通知微信已支付成功
+          $callback = $this->returnSuccess('支付成功！',$info);
+          if (!$callback) {
+            $this->table()->rollback();
+            $this->R('',40001);
+          }
+          $this->table()->commit();
+          $this->R(['callback'=>$data]);
+          exit;
+        }else{
+          $this->table()->rollback();
           $this->R('',40001);
         }
-        $this->R(['callback'=>$data]);
-        exit;
+        
      }
 
      /**
        * 分配认购码给用户
        * $user_id,$goods_id,$thematic_id,$num
        */
-      private function generateCodeToUser($user_id,$goods_id,$thematic_id,$num,$record_id){
-        $codenum = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id])->order("rand()")->limit($num)->get(['code'],false);
+      private function generateCodeToUser($user_id,$goods_id,$thematic_id,$record_id){
+        $codenum = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id,'is_get'=>$user_id])->get(['code'],false);
         $count = count($codenum);
             for ($i=0; $i < $count; $i++) { 
                 $data['code'] = $codenum[$i]['code'];
@@ -91,7 +106,7 @@
                 if(!$purchase){
                     $this->R('',40001);
                 }
-                $codeupdate = $this->table('code')->where(['code'=>$codenum[$i]['code']])->update(['is_use'=>1,'user_id'=>$user_id,'update_time'=>time()]);
+                $codeupdate = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id,'code'=>$codenum[$i]['code']])->update(['is_use'=>1,'is_get'=>0,'user_id'=>$user_id,'update_time'=>time()]);
                 if(!$codeupdate){
                     $this->R('',40001);
                 }

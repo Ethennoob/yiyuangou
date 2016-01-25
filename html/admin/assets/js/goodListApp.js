@@ -15,52 +15,41 @@ var goodsListApp = new Vue({
         psize: 15,
         pageNum: '',
         page: [],
-        searchType: '',
-        searchText: ''
+        currentPage: 1,
+        searchType: 'no',
+        searchText: '',
+        goodsHref: ''
     },
     created: function() {
         var that = this;
         if (location.href.indexOf('?') == -1) {//url无查询参数
             //获取专区数据
-            $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
+            $.post('/Admin/Company/companyOneList').done(function(res) {
                 that.companyList = res.data.company;
                 that.companyList.unshift({id: '', company_name: "全部"});
                 that.filterData.company_id = that.companyList[0].id;
+                that.thematic = [{id: '', thematic_name: '无'}];
+                that.filterData.thematic_id = that.thematic[0].id;
 
-                //获取专题名称列表
-                $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
-                    {
-                        company_id: that.filterData.company_id
-                    }
-                ).done(function(res2) {
-                    that.thematic = res2.data.thematicSelect;
-                    if (!that.thematic) {
-                        that.thematic = [{id: '', thematic_name: '无'}];
-                    } else {
-                        that.thematic.unshift({id: '', thematic_name: '全部'});
-                    }
-                    that.filterData.thematic_id = that.thematic[0].id;
-
-                    var url = location.href;
-                    history.replaceState(null, "商品列表", url + '?searchType=no&psize='
-                        + that.psize + '&pn=1&company_id=&thematic_id=&searchText=');
-
-                    that.search();//获取商品数据
-
-                }).fail(function() {
-                    alert("请求失败");
-                });
+                that.searchType = 'no';
+                that.search(1);
             }).fail(function() {
                 alert("专区数据获取失败");
             });
         } else {//有查询参数时
+            that.filterData.company_id = getParam('company_id');
+            that.filterData.thematic_id = getParam('thematic_id');
+            that.currentPage = getParam('pn');
+            that.searchType = getParam('searchType');
+            that.searchText = decodeURI(getParam('searchText'));
+
             //获取专区数据
-            $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
+            $.post('/Admin/Company/companyOneList').done(function(res) {
                 that.companyList = res.data.company;
-                that.filterData.company_id = getParam('company_id');
+                that.companyList.unshift({id: '', company_name: "全部"});
 
                 //获取专题名称列表
-                $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+                $.post('/Admin/Thematic/thematicSelect',
                     {
                         company_id: that.filterData.company_id
                     }
@@ -71,13 +60,8 @@ var goodsListApp = new Vue({
                     } else {
                         that.thematic.unshift({id: '', thematic_name: '全部'});
                     }
-                    that.filterData.thematic_id = that.thematic[0].id;
 
-                    var url = location.href;
-                    history.replaceState(null, "商品列表", url + '?searchType=no&psize='
-                        + that.psize + '&pn=1');
-
-                    that.search();//获取商品数据
+                    that.search(that.currentPage);//获取商品数据
 
                 }).fail(function() {
                     alert("请求失败");
@@ -90,13 +74,13 @@ var goodsListApp = new Vue({
 
     },
     methods: {
-        thematicChange:function() {//当专区改变，重新获取专题选项
+        thematicChange: function () {//当专区改变，重新获取专题选项
             var that = this;
-            $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicSelect',
+            $.post('/Admin/Thematic/thematicSelect',
                 {
                     company_id: that.filterData.company_id
                 }
-            ).done(function(res) {
+            ).done(function (res) {
                 that.thematic = res.data.thematicSelect;
                 if (!that.thematic) {
                     that.thematic = [{id: '', thematic_name: '无'}];
@@ -104,21 +88,19 @@ var goodsListApp = new Vue({
                     that.thematic.unshift({id: '', thematic_name: '全部'});
                 }
                 that.filterData.thematic_id = that.thematic[0].id;
-            }).fail(function() {
+            }).fail(function () {
                 alert("请求失败");
             });
         },
-        search: function(page) {
-            this.searchType = this.searchType ? this.searchType : getParam('searchType');
-            page = page > 0 ? page : getParam('pn');
-            this.filterData.thematic_id = this.filterData.thematic_id ? this.filterData.thematic_id : getParam('thematic_id');
-            this.filterData.company_id = this.filterData.company_id ? this.filterData.company_id : getParam('company_id');
-            this.searchText = this.searchText ? this.searchText : decodeURI(getParam('searchText'));
-
+        search: function (page) {
             var that = this;
 
+            page = page > 0 ? page : 1;
+            that.currentPage = page;
+
             switch (this.searchType) {
-                case 'no': {
+                case 'no':
+                {
                     var postData = {
                         thematic_id: that.filterData.thematic_id,
                         company_id: that.filterData.company_id,
@@ -132,29 +114,25 @@ var goodsListApp = new Vue({
                         delete postData.company_id;
                     }
                     //获取商品数据
-                    $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList', postData).done(function(res) {
+                    $.post('/Admin/Goods/goodsList', postData).done(function (res) {
                         that.goods = res.data.goodspage;
 
                         //计算数据页数
                         that.pageNum = Math.ceil(res.data.pageInfo.dataSize / res.data.pageInfo.psize);
                         //初始化分页器数据
+                        that.page = [];
                         for (var i = 0; i < that.pageNum; i++) {
                             that.page.$set(i, i + 1);
                         }
 
-                        var param = 'searchType=no&searchText=&company_id=' + that.filterData.company_id
-                            + '&thematic_id=' + that.filterData.thematic_id
-                            + '&psize=' + that.psize
-                            + '&pn=' + page;
-                        pushState(param, '商品列表');
-
-                    }).fail(function() {
+                    }).fail(function () {
                         alert("获取商品数据失败");
                     });
                 }
                     break;
-                case 'goods_name': {
-                    $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsListName',
+                case 'goods_name':
+                {
+                    $.post('/Admin/Goods/goodsListName',
                         {
                             company_id: that.filterData.company_id,
                             thematic_id: that.filterData.thematic_id,
@@ -162,7 +140,7 @@ var goodsListApp = new Vue({
                             psize: that.psize,
                             pn: page
                         }
-                    ).done(function(res) {
+                    ).done(function (res) {
                         that.goods = res.data.goodspage;
 
                         //计算数据页数
@@ -173,20 +151,14 @@ var goodsListApp = new Vue({
                             that.page.$set(i, i + 1);
                         }
 
-                        var param = 'searchType=goods_name&searchText=' + that.searchText
-                            + '&company_id=' + that.filterData.company_id
-                            + '&thematic_id=' + that.filterData.thematic_id
-                            + '&psize=' + that.psize
-                            + '&pn=' + page;
-                        pushState(param, '商品列表');
-
-                    }).fail(function() {
+                    }).fail(function () {
                         alert("请求失败");
                     });
                 }
                     break;
-                case 'goods_sn': {
-                    $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsListSn',
+                case 'goods_sn':
+                {
+                    $.post('/Admin/Goods/goodsListSn',
                         {
                             company_id: that.filterData.company_id,
                             thematic_id: that.filterData.thematic_id,
@@ -194,7 +166,7 @@ var goodsListApp = new Vue({
                             psize: that.psize,
                             pn: page
                         }
-                    ).done(function(res) {
+                    ).done(function (res) {
                         that.goods = res.data.goodspage;
 
                         //计算数据页数
@@ -205,19 +177,14 @@ var goodsListApp = new Vue({
                             that.page.$set(i, i + 1);
                         }
 
-                        var param = 'searchType=goods_sn&searchText=' + that.searchText + '&company_id=' + that.filterData.company_id
-                            + '&thematic_id=' + that.filterData.thematic_id
-                            + '&psize=' + that.psize
-                            + '&pn=' + page;
-                        pushState(param, '商品列表');
-
-                    }).fail(function() {
+                    }).fail(function () {
                         alert("请求失败");
                     });
                 }
                     break;
-                case 'is_show': {
-                    $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsListShow',
+                case 'is_show':
+                {
+                    $.post('/Admin/Goods/goodsListShow',
                         {
                             company_id: that.filterData.company_id,
                             thematic_id: that.filterData.thematic_id,
@@ -225,7 +192,7 @@ var goodsListApp = new Vue({
                             psize: that.psize,
                             pn: page
                         }
-                    ).done(function(res) {
+                    ).done(function (res) {
                         that.goods = res.data.goodspage;
 
                         //计算数据页数
@@ -236,19 +203,14 @@ var goodsListApp = new Vue({
                             that.page.$set(i, i + 1);
                         }
 
-                        var param = 'searchType=is_show&searchText=' + that.searchText + '&company_id=' + that.filterData.company_id
-                            + '&thematic_id=' + that.filterData.thematic_id
-                            + '&psize=' + that.psize
-                            + '&pn=' + page;
-                        pushState(param, '商品列表');
-
-                    }).fail(function() {
+                    }).fail(function () {
                         alert("请求失败");
                     });
                 }
                     break;
-                case 'price': {
-                    $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsListPrice',
+                case 'price':
+                {
+                    $.post('/Admin/Goods/goodsListPrice',
                         {
                             company_id: that.filterData.company_id,
                             thematic_id: that.filterData.thematic_id,
@@ -256,7 +218,7 @@ var goodsListApp = new Vue({
                             psize: that.psize,
                             pn: page
                         }
-                    ).done(function(res) {
+                    ).done(function (res) {
                         that.goods = res.data.goodspage;
 
                         //计算数据页数
@@ -267,19 +229,14 @@ var goodsListApp = new Vue({
                             that.page.$set(i, i + 1);
                         }
 
-                        var param = 'searchType=price&searchText=' + that.searchText + '&company_id=' + that.filterData.company_id
-                            + '&thematic_id=' + that.filterData.thematic_id
-                            + '&psize=' + that.psize
-                            + '&pn=' + page;
-                        pushState(param, '商品列表');
-
-                    }).fail(function() {
+                    }).fail(function () {
                         alert("请求失败");
                     });
                 }
                     break;
-                case 'nature': {
-                    $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsListNature',
+                case 'nature':
+                {
+                    $.post('/Admin/Goods/goodsListNature',
                         {
                             company_id: that.filterData.company_id,
                             thematic_id: that.filterData.thematic_id,
@@ -287,7 +244,7 @@ var goodsListApp = new Vue({
                             psize: that.psize,
                             pn: page
                         }
-                    ).done(function(res) {
+                    ).done(function (res) {
                         that.goods = res.data.goodspage;
 
                         //计算数据页数
@@ -298,67 +255,42 @@ var goodsListApp = new Vue({
                             that.page.$set(i, i + 1);
                         }
 
-                        var param = 'searchType=nature&searchText=' + that.searchText
-                            + '&company_id=' + that.filterData.company_id
-                            + '&thematic_id=' + that.filterData.thematic_id
-                            + '&psize=' + that.psize
-                            + '&pn=' + page;
-                        pushState(param, '商品列表');
-
-                    }).fail(function() {
+                    }).fail(function () {
                         alert("请求失败");
                     });
                 }
                     break;
-                default: alert("无搜索字段");
-
+                default:
+                    alert("无搜索字段");
             }
-            //$.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList', postData).done(function(res) {
-            //    that.goods = res.data.goodspage;
-            //
-            //    //计算数据页数
-            //    that.pageNum = Math.ceil(res.data.pageInfo.dataSize / res.data.pageInfo.psize);
-            //    //初始化分页器数据
-            //    that.page = [];
-            //    for (var i = 0; i < that.pageNum; i++) {
-            //        that.page.$set(i, i + 1);
-            //    }
-            //
-            //}).fail(function() {
-            //    alert("请求失败");
-            //});
+            //为分页器页码设置激活状态
+            $('.am-pagination li').removeClass('am-active');
+            $('.am-pagination li').eq(page - 1).addClass('am-active');
         },
-        pageTurn: function(event, page) {
-            var that = this;
-            if (that.filterData.company_id == 0 && that.filterData.thematic_id == 0) {
-                var postData = {
-                    psize: that.psize,
-                    pn: page
-                };
-            } else if(that.filterData.company_id != 0 && that.filterData.thematic_id == 0) {
-                var postData = {
-                    company_id: that.filterData.company_id,
-                    psize: that.psize,
-                    pn: page
-                };
-            } else if(that.filterData.company_id != 0 && that.filterData.thematic_id != 0) {
-                var postData = {
-                    company_id: that.filterData.company_id,
-                    thematic_id: that.filterData.thematic_id,
-                    psize: that.psize,
-                    pn: page
-                };
-            }
-            $.post('http://onebuy.ping-qu.com/Admin/Goods/goodsList', postData).done(function(response) {
-                that.goods = response.data.goodspage;
-
-                //为分页器页码设置激活状态
-                $('.am-pagination li').removeClass('am-active');
-                $(event.target.parentElement).addClass('am-active');
-
-            }).fail(function() {
-                alert("无法获得商品数据");
-            });
+        detailHref: function (goodsId) {
+            var param = 'company_id=' + this.filterData.company_id
+                + '&thematic_id=' + this.filterData.thematic_id
+                + '&searchType=' + this.searchType
+                + '&searchText=' + this.searchText
+                + '&pn=' + this.currentPage;
+            replaceState(param, "商品管理");
+            window.location = 'add-goods.html?goods_id=' + goodsId +'&company_id=' + this.filterData.company_id;
+        },
+        albumHref: function (goodsId) {
+            var param = 'company_id=' + this.filterData.company_id
+                + '&thematic_id=' + this.filterData.thematic_id
+                + '&searchType=' + this.searchType
+                + '&searchText=' + this.searchText
+                + '&pn=' + this.currentPage;
+            replaceState(param, "商品管理");
+            window.location = 'add-album.html?goods_id=' + goodsId;
+        },
+        showGoodsHref: function(goodsId) {
+            var url = window.location.href;
+            var domain = url.substr(0, url.indexOf('admin'));
+            this.goodsHref = domain + 'pay/goods-detail.html?goods_id=' + goodsId;
+            $('#goods-href').modal('open');
         }
     }
+
 });

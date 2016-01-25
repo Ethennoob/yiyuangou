@@ -26,13 +26,13 @@ var logisticsApp = new Vue({
                     that.logistics = null;
                     that.logisticNum = null;
                 } else {
-                    $.post('http://onebuy.ping-qu.com/Api/User/getExpress',
+                    $.post('/Api/User/getExpress',
                         {
                             logistics_number: that.logisticNum
                         }
                     ).done(function (res) {
-                        that.logistics = res.data.expressdetail.data;
-                        that.logisticsState = res.data.expressdetail.state;
+                        that.logistics = res.data.expressdetail.lastResult.data;
+                        that.logisticsState = res.data.expressdetail.lastResult.state;
                     }).fail(function () {
                         alert("请求失败");
                     });
@@ -41,7 +41,7 @@ var logisticsApp = new Vue({
                 that.logistics = null;
             }
             //获取商品信息
-            $.post('http://onebuy.ping-qu.com/Api/Record/luckyOneDetail',
+            $.post('/Api/Record/luckyOneDetail',
                 {
                     goods_id: getParam('goods_id')
                 }

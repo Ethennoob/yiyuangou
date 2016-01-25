@@ -12,7 +12,8 @@ var goodsDetailApp = new Vue({
         goods: {},
         num: 1,
         goodsStatus: '',
-        time: {}
+        time: {},
+        errorTip: ''
     },
     created: function() {
         var that = this;
@@ -22,7 +23,7 @@ var goodsDetailApp = new Vue({
             that.userId = userid;//获取用户id
 
             //加载商品数据
-            $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
+            $.post('/Api/Goods/purchaseOneDetail',
                 {
                     goods_id: getParam('goods_id'),
                     user_id: that.userId
@@ -31,26 +32,26 @@ var goodsDetailApp = new Vue({
                 that.goods = res.data.goodinfo;//获取商品数据
                 that.companyId = that.goods.company_id;
 
-                //插入轮播图
-                for(var i = 0; i < res.data.goodinfo.img.length; i++){
-                    $('.swiper-wrapper').append("<div class='swiper-slide'><img src='" + res.data.goodinfo.img[i] + "' width='100%' ></div>");
+                //如果商品有相册，插入轮播图
+                if (res.data.goodinfo.img) {
+                    for(var i = 0; i < res.data.goodinfo.img.length; i++){
+                        $('.swiper-wrapper').append("<div class='swiper-slide'><img src='" + res.data.goodinfo.img[i] + "' width='100%' ></div>");
+                    }
+                    //初始化轮播
+                    var swiper = new Swiper('.goods-detail-swiper', {
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true,
+                        observer:true,
+                        observeParents:true,
+                        autoHeight: true,
+                        //updateOnImagesReady : true,
+                        autoplay : 3000,
+                        autoplayDisableOnInteraction : false,
+                        loop: true
+                        //setWrapperSize :true
+                    });
+                    //初始化轮播---end
                 }
-
-                //初始化轮播
-                var swiper = new Swiper('.goods-detail-swiper', {
-                    pagination: '.swiper-pagination',
-                    paginationClickable: true,
-                    observer:true,
-                    observeParents:true,
-                    autoHeight: true,
-                    //updateOnImagesReady : true,
-                    autoplay : 3000,
-                    autoplayDisableOnInteraction : false,
-                    lazyLoading : true,
-                    loop: true
-                    //setWrapperSize :true
-                });
-                //初始化轮播---end
 
                 //计算轮播分页器宽度，并设置居中
                 //var paginationWidth = 10 + res.data.goodinfo.img.length * 10 + res.data.goodinfo.img.length * 10;
@@ -65,14 +66,28 @@ var goodsDetailApp = new Vue({
                         var myDate = new Date();
                         var millisecond = that.goods.lucky_time * 1000 - myDate.getTime();
                         if(millisecond <= 0){//倒计时结束
-                            that.goodsStatus = 'end';
+                            //加载商品数据
+                            $.post('/Api/Goods/purchaseOneDetail',
+                                {
+                                    goods_id: getParam('goods_id'),
+                                    user_id: that.userId
+                                }
+                            ).done(function (res2) {
+                                that.goods = res2.data.goodinfo;//获取商品数据
+                                that.goodsStatus = goodsStatus(that.goods);
+                            }).fail(function() {
+                                alert("商品数据请求失败");
+                            });
+                            clearInterval(time);
+                        } else {
+                            var min = Math.floor(millisecond/60000);
+                            var sec = Math.floor((millisecond%60000)/1000);
+                            that.time = {'min': min, 'sec': sec, 'msec': --msec};
+                            if (msec == 0) {
+                                msec = 100;
+                            }
                         }
-                        var min = Math.floor(millisecond/60000);
-                        var sec = Math.floor((millisecond%60000)/1000);
-                        that.time = {'min': min, 'sec': sec, 'msec': --msec};
-                        if (msec == 0) {
-                            msec = 100;
-                        }
+
                     },0.1);
                 }
 
@@ -81,9 +96,9 @@ var goodsDetailApp = new Vue({
                     //分享到朋友圈内容自定义
                     wx.onMenuShareTimeline({
                         title: '一团云购', // 分享标题
-                        link: 'http://onebuy.ping-qu.com/pay/goods-detail.html?goods_id=' + goodsDetailApp.goodsId
+                        link: 'http://onebuy.91taoxue.cn/pay/goods-detail.html?goods_id=' + goodsDetailApp.goodsId
                             + '&company_id=' + that.companyId + '&', // 分享链接
-                        imgUrl: 'http://onebuy.ping-qu.com/'
+                        imgUrl: 'http://onebuy.91taoxue.cn/'
                             + (goodsDetailApp.goods.img ? goodsDetailApp.goods.img[0] : goodsDetailApp.goods.goods_thumb)
                             // 分享图标
                     });
@@ -92,9 +107,9 @@ var goodsDetailApp = new Vue({
                     wx.onMenuShareAppMessage({
                         title: '一团云购', // 分享标题
                         desc: goodsDetailApp.goods.goods_name, // 分享描述
-                        link: 'http://onebuy.ping-qu.com/pay/goods-detail.html?goods_id=' + goodsDetailApp.goodsId
+                        link: 'http://onebuy.91taoxue.cn/pay/goods-detail.html?goods_id=' + goodsDetailApp.goodsId
                             + '&company_id=' + that.companyId + '&', // 分享链接
-                        imgUrl: 'http://onebuy.ping-qu.com/'
+                        imgUrl: 'http://onebuy.91taoxue.cn/'
                             + (goodsDetailApp.goods.img ? goodsDetailApp.goods.img[0] : goodsDetailApp.goods.goods_thumb)
                             // 分享图标
                     });
@@ -125,23 +140,14 @@ var goodsDetailApp = new Vue({
                 this.num --;
             }
         },
-        modalOpen: function() {
+        modalOpen: function(targetModal) {
             event.preventDefault();
-            if ($(event.target).hasClass('buy-modal-btn')) {
-                $('.goods-popup').addClass('is-visible');
-            } else if ($(event.target).hasClass('code-modal-btn')) {
-                $('.code-modal').addClass('is-visible');
-            }
+            $(targetModal).addClass('is-visible');
 
         },
-        modalClose: function() {
-            if ($(event.target).hasClass('goods-popup-close') || $(event.target).hasClass('goods-popup')) {
-                event.preventDefault();
-                $('.goods-popup').removeClass('is-visible');
-            } else if ($(event.target).hasClass('code-modal-close') || $(event.target).hasClass('code-popup')) {
-                event.preventDefault();
-                $('.code-modal').removeClass('is-visible');
-            }
+        modalClose: function(targetModal) {
+            event.preventDefault();
+            $(targetModal).removeClass('is-visible');
         }
     }
 });
@@ -149,8 +155,14 @@ var goodsDetailApp = new Vue({
 
 //立即购买按钮点击事件
 document.querySelector('#chooseWXPay').onclick = function() {
+    //购买数量必须>=1
+    if (!(goodsDetailApp.num >= 1)) {
+        goodsDetailApp.errorTip = "至少购买一件商品";
+        goodsDetailApp.modalOpen('.error-modal');
+        return false;
+    }
     //请求支付数据
-    $.post('http://onebuy.ping-qu.com/Api/Wechatpay/purchase',
+    $.post('/Api/Wechatpay/purchase',
         {
             goods_sn: goodsDetailApp.goods.goods_sn,
             price: goodsDetailApp.num,
@@ -169,6 +181,14 @@ document.querySelector('#chooseWXPay').onclick = function() {
                 package: pay.package,
                 signType: pay.signType,
                 paySign: pay.paySign,
+                cancel: function() {
+                    $.post('/Api/Wechatpay/unPay',
+                        {
+                            goods_id: goodsDetailApp.goodsId,
+                            user_id: goodsDetailApp.userId
+                        }
+                    );
+                },
                 success: function (payRes) {
                     // 支付成功后的回调函数
                     window.location = '../pay-result.html?goods_id=' + goodsDetailApp.goodsId
@@ -179,11 +199,17 @@ document.querySelector('#chooseWXPay').onclick = function() {
             //调用微信支付API---end
 
         } else if(payInfo.errcode == '90001') {
-            alert("超过限购数，无法购买！");
+            goodsDetailApp.errorTip = "超过限购数，无法购买！";
+            goodsDetailApp.modalOpen('.error-modal');
         } else if (payInfo.errcode == '90003') {
-            alert("商品剩余数量不足！");
+            goodsDetailApp.errorTip = "商品剩余数量不足！";
+            goodsDetailApp.modalOpen('.error-modal');
+        } else if (payInfo.errcode == '90008') {
+            goodsDetailApp.errorTip = "您的账户被冻结，无法购买";
+            goodsDetailApp.modalOpen('.error-modal');
         } else {
-            alert("购买失败，错误码：" + payInfo.errcode);
+            goodsDetailApp.errorTip = "购买失败，错误码：" + payInfo.errcode;
+            goodsDetailApp.modalOpen('.error-modal');
         }
 
     }).fail(function() {

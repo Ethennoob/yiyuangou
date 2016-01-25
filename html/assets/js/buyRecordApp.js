@@ -24,7 +24,7 @@ var buyRecordApp = new Vue({
             that.userId = userid;//获取userid
 
             //请求用户购买数据
-            $.post('http://onebuy.ping-qu.com/Api/User/purchaseList',
+            $.post('/Api/User/purchaseList',
                 {
                     user_id: that.userId,
                     pn: that.pn++,
@@ -35,10 +35,12 @@ var buyRecordApp = new Vue({
                 that.goods = purchaseData.data.detailpage;//获取用户购买数据
 
                 //计算每个商品的状态
-                that.goodsStatus = goodsStatus(that.goods);
-
+                if (that.goods) {
+                    that.goodsStatus = goodsStatus(that.goods);
+                }
+                
                 //初始化iScroll插件
-                if(that.goods.length == that.psize){//记录数量达到一页,初始化下拉加载插件
+                if(that.goods && that.goods.length == that.psize){//记录数量达到一页,初始化下拉加载插件
                     $('.buy-goods-list').css('height', (that.liHeight * that.psize) + 10 + 'px');
                     var myScroll = new IScroll('#wrapper', {probeType: 2, click: true, scrollbars: true});
                     //滚动监听
@@ -46,7 +48,7 @@ var buyRecordApp = new Vue({
                         //滚到底部&&该页没被加载过->加载数据
                         if(-(this.y - parseInt($('#wrapper').css('height'))) >= this.scrollerHeight && that.pn == that.currentPn + 1){
 
-                            $.post('http://onebuy.ping-qu.com/Api/User/purchaseList',
+                            $.post('/Api/User/purchaseList',
                                 {
                                     user_id: that.userId,
                                     pn: that.pn++,
@@ -82,8 +84,10 @@ var buyRecordApp = new Vue({
                         }
                     });
                 } else {//记录数量未达一页，仅初始化iScroll
-                    $('.buy-goods-list').css('height', (that.liHeight * that.goods.length) + 10 + 'px');
-                    var myScroll = new IScroll('#wrapper', {probeType: 2, click: true, scrollbars: true});
+                    if (that.goods) {
+                        $('.buy-goods-list').css('height', (that.liHeight * that.goods.length) + 10 + 'px');
+                        var myScroll = new IScroll('#wrapper', {probeType: 2, click: true, scrollbars: true});
+                    }
                 }
 
             }).fail(function () {

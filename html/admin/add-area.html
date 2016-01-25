@@ -91,7 +91,7 @@
         created: function() {
             var that = this;
             if (that.companyId) {
-                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneDetail',
+                $.post('/Admin/Company/companyOneDetail',
                         {
                             company_id: that.companyId
                         }
@@ -105,7 +105,7 @@
         methods: {
             areaSub: function() {
                 var that = this;
-                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneAdd',
+                $.post('/Admin/Company/companyOneAdd',
                         {
                             company_name: that.companyName
                         }
@@ -120,7 +120,7 @@
             },
             editSave: function() {
                 var that = this;
-                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneEdit',
+                $.post('/Admin/Company/companyOneEdit',
                         {
                             company_id: that.companyId,
                             company_name: that.companyName

@@ -87,7 +87,7 @@
           <div class="am-g am-padding-vertical-sm">
             <label class="am-u-sm-3 am-form-label am-padding-0">订单号：</label>
             <div class="am-u-sm-9">
-              {{logisticsInfo.id}}
+              {{logisticsInfo.bill_sn}}
             </div>
           </div>
 
@@ -193,7 +193,7 @@
     created: function() {
       var that = this;
       if (getParam('logistics_id')) {
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsOneDetail',
+        $.post('/Admin/Logistics/logisticsOneDetail',
                 {
                   logistics_id: getParam('logistics_id')
                 }
@@ -211,12 +211,23 @@
     methods: {
       editLogistics: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsEdit', that.editData).done(function(res) {
-          if(res.errcode == '0'){
-            alert("修改成功");
-            window.location = 'logistics.html';
+        $.post('/Admin/Logistics/logisticsEdit', that.editData).done(function(res) {
+          var jsonRes = JSON.parse(res);
+          if(jsonRes.returnCode == "200"){
+            alert("提交成功");
+            history.back();
+          } else if(jsonRes.returnCode == "501") {
+            alert("重复订阅");
+          } else if(jsonRes.returnCode == "500") {
+            alert("参数错误或服务器错误");
+          } else if(jsonRes.returnCode == "701") {
+            alert("该快递公司不允许订阅");
+          } else if(jsonRes.returnCode == "700") {
+            alert("订阅数据存在错误");
+          } else if(jsonRes.returnCode == "600") {
+            alert("您不是合法的订阅者");
           } else {
-            alert("修改失败");
+            alert("提交失败");
           }
         }).fail(function() {
           alert("修改请求失败");
@@ -224,12 +235,23 @@
       },
       addLogistics: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsAdd', that.addData).done(function(res) {
-          if(res.errcode == '0'){
-            alert("添加成功");
-            window.location = 'logistics.html';
+        $.post('/Admin/Logistics/logisticsAdd', that.addData).done(function(res) {
+          var jsonRes = JSON.parse(res);
+          if(jsonRes.returnCode == "200"){
+            alert("提交成功");
+            history.back();
+          } else if(jsonRes.returnCode == "501") {
+            alert("重复订阅");
+          } else if(jsonRes.returnCode == "500") {
+            alert("参数错误或服务器错误");
+          } else if(jsonRes.returnCode == "701") {
+            alert("该快递公司不允许订阅");
+          } else if(jsonRes.returnCode == "700") {
+            alert("订阅数据存在错误");
+          } else if(jsonRes.returnCode == "600") {
+            alert("您不是合法的订阅者");
           } else {
-            alert("添加失败");
+            alert("提交失败");
           }
         }).fail(function() {
           alert("添加请求失败");

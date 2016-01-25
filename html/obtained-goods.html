@@ -34,15 +34,19 @@
 </head>
 <body class="bg-grey" id="obtainedGoodsApp">
     <!--顶栏-->
-    <div class="text-center bg-white top-bar">
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
-        </a>已获得的商品
+    <div class="text-center bg-white top-bar">已获得的商品
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
+        </a>
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
+        </a>
     </div>
 
     <!--无记录-->
-    <div v-if="!obtainedGoods" class="text-center font-bold bg-white text-center" v-cloak>
-        <img src="assets/img/no-record.png" class=" mt20 mb20" width="70">
+    <div v-if="!obtainedGoods" class="no-record-tip text-center" v-cloak>
+        <img src="assets/img/no-record.png">
+        <div>暂无记录</div>
     </div>
 
     <!--商品列表-->

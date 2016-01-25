@@ -123,13 +123,13 @@
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/System/Bvalue').done(function(res) {
+      $.post('/Admin/System/Bvalue').done(function(res) {
         that.bvalue = res.data.Bvalue;
       }).fail(function() {
         alert("请求失败");
       });
 
-      $.post('http://onebuy.ping-qu.com/Admin/Roll/rollGoodsList').done(function(res) {
+      $.post('/Admin/Roll/rollGoodsList').done(function(res) {
         that.rollGoods = res.data.rollGoodsList;
       }).fail(function() {
         alert("待抽奖商品请求失败");
@@ -151,7 +151,7 @@
         }
 
         //提交B值
-        $.post('http://onebuy.ping-qu.com/Admin/Roll/roll',
+        $.post('/Admin/Roll/roll',
                 {
                   B: that.bvalue,
                   ssc: that.period

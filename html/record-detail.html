@@ -20,6 +20,9 @@
         <a href="javascript: history.back();">
             <img class="back" src="assets/i/back.png" />
         </a>
+        <a href="personal.html?company_id={{companyId}}">
+            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        </a>
     </div>
 
     <!--商品信息-->
@@ -82,7 +85,7 @@
 
                 //检测登录状态
                 checkLogin(function(userid) {
-                    $.post('http://onebuy.ping-qu.com/Api/User/purchaseOneDetail',
+                    $.post('/Api/User/purchaseOneDetail',
                             {
                                 user_id: userid,
                                 goods_id: getParam('goods_id')
@@ -96,8 +99,6 @@
                     });
                 });
 
-                //设置微信分享内容
-                shareIndex();
 
             },
             computed: {

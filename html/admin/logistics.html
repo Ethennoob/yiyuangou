@@ -32,30 +32,35 @@
       </div>
     </div>
 
-    <!--专区选择下拉菜单-->
+    <!--数据筛选条件-->
     <div class="am-g am-form am-form-horizontal">
+      <!--专区选择下拉菜单-->
       <div class="am-form-group am-u-sm-4 am-u-lg-4">
         <label>专区选择</label>
-        <select v-cloak v-on:change="loadData()" v-model="companyId" name="company_id">
+        <select v-cloak v-model="companyId" name="company_id">
           <option v-for="item in companyList" v-bind:value="item.id">{{item.company_name}}</option>
         </select>
       </div>
+      <!--专区选择下拉菜单-end-->
+
+      <!--搜索字段选择-->
       <div class="am-form-group am-u-sm-4 am-u-lg-4">
         <label>搜索字段</label>
         <select v-model="searchType">
-          <option value="logistics_number" selected>物流单号</option>
+          <option value="no">无</option>
+          <option value="logistics_number">物流单号</option>
           <option value="bill_sn">订单号</option>
           <option value="logistics_name">物流公司</option>
           <option value="logistics_status">物流状态</option>
-          <option value="">收货人姓名</option>
+          <option value="name">收货人姓名</option>
           <option value="mobile">收货人手机号码</option>
         </select>
       </div>
+      <!--搜索字段选择-end-->
 
-      <!--搜索选项-->
+      <!--物流状态选项-->
       <div v-if="searchType == 'logistics_status'" class="am-form-group am-u-sm-12 am-u-lg-4" v-cloak>
         <label class="am-block">物流状态</label>
-
         <div class="am-radio-inline">
           <label>
             <input v-model="searchText" type="radio" name="logistics_status" value="0">
@@ -103,6 +108,7 @@
           <button v-on:click="search()" type="button" class="am-btn am-btn-primary">搜索</button>
         </div>
       </div>
+      <!--物流状态-end-->
 
       <!--搜索框-->
       <div v-else class="am-form-group am-u-sm-4 am-u-lg-4 am-u-end" v-cloak>
@@ -114,7 +120,10 @@
           </span>
         </div>
       </div>
+      <!--搜索框-end-->
+
     </div>
+    <!--数据筛选条件-end-->
 
 
     <div class="am-g">
@@ -125,7 +134,7 @@
               <tr>
                 <th class="am-text-middle">物流单号</th>
                 <th class="am-text-middle">订单ID</th>
-                <th class="am-text-middle">物流单号</th>
+                <th class="am-text-middle">订单号</th>
                 <th class="am-text-middle">物流公司</th>
                 <th class="am-text-middle">物流状态</th>
                 <th class="am-text-middle">操作</th>
@@ -135,7 +144,7 @@
               <tr v-for="item in logistics">
                 <td class="am-text-middle">{{item.logistics_number}}</td>
                 <td class="am-text-middle">{{item.bill_id}}</td>
-                <td class="am-text-middle">{{item.logistics_number}}</td>
+                <td class="am-text-middle">{{item.bill_sn}}</td>
                 <td class="am-text-middle">{{item.logistics_name}}</td>
                 <td class="am-text-middle" v-if="item.logistics_status == 0">已发货</td>
                 <td class="am-text-middle" v-if="item.logistics_status == 1">揽件</td>
@@ -147,9 +156,9 @@
                 <td class="am-text-middle">
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                      <a href="logistics-detail.html?logistics_id={{item.id}}" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
+                      <button type="button" v-on:click="detailHref(item.id)" class="am-btn am-btn-primary am-btn-xs am-margin-right-sm">
                         <span class="am-icon-pencil-square-o"></span> 详情
-                      </a>
+                      </button>
                       <button v-on:click="deleteId = $index" type="button" class="am-btn am-btn-danger am-btn-xs" data-am-modal="{target: '#deleteTip'}">
                         <span class="am-icon-pencil-square-o"></span> 删除
                       </button>
@@ -166,7 +175,7 @@
             <div class="am-fr">
               <ul class="am-pagination">
                 <!--<li class="am-disabled"><a href="#">«</a></li>-->
-                <li v-for="pageItem in page" v-on:click="pageTurn($event, pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
+                <li v-for="pageItem in page" v-on:click="search(pageItem)" v-bind:class="{'am-active': $index == 0}" v-cloak>
                   <a v-on:click.prevent="">{{pageItem}}</a>
                 </li>
               </ul>
@@ -202,12 +211,12 @@
       是否要删除物流单？
     </div>
     <div class="am-modal-footer">
-                <span v-on:click="deleteLogistics()" class="am-u-sm-6 am-text-center am-text-danger bd-right line-height-44 modal-btn">
-                  确定
-                </span>
-                <span v-on:click="closeModal()" class="am-u-sm-6 am-text-center am-text-primary line-height-44 modal-btn">
-                  取消
-                </span>
+      <span v-on:click="deleteLogistics()" class="am-u-sm-6 am-text-center am-text-danger bd-right line-height-44 modal-btn">
+        确定
+      </span>
+      <span v-on:click="closeModal()" class="am-u-sm-6 am-text-center am-text-primary line-height-44 modal-btn">
+        取消
+      </span>
     </div>
   </div>
 </div>
@@ -226,118 +235,6 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/base.js"></script>
-<script type="text/javascript">
-  var logisticsListApp = new Vue({
-    el: '#logisticsListApp',
-    data: {
-      logistics: [],
-      companyList: [],
-      companyId: '',
-      deleteId: '',
-      psize: 15,
-      pageNum: '',
-      page: []
-    },
-    created: function() {
-      var that = this;
-      //获取专区数据
-      $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList').done(function(res) {
-        that.companyList = res.data.company;
-        that.companyId = that.companyList[0].id;
-
-        //加载物流数据
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsList',
-                {
-                  company_id: that.companyId,
-                  psize: that.psize,
-                  pn: 1
-                }
-        ).done(function(logistics) {
-          that.logistics = logistics.data.logisticslist;
-
-          //计算数据页数
-          that.pageNum = Math.ceil(logistics.data.pageInfo.dataSize / logistics.data.pageInfo.psize);
-          //初始化分页器数据
-          for (var i = 0; i < that.pageNum; i++) {
-            that.page.$set(i, i + 1);
-          }
-
-        }).fail(function() {
-          alert("物流数据请求失败");
-        });
-      }).fail(function() {
-        alert("专区数据请求失败");
-      });
-
-    },
-    methods: {
-      loadData: function() {
-        var that = this;
-
-        //加载物流数据
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsList',
-                {
-                  company_id: that.companyId,
-                  psize: that.psize,
-                  pn: 1
-                }
-        ).done(function(logistics) {
-          that.logistics = logistics.data.logisticslist;
-
-          //计算数据页数
-          that.pageNum = Math.ceil(logistics.data.pageInfo.dataSize / logistics.data.pageInfo.psize);
-          //初始化分页器数据
-          for (var i = 0; i < that.pageNum; i++) {
-            that.page.$set(i, i + 1);
-          }
-
-        }).fail(function() {
-          alert("物流数据请求失败");
-        });
-      },
-      deleteLogistics: function(){
-        var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsDelete',
-                {
-                  logistics_id: that.logistics[that.deleteId].id
-                }
-        ).done(function(res) {
-          if(res.errcode == '0'){
-            that.logistics.splice(that.deleteId, 1);
-            $('#deleteTip').modal('close');
-
-          } else {
-            alert("删除失败");
-          }
-        }).fail(function() {
-          alert("删除请求失败");
-        });
-      },
-      closeModal: function() {
-        $('#deleteTip').modal('close');
-      },
-      pageTurn: function(event, page) {
-        var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Logistics/logisticsList',
-                {
-                  company_id: that.companyId,
-                  psize: that.psize,
-                  pn: page
-                }
-        ).done(function(response) {
-          that.logistics = response.data.logisticslist;
-
-          //为分页器页码设置激活状态
-          $('.am-pagination li').removeClass('am-active');
-          $(event.target.parentElement).addClass('am-active');
-
-        }).fail(function() {
-          alert("无法获得用户数据");
-        });
-      }
-    }
-  });
-
-</script>
+<script src="assets/js/logisticsApp.js" type="text/javascript"></script>
 </body>
 </html>

@@ -160,7 +160,7 @@
         },
         created: function() {
             var that = this;
-            $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList',
+            $.post('/Admin/Company/companyOneList',
                     {
                         psize: that.psize,
                         pn: 1
@@ -182,7 +182,7 @@
         methods: {
             companyDel: function() {
                 var that = this;
-                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneDelete',
+                $.post('/Admin/Company/companyOneDelete',
                         {
                             company_id: that.companyList[that.deleteId].id
                         }
@@ -196,7 +196,7 @@
             },
             pageTurn: function(event, page) {
                 var that = this;
-                $.post('http://onebuy.ping-qu.com/Admin/Company/companyOneList',
+                $.post('/Admin/Company/companyOneList',
                         {
                             psize: that.psize,
                             pn: page
@@ -215,7 +215,7 @@
             downLoad:function(url) {
                 var str = url.substr(url.indexOf('images') - 1);
                 console.log(str);
-                window.location = 'http://onebuy.ping-qu.com/Admin/Company/downFile?url=' + str;
+                window.location = '/Admin/Company/downFile?url=' + str;
             }
         }
     });

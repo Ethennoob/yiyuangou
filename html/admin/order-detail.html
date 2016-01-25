@@ -171,7 +171,7 @@
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/Bill/billOneDetail',
+      $.post('/Admin/Bill/billOneDetail',
               {
                 bill_id: getParam('bill_id')
               }
@@ -185,14 +185,14 @@
     methods: {
       confirmBill: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Bill/billConfirm',
+        $.post('/Admin/Bill/billConfirm',
                 {
                   bill_id: that.billId
                 }
         ).done(function(res) {
           if(res.errcode == '0'){
             alert("确认成功");
-            window.location = 'order.html';
+            history.back();
           } else {
             alert("确认操作失败");
           }
@@ -202,14 +202,14 @@
       },
       cancelBill: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Bill/billCancel',
+        $.post('/Admin/Bill/billCancel',
                 {
                   bill_id: that.billId
                 }
         ).done(function(res) {
           if(res.errcode == '0'){
             alert("取消成功");
-            window.location = 'order.html';
+            history.back();
           } else {
             alert("取消操作失败");
           }

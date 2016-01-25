@@ -49,14 +49,14 @@
           <div class="am-form-group">
             <label for="thematic-name" class="am-u-sm-3 am-form-label">专题名 / Name</label>
             <div class="am-u-sm-9">
-              <input v-model="thematicName" type="text" name="thematic_name" placeholder="专题名">
+              <input v-model="thematicName" type="text" placeholder="专题名">
             </div>
           </div>
 
           <div class="am-form-group">
             <label for="status" class="am-u-sm-3 am-form-label">专题状态 / Status</label>
             <div class="am-u-sm-9">
-              <select v-model="thematicStatus" name="status">
+              <select v-model="thematicStatus">
                 <option value="0">进行中</option>
                 <option value="1">即将揭晓</option>
                 <option value="2">已揭晓</option>
@@ -67,7 +67,7 @@
           <div class="am-form-group">
             <label for="is_show" class="am-u-sm-3 am-form-label">是否在前台显示 / isShow</label>
             <div class="am-u-sm-9">
-              <select v-model="thematicShow" name="is_show">
+              <select v-model="thematicShow">
                 <option value="0">否</option>
                 <option value="1">是</option>
               </select>
@@ -77,20 +77,20 @@
           <div class="am-form-group">
             <label for="update_time" class="am-u-sm-3 am-form-label">修改时间 / EditTime</label>
             <div class="am-u-sm-9">
-              <input v-model="thematicDetail.update_time | date" type="text" name="update_time" disabled>
+              <input v-bind:value="thematicDetail.update_time | date" type="text" name="update_time" disabled>
             </div>
           </div>
 
           <div class="am-form-group">
             <label for="add_time" class="am-u-sm-3 am-form-label">添加时间 / AddTime</label>
             <div class="am-u-sm-9">
-              <input v-model="thematicDetail.add_time | date " type="text" name="add_time" disabled>
+              <input v-bind:value="thematicDetail.add_time | date " type="text" name="add_time" disabled>
             </div>
           </div>
 
           <div class="am-form-group">
             <div class="am-u-sm-11 am-u-sm-push-1 am-padding-bottom">
-              <button type="button" class="am-btn am-btn-primary" id="thematic-save">保存修改</button>
+              <button v-on:click="edit()" type="button" class="am-btn am-btn-primary">保存修改</button>
               <button v-on:click="deleteThematic()" type="button" class="am-btn am-btn-danger am-margin-left-sm" id="thematic-save">删除专题</button>
             </div>
           </div>
@@ -122,8 +122,8 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/vue.js"></script>
 <script src="assets/js/base.js"></script>
-<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
 <script type="text/javascript">
+
   var thematicDetailApp = new Vue({
     el: '#thematicDetailApp',
     data: {
@@ -133,51 +133,55 @@
       thematicStatus: '',
       thematicShow: ''
     },
+    created: function() {
+      $.post('/Admin/Thematic/thematicOneDetail',
+              {
+                thematic_id: getParam('thematic_id')
+              }
+      ).done(function(res) {
+        thematicDetailApp.thematicDetail = res.data.thematic;
+        thematicDetailApp.thematicName = res.data.thematic.thematic_name;
+        thematicDetailApp.thematicNature = res.data.thematic.nature;
+        thematicDetailApp.thematicStatus = res.data.thematic.status;
+        thematicDetailApp.thematicShow = res.data.thematic.is_show;
+      }).fail(function() {
+        alert("请求失败");
+      });
+    },
     methods: {
       deleteThematic: function() {
-        $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicOneDelete',
-                {thematic_id: this.thematicDetail.id}
+        $.post('/Admin/Thematic/thematicOneDelete',
+                {
+                  thematic_id: this.thematicDetail.id
+                }
         ).done(function() {
           alert("删除成功");
-          window.location = 'thematic-list.html';
+          history.back();
         }).fail(function() {
           alert("请求失败");
         });
+      },
+      edit:function() {
+        var that = this;
+        $.post('/Admin/Thematic/thematicOneEdit',
+                {
+                  thematic_id: that.thematicDetail.id,
+                  thematic_name: that.thematicName,
+                  status: that.thematicStatus,
+                  is_show: that.thematicShow
+                }
+        ).done(function(res) {
+          if (res.errcode == '0') {
+            alert("修改成功");
+            history.back();
+          } else {
+            alert("修改失败");
+          }
+        }).fail(function() {
+          alert("修改请求失败");
+        });
       }
     }
-  });
-
-  $.post('http://onebuy.ping-qu.com/Admin/Thematic/thematicOneDetail',
-          {thematic_id: getParam('thematic_id')}
-  ).done(function(data) {
-    thematicDetailApp.thematicDetail = data.data.thematic;
-    thematicDetailApp.thematicName = data.data.thematic.thematic_name;
-    thematicDetailApp.thematicNature = data.data.thematic.nature;
-    thematicDetailApp.thematicStatus = data.data.thematic.status;
-    thematicDetailApp.thematicShow = data.data.thematic.is_show;
-  }).fail(function() {
-    alert("请求失败");
-  });
-
-  $('#thematic-save').click(function() {
-    $('#thematic-form').ajaxSubmit({
-      url: 'http://onebuy.ping-qu.com/Admin/Thematic/thematicOneEdit',
-      type: 'POST',
-      dataType: 'json',
-      success: function(data) {
-        if (data.errcode == '0') {
-          alert("修改成功");
-          window.location = 'thematic-list.html';
-
-        } else {
-          alert("修改失败");
-        }
-      },
-      error: function() {
-        alert("请求失败");
-      }
-    });
-
   });
 </script>
 </body>

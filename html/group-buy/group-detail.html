@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拼团商城</title>
+    <!--页面窗口自动调整到设备宽度，并禁止用户缩放页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 关闭电话号码识别： -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 关闭邮箱地址识别： -->
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/group-buy.css" />
+    <link rel="stylesheet" href="../assets/css/swiper.min.css">
+</head>
+<body class="gb-bg-grey">
+    <!--顶栏-->
+    <div class="gb-top-bar" style="color: #a61142;">
+        <a class="gb-personal-icon" href="personal.html">
+            <img class="back" src="../assets/i/gb-personal-icon.png" />
+        </a>拼团商城
+    </div>
+
+    <!--轮播-->
+    <div class="swiper-container gb-group-detail-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../assets/img/gb-goods-img.jpg" style="width: 100%;">
+            </div>
+        </div>
+        <!-- 进度条 -->
+        <div class="swiper-pagination">
+        </div>
+    </div>
+
+    <!--商品详情-->
+    <div class="bg-white f0 padding-horizontal-10 pt10 pb28">
+        <div class="f17 gb-font-deep-grey mb10">美国科克兰 盐焗综合坚果1130g Costco</div>
+        <div class="f11 font-light-grey mb10">欧乐B“洗牙双管”震撼上市，洗牙效果在家享！预售第二波赠限量“原装进口豪华口腔礼包”！</div>
+        <span class="inline-block gb-bg-label-grey gb-font-deep-grey f11 br5 padding-horizontal-10 padding-vertical-5 mr10 mb12">
+            市场价：<span class="gb-font-blue">￥15.00</span>
+        </span>
+        <span class="inline-block gb-bg-label-grey gb-font-deep-grey f11 br5 padding-horizontal-10 padding-vertical-5 mb12">
+            已售：<span class="gb-font-blue">50件</span>
+        </span>
+        <div class="grid-container">
+            <a class="block text-center col-xs-6 pr8">
+                <span class="block f18 gb-font-price-yellow bg-peach br-top-5 padding-vertical-12">
+                    ￥12.00元<span class="f15">/件</span>
+                </span>
+                <span class="block f11 gb-font-deep-red bg-yellow br-bt-5 padding-vertical-2">3人团购 ></span>
+            </a>
+            <a class="gb-price-board block text-center col-xs-6 pl8">
+                <span class="block f18 gb-font-price-yellow bg-peach br-top-5 padding-vertical-12">
+                    ￥15.00元<span class="f15">/件</span>
+                </span>
+                <span class="block f11 gb-font-deep-red bg-yellow br-bt-5 padding-vertical-2">单独购买 ></span>
+            </a>
+        </div>
+        <div class="f11 font-peach pt20">*支付开团并邀请好友参团，人数不足自动退款。详情见下方【拼团玩法】</div>
+    </div>
+
+    <!--拼团玩法入口-->
+    <div class="pb80">
+        <ul class="link-list bg-white f17 mt20 pl16 bd-top bd-bottom gb-bd-grey gb-font-deep-grey">
+            <li>
+                <a href="#" class="block position-rl">
+                    <img src="../assets/i/gb-method-icon.png" alt="" class="position-rl" style="width: 1.6rem; top: 2px;">
+                    <span class="ml10">拼团玩法</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="../assets/js/jquery-2.0.3.min.js" type="text/javascript"></script>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+    <script src="../assets/js/swiper.min.js" type="text/javascript"></script>
+    <script src="../assets/js/gb-groupDetailApp.js" type="text/javascript"></script>
+</body>
+</html>

@@ -139,7 +139,7 @@
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/Manager/managerList',
+      $.post('/Admin/Manager/managerList',
               {
                 psize: that.psize,
                 pn: 1
@@ -161,7 +161,7 @@
     methods: {
       deleteManager: function(){
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Manager/managerDelete',
+        $.post('/Admin/Manager/managerDelete',
                 {
                   id: that.administrators[that.deleteId].id
                 }
@@ -185,7 +185,7 @@
       },
       pageTurn: function(event, page) {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Admin/Manager/managerDelete',
+        $.post('/Admin/Manager/managerDelete',
                 {
                   psize: that.psize,
                   pn: page

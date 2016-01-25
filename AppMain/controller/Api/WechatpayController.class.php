@@ -106,7 +106,7 @@
          * 退款
          */
         public function refund(){
-            $this->V(['record_id'=>['egNum',null,true]]);
+             $this->V(['record_id'=>['egNum',null,true]]);
             $id = intval($_POST['record_id']);
             $this->V(['refund_fee'=>['egNum',null,true]]);
             $refund_fee = intval($_POST['refund_fee']);
@@ -114,10 +114,23 @@
             if (!$order) {
                 $this->R('','70009');
             }
-            $total_fee = $order['num'];
-            $sn = $order['wxPay_sn'];
-            echo $total_fee;
-            echo $sn;
+            echo phpinfo();exit();
+            $data['total_fee'] = $order['num'];
+            $data['out_trade_no'] = $order['wxPay_sn'];
+            $data['out_refund_no'] = date("Ymd").rand(100000,999999);
+            $data['refund_fee'] = $refund_fee;
+            $data['op_user_id'] = 1243036302;
+            $result = $this->H('Wechat')->wechatRefund($data);
+            // $unifiedOrder = new \System\lib\WxPay\UnifiedOrder_pub();
+            // $data= \System\lib\WxPay\WxPayConf_pub::NOTIFY_URL();
+            //print_r($data);
+            //echo $total_fee;
+            //dump($data);
+            if (!$result) {
+                    $this->R('',40001);
+                    }
+
+                $this->R(['refund' => $result]);
 
         }
         /**

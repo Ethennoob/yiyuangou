@@ -35,13 +35,17 @@
 <body class="bg-grey" id="buyRecordApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">购买记录
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
+        </a>
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
         </a>
     </div>
 
-    <div v-cloak v-if="!goods" class="no-record-tip">
-        <img src="assets/img/no-record.png" class=" mt20 mb20" width="70">
+    <div v-if="!goods" class="no-record-tip text-center" v-cloak>
+        <img src="assets/img/no-record.png">
+        <div>暂无记录</div>
     </div>
 
     <div id="wrapper" v-bind:class="{'hide': !goods }">
@@ -111,7 +115,7 @@
                     <div class="row margin-vertical-5 font-grey f11 padding-horizontal-10 margin-vertical-10 lh11">
                         <span class="col-xs-4" v-cloak >剩余：{{item.last_num}}人次</span>
                         <span class="col-xs-4 bd-right bd-left text-center" style="border-color: #d4d4d4;" v-cloak>限购：{{item.limit_num}}人次</span>
-                        <span class="col-xs-4 text-right">参与人数：
+                        <span class="col-xs-4 text-right">已购：
                             <span class="font-light-blue" v-cloak>{{item.purchase_num}}</span>人
                         </span>
                     </div>

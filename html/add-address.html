@@ -24,10 +24,13 @@
 </head>
 <body class="bg-grey" id="addAddressApp">
     <!--顶栏-->
-    <div class="text-center bg-white top-bar">
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
-        </a>新增地址
+    <div class="text-center bg-white top-bar">新增地址
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
+        </a>
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
+        </a>
     </div>
 
     <!--表单-->
@@ -74,6 +77,7 @@
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
     <script type="text/javascript" src="assets/js/scroll-base.js"></script>
     <script type="text/javascript" src="assets/js/addAddressApp.js"></script>

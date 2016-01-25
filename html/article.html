@@ -17,9 +17,12 @@
 <body id="articleApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">
-        <span v-cloak class="text-ellipsis">{{article.title}}</span>
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <span v-cloak class="text-ellipsis inline-block" style="width: 200px;">{{article.title}}</span>
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
+        </a>
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
         </a>
     </div>
     <div v-cloak class="article-content">{{{article.content}}}</div>
@@ -35,7 +38,7 @@
             }
         });
 
-        $.post('http://onebuy.ping-qu.com/Admin/Article/articleOneDetail', {article_id: getParam('article_id')}).done(function (data) {
+        $.post('/Admin/Article/articleOneDetail', {article_id: getParam('article_id')}).done(function (data) {
             articleApp.article = data.data.article;
         }).fail(function () {
             alert("请求失败");

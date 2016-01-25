@@ -1,21 +1,6 @@
 /**
  * Created by xu on 2015/12/29.
  */
-
-//初始化轮播
-var indexSwiper = new Swiper('.index-swiper', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    observer:true,
-    observeParents:true,
-    autoHeight: true,
-    updateOnImagesReady : true,
-    autoplay : 3000,
-    autoplayDisableOnInteraction : false,
-    loop : true
-});
-//初始化轮播---end
-
 var indexApp = new Vue({
     el: '#index-app',
     data: {
@@ -27,16 +12,13 @@ var indexApp = new Vue({
         currentThematic: '',//当前专题id
         newestThematic: '',//最新一期专题id
         firstThematic: '',//第一期专题id
-        //thematicStatus: true,//专题状态（默认为true，只有专题处于未开始时才会是false）
 
         firstGoods: {},//记录最早一期商品
         newGoods: {},//记录最新一期商品
-        poster: [],//海报图
         countDownTime: [],//多个商品的倒计时时间记录
         goodsStatus: [],//商品状态记录
         companyId: getParam('company_id'),//专区id
-        companyName: '',
-        newestThematic: ''//最新一期专题id
+        companyName: ''
     },
     created: function() {
         var that = this;
@@ -45,32 +27,46 @@ var indexApp = new Vue({
         checkLogin(function(userid) {
             //老用户直接加载数据
             that.userId = userid;
-            $.post('http://onebuy.ping-qu.com/Api/Goods/index',
+            $.post('/Api/Goods/index',
                 {
                     company_id: getParam('company_id')
                 }
             ).done(function(goodsData) {
-                that.goods = goodsData.data.index;
-
-                that.thematic_name = goodsData.data.thematic.thematic_name;
-                that.ingThematic = goodsData.data.thematic.id;//正在进行的专题id
-                that.currentThematic = goodsData.data.thematic.id;//当前专题id
-                that.newestThematic = goodsData.data.newthematic;//最新一期专题id
-                that.firstThematic = goodsData.data.thematic.id;
-                //that.thematicStatus = true;
-
-                that.poster = goodsData.data.poster;
-                that.companyName = goodsData.data.company_name;
-                that.firstGoods = that.goods;
-                that.newGoods = that.goods;
-
                 //插入轮播图
-                for(var i = 0; i < that.poster.length; i++){
-                    indexSwiper.appendSlide("<a href='" + that.poster[i].adv_url + "' class='swiper-slide'><img src='" + that.poster[i].adv_img + "' width='100%' ></a>");
+                if (goodsData.data.poster) {//是否存在轮播图
+                    for(var i = 0; i < goodsData.data.poster.length; i++){
+                        $('.swiper-wrapper').append("<a href='" + goodsData.data.poster[i].adv_url + "' class='swiper-slide block'><img src='" + goodsData.data.poster[i].adv_img + "' style='width: 100%;' ></a>");
+                    }
+                    //初始化轮播
+                    var swiper = new Swiper('.index-swiper', {
+                        autoplay: 5000,//可选选项，自动滑动
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true,
+                        loop: true
+                    });
+                    //初始化轮播---end
                 }
 
                 //计算商品状态
-                that.goodsStatus = goodsStatus(that.goods);
+                if (goodsData.data.index) {
+                    that.goodsStatus = goodsStatus(goodsData.data.index);
+                }
+                that.ingThematic = goodsData.data.thematic.id;//当前专题id
+                that.newestThematic = goodsData.data.newthematic;//最新一期专题id
+
+                //判断是否切换默认专题
+                if (!that.changeDefaultThematic(that.goodsStatus, that.ingThematic, that.newestThematic)) {
+                    that.goods = goodsData.data.index;
+
+                    that.thematic_name = goodsData.data.thematic.thematic_name;
+                    that.currentThematic = goodsData.data.thematic.id;//当前专题id
+                    that.firstThematic = goodsData.data.thematic.id;
+
+                    that.poster = goodsData.data.poster;
+                    that.companyName = goodsData.data.company_name;
+                    that.firstGoods = that.goods;
+                    that.newGoods = that.goods;
+                }
 
             }).fail(function() {
                 alert("请求数据失败");
@@ -87,14 +83,46 @@ var indexApp = new Vue({
         countDown:function(index) {//正在揭晓商品倒计时
             var that = this;
             var time = setInterval(function() {
-                var myDate = new Date();
-                var millisecond = that.goods[index].lucky_time * 1000 - myDate.getTime();
-                if(millisecond <= 0){//倒计时结束
-                    that.goodsStatus.$set(index, 'end');
+                //用户切换专题时
+                if (that.currentThematic != that.ingThematic) {
                     clearInterval(time);
                 }
-                var temp = Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
-                that.countDownTime.$set(index, {time: temp});
+                var myDate = new Date();
+                var millisecond = that.goods[index].lucky_time * 1000 - myDate.getTime();
+                if (millisecond <= 0) {//倒计时结束
+                    //重新加载商品获奖者数据
+                    $.post('/Api/Goods/index',
+                        {
+                            company_id: getParam('company_id')
+                        }
+                    ).done(function(goodsData) {
+                        //计算商品状态
+                        that.goodsStatus = goodsStatus(goodsData.data.index);
+                        that.ingThematic = goodsData.data.thematic.id;//正在进行的专题id
+                        that.newestThematic = goodsData.data.newthematic;//最新一期专题id
+
+                        //判断是否切换默认专题
+                        if (!that.changeDefaultThematic(that.goodsStatus, that.ingThematic, that.newestThematic)) {
+                            that.goods = goodsData.data.index;
+
+                            that.thematic_name = goodsData.data.thematic.thematic_name;
+                            that.currentThematic = goodsData.data.thematic.id;
+                            that.firstThematic = goodsData.data.thematic.id;
+
+                            that.poster = goodsData.data.poster;
+                            that.companyName = goodsData.data.company_name;
+                            that.firstGoods = that.goods;
+                            that.newGoods = that.goods;
+                        }
+                        clearInterval(time);
+                    }).fail(function() {
+                        alert("商品数据请求失败");
+                    });
+
+                } else {
+                    var temp = Math.floor(millisecond/60000) + '分' + Math.floor((millisecond%60000)/1000) + '秒';
+                    that.countDownTime.$set(index, {time: temp});
+                }
             },1000);
 
         },
@@ -121,7 +149,7 @@ var indexApp = new Vue({
             }
 
             //加载下一期数据
-            $.post('http://onebuy.ping-qu.com/Api/Goods/index',
+            $.post('/Api/Goods/index',
                 {
                     company_id: that.companyId,
                     thematic_id: ++that.currentThematic
@@ -140,7 +168,9 @@ var indexApp = new Vue({
                         that.goodsStatus = null;
                     } else {
                         //计算商品状态
-                        that.goodsStatus = goodsStatus(that.goods);
+                        if (that.goods) {
+                            that.goodsStatus = goodsStatus(that.goods);
+                        }
                     }
                 }
 
@@ -155,7 +185,7 @@ var indexApp = new Vue({
             that.goods = null;
 
             //判断是否到达第一期
-            if(that.currentThematic == 1){
+            if(that.currentThematic < 1){
                 that.goods = that.firstGoods;//设置商品数据为最早一期的数据
                 that.currentThematic = that.firstThematic;//当前专题id为最老一期id
                 alert("已经是第一期！");//提示用户没有上一期
@@ -163,7 +193,7 @@ var indexApp = new Vue({
             }
 
             //加载上一期商品列表
-            $.post('http://onebuy.ping-qu.com/Api/Goods/index',
+            $.post('/Api/Goods/index',
                 {
                     company_id: that.companyId,
                     thematic_id: --that.currentThematic
@@ -183,13 +213,73 @@ var indexApp = new Vue({
                         that.goodsStatus = null;
                     } else {
                         //计算商品状态
-                        that.goodsStatus = goodsStatus(that.goods);
+                        if (that.goods) {
+                            that.goodsStatus = goodsStatus(that.goods);
+                        }
                     }
                 }
 
             }).fail(function() {
                 alert("请求数据失败");
             });
+        },
+        changeDefaultThematic: function(status, ingThematic, newestThematic) {//切换默认专题
+            var that = this;
+            //判断是否有下一期
+            if (ingThematic == newestThematic) {
+                return false;
+            }
+            //判断该专题是否结束
+            for (var i = 0; i < status.length; i++) {
+                if (status[i] != 'end') {
+                    return false;
+                }
+            }
+
+            //如果有下一期且该专题已结束
+            if (i == status.length) {
+                $.post('Admin/Thematic/ChangeThematic',
+                    {
+                        thematic_id: ingThematic
+                    }
+                ).done(function(res) {
+                    if (res.errcode == 0) {
+
+                        //专题切换成功后重新载入首页数据
+                        $.post('/Api/Goods/index',
+                            {
+                                company_id: getParam('company_id')
+                            }
+                        ).done(function(goodsData) {
+
+                            //计算商品状态
+                            if (goodsData.data.index) {
+                                that.goodsStatus = goodsStatus(goodsData.data.index);
+                            }
+                            that.goods = goodsData.data.index;
+
+                            that.thematic_name = goodsData.data.thematic.thematic_name;
+                            that.ingThematic = goodsData.data.thematic.id;//正在进行的专题id
+                            that.currentThematic = goodsData.data.thematic.id;//当前专题id
+                            that.newestThematic = goodsData.data.newthematic;//最新一期专题id
+                            that.firstThematic = goodsData.data.thematic.id;
+
+                            that.companyName = goodsData.data.company_name;
+                            that.firstGoods = that.goods;
+                            that.newGoods = that.goods;
+
+                        }).fail(function() {
+                            alert("商品数据请求失败");
+                        });
+
+                    } else {
+                        alert("专题切换失败");
+                    }
+                }).fail(function() {
+                    alert("专题切换请求失败");
+                });
+            }
+            return true;
         }
     }
 });

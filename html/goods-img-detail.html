@@ -16,11 +16,11 @@
 <body id="imgDetailApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">图文详情
-        <a href="javascript: history.back();">
-            <img class="back" src="assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="assets/i/back.png" />
         </a>
-        <a href="personal.html?company_id={{companyId}}">
-            <img class="personal-top-link" src="assets/i/personal-logo.png" />
+        <a href="personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="assets/i/personal-logo.png" />
         </a>
     </div>
 
@@ -28,6 +28,7 @@
 
     <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="assets/js/base.js"></script>
     <script type="text/javascript">
         var imgDetailApp = new Vue({
@@ -42,7 +43,7 @@
                 checkLogin(function(userid) {
                     that.userId = userid;//获取用户id
 
-                    $.post('http://onebuy.ping-qu.com/Api/Goods/purchaseOneDetail',
+                    $.post('/Api/Goods/purchaseOneDetail',
                             {
                                 user_id: that.userId,
                                 goods_id: getParam('goods_id')

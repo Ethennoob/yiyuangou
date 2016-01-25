@@ -15,24 +15,24 @@ var joinRecordApp = new Vue({
             liHeight: 65,//获得记录中单条记录的高度
             loadTip: "上拉加载数据...",
             currentPn: 1,//当前页码
-            pn: 1,//要加载的页码
+            pn: 1//要加载的页码
         },
-        psize: 5
+        psize: 15
     },
     created: function() {
         var that = this;
-        $.post('http://onebuy.ping-qu.com/Api/Record/buyGoodsRecordList',
+        $.post('/Api/Record/buyGoodsRecordList',
             {
                 goods_id: that.goodsId,
                 pn: that.joinScroller.pn++,
-                psize: that.psize,
+                psize: that.psize
             }
         ).done(function (joinData) {
             that.recordList = joinData.data.recordpage;
 
 
             //如果显示的记录数量达到一页则初始化下拉加载插件
-            if(that.recordList.length == that.psize){
+            if(that.recordList && that.recordList.length == that.psize){
 
                 //初始化iScroll插件
                 $('#joinScroller ul').css('height', (that.joinScroller.liHeight * that.psize) + 'px');
@@ -45,7 +45,7 @@ var joinRecordApp = new Vue({
                     if(-(this.y - parseInt($('#joinWrapper').css('height'))) >= this.scrollerHeight
                         && that.joinScroller.pn == that.joinScroller.currentPn + 1) {
 
-                        $.post('http://onebuy.ping-qu.com/Api/Record/buyGoodsRecordList',
+                        $.post('/Api/Record/buyGoodsRecordList',
                             {
                                 goods_id: that.goodsId,
                                 pn: that.joinScroller.pn++,
@@ -78,6 +78,12 @@ var joinRecordApp = new Vue({
                         });
                     }
                 });
+            } else {
+                if (that.recordList) {
+                    $('#joinScroller ul').css('height', (that.joinScroller.liHeight * that.recordList.length) + 'px');
+                    that.joinScroller.scroller = new IScroll('#joinWrapper', {probeType: 2, click: true, scrollbars: true});
+                }
+
             }
         }).fail(function () {
             alert("请求失败");

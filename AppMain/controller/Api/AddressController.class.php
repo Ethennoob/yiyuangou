@@ -5,18 +5,72 @@
      * 用户收货地址类
      */
     class AddressController extends BaseClass {
+        public function testtest(){
+            session_destroy();exit();
+            $goods_id = 173;
+            $num = 1;
+            $user_id=140;
+            $thematic_id=666;
+            $record_id = 666;
+            $codenum = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id,'is_get'=>$user_id])->get(['code'],false);
+            $count = count($codenum);
 
-public function downFile()
-{
-$file = "/images/company/1452755124.png";
-    //header("Content-type: application/octet-stream");
-    header("Content-type: image/png");
-    header("Content-Disposition: attachment; filename= '1452755124.png'");
-    header("Content-Length: ". filesize($file));
-    readfile($file);
-
-}
-
+            for ($i=0; $i < $count; $i++) { 
+                $data['code'] = $codenum[$i]['code'];
+                $data['user_id'] = $user_id;
+                $data['goods_id'] = $goods_id;
+                $data['thematic_id'] = $thematic_id;
+                $data['record_id'] = $record_id;
+                $data['add_time'] = time();
+                $data['ms_time'] = sprintf("%03d",floor(microtime()*1000));
+                $purchase = $this->table('purchase')->save($data);
+                if(!$purchase){
+                    $this->R('',40001);
+                }
+                $codeupdate = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$goods_id,'code'=>$codenum[$i]['code']])->update(['is_use'=>1,'is_get'=>0,'user_id'=>$user_id,'update_time'=>time()]);
+                if(!$codeupdate){
+                    $this->R('',40001);
+                }
+            }
+            $this->R();  
+        }
+        public function test(){
+            $post_data = array();
+            $post_data["schema"] = 'json' ;
+            //callbackurl请参考callback.php实现，key经常会变，请与快递100联系获取最新key
+            $post_data["param"] = '{"company":"yuantong", "number":"700074134802",
+            "from":"", "to":"", "key":"qMWBOgEq7733",
+            "parameters":{"callbackurl":"http://onebuy.ping-qu.com/Api/Address/callbackurl"}}';
+            $url='http://www.kuaidi100.com/poll';
+            $o="";
+            foreach ($post_data as $k => $v){
+                $o.= "$k=".urlencode($v)."&";       //默认UTF-8编码格
+            }
+            $post_data=substr($o,0,-1);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+            //curl_exec($ch);//返回提交结果，格式与指定的格式一致（result=true代表成功）
+            $p = curl_exec($ch);
+        }
+        public function callbackurl(){
+            if (isset($_POST['param'])) {
+                $Json = $_POST['param'];
+                $expressdetail=json_decode($Json, true);
+                $id = $expressdetail['lastResult']['nu'];
+                $data = array(
+                'logistics_number' => $id,
+                'data' =>$Json,
+                'update_time' => time(),
+                );
+            $record = $this->table('logistics_data')->where(['logistics_number'=>$id])->update($data);
+            if (!$record) {
+               $this->R('',40001);
+            }
+            }
+        }
         /**
          * 添加用户收货地址
          */

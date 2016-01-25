@@ -64,7 +64,7 @@
     methods: {
       login: function() {
         //登录
-        $.post('http://onebuy.ping-qu.com/Admin/Login/Login', this.manageData).done(function(data) {
+        $.post('/Admin/Login/Login', this.manageData).done(function(data) {
           if(data.errcode == '0'){
             window.location = 'index.html'
           } else if(data.errcode == '70001') {

@@ -28,11 +28,11 @@
 <body class="bg-grey" id="goodsDetailApp">
     <!--顶栏-->
     <div class="text-center bg-white top-bar">商品详情页
-        <a href="javascript: history.back();">
-            <img class="back" src="../assets/i/back.png" />
+        <a href="javascript: history.back();" class="back">
+            <img src="../assets/i/back.png" />
         </a>
-        <a href="../help-center.html?company_id={{companyId}}">
-            <img class="help" src="../assets/i/help-icon.png" />
+        <a href="../personal.html?company_id={{companyId}}" class="personal-top-link">
+            <img src="../assets/i/personal-logo.png" />
         </a>
     </div>
 
@@ -80,14 +80,6 @@
         <div class="swiper-pagination">
         </div>
     </div>
-    <!--<div class="swiper-container goods-detail-swiper text-center" v-bind:class="{'bd-red': goodsStatus == 'end'}">-->
-        <!--<div class="swiper-wrapper">-->
-        <!--</div>-->
-        <!--&lt;!&ndash; 进度条 &ndash;&gt;-->
-        <!--<div class="swiper-pagination inline-block br10"-->
-             <!--style="width: auto; left: 50%; padding: 0 5px; background-color: rgba(0, 0, 0, 0.5);">-->
-        <!--</div>-->
-    <!--</div>-->
 
     <div class="goods-detail-intro padding-horizontal-16 pb10 bg-white grid-container">
         <!--商品名称&简介-->
@@ -185,22 +177,22 @@
     <!--立即一元购按钮-->
     <div v-cloak class="padding-horizontal-10 padding-vertical-10 position-fix bt0 width-full"
         style="z-index: 10; background-color: rgba(255, 255, 255, 0.8);">
-        <button v-if="goodsStatus == 'ing'" v-on:click="modalOpen(event)" class="btn bg-red width-full font-white br4 buy-modal-btn">
+        <button v-if="goodsStatus == 'ing'" v-on:click="modalOpen('.goods-popup')" class="btn bg-red width-full font-white br4 buy-modal-btn">
             立即一元购
         </button>
         <a v-if="goodsStatus == 'end'" href="../index.html?company_id={{companyId}}" class="btn bg-light-green width-full font-white br4">
             逛逛其他云购商品 >
         </a>
         <!--查看云购码按钮-->
-        <button v-if="goodsStatus == 'ending'" v-on:click="modalOpen(event)" class="btn bg-red width-full font-white br4 code-modal-btn">
+        <button v-if="goodsStatus == 'ending'" v-on:click="modalOpen('.code-modal')" class="btn bg-red width-full font-white br4 code-modal-btn">
             查看我的云购码({{goods.user_code.length}})
         </button>
     </div>
 
     <!--购买弹窗-->
-    <div v-on:click="modalClose(event)" class="popup goods-popup" role="alert">
-        <div class="popup-container padding-vertical-10 bg-grey">
-            <a href="javascript:;" class="popup-close goods-popup-close"></a>
+    <div v-on:click="modalClose('.goods-popup')" class="popup goods-popup" role="alert">
+        <div v-on:click.stop class="popup-container padding-vertical-10 bg-grey">
+            <a v-on:click="modalClose('.goods-popup')"  href="javascript:;" class="popup-close goods-popup-close"></a>
 
             <div class="padding-horizontal-20 bd-bottom bd-grey mb10" v-cloak>
                 <div class="f15 font-grey">剩余{{goods.last_num}}人次</div>
@@ -229,9 +221,9 @@
     </div>
 
     <!--认购码显示弹窗-->
-    <div v-if="goods.user_code" v-on:click="modalClose(event)" class="popup code-modal f15" role="alert">
+    <div v-if="goods.user_code" v-on:click="modalClose('.code-modal')" class="popup code-modal f15" role="alert">
         <div v-on:click.stop class="popup-container bg-grey">
-            <a v-on:click="modalClose(event)" href="javascript:;" class="popup-close code-modal-close"></a>
+            <a v-on:click="modalClose('.code-modal')" href="javascript:;" class="popup-close code-modal-close"></a>
             <div class="default-font padding-horizontal-10 padding-vertical-10 bd-bottom bd-grey" v-cloak>
                 您购买了<span class="font-red">{{goods.user_code.length}}</span>人次
             </div>
@@ -242,6 +234,17 @@
             </div>
         </div>
     </div>
+
+    <!--错误显示弹窗-->
+    <div v-on:click="modalClose('.error-modal')" class="popup error-modal f15" role="alert">
+        <div v-on:click.stop class="popup-container bg-white">
+            <a v-on:click="modalClose('.error-modal')" href="javascript:;" class="popup-close error-modal-close"></a>
+            <div class="error-tip">{{errorTip}}</div>
+            <div v-on:click="modalClose('.error-modal')" class="error-confirm-btn">确定</div>
+        </div>
+    </div>
+
+    <!--<error-modal modal-name="xwt" error-tip="哈哈"></error-modal>-->
 
     <script type="text/javascript" src="../assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="../assets/js/vue.js"></script>

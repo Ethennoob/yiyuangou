@@ -132,7 +132,7 @@
     },
     created: function() {
       var that = this;
-      $.post('http://onebuy.ping-qu.com/Admin/Manager/managerOneDetail',
+      $.post('/Admin/Manager/managerOneDetail',
               {
                 id: getParam('manager_id')
               }
@@ -167,7 +167,7 @@
           return false;
         }
 
-        $.post('http://onebuy.ping-qu.com/Admin/Manager/managerEdit', editData).done(function(res) {
+        $.post('/Admin/Manager/managerEdit', editData).done(function(res) {
           if(res.errcode == '0'){
             alert("修改成功");
             window.location = 'administrator.html';

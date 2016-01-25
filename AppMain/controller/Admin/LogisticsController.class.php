@@ -25,10 +25,6 @@
 			//获取订单id
 	        $billId = intval($_POST['bill_id']);
 
-	        $this->V(['user_id'=>['egNum',null,true]]);
-	        //获取用户id
-	        $userId = intval($_POST['user_id']);
-
 	        $rule = [
                     'logistics_number'  =>[],
                     'logistics_name'    =>[],
@@ -37,7 +33,7 @@
             foreach ($rule as $k => $v) {
             	$data[$k] = $_POST[$k];
             }
-            $userAddr = $this->table('bill')->where(['id'=>$bill_id])->get(['address_id','goods_id'],true);
+            $userAddr = $this->table('bill')->where(['id'=>$billId])->get(['address_id','goods_id'],true);
             if (!$userAddr) {
                 $userAddr['address_id'] =null;
             }
@@ -58,12 +54,42 @@
             if (!$logistics) {
             	$this->R('',40001);
             }
+            $dataA = array(
+                    'logistics_number'  =>$data['logistics_number'],
+                    'update_time'       =>time(),
+                );
+            //开启事务
+            $this->table()->startTrans();
+            $logistics = $this->table('logistics_data')->save($dataA);
+            if (!$logistics) {
+                $this->R('',40001);
+            }
             //设置bill表is_post状态为1
             $billPost = $this->table('bill')->where(['id'=>$billId])->update(['is_post'=>1,'status'=>2]);
             if (!$billPost) {
                 $this->R('',40001);
             }
-            $this->R();
+            //向快递100发送订阅请求
+            $express = new \System\lib\Express\Express();
+            $post_data = $express->getJson($data['logistics_number']);
+            $url='http://www.kuaidi100.com/poll';
+            $o="";
+            foreach ($post_data as $k => $v){
+                $o.= "$k=".urlencode($v)."&";       //默认UTF-8编码格
+            }
+            $post_data=substr($o,0,-1);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+            $p = curl_exec($ch);
+            if ($p) {
+                $this->table()->commit();//提交事务
+            }else{
+                $this->table()->rollback();//回滚事务
+            }
+
 		}
 
 		/**
@@ -95,41 +121,80 @@
             if(!$logistics){
                 $this->R('',40001);
             }
-            $this->R();
+            $dataA = array(
+                    'logistics_number'  =>$data['logistics_number'],
+                    'update_time'       =>time(),
+                );
+            //开启事务
+            $this->table()->startTrans();
+            $logistics = $this->table('logistics_data')->save($dataA);
+            if (!$logistics) {
+                $this->R('',40001);
+            }
+            //向快递100发送订阅请求
+            $express = new \System\lib\Express\Express();
+            $post_data = $express->getJson($data['logistics_number']);
+            $url='http://www.kuaidi100.com/poll';
+            $o="";
+            foreach ($post_data as $k => $v){
+                $o.= "$k=".urlencode($v)."&";       //默认UTF-8编码格
+            }
+            $post_data=substr($o,0,-1);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+            $p = curl_exec($ch);
+            if ($p) {
+                $this->table()->commit();//提交事务
+            }else{
+                $this->table()->rollback();//回滚事务
+            }
+            //$this->R();
 		}
 
 		/**
          * 物流列表
          */
         public function logisticsList(){
-            $this->V(['company_id'=>['egNum',null,true]]);
-            $id = intval($_POST['company_id']);
-            $where=['is_on'=>1,'company_id'=>$id];
             $pageInfo = $this->P();
-            $class = $this->table('logistics')->where($where)->order('add_time desc');
+            if (isset($_POST['company_id'])) {
+                $this->V(['company_id'=>['egNum',null,true]]);
+                $id = intval($_POST['company_id']);
+                $where=['is_on'=>1,'company_id'=>$id];
+                $class = $this->table('logistics')->where($where)->order('add_time desc');
+            } else {
+                $class = $this->table('logistics')->where(['is_on'=>1])->order('add_time desc');
+            }
             //查询并分页
             $logisticslist = $this->getOnePageData($pageInfo,$class,'get','getListLength',null,false);
             if($logisticslist){
                 foreach ($logisticslist as $k=>$v){
                     $logisticslist[$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
                     $logisticslist[$k]['update_time'] = date('Y-m-d H:i:s',$v['update_time']);
-                    $id = $v['logistics_number'];
-                    $express = new \System\lib\Express\Express();
-                    $expressdetail = $express->getorder($id);
-                    if (@$expressdetail['state'] == null) {
-                        @$expressdetail['state'] = "0";
-                    }else{
-                    $updateExpress = $this->table('logistics')->where(['is_on'=>1,'logistics_number'=>$id])->update(['logistics_status'=>$expressdetail['state']]);
-                    if (!$updateExpress) {
-                        $this->R('',70009);
-                    }
-                    }
+                    $status = $this->table('bill')->where(['is_on'=>1,'id'=>$v['bill_id']])->get(['bill_sn'],true);
+                    $logisticslist[$k]['bill_sn'] = $status['bill_sn'];
+                    $this->getExpress($v['logistics_number']);
                 }
             }else{
                 $logisticslist = null;
             }
             $this->R(['logisticslist'=>$logisticslist,'pageInfo'=>$pageInfo]);
         }
+        /**
+     * 物流数据
+     */
+    private function getExpress($id){
+        $express = new \System\lib\Express\Express();
+        $Express = $this->table('logistics_data')->where(['logistics_number'=>$id])->get(null,true);
+        $data   = json_decode($Express['data'], true);
+        $updateExpress = $this->table('logistics')->where(['logistics_number'=>$id])->update(['logistics_status'=>@$data['lastResult']['state'],'uptate_time'=>time()]);
+            if (!$updateExpress) {
+               $this->R('',40001);
+            }
+        return true;
+    }
 
         /**
          * 查询一条物流信息
@@ -143,7 +208,8 @@
                     $this->R('',70009);
                 }
                 //查询一条数据
-                
+                $status = $this->table('bill')->where(['is_on'=>1,'id'=>$logistics['bill_id']])->get(['bill_sn'],true);
+                $logistics['bill_sn'] = $status['bill_sn'];
                 $logistics['update_time'] = date('Y-m-d H:i:s',$logistics['update_time']);
                 $logistics['add_time'] = date('Y-m-d H:i:s',$logistics['add_time']);
                 $user_address = $this->table('user_address')->where(['is_on'=>1,'id'=>$logistics['user_address_id']])->get(['user_id','province','city','area','street','mobile','name'],true);
