@@ -42,7 +42,7 @@ class CompanyController extends BaseClass {
         if(!$company){
             $this->R('',70009);
         }
-        $url = "http://onebuy.ping-qu.com/index.html?company_id=".$id;
+        $url = "http://onebuy.91taoxue.cn/index.html?company_id=".$id;
         //$url = "http://onebuy.ping-qu.com/index.html?company_id=37";
         $this->vendor('Phpqrcode.phpqrcode#class');
         $qr = new \QRcode();
@@ -50,7 +50,7 @@ class CompanyController extends BaseClass {
         $time =time();
         $QRcode=$qr->png($url,false,QR_ECLEVEL_H,35,5,false,$time);
         $data['update_time']  = time();
-        $data['QR_code'] = "http://onebuy.ping-qu.com/images/company/".$time.".png";
+        $data['QR_code'] = "http://onebuy.91taoxue.cn/images/company/".$time.".png";
         $company = $this->table('company')->where(['id'=>$id])->update($data);
         if(!$company){
             $this->R('',40001);
@@ -173,7 +173,7 @@ class CompanyController extends BaseClass {
     }
      public function downFile(){
         $url = $_GET['url'];
-        $data = "http://onebuy.ping-qu.com".$url;
+        $data = "http://onebuy.91taoxue.cn".$url;
         $name = $this->table('company')->where(['QR_code'=>$data])->get(['company_name'],true);
         $urlname=$name['company_name'];
         $file =$_SERVER['DOCUMENT_ROOT'].$url;

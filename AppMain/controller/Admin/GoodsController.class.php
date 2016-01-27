@@ -17,7 +17,7 @@ class GoodsController extends BaseClass {
                     'goods_title'    =>[],
                     'goods_desc'     =>[],
                     'cost_price'     =>['money'],
-                    'nature'         =>['in',[0,1],true],
+                    'nature'         =>['in',[0,1,2],true],
                     'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
                     //'goods_album'  => [],
@@ -95,7 +95,7 @@ class GoodsController extends BaseClass {
                     'goods_title'    =>[],
                     'goods_desc'     =>[],
                     'cost_price'     =>['money'],
-                    'nature'         =>['in',[0,1],true],
+                    'nature'         =>['in',[0,1,2],true],
                     //'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
                 ];

@@ -15,7 +15,7 @@ class UserController extends Baseclass {
         $whereFilter=$this->queryFilter($where,['is_show']);
 
         $pageInfo = $this->P();
-        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $file = ['id','nickname','phone','user_img','is_froze','last_login','add_time'];
 
         $class = $this->table('user')->where($whereFilter)->order('add_time desc');
 
@@ -72,7 +72,7 @@ class UserController extends Baseclass {
         $pageInfo = $this->P();
         $where = 'is_on = 1 and phone like "%'.$phone.'%"';
         
-        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $file = ['id','nickname','phone','user_img','is_froze','last_login','add_time'];
         $class = $this->table('user')->where($where)->order('add_time desc');
         //查询并分页
         $userpage = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);
@@ -94,7 +94,7 @@ class UserController extends Baseclass {
         $this->V(['nickname'=>[]]);
         $nickname = $_POST['nickname'];
         $pageInfo = $this->P();
-        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $file = ['id','nickname','phone','user_img','is_froze','last_login','add_time'];
         $where = 'is_on = 1 and nickname like "%'.$nickname.'%"';
         $class = $this->table('user')->where($where)->order('add_time desc');
 
@@ -118,7 +118,7 @@ class UserController extends Baseclass {
         $this->V(['is_follow'=>['num',null,true]]);
         $is_follow = intval($_POST['is_follow']);
         $pageInfo = $this->P();
-        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $file = ['id','nickname','phone','user_img','is_froze','last_login','add_time'];
 
         $class = $this->table('user')->where(['is_on'=>1,'is_follow'=>$is_follow])->order('add_time desc');
 
@@ -142,7 +142,7 @@ class UserController extends Baseclass {
         $this->V(['is_froze'=>['num',null,true]]);
         $is_froze = intval($_POST['is_froze']);
         $pageInfo = $this->P();
-        $file = ['id','nickname','phone','user_img','last_login','add_time'];
+        $file = ['id','nickname','phone','user_img','is_froze','last_login','add_time'];
 
         $class = $this->table('user')->where(['is_on'=>1,'is_froze'=>$is_froze])->order('add_time desc');
 
@@ -206,6 +206,48 @@ class UserController extends Baseclass {
         }
     
         $user = $this->table('user')->where(['id'=>$id])->update(['is_on'=>0]);
+        if(!$user){
+            $this->R('',40001);
+        }
+
+        $this->R();
+    }
+    /**
+     *冻结一个用户
+     */
+    public function userOneFroze(){
+    
+        $this->V(['user_id'=>['egNum',null,true]]);
+        $id = intval($_POST['user_id']);
+         
+        $user = $this->table('user')->where(['id'=>$id,'is_froze'=>0])->get(['id'],true);
+    
+        if(!$user){
+            $this->R('',70009);
+        }
+
+        $user = $this->table('user')->where(['id'=>$id])->update(['is_froze'=>1]);
+        if(!$user){
+            $this->R('',40001);
+        }
+
+        $this->R();
+    }
+    /**
+     *解冻一个用户
+     */
+    public function userOneDisFroze(){
+    
+        $this->V(['user_id'=>['egNum',null,true]]);
+        $id = intval($_POST['user_id']);
+         
+        $user = $this->table('user')->where(['id'=>$id,'is_froze'=>1])->get(['id'],true);
+    
+        if(!$user){
+            $this->R('',70009);
+        }
+
+        $user = $this->table('user')->where(['id'=>$id])->update(['is_froze'=>0]);
         if(!$user){
             $this->R('',40001);
         }

@@ -60,24 +60,14 @@ class Express
             return $data;
         }
     }
+
     /*
      * 返回$result josn      快递数组查询失败返回false
      * @param $order        快递的单号
      * $data['ischeck'] ==1 已经签收
      * $data['data']        快递实时查询的状态 array
     */
-    public function getJsona($order)
-    {
-        $keywords = $this->expressname($order);
-        if (!$keywords) {
-            return false;
-        } else {
-            $result = $this->getcontent("http://www.kuaidi100.com/query?type={$keywords}&postid={$order}");
-            //$result = $this->getcontent("http://api.kuaidi100.com/api?id={29833628d495d7a5}&com={$keywords}&nu={$order}&valicode={}&show={0}&muti={1}&order={desc}");
-            //$data   = json_decode($result, true);
-            return $result;
-        }
-    }
+    
     public function getJson($order,$form="",$to=""){
         $keywords = $this->expressname($order);
         if (!$keywords) {
@@ -93,5 +83,8 @@ class Express
             return  $post_data;      //返回提交结果，格式与指定的格式一致（result=true代表成功）
         }
     }
+
+    
+
 }
 ?>

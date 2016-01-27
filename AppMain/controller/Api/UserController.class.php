@@ -168,6 +168,10 @@ class UserController extends Baseclass {
                 $this->R('',40001);
             }
         }
+    public function checkGetNum(){
+        $time = strtotime(date("Y-m-d")."00:00:00");
+        print_r($time);
+    }
     /**
      * 查询手机号码是否已注册
      */
@@ -249,6 +253,10 @@ class UserController extends Baseclass {
             if(!$user){
                 $this->R('',70009);
             }
+            $status = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>0,'user_id'=>$id])->get(['id'],false);
+            $user['readypay'] = count($status);
+            $status = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>3,'user_id'=>$id])->get(['id'],false);
+            $user['readydone'] = count($status);
 
             $this->R(['user'=>$user]);
     }
@@ -462,8 +470,9 @@ class UserController extends Baseclass {
         if($luckypage ){
             foreach ($luckypage  as $k=>$v){
                 $luckypage [$k]['lucky_time'] = $v['add_time'];
-                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['company_id','goods_name','price','goods_thumb','goods_album'],true);
+                $status = $this->table('goods')->where(['is_on'=>1,'id'=>$v['goods_id']])->get(['company_id','goods_name','price','nature','goods_thumb','goods_album'],true);
                 $luckypage [$k]['goods_name'] = $status['goods_name'];
+                $luckypage [$k]['nature'] = $status['nature'];
                 $luckypage [$k]['total_num'] = $status['price'];
                 if ($status['company_id']==37) {
                     $a = explode(';', $status['goods_album']);

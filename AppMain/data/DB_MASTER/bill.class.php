@@ -16,6 +16,8 @@ class bill {
 			'is_confirm'=> ['type' => 'i', 'value' => null],
 			'is_post'=> ['type' => 'i', 'value' => null],
 			'is_cancel'=> ['type' => 'i', 'value' => null],
+			'gameID'=> ['type' => 's', 'value' => null],
+			'game_img'=> ['type' => 's', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],
 			'update_time'=> ['type' => 'i', 'value' => null],
 			'is_on'=> ['type' => 'i', 'value' => null],

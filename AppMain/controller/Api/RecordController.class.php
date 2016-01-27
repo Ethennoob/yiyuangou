@@ -38,7 +38,7 @@ class RecordController extends BaseClass {
                 $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
                 $temp[] = $v;
             }
-            $recordpage[$k]['code']=$temp;
+            $recordpage[$k]['code']=@$temp;
             unset($temp);
         }
     }else{
