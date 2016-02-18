@@ -361,7 +361,7 @@
 	        $openid = $user['openid'];
 	        $phone = $user['phone'];
 	        $goods = $this->table('goods')->where(['id'=>$bills['goods_id']])->get(['goods_name','nature'],true);
-	        if ($goods['nature']==1) {
+	        if ($goods['nature']==0) {
 	        	$goods_name = $goods['goods_name'];
 		        $thematic = $this->table('thematic')->where(['id'=>$bills['thematic_id']])->get(['thematic_name'],true);
 		        $thematic_name = $thematic['thematic_name'];
@@ -372,11 +372,11 @@
 				//手机短信提醒
 				$sendMessage = new \System\AppTools();
 				$sendMessage= $sendMessage->sendSms($phone,$content);
-	        }elseif ($goods['nature']==0) {
+	        }elseif ($goods['nature']==2) {
 	        	$goods_name = $goods['goods_name'];
 		        $thematic = $this->table('thematic')->where(['id'=>$bills['thematic_id']])->get(['thematic_name'],true);
 		        $thematic_name = $thematic['thematic_name'];
-		        $content = "尊敬的一团云购用户，恭喜您抽中了".$thematic_name."商品".$goods_name."，请尽快按以下格式回复公众号：#游戏ID#,谢谢配合！";
+		        $content = "尊敬的一团云购用户，恭喜您抽中了".$thematic_name."商品".$goods_name."，请尽快再指定商品详情页输入您的游戏ID,谢谢配合！";
 		        //微信公众号提醒
 		        $weObj = new \System\lib\Wechat\Template($this->config("WEIXIN_CONFIG"));
 				$weObj->setTemplate($openid,$content);
@@ -567,6 +567,35 @@
             }
             
 		}
+		public function addCoupon(){
+	    	$rule = [
+                        'bill_id' =>['egNum',null,true],
+                        'coupon'    =>[],
+                    ];
+            $this->V($rule);
+            foreach ($rule as $k => $v) {
+                        $data[$k] = $_POST[$k];
+                }
+             $this->V(['user_id'=>['egNum',null,true]]);
+            $user_id = intval($_POST['user_id']);
+            $bill = $this->table('bill')->where(['id'=>$data['bill_id'],'is_on'=>1])->get(['goods_id','user_id'],true);
+            if (!$bill) {
+            	$this->R('',40001);
+            }
+            if ($user_id!==$bill['user_id']) {
+            	$this->R('',40001);
+            }
+            $goods = $this->table('goods')->where(['id'=>$bill['goods_id'],'is_on'=>1])->get(['nature'],true);
+            if ($goods['nature']==0||$goods['nature']==2) {
+            	$this->R('',40001);
+            }
+            $bill = $this->table('bill')->where(['id'=>$data['bill_id'],'is_on'=>1])->update(['gameID'=>$data['coupon']]);
+            if(!$bill){
+                    $this->R('',40001);
+                }
+
+            $this->R(); 
+	    }
 	}
 
  ?>

@@ -135,6 +135,7 @@ class RecordController extends BaseClass {
             $detail [$k]['lucky_time'] = $v['add_time'];
             $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);
                 $detail [$k]['logistics_number'] = $status['logistics_number'];
+                $detail [$k]['bill_id'] = $v['id'];
             $status = $this->table('record')->where(['is_on'=>1,'id'=>$v['record_id']])->get(['num'],true);
                 $detail [$k]['num'] = $status['num'];
             $status = $this->table('user_address')->where(['is_on'=>1,'id'=>$v['address_id']])->get(['province','city'

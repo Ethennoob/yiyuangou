@@ -121,7 +121,8 @@ return [
       'errorpage'=>'User/myorder?ordtype=unpay',
       ),
     'MSM_URL' => 'http://211.147.239.62:9050/cgi-bin/sendsms?',
-    'MSM_ACCOUNT' => 'AA@GZAA',
+    //'MSM_ACCOUNT' => 'AA@GZAA',
+    'MSM_ACCOUNT' => 'ytyg@GZAA',
     'MSM_PWD' => 'Tea9936@',
 
 ];

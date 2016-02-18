@@ -117,7 +117,10 @@ class UserController extends Baseclass {
                         $saveUser=$this->saveUser($userInfo,$mobile);//插入新会员数据
                         if (!$saveUser) {
                             $this->R('','40001');
+                        }else{
+                            $del = $this->table('user_time')->where(['phone'=>$mobile])->delete();
                         }
+                        
                         //header("LOCATION:".getHost()."/Api/User/getOpenID");
                 $userInfo=$this->getUserInfo($accessToken);
                 // 是否有用户记录
@@ -158,20 +161,56 @@ class UserController extends Baseclass {
      */
     public function setCode(){
             $mobile = $_GET['phone'];
+            $user = $this->table('user')->where(['is_on'=>1,'phone'=>$mobile])->get(['id'],true);
+            if($user){
+                $this->R('','70000');//手机已注册
+            }
+            if ($this->checkGetNum($mobile)>6) {
+                $this->R('',80002);
+            }
             $sendMessage = new \System\AppTools();
             $code= $sendMessage->generateMsgAuthCode();
             setcookie("verify",$code,time()+300,'/');
-            $content = "您好！一元购注册的验证码为".$code;
+            $content = "您好！反向团购注册的验证码为".$code;
             $sendMessage= $sendMessage->sendSms($mobile,$content);
             //$sendMessage= $sendMessage->sendSms(15521155161,$content);
             if (!$sendMessage) {
                 $this->R('',40001);
             }
+            $value = $this->table('user_time')->where(['phone'=>$mobile])->get(['time'],true);
+            if (!$value) {
+                $updatetime = time();
+                $value = $this->table('user_time')->where(['phone'=>$mobile])->update(['time'=>$updatetime]);
+            }
         }
-    public function checkGetNum(){
-        $time = strtotime(date("Y-m-d")."00:00:00");
-        print_r($time);
-    }
+    private function checkGetNum($phone){
+        // $this->V(['phone'=>['mobile']]);
+        // $phone = intval($_POST['phone']);
+        $time = time();
+        $value = $this->table('user_time')->where(['phone'=>$phone])->get(['time','count'],true);
+        $valuetime = $value['time'];
+        if ($value) {
+            //$valuetime = $value['time'];
+            //echo ;exit();
+            if (($valuetime+1800)<$time) {
+                $value = $this->table('user_time')->where(['phone'=>$phone])->update(['time'=>$time,'count'=>0]);
+                }
+                $count =$value['count']+1;
+
+                $save = $this->table('user_time')->where(['phone'=>$phone])->update(['count'=>$count]);
+                if (!$save) {
+                    $this->R('',40001);
+                }else{
+                    return $count;
+                }
+            }else{
+                $data['time'] = $time;
+                $data['phone'] = $phone;
+                $data['count'] = 1;
+                $value2 = $this->table('user_time')->save($data);
+                return 1;
+            }
+        }
     /**
      * 查询手机号码是否已注册
      */

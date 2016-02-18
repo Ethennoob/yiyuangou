@@ -25,6 +25,12 @@ class BillController extends Baseclass {
 
             $goods_id    = $_POST['goods_id'];
             $user_id     = $_POST['user_id'];
+            //是否冻结用户
+                $user = $this->table('user')->where(['is_on'=>1,'id'=>$user_id,'is_froze'=>0])->get(['id'],true);
+                if(!$user){
+                    $this->R('',90008);
+                }
+
             //判断是否有这个商品
             $good = $this->table('groupbuy_goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id'],true);
             if(!$good){
@@ -52,11 +58,16 @@ class BillController extends Baseclass {
                 'type' => 1,
                 'add_time' => time()
                 );
-            $bill = $this->table('bill')->save($data);
+            $bill = $this->table('groupbuy_bill')->save($data);
                 if(!$bill){
                     $this->R('',40001);
                 }
-            $this->R(); 
+            $billid = $this->table('groupbuy_bill')->where(['is_on'=>1,'user_id'=>$user_id,'goods_id'=>$goods_id])->order('id desc')->get(['id'],true);
+            if(!$billid){
+                $this->R('',70009);
+            }
+
+            $this->R(['billid'=>$billid['id']]); 
     }   
     /**
      * 参团
@@ -75,6 +86,12 @@ class BillController extends Baseclass {
             $goods_id    = $_POST['goods_id'];
             $user_id     = $_POST['user_id'];
             $group_id     = $_POST['group_id'];
+            //是否冻结用户
+                $user = $this->table('user')->where(['is_on'=>1,'id'=>$user_id,'is_froze'=>0])->get(['id'],true);
+                if(!$user){
+                    $this->R('',90008);
+                }
+
             //判断是否有这个商品
             $good = $this->table('groupbuy_goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id'],true);
             if(!$good){
@@ -112,10 +129,16 @@ class BillController extends Baseclass {
                 'type' => 2,
                 'add_time' => time()
                 );
-            $bill = $this->table('bill')->save($data);
+            $bill = $this->table('groupbuy_bill')->save($data);
                 if(!$bill){
                     $this->R('',40001);
                 }
+            $billid = $this->table('groupbuy_bill')->where(['is_on'=>1,'user_id'=>$user_id,'goods_id'=>$goods_id,'group_id'=>$group_id])->order('id desc')->get(['id'],true);
+            if(!$billid){
+                $this->R('',70009);
+            }
+
+            $this->R(['billid'=>$billid['id']]); 
             $this->R(); 
     }
     /**
@@ -124,12 +147,18 @@ class BillController extends Baseclass {
      */
     public function billList(){
 
-        $this->V(['user_id'=>['egNum',null,true]]);
+        $this->V(['user_id'=>['egNum']]);
         $id = intval($_POST['user_id']);
+        if (isset($_POST['status'])) {
+            $this->V(['status'=>['in',[0,3]]]);
+            $status = intval($_POST['status']);
+            $where = 'A.is_on = 1 and A.user_id='.$id.' and A.status ='.$status;
+        }else{
+            $where = 'A.is_on = 1 and A.user_id='.$id;
+        }
         $pageInfo = $this->P();
         //调用Helper类
         $dataClass=$this->H('Bill');
-        $where = 'A.is_on = 1 and A.user_id='.$id;
         $order='A.add_time desc';
         $billList=$dataClass->getbillList(null,null,null,false,$order);
         $billList=$this->getOnePageData($pageInfo, $dataClass, 'getBillList','getBillListListLength',[$where,null,null,false,$order],true);
@@ -191,8 +220,8 @@ class BillController extends Baseclass {
             if(!$bill){
                 $this->R('',70009);
             }
-        $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$id])->update(['status'=>5]);
-        if ($cancel) {
+        $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$id])->update(['status'=>5,'update_time'=>time()]);
+        if (!$cancel) {
             $this->R('',40001);
         }
         $this->R();
@@ -210,14 +239,14 @@ class BillController extends Baseclass {
                 $this->R('',70009);
             }
         $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$id])->update(['is_on'=>0]);
-        if ($cancel) {
+        if (!$cancel) {
             $this->R('',40001);
         }
         $this->R();
 
     }
     /**
-     * 删除订单
+     * 收货订单
      */
     public function doneBill(){
         $this->V(['bill_id'=>['egNum',null,true]]);
@@ -227,8 +256,8 @@ class BillController extends Baseclass {
             if(!$bill){
                 $this->R('',70009);
             }
-        $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$id])->update(['status'=>4]);
-        if ($cancel) {
+        $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$id])->update(['status'=>4,'done_time'=>time()]);
+        if (!$cancel) {
             $this->R('',40001);
         }
         $this->R();

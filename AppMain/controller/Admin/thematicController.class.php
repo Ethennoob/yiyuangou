@@ -292,9 +292,14 @@ class ThematicController extends BaseClass {
         if(!$thematicSelect){
             $thematicSelect  = null;
         }
+        $ing_thematic = $this->table('thematic')->where(['is_on'=>1,'company_id'=>$id,'status'=>0])->get(['id'],true);
+        if (!$ing_thematic) {
+            $thematicSelect  = null;
+        }
+        
        
         //返回数据，参见System/BaseClass.class.php方法
-        $this->R(['thematicSelect'=>$thematicSelect]);
+        $this->R(['thematicSelect'=>$thematicSelect,'ing_thematic'=>$ing_thematic]);
         
     }
     /**

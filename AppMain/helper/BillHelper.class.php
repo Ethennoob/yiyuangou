@@ -35,11 +35,13 @@ use System\BaseHelper;
                     'groupbuy_bill as A' => 'id,logistics_num,goods_id,bill_sn,group_id,user_id,address_id,status,add_time,
                     pay_time,post_time,done_time',
                     'groupbuy_goods as B' => 'goods_name,price,goods_album',
+                    'user as C' => 'nickname',
+                    'user_address as D' => 'name,mobile,province,city,area,street'
                     
             );
             $multiSqlStmt = array(
-                'joinType' => array('left join'),
-                'joinOn' => array('A.goods_id=B.id'),
+                'joinType' => array('left join','left join','left join'),
+                'joinOn' => array('A.goods_id=B.id','A.user_id=C.id','A.address_id=D.id'),
                 'whereStmt' => $whereStmt,
                 'bindParams' => $bindParams,
                 'bindTypes' => $bindTypes,

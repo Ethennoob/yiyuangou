@@ -17,7 +17,13 @@ class BackendgroupsController extends BaseClass {
     	$pageInfo = $this->P();
         //调用Helper类
         $dataClass=$this->H('GroupList');
-        $where = 'A.is_on = 1';
+        if (isset($_POST['goods_id'])) {
+            $this->V(['goods_id'=>['egNum']]);
+            $goods_id = intval($_POST['goods_id']); 
+            $where = 'A.is_on = 1 and A.goods_id='.$goods_id;
+        }else{
+            $where = 'A.is_on = 1';
+        }
         $order='A.id desc';
         $groupList=$dataClass->getGroupList(null,null,null,false,$order);
         $groupList=$this->getOnePageData($pageInfo, $dataClass, 'getGroupList','getGroupListListLength',[$where,null,null,false,$order],true);
@@ -44,7 +50,7 @@ class BackendgroupsController extends BaseClass {
                     unset($temp); 
                 }
         }else{
-            $groupList=false;
+            $groupList=null;
         }
         $this->R(['groupList'=>$groupList,'page'=>$pageInfo]);
     }

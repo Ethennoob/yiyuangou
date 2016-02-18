@@ -75,4 +75,42 @@ class GroupsController extends Baseclass {
         
         $this->R(['groupOneDetail'=>$groupOneDetail,'userList'=>$userList,'page'=>$pageInfo]);
     }
+    /**
+     * 够人开团
+     */
+    public function open(){
+        $this->V(['group_id'=>['egNum',null,true]]);
+        $id = intval($_POST['group_id']);
+        $goods_id = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>1,'group_id'=>$id])->get(['goods_id'],false);
+        if (!$goods_id) {
+            $this->R('',70009);
+        }
+        $group_num=count($goods_id);
+        $goods = $this->table('groupbuy_goods')->where(['is_on'=>1,'id'=>$goods_id[0]['goods_id']])->get(['num','stock'],true);
+        if ($group_num<$goods['num']) {
+            $this->R('',30002);//人数不够，无法开团
+        }
+        $where = 'is_on = 1 and goods_id='.$goods_id[0]['goods_id'].' and (status = 2 or status = 3 or status = 4)';
+        $status = $this->table('groupbuy_bill')->where($where)->get(['id'],false);
+        $last_stock = $goods['stock'] - count($status);
+        if ($last_stock<$goods['num']) {
+            $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>1,'group_id'=>$id])->update(['status'=>5,'update_time'=>time()]);
+            if (!$cancel) {
+                $this->R('',40001);
+            }
+            $this->R('',30003);//库存不够，无法开团
+            //微信退款
+        }
+        //付款的订单确认
+        $confirm = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>1,'group_id'=>$id])->update(['status'=>2,'update_time'=>time()]);
+        if (!$confirm) {
+            $this->R('',40001);
+        }
+        //没付款的订单取消
+        $cancel = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>0,'group_id'=>$id])->update(['status'=>5,'update_time'=>time()]);
+            if (!$cancel) {
+                $this->R('',40001);
+            }
+        $this->R();
+    }
 }

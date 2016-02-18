@@ -48,6 +48,60 @@ class SaleController extends BaseClass {
         $this->R(['onegoodspage'=>$detailpage,'pageInfo'=>$pageInfo]);
     }
     /**
+     * 销售记录(分页)     
+     * 商品id
+     */
+    public function GoodSaleOutputExcel(){
+
+        $this->V(['goods_id'=>['egNum',null,true]]);
+        $id = intval($_POST['goods_id']);
+        $goods = $this->table('goods')->where(['id'=>$id])->get(['goods_name'],true);
+        $data = array(
+                'title' =>"商品\"".$goods['goods_name']."\"销售明细表",
+                'nickname' => "微信昵称",
+                'phone'    =>"手机号码",
+                'num'  =>"购买数量/金额",
+                'add_time'  =>"购买时间",
+                'code'  =>"认购码",
+                'remask' =>"备注",
+                );
+        $file = ['id','user_id','num','add_time'];
+
+        $class = $this->table('record')->where(['is_on'=>1,'goods_id'=>$id])->order('add_time desc')->get($file,false);
+
+        if($class ){
+            foreach ($class  as $k=>$v){
+                $class [$k]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
+                $status = $this->table('user')->where(['is_on'=>1,'id'=>$v['user_id']])->get(['nickname','user_img','phone'],true);
+                $class[$k]['nickname'] = $status['nickname'];
+                //$class[$k]['user_img'] = $status['user_img'];
+                $class[$k]['phone'] = $status['phone'];
+                $class[$k]['remask'] = null;
+               $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id,'record_id'=>$v['id']])->get(['code'],false);
+            //拼接认购码
+            $count = count($status);
+            for ($i=0; $i < $count; $i++) { 
+                $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
+                $temp[] = $v;
+            }
+            $arr = implode(" ", $temp);
+                //$temp = $vs;
+            //$aa= (string)$temp;
+
+            $class[$k]['code']=$arr;
+            //$class[$k]['code']=null;
+            unset($temp);
+            }
+        }else{
+            $class  = null;
+        }
+        $outputExcel = $this->H('Excel')->PHPExcelGood($class,$data);
+            if (!$outputExcel) {
+                $this->R('',40001);
+            }
+    }
+
+    /**
      * 商品销售情况(分页)
      * 专题id
      */
