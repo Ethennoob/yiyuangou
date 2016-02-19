@@ -62,16 +62,16 @@
         $group = $this->table('groupbuy_groups')->save($data);
         if(!$group) $this->returnFail("插入失败！",$info);
         //拿取刚刚新建的团数据
-          $groupId = $this->table('groupbuy_groups')->where(['is_on'=>1,'leader'=>$bill['user_id']])->get(['id'],true);
+          $groupId = $this->table('groupbuy_groups')->where(['is_on'=>1,'leader'=>$bill['user_id']])->order('add_time desc')->get(['id'],false);
             if(!$group) $this->returnFail("查询失败！",$info);
             $data = array(
-                'group_id' => $groupId['id'],
+                'group_id' => $groupId[0]['id'],
                 'user_id' => $bill['user_id'],
                 'add_time' => time()
                 );
           $group_member = $this->table('groupbuy_group_member')->save($data);
           if(!$group_member) $this->returnFail("插入失败！",$info);
-            $bills = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$bill['id']])->update(['group_id'=>$groupId['id']]);
+            $bills = $this->table('groupbuy_bill')->where(['is_on'=>1,'id'=>$bill['id']])->update(['group_id'=>$groupId[0]['id']]);
         if(!$bills) $this->returnFail("插入失败！",$info);
 
             //生成record

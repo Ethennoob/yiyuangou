@@ -32,7 +32,7 @@ class BillController extends Baseclass {
                 }
 
             //判断是否有这个商品
-            $good = $this->table('groupbuy_goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id'],true);
+            $good = $this->table('groupbuy_goods')->where(['is_on'=>1,'is_show'=>1,'id'=>$goods_id])->get(['id'],true);
             if(!$good){
                 $this->R('',70009);
             }
@@ -93,7 +93,7 @@ class BillController extends Baseclass {
                 }
 
             //判断是否有这个商品
-            $good = $this->table('groupbuy_goods')->where(['is_on'=>1,'id'=>$goods_id])->get(['id'],true);
+            $good = $this->table('groupbuy_goods')->where(['is_on'=>1,'is_show'=>1,'id'=>$goods_id])->get(['id'],true);
             if(!$good){
                 $this->R('',70009);
             }

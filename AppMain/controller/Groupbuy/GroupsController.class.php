@@ -50,7 +50,7 @@ class GroupsController extends Baseclass {
         $dataClass=$this->H('Groups');
         $where = 'A.is_on = 1 and A.id='.$id;
         $order='A.id desc';
-        $groupOneDetail=$dataClass->getGroupsDetail(null,null,null,true,$order);
+        $groupOneDetail=$dataClass->getGroupsDetail($where,null,null,true,$order);
         $good = $this->table('groupbuy_goods')->where(['id'=>$groupOneDetail['goods_id']])->get(['goods_album'],true);
         $ImgUrl=explode(';', $good['goods_album']);
         $groupOneDetail['goods_img'] = $ImgUrl[0];
@@ -81,7 +81,7 @@ class GroupsController extends Baseclass {
     public function open(){
         $this->V(['group_id'=>['egNum',null,true]]);
         $id = intval($_POST['group_id']);
-        $goods_id = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>1,'group_id'=>$id])->get(['goods_id'],false);
+        $goods_id = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>1,'type'=>1,'group_id'=>$id])->get(['goods_id'],false);
         if (!$goods_id) {
             $this->R('',70009);
         }
@@ -111,6 +111,11 @@ class GroupsController extends Baseclass {
             if (!$cancel) {
                 $this->R('',40001);
             }
+        //更改团的状态
+        $confirm = $this->table('groupbuy_groups')->where(['is_on'=>1,'status'=>0,'group_id'=>$id])->update(['status'=>2,'update_time'=>time()]);
+        if (!$confirm) {
+            $this->R('',40001);
+        }
         $this->R();
     }
 }
