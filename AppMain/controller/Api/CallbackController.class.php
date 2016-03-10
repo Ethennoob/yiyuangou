@@ -45,6 +45,7 @@
         $this->V(['id'=>['egNum',null,false]]);
         $attach=json_decode($orderxml['attach'],true);
         $orderSn=$attach['goods_sn'];
+        $price = $attach['price'];
         $isGoods = $this->table('goods')->where(array('goods_sn'=>$orderSn,'is_on'=>1))->get(['id','thematic_id'],true);
         $data['goods_id'] = $isGoods['id'];
         $data['thematic_id'] = $isGoods['thematic_id'];
@@ -53,8 +54,8 @@
         $data['wxPay_sn'] = $orderxml['out_trade_no'];
         $data['add_time'] = time();
         //$count = $this->table('code')->where(['is_on'=>1,'is_use'=>0,'goods_id'=>$data['goods_id']])->get(['code'],false);
-        //$data['num'] = count($count);
-        $data['num'] = $orderxml['total_fee'];
+        $data['num'] = $price;
+        // $data['num'] = $orderxml['total_fee']/100;
         $data['ms_time'] = sprintf("%03d",floor(microtime()*1000));
         //开启事务
         //$this->table()->startTrans();

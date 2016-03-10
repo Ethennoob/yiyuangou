@@ -20,6 +20,7 @@ class GoodsController extends BaseClass {
                     'nature'         =>['in',[0,1,2],true],
                     'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
+                    'sort_order'      =>['egNum'],
                     //'goods_album'  => [],
                 ];
                 $this->V($rule); 
@@ -98,6 +99,7 @@ class GoodsController extends BaseClass {
                     'nature'         =>['in',[0,1,2],true],
                     //'price'          =>['money'],
                     'free_post'      =>['in',[0,1],true],
+                    'sort_order'      =>['egNum'],
                 ];
                 $this->V($rule); 
 
@@ -162,15 +164,15 @@ class GoodsController extends BaseClass {
             $company_id = intval($_POST['company_id']); 
             $this->V(['thematic_id'=>['egNum']]);
             $id = intval($_POST['thematic_id']);
-            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
-            $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id,'company_id'=>$company_id])->order('add_time desc');
+            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','sort_order','is_show','limit_num','add_time'];
+            $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$id,'company_id'=>$company_id])->order('sort_order asc');
         }if(isset($_POST['company_id']) && !isset($_POST['thematic_id'])){
             $this->V(['company_id'=>['egNum']]);
             $company_id = intval($_POST['company_id']);
-            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','sort_order','is_show','limit_num','add_time'];
             $class = $this->table('goods')->where(['is_on'=>1,'company_id'=>$company_id])->order('add_time desc');
         }elseif(!isset($_POST['company_id'])){
-            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','is_show','limit_num','add_time'];
+            $file = ['id','goods_sn','company_id','thematic_id','goods_name','nature','cost_price','price','free_post','sort_order','is_show','limit_num','add_time'];
             $class = $this->table('goods')->where(['is_on'=>1])->order('add_time desc');
         }
         

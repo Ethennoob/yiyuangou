@@ -6,6 +6,7 @@ class thematic {
 			'id'=> ['type' => 'i', 'value' => null],
 			'company_id'=> ['type' => 'i', 'value' => null],
 			'thematic_name'=> ['type' => 's', 'value' => null],
+			'nature'=> ['type' => 'i', 'value' => null],
 			'status'=> ['type' => 'i', 'value' => null],
 			'poster'=> ['type' => 's', 'value' => null],
 			'is_show'=> ['type' => 'i', 'value' => null],

@@ -301,7 +301,6 @@ class SystemController extends CommonController {
 
         $this->R(['authList'=>array_values($list)]);
     }
-    
     /**
      * 设置角色权限
      */
@@ -309,22 +308,43 @@ class SystemController extends CommonController {
         $this->V(['auth'=>[],'role_id'=>['egNum']]);
         //dump($_POST['auth']);exit;
         $auth=[];
-        foreach ($_POST['auth'] as $a){
-            if (!empty($a['child'])){
-                foreach ($a['child'] as $b){
+        $PostAuth = json_decode($_POST['auth'],true);
+         // dump($PostAuth);exit();
+        // foreach ($PostAuth as $a){
+        //     dump($a['child']);exit();
+        //     count($PostAuth);
+            for ($i=0; $i <count($PostAuth) ; $i++) {
+                foreach ($PostAuth[$i] as $b){
                     $auth[]=[
-                        'name'=>$b['auth']['name'],
                         '1'=>$b['auth'][1],
                         '2'=>$b['auth'][2],
                         '3'=>$b['auth'][3],
                         '4'=>$b['auth'][4],
                         '5'=>$b['auth'][5],
+                        'name'=>$b['auth']['name'],
                     ];
+                    // dump($b);
                 }
             }
-        }
-        
+        //     if (!empty($a['child'])){
+        //         // foreach ($a['child'] as $b){
+        //         //     $auth[]=[
+        //         //         '1'=>$b['auth'][1],
+        //         //         '2'=>$b['auth'][2],
+        //         //         '3'=>$b['auth'][3],
+        //         //         '4'=>$b['auth'][4],
+        //         //         '5'=>$b['auth'][5],
+        //         //         'name'=>$b['auth']['name'],
+        //         //     ];
+        //         //     // dump($b);
+        //         // }
+        //          dump($a['child']);
+        //     } 
+        // }
+         //exit();
+        // dump($auth);exit();
         $data=serialize($auth);
+        dump($data);exit();
         $roleID=$_POST['role_id'];
         $myAuth=$this->table('manager_role')->where(['id'=>$roleID])->update(['auth'=>$data]);
         
@@ -368,7 +388,43 @@ class SystemController extends CommonController {
             return $list;
         }
     }
-    
+    /**
+     * 单条权限查询
+     */
+    public function authDetail($type='json'){
+        $this->V(['mold_id'=>['egNum',null,true]]);
+        $id = $_POST['mold_id'];
+        $authList=$this->table('manager_auth')->where(['id'=>$id])->get(null,false);
+        
+        foreach ($authList as $key=>$a){
+            if ($a['pid']==0){
+                $a['child']=[];
+                $list[$a['id']]=$a;
+                unset($authList[$key]);
+            }
+        }
+        
+        foreach ($authList as $key=>$a){
+            if ($a['pid']!=0){
+                $a['auth']=[
+                    'name'=>$a['mold'],
+                    '1'=>'0',   
+                    '2'=>'0',   
+                    '3'=>'0',   
+                    '4'=>'0',
+                    '5'=>'0'
+                ];
+                $list[$a['pid']]['child'][]=$a;
+            }
+        }
+        if ($type=='json'){
+            $this->R(['authList'=>array_values($list)]);
+        }
+        else{
+            return $list;
+        }
+
+    }
     /**
      * 添加权限
      */

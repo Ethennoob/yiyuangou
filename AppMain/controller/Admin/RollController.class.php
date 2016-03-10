@@ -86,7 +86,6 @@ class RollController extends BaseClass {
         if (!$code) {
         	$this->R('',40001);
         }
-
         $luckyCode = $this->table('code')->where(['is_on'=>1,'is_use'=>1,'goods_id'=>$v['goods_id'],'is_lucky'=>1])->get(['user_id','code'],true);
         if (!$luckyCode) {
         	$this->R('',70009);

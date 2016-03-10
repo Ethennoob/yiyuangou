@@ -171,7 +171,7 @@ class UserController extends Baseclass {
             $sendMessage = new \System\AppTools();
             $code= $sendMessage->generateMsgAuthCode();
             setcookie("verify",$code,time()+300,'/');
-            $content = "您好！反向团购注册的验证码为".$code;
+            $content = "您好！一团云购注册的验证码为".$code;
             $sendMessage= $sendMessage->sendSms($mobile,$content);
             //$sendMessage= $sendMessage->sendSms(15521155161,$content);
             if (!$sendMessage) {
@@ -182,6 +182,7 @@ class UserController extends Baseclass {
                 $updatetime = time();
                 $value = $this->table('user_time')->where(['phone'=>$mobile])->update(['time'=>$updatetime]);
             }
+            $this->R();
         }
     private function checkGetNum($phone){
         // $this->V(['phone'=>['mobile']]);
@@ -292,10 +293,10 @@ class UserController extends Baseclass {
             if(!$user){
                 $this->R('',70009);
             }
-            $status = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>0,'user_id'=>$id])->get(['id'],false);
-            $user['readypay'] = count($status);
-            $status = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>3,'user_id'=>$id])->get(['id'],false);
-            $user['readydone'] = count($status);
+            // $status = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>0,'user_id'=>$id])->get(['id'],false);
+            // $user['readypay'] = count($status);
+            // $status = $this->table('groupbuy_bill')->where(['is_on'=>1,'status'=>3,'user_id'=>$id])->get(['id'],false);
+            // $user['readydone'] = count($status);
 
             $this->R(['user'=>$user]);
     }

@@ -34,6 +34,7 @@ class RecordController extends BaseClass {
             $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id,'record_id'=>$v['id']])->get(['code'],false);
             //拼接认购码
             $count = count($status);
+            $recordpage [$k]['num'] = $count;
             for ($i=0; $i < $count; $i++) { 
                 $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
                 $temp[] = $v;
@@ -135,7 +136,6 @@ class RecordController extends BaseClass {
             $detail [$k]['lucky_time'] = $v['add_time'];
             $status = $this->table('logistics')->where(['is_on'=>1,'bill_id'=>$v['id']])->get(['logistics_number'],true);
                 $detail [$k]['logistics_number'] = $status['logistics_number'];
-                $detail [$k]['bill_id'] = $v['id'];
             $status = $this->table('record')->where(['is_on'=>1,'id'=>$v['record_id']])->get(['num'],true);
                 $detail [$k]['num'] = $status['num'];
             $status = $this->table('user_address')->where(['is_on'=>1,'id'=>$v['address_id']])->get(['province','city'

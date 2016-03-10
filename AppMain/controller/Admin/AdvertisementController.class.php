@@ -30,6 +30,7 @@ class AdvertisementController extends BaseClass {
             'adv_name'        =>[],
             'adv_url'         =>[],
             'company_id'      =>['egNum'],
+            'sort_order'      =>['egNum'],
         ];
         
          $this->V($rule);
@@ -60,7 +61,7 @@ class AdvertisementController extends BaseClass {
         $id = intval($_POST['company_id']); 
         $where=['is_on'=>1,'company_id'=>$id];
         $pageInfo = $this->P();
-        $class = $this->table('advertisement')->where($where)->order('update_time desc');
+        $class = $this->table('advertisement')->where($where)->order('sort_order asc');
         //查询并分页
         $advertisement = $this->getOnePageData($pageInfo,$class,'get','getListLength',null,false);
         if($advertisement){
@@ -115,6 +116,7 @@ class AdvertisementController extends BaseClass {
             'adv_name'   =>[],
             'adv_url'    =>[],
             'company_id' =>['egNum'],
+            'sort_order' =>['egNum'],
         ];
         $this->V($rule);
         $id = intval($_POST['advertisement_id']);

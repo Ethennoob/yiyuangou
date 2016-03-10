@@ -43,7 +43,7 @@ class CompanyController extends BaseClass {
             $this->R('',70009);
         }
         $url = "http://onebuy.91taoxue.cn/index.html?company_id=".$id;
-        //$url = "http://onebuy.ping-qu.com/index.html?company_id=37";
+        //$url = "http://onebuy.91taoxue.cn/index.html?company_id=37";
         $this->vendor('Phpqrcode.phpqrcode#class');
         $qr = new \QRcode();
         $qr->width=20000;

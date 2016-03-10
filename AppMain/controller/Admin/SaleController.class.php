@@ -1,10 +1,4 @@
 <?php
-/**
- * 一元购系统---销售明细类
- * @authors 凌翔 (553299576@qq.com)
- * @date    2015-11-28 21:09:48
- * @version $Id$
- */
 
 namespace AppMain\controller\Admin;
 use \System\BaseClass;
@@ -34,6 +28,7 @@ class SaleController extends BaseClass {
                $status = $this->table('purchase')->where(['is_on'=>1,'user_id'=>$v['user_id'],'goods_id'=>$id,'record_id'=>$v['id']])->get(['code'],false);
             //拼接认购码
             $count = count($status);
+            $detailpage[$k]['num'] = $count;
             for ($i=0; $i < $count; $i++) { 
                 $v = implode(",",$status[$i]); //可以用implode将一维数组转换为用逗号连接的字符串
                 $temp[] = $v;
@@ -53,8 +48,8 @@ class SaleController extends BaseClass {
      */
     public function GoodSaleOutputExcel(){
 
-        $this->V(['goods_id'=>['egNum',null,true]]);
-        $id = intval($_POST['goods_id']);
+        //$this->V(['goods_id'=>['egNum',null,true]]);
+        $id = intval($_GET['goods_id']);
         $goods = $this->table('goods')->where(['id'=>$id])->get(['goods_name'],true);
         $data = array(
                 'title' =>"商品\"".$goods['goods_name']."\"销售明细表",
@@ -95,12 +90,12 @@ class SaleController extends BaseClass {
         }else{
             $class  = null;
         }
+         //$this->R(['goodspage'=>$class]);
         $outputExcel = $this->H('Excel')->PHPExcelGood($class,$data);
             if (!$outputExcel) {
                 $this->R('',40001);
             }
     }
-
     /**
      * 商品销售情况(分页)
      * 专题id

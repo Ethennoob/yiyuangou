@@ -10,14 +10,6 @@ namespace AppMain\controller\Api;
 use \System\BaseClass;
 
 class GoodsController extends BaseClass {
-    public function test(){
-        $time = strtotime('2014-06-06 22:06:20');
-        $dataClass=$this->H('Roll');
-        $billList=$dataClass->rollTime($time);
-        var_dump(date('Y-m-d H:i:s',$billList));
-        exit();
-                    
-    }
     /**
      *单个商品展示信息
      *商品id,商品名，商品title，商品desc，上架时间，成本价格，售价，
@@ -133,7 +125,7 @@ class GoodsController extends BaseClass {
     $pageInfo = $this->P();
     $file = ['id','goods_name','price','goods_img','goods_thumb','limit_num'];
 
-    $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$thematic['id']])->order('add_time desc');
+    $class = $this->table('goods')->where(['is_on'=>1,'thematic_id'=>$thematic['id']])->order('sort_order asc');
 
     //查询并分页
     $index = $this->getOnePageData($pageInfo,$class,'get','getListLength',[$file],false);

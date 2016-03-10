@@ -22,7 +22,7 @@
         /**
         * 微信支付
         */
-        public function purchase(){
+    	public function purchase(){
             if (!isset($_SESSION['userInfo']['openid'])) {
                 $this->getOpenID();
                 }else{
@@ -79,7 +79,11 @@
                 if ($num>count($codestock)) {
                     $this->R('',90003);//90008选择的数量超过现有库存
                 }
-
+                //释放此用户is_get的数据
+                $dropcode = $this->table('code')->where(['goods_id'=>$goods_id,'is_use'=>0,'is_get'=>$user_id])->update(['is_get'=>0]);
+                if(!$dropcode){
+                    $this->R('',40001);
+                }
             //开启事务
             $this->table()->startTrans();
             //控制临时限定认购码
@@ -94,7 +98,7 @@
                 $openid = $_SESSION['userInfo']['openid'];
                 $data = array(
                      'orderSn' => $data['goods_sn'].rand(1,9999),//订单号不能唯一
-                     'price'   => $data['price'],
+                     'price'   => $data['price']*100,
                      'attach' => json_encode(array('goods_sn' => $data['goods_sn'],'price'=>$data['price'])),
                     'body' => '一元购支付',
                     'detail' => '一元购支付服务',
@@ -103,12 +107,12 @@
                 $wechatPay = $this->H('Wechat')->wechatPay($data,$openid);
                 if (!$wechatPay) {
                     $this->table()->rollback();
-                    $this->R('',40001);
+                	$this->R('',40001);
                     }
                 $this->table()->commit();
                 $this->R(['wechatPay' => $wechatPay]);
             }
-        }
+    	}
         public function unPay(){
              $rule = [
                         'goods_id' =>['egNum',null,true],
@@ -126,34 +130,6 @@
                 }
                 $this->R();
         }
-       /**
-         * 退款
-         */
-        public function refund(){
-             $this->V(['record_id'=>['egNum',null,true]]);
-            $id = intval($_POST['record_id']);
-            $this->V(['refund_fee'=>['egNum',null,true]]);
-            $refund_fee = intval($_POST['refund_fee']);
-            $order = $this->table('record')->where(['is_on'=>1,'id'=>$id])->get(null,true);
-            if (!$order) {
-                $this->R('','70009');
-            }
-            //echo phpinfo();exit();
-            //echo file_get_contents('/disk2/ftp/buy/www/cert/apiclient_cert.pem');exit();
-            $data['total_fee'] = $order['num'];
-            $data['out_trade_no'] = $order['wxPay_sn'];
-            $data['out_refund_no'] = date("Ymd").rand(100000,999999);
-            $data['refund_fee'] = $refund_fee;
-            $data['op_user_id'] = 1243036302;
-            $result = $this->H('Wechat')->wechatRefund($data);
-            if (!$result) {
-                    $this->R('',40001);
-                    }
-
-                $this->R(['refund' => $result]);
-
-        }
-    
         public function record(){
             $this->V(['goods_id'=>['egNum',null,true]]);
             $goods_id = intval($_POST['goods_id']);

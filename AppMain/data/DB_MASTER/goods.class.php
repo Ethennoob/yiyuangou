@@ -19,6 +19,7 @@ class goods {
 			'goods_thumb'=> ['type' => 's', 'value' => null],
 			'goods_img'=> ['type' => 's', 'value' => null],
 			'free_post'=> ['type' => 'i', 'value' => null],
+			'sort_order'=> ['type' => 'i', 'value' => null],
 			'is_show'=> ['type' => 'i', 'value' => null],
 			'add_time'=> ['type' => 'i', 'value' => null],
 			'update_time'=> ['type' => 'i', 'value' => null],

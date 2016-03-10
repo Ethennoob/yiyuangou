@@ -211,16 +211,15 @@ class Common_util_pub
 		//默认格式为PEM，可以注释
 		curl_setopt($ch,CURLOPT_SSLCERTTYPE,'PEM');
 		//curl_setopt($ch,CURLOPT_SSLCERT, WxPayConf_pub::SSLCERT_PATH());
-		//curl_setopt($ch,CURLOPT_SSLCERT,getcwd().'/apiclient_cert.pem');
-		//curl_setopt($ch,CURLOPT_SSLCERT,dirname(__FILE__) .'/cert/apiclient_cert.pem');
-		curl_setopt($ch,CURLOPT_SSLCERT,'/disk2/ftp/buy/www/cert/apiclient_cert.pem');
+		curl_setopt($ch,CURLOPT_SSLCERT, '/disk2/ftp/oneBuy/www/cert/apiclient_cert.pem'); 
+		//curl_setopt($ch,CURLOPT_SSLCERT, dirname(__FILE__) .'/cert/apiclient_cert.pem'); 
+		//curl_setopt($ch,CURLOPT_SSLCERT, '/disk2/www/taoxue/cert/WechatPay/apiclient_cert.pem'); 
 		//默认格式为PEM，可以注释
 		curl_setopt($ch,CURLOPT_SSLKEYTYPE,'PEM');
 		//curl_setopt($ch,CURLOPT_SSLKEY, WxPayConf_pub::SSLKEY_PATH());
-		//curl_setopt($ch,CURLOPT_SSLKEY,getcwd().'/apiclient_key.pem');
-		//curl_setopt($ch,CURLOPT_SSLKEY,dirname(__FILE__) .'/cert/apiclient_key.pem');
-		curl_setopt($ch,CURLOPT_SSLKEY,'/disk2/ftp/buy/www/cert/apiclient_cert.pem');
-		curl_setopt($ch,CURLOPT_CAINFO,'/disk2/ftp/buy/www/cert/rootca.pem'); 
+		curl_setopt($ch,CURLOPT_SSLKEY, '/disk2/ftp/oneBuy/www/cert/apiclient_key.pem');
+		//curl_setopt($ch,CURLOPT_SSLKEY, dirname(__FILE__) .'/cert/apiclient_key.pem');
+		//curl_setopt($ch,CURLOPT_SSLKEY, '/disk2/www/taoxue/cert/WechatPay/apiclient_key.pem');
 		//post提交方式
 		curl_setopt($ch,CURLOPT_POST, true);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$xml);
@@ -232,7 +231,6 @@ class Common_util_pub
 		}
 		else { 
 			$error = curl_errno($ch);
-			//echo getcwd();
 			echo "curl出错，错误码:$error"."<br>"; 
 			echo "<a href='http://curl.haxx.se/libcurl/c/libcurl-errors.html'>错误原因查询</a></br>";
 			curl_close($ch);
@@ -831,7 +829,7 @@ class JsApi_pub extends Common_util_pub
         //初始化curl
        	$ch = curl_init();
 		//设置超时
-		curl_setopt($ch, CURLOPT_TIMEOUT, $this->curl_timeout);
+		curl_setopt($ch, CURLOP_TIMEOUT, $this->curl_timeout);
 		curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);
         curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,FALSE);

@@ -38,12 +38,12 @@
     	 */
     	public function getAutoReply(){
     	    $rule=[
-    	        'id'=>['egNum'],
+    	        'id'=>['egNum',null,true],
     	    ];
     	     
     	    $this->V($rule);
-    	    $field=['id','type','rsp_type','object','keywords','text','news'];
-    	    $isReply=$this->table('wechat_response')->where(['id'=>$_POST['id']])->get($field,true);
+    	    //$field=['id','type','rsp_type','object','keywords','text','news'];
+    	    $isReply=$this->table('wechat_response')->where(['id'=>$_POST['id']])->get(null,true);
     	    if (!$isReply){
     	        $this->R('','70002');
     	    }
@@ -248,8 +248,10 @@
                 'list'=>[]
             ];
             $this->V($rule);
-            
-            if (count($_POST['list']) > 3){
+            //$list = array();
+            $list = json_decode($_POST['list'],true);
+            //dump($list);
+            if (count($list) > 3){
                 $this->R('','40018');
             }
             //dump($_POST['list']);exit;
@@ -261,12 +263,12 @@
                 $this->R('','40001');
             }
             
-            $list=$_POST['list'];
+            //$list=$_POST['list'];
             foreach ($list as $a){
                 $parentData=[
                         'pid'=>0,
                         'keyword'=>!empty($a['keyword'])?$a['keyword']:'',
-                        'url'=>$a['url'],
+                        'url'=>!empty($a['url'])?$a['url']:'',
                         'sort'=>$a['sort'],
                         'title'=>$a['title'],
                         'add_time'=>time()
@@ -288,9 +290,9 @@
                         $childData=[
                             'pid'=>$add,
                             'title'=>$b['title'],
-                            'keyword'=>$b['keyword'],
-                            'url'=>$b['url'],
-                            'sort'=>$key+1,
+                            'keyword'=>!empty($b['keyword'])?$b['keyword']:'',
+                            'url'=>!empty($b['url'])?$b['url']:'',
+                            'sort'=>!empty($b['sort'])?$b['sort']:($key+1),
                             'add_time'=>time()
                         ];
                         
@@ -304,6 +306,7 @@
             }
                     
             $this->table('wechat_menu')->commit();
+            $this->sysMenu();
             $this->R();
         }  
         
